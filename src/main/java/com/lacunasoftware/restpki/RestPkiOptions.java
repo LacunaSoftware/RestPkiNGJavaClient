@@ -1,6 +1,6 @@
 package com.lacunasoftware.restpki;
 
-import java.time.Duration;
+import java.net.Proxy;
 
 /**
  * RestPkiOptions
@@ -10,8 +10,8 @@ public class RestPkiOptions {
 
   private String Endpoint;
   private String ApiKey;
-  private Duration Timeout;
   private String Culture;
+  private Proxy proxy;
 
   public String getEndpoint() {
     return Endpoint;
@@ -27,17 +27,17 @@ public class RestPkiOptions {
     ApiKey = apiKey;
   }
 
-  public long getTimeoutSeconds() {
-    return Timeout != null ? Timeout.getSeconds() : null;
-  }
-  public void setTimeoutSeconds(long timeoutSeconds) {
-    Timeout = Duration.ofSeconds(timeoutSeconds);
-  }
-
   public String getCulture() {
     return Culture;
   }
   public void setCulture(String culture) {
     Culture = culture;
+  }
+
+  public Proxy getProxy(){
+    return proxy;
+  }
+  public void setProxy(Proxy proxy){
+    this.proxy = proxy;
   }
 }
