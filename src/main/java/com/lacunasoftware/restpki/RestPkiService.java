@@ -1,6 +1,7 @@
 package com.lacunasoftware.restpki;
 
 import java.util.UUID;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -8,15 +9,15 @@ import java.io.InputStream;
  */
 public interface RestPkiService {
 
-    public CreateSignatureSessionResponse CreateSignatureSessionAsync(CreateSignatureSessionRequest request, UUID subscriptionId);
+    public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException;
 
-    public SignatureSession GetSignatureSessionAsync(UUID id);
+    public SignatureSession GetSignatureSession(UUID id) throws RestException;
 
-    public Document GetDocumentAsync(UUID id);
+    public Document GetDocument(UUID id) throws RestException;
 
-    public Document GetDocumentAsync(DocumentModel model);
+    public Document GetDocument(DocumentModel model);
 
-    public InputStream OpenReadAsync(String location);
+    public InputStream OpenRead(String location) throws RestException;
 
-    public byte[] GetContentAsync(String location);
+    public byte[] GetContent(String location) throws RestException, IOException;
 }

@@ -1,5 +1,6 @@
 package com.lacunasoftware.restpki;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -35,11 +36,11 @@ public class DocumentFile {
         this.model = model;
     }
 
-    public InputStream OpenReadAsync(){ 
-        return service.OpenReadAsync(getLocation());
+    public InputStream OpenRead() throws RestException { 
+        return service.OpenRead(getLocation());
     }
 
-    public byte[] GetContentAsync(){
-        return service.GetContentAsync(getLocation());
+    public byte[] GetContent() throws RestException, IOException {
+        return service.GetContent(getLocation());
     }
 }
