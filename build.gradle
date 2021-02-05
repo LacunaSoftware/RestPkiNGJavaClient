@@ -12,12 +12,16 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-   mavenCentral()
+    mavenCentral()
+    maven {
+        url "http://dl.bintray.com/lacunasoftware/maven"
+    }
 }
 
 dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
-    compile 'io.swagger:swagger-annotations:1.5.3'
+    compile 'io.swagger.core.v3:swagger-annotations:2.0.0'
+    implementation 'com.lacunasoftware.restpki:restpki-client:1.14.0'
 }
 
 task fatJar(type: Jar) {
