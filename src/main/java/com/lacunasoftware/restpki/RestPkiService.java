@@ -9,6 +9,8 @@ import java.io.InputStream;
  */
 public interface RestPkiService {
 
+    public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request) throws RestException;
+
     public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException;
 
     public SignatureSession GetSignatureSession(UUID id) throws RestException;
