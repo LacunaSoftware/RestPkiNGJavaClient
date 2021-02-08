@@ -1,5 +1,6 @@
 package com.lacunasoftware.restpki;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,6 +30,7 @@ public class SignatureSession {
 
     public SignatureSession(RestPkiService service, SignatureSessionModel model) {
         this.model = model;
+        documents = new ArrayList<Document>();
         for (DocumentModel document : model.getDocuments()) {
             documents.add(new Document(service, document));
         }

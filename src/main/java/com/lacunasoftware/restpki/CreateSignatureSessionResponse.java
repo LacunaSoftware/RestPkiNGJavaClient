@@ -24,7 +24,7 @@ import java.util.UUID;
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-01T20:41:18.158913-02:00[America/Sao_Paulo]")@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class CreateSignatureSessionResponse {
+public class CreateSignatureSessionResponse {
 
   @JsonProperty("sessionId")
 
