@@ -20,10 +20,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gets or Sets DocumentStatus
  */
 public enum DocumentStatus {
-  PENDINGSIGNATURE("PendingSignature"),
-  PROCESSING("Processing"),
-  COMPLETED("Completed"),
-  PROCESSINGERROR("ProcessingError");
+  PendingSignature("PendingSignature"),
+  Processing("Processing"),
+  Completed("Completed"),
+  ProcessingError("ProcessingError");
 
   private String value;
 
