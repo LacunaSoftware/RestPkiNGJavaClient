@@ -18,11 +18,11 @@ public class RestPkiServiceImpl implements RestPkiService {
 		client = new RestPkiCoreClient(options);
 	}
 
-	public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request) throws RestException {
-		return CreateSignatureSession(request, null);
+	public CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request) throws RestException {
+		return createSignatureSession(request, null);
 	}
 
-	public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException {
+	public CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException {
 		RestClientPortable client;
 		if(subscriptionId != null){
 
@@ -36,25 +36,26 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return client.post("api/signature-sessions", request, CreateSignatureSessionResponse.class);
 	}
 
-	public SignatureSession GetSignatureSession(UUID id) throws RestException {
+	public SignatureSession getSignatureSession(UUID id) throws RestException {
 		SignatureSessionModel model = client.getRestClient().get("api/signature-sessions/" + id.toString(), SignatureSessionModel.class);
 		return new SignatureSession(this, model);
 	}
 
-	public Document GetDocument(UUID id) throws RestException {
+	public Document getDocument(UUID id) throws RestException {
 		DocumentModel model = client.getRestClient().get("api/documents/" + id.toString(), DocumentModel.class);
 		return new Document(this, model);
 	}
 
-	public Document GetDocument(DocumentModel model){
+	public Document getDocument(DocumentModel model){
 		return new Document(this, model);
 	}
 
-	public InputStream OpenRead(String location) throws RestException {
+	public InputStream openRead(String location) throws RestException {
 		return client.getRestClient().openStream(location);
 	}
 
-	public byte[] GetContent(String location) throws RestException, IOException {
-		return OpenRead(location).readAllBytes();
+	public byte[] getContent(String location) throws RestException, IOException {
+		InputStream stream = openRead(location);
+		return Util.readStream(stream);
 	}
 }

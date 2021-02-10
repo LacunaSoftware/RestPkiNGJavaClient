@@ -5,14 +5,14 @@ package com.lacunasoftware.restpki;
  */
 public class RestPkiServiceFactory {
 
-  public static RestPkiService GetService(String endpoint, String apiKey) {
+  public static RestPkiService getService(String endpoint, String apiKey) {
     RestPkiOptions options = new RestPkiOptions();
     options.setEndpoint(endpoint);
     options.setApiKey(apiKey);
-    return GetService(options);
+    return getService(options);
   }
 
-  public static RestPkiService GetService(RestPkiOptions options){
+  public static RestPkiService getService(RestPkiOptions options){
     return new RestPkiServiceImpl(options);
   }
 }

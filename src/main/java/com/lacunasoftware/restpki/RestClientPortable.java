@@ -12,11 +12,11 @@ import java.util.Map;
 
 class RestClientPortable {
 
-	private String endpointUri;
-	private String apiKey;
-	private String cultureName;
-	private Proxy proxy;
-	private Map<String, String> customHeaders;
+	protected String endpointUri;
+	protected String apiKey;
+	protected String cultureName;
+	protected Proxy proxy;
+	protected Map<String, String> customHeaders;
 
 	public RestClientPortable(String endpointUri, String apiKey, Proxy proxy, String cultureName) {
 		this.endpointUri = endpointUri;

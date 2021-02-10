@@ -8,30 +8,30 @@ import java.net.Proxy;
 public class RestPkiOptions {
 
 
-  private String Endpoint;
-  private String ApiKey;
-  private String Culture;
+  private String endpoint;
+  private String apiKey;
+  private String culture;
   private Proxy proxy;
 
   public String getEndpoint() {
-    return Endpoint;
+    return endpoint;
   }
   public void setEndpoint(String endpoint) {
-    Endpoint = endpoint;
+    this.endpoint = endpoint;
   }
 
   public String getApiKey() {
-    return ApiKey;
+    return apiKey;
   }
   public void setApiKey(String apiKey) {
-    ApiKey = apiKey;
+    this.apiKey = apiKey;
   }
 
   public String getCulture() {
-    return Culture;
+    return culture;
   }
   public void setCulture(String culture) {
-    Culture = culture;
+    this.culture = culture;
   }
 
   public Proxy getProxy(){

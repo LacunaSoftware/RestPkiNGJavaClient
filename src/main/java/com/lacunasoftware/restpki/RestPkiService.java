@@ -9,17 +9,17 @@ import java.io.InputStream;
  */
 public interface RestPkiService {
 
-    public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request) throws RestException;
+    CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request) throws RestException;
 
-    public CreateSignatureSessionResponse CreateSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException;
+    CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException;
 
-    public SignatureSession GetSignatureSession(UUID id) throws RestException;
+    SignatureSession getSignatureSession(UUID id) throws RestException;
 
-    public Document GetDocument(UUID id) throws RestException;
+    Document getDocument(UUID id) throws RestException;
 
-    public Document GetDocument(DocumentModel model);
+    Document getDocument(DocumentModel model);
 
-    public InputStream OpenRead(String location) throws RestException;
+    InputStream openRead(String location) throws RestException;
 
-    public byte[] GetContent(String location) throws RestException, IOException;
+    byte[] getContent(String location) throws RestException, IOException;
 }
