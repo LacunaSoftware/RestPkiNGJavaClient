@@ -24,7 +24,7 @@ import java.util.UUID;
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-01T20:41:18.158913-02:00[America/Sao_Paulo]")@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class CreateSignatureSessionRequest {
+public class CreateSignatureSessionRequest {
 
   @JsonProperty("returnUrl")
 
@@ -40,11 +40,11 @@ class CreateSignatureSessionRequest {
 
   @JsonProperty("enableBackgroundProcessing")
 
-  private Boolean enableBackgroundProcessing = null;
+  private Boolean enableBackgroundProcessing = false;
 
   @JsonProperty("disableDownloads")
 
-  private Boolean disableDownloads = null;
+  private Boolean disableDownloads = false;
   public CreateSignatureSessionRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
     return this;

@@ -20,12 +20,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gets or Sets SignatureSessionStatus
  */
 public enum SignatureSessionStatus {
-  PENDING("Pending"),
-  PROCESSING("Processing"),
-  COMPLETED("Completed"),
-  USERCANCELLED("UserCancelled"),
-  EXPIRED("Expired"),
-  PROCESSINGERROR("ProcessingError");
+  Pending("Pending"),
+  Processing("Processing"),
+  Completed("Completed"),
+  UserCancelled("UserCancelled"),
+  Expired("Expired"),
+  ProcessingError("ProcessingError");
 
   private String value;
 

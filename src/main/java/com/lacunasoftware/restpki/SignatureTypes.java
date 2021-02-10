@@ -20,9 +20,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gets or Sets SignatureTypes
  */
 public enum SignatureTypes {
-  PADES("Pades"),
-  CADES("Cades"),
-  XMLDSIG("XmlDSig");
+  Pades("Pades"),
+  Cades("Cades"),
+  XmlDSig("XmlDSig");
 
   private String value;
 

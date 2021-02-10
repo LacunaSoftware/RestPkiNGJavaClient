@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gets or Sets WebhookEventTypes
  */
 public enum WebhookEventTypes {
-  DOCUMENTSIGNATURECOMPLETED("DocumentSignatureCompleted");
+  DocumentSignatureCompleted("DocumentSignatureCompleted");
 
   private String value;
 
