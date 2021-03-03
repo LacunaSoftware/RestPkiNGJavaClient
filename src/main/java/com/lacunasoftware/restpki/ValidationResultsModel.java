@@ -17,108 +17,102 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.ValidationItemModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * ValidationResultsModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class ValidationResultsModel {
+  @JsonProperty("passedChecks")
+  private List<ValidationItemModel> passedChecks = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("errors")
+  private List<ValidationItemModel> errors = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("warnings")
+  private List<ValidationItemModel> warnings = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
-
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
     return this;
   }
 
-   /**
-   * Get validationResults
-   * @return validationResults
-  **/
-  @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
-  }
-
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
-  }
-
-  public ErrorModelV2 code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @Schema(description = "")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ErrorModelV2 message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @Schema(description = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
+  public ValidationResultsModel addPassedChecksItem(ValidationItemModel passedChecksItem) {
+    if (this.passedChecks == null) {
+      this.passedChecks = new ArrayList<ValidationItemModel>();
     }
-    this.details.put(key, detailsItem);
+    this.passedChecks.add(passedChecksItem);
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get passedChecks
+   * @return passedChecks
   **/
   @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
+  public List<ValidationItemModel> getPassedChecks() {
+    return passedChecks;
   }
 
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setPassedChecks(List<ValidationItemModel> passedChecks) {
+    this.passedChecks = passedChecks;
+  }
+
+  public ValidationResultsModel errors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public ValidationResultsModel addErrorsItem(ValidationItemModel errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<ValidationItemModel>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @Schema(description = "")
+  public List<ValidationItemModel> getErrors() {
+    return errors;
+  }
+
+  public void setErrors(List<ValidationItemModel> errors) {
+    this.errors = errors;
+  }
+
+  public ValidationResultsModel warnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public ValidationResultsModel addWarningsItem(ValidationItemModel warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<ValidationItemModel>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+   /**
+   * Get warnings
+   * @return warnings
+  **/
+  @Schema(description = "")
+  public List<ValidationItemModel> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(List<ValidationItemModel> warnings) {
+    this.warnings = warnings;
   }
 
 
@@ -130,28 +124,26 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    ValidationResultsModel validationResultsModel = (ValidationResultsModel) o;
+    return Objects.equals(this.passedChecks, validationResultsModel.passedChecks) &&
+        Objects.equals(this.errors, validationResultsModel.errors) &&
+        Objects.equals(this.warnings, validationResultsModel.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(passedChecks, errors, warnings);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class ValidationResultsModel {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    passedChecks: ").append(toIndentedString(passedChecks)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

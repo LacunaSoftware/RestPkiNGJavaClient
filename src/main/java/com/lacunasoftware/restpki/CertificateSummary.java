@@ -17,108 +17,159 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * CertificateSummary
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class CertificateSummary {
+  @JsonProperty("thumbprint")
+  private String thumbprint = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("subjectCommonName")
+  private String subjectCommonName = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("subjectDisplayName")
+  private String subjectDisplayName = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
+  @JsonProperty("subjectIdentifier")
+  private String subjectIdentifier = null;
 
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  @JsonProperty("emailAddress")
+  private String emailAddress = null;
+
+  @JsonProperty("organization")
+  private String organization = null;
+
+  @JsonProperty("organizationIdentifier")
+  private String organizationIdentifier = null;
+
+  public CertificateSummary thumbprint(String thumbprint) {
+    this.thumbprint = thumbprint;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get thumbprint
+   * @return thumbprint
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public String getThumbprint() {
+    return thumbprint;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setThumbprint(String thumbprint) {
+    this.thumbprint = thumbprint;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public CertificateSummary subjectCommonName(String subjectCommonName) {
+    this.subjectCommonName = subjectCommonName;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get subjectCommonName
+   * @return subjectCommonName
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public String getSubjectCommonName() {
+    return subjectCommonName;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setSubjectCommonName(String subjectCommonName) {
+    this.subjectCommonName = subjectCommonName;
   }
 
-  public ErrorModelV2 message(String message) {
-    this.message = message;
+  public CertificateSummary subjectDisplayName(String subjectDisplayName) {
+    this.subjectDisplayName = subjectDisplayName;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get subjectDisplayName
+   * @return subjectDisplayName
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public String getSubjectDisplayName() {
+    return subjectDisplayName;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setSubjectDisplayName(String subjectDisplayName) {
+    this.subjectDisplayName = subjectDisplayName;
   }
 
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
+  public CertificateSummary subjectIdentifier(String subjectIdentifier) {
+    this.subjectIdentifier = subjectIdentifier;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get subjectIdentifier
+   * @return subjectIdentifier
   **/
   @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
+  public String getSubjectIdentifier() {
+    return subjectIdentifier;
   }
 
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setSubjectIdentifier(String subjectIdentifier) {
+    this.subjectIdentifier = subjectIdentifier;
+  }
+
+  public CertificateSummary emailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+    return this;
+  }
+
+   /**
+   * Get emailAddress
+   * @return emailAddress
+  **/
+  @Schema(description = "")
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public CertificateSummary organization(String organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * Get organization
+   * @return organization
+  **/
+  @Schema(description = "")
+  public String getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
+
+  public CertificateSummary organizationIdentifier(String organizationIdentifier) {
+    this.organizationIdentifier = organizationIdentifier;
+    return this;
+  }
+
+   /**
+   * Get organizationIdentifier
+   * @return organizationIdentifier
+  **/
+  @Schema(description = "")
+  public String getOrganizationIdentifier() {
+    return organizationIdentifier;
+  }
+
+  public void setOrganizationIdentifier(String organizationIdentifier) {
+    this.organizationIdentifier = organizationIdentifier;
   }
 
 
@@ -130,28 +181,34 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    CertificateSummary certificateSummary = (CertificateSummary) o;
+    return Objects.equals(this.thumbprint, certificateSummary.thumbprint) &&
+        Objects.equals(this.subjectCommonName, certificateSummary.subjectCommonName) &&
+        Objects.equals(this.subjectDisplayName, certificateSummary.subjectDisplayName) &&
+        Objects.equals(this.subjectIdentifier, certificateSummary.subjectIdentifier) &&
+        Objects.equals(this.emailAddress, certificateSummary.emailAddress) &&
+        Objects.equals(this.organization, certificateSummary.organization) &&
+        Objects.equals(this.organizationIdentifier, certificateSummary.organizationIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(thumbprint, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class CertificateSummary {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    thumbprint: ").append(toIndentedString(thumbprint)).append("\n");
+    sb.append("    subjectCommonName: ").append(toIndentedString(subjectCommonName)).append("\n");
+    sb.append("    subjectDisplayName: ").append(toIndentedString(subjectDisplayName)).append("\n");
+    sb.append("    subjectIdentifier: ").append(toIndentedString(subjectIdentifier)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    organizationIdentifier: ").append(toIndentedString(organizationIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

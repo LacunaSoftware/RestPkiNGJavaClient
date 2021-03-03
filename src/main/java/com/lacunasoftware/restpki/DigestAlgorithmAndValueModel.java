@@ -17,108 +17,76 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.DigestAlgorithms;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * DigestAlgorithmAndValueModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class DigestAlgorithmAndValueModel {
+  @JsonProperty("algorithm")
+  private DigestAlgorithms algorithm = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("value")
+  private byte[] value = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("hexValue")
+  private String hexValue = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
-
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public DigestAlgorithmAndValueModel algorithm(DigestAlgorithms algorithm) {
+    this.algorithm = algorithm;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get algorithm
+   * @return algorithm
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public DigestAlgorithms getAlgorithm() {
+    return algorithm;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setAlgorithm(DigestAlgorithms algorithm) {
+    this.algorithm = algorithm;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public DigestAlgorithmAndValueModel value(byte[] value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public byte[] getValue() {
+    return value;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setValue(byte[] value) {
+    this.value = value;
   }
 
-  public ErrorModelV2 message(String message) {
-    this.message = message;
+  public DigestAlgorithmAndValueModel hexValue(String hexValue) {
+    this.hexValue = hexValue;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get hexValue
+   * @return hexValue
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public String getHexValue() {
+    return hexValue;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
-  }
-
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setHexValue(String hexValue) {
+    this.hexValue = hexValue;
   }
 
 
@@ -130,28 +98,26 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    DigestAlgorithmAndValueModel digestAlgorithmAndValueModel = (DigestAlgorithmAndValueModel) o;
+    return Objects.equals(this.algorithm, digestAlgorithmAndValueModel.algorithm) &&
+        Arrays.equals(this.value, digestAlgorithmAndValueModel.value) &&
+        Objects.equals(this.hexValue, digestAlgorithmAndValueModel.hexValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(algorithm, Arrays.hashCode(value), hexValue);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class DigestAlgorithmAndValueModel {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    hexValue: ").append(toIndentedString(hexValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

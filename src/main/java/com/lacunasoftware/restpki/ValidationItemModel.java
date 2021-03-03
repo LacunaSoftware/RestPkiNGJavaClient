@@ -17,67 +17,47 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpki.ValidationItemTypes;
 import com.lacunasoftware.restpki.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * ValidationItemModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
-
-  @JsonProperty("code")
-  private String code = null;
+class ValidationItemModel {
+  @JsonProperty("type")
+  private ValidationItemTypes type = null;
 
   @JsonProperty("message")
   private String message = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
+  @JsonProperty("detail")
+  private String detail = null;
 
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  @JsonProperty("innerValidationResults")
+  private ValidationResultsModel innerValidationResults = null;
+
+  public ValidationItemModel type(ValidationItemTypes type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public ValidationItemTypes getType() {
+    return type;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setType(ValidationItemTypes type) {
+    this.type = type;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @Schema(description = "")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ErrorModelV2 message(String message) {
+  public ValidationItemModel message(String message) {
     this.message = message;
     return this;
   }
@@ -95,30 +75,40 @@ class ErrorModelV2 {
     this.message = message;
   }
 
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
+  public ValidationItemModel detail(String detail) {
+    this.detail = detail;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get detail
+   * @return detail
   **/
   @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
+  public String getDetail() {
+    return detail;
   }
 
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
+  public ValidationItemModel innerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
+    return this;
+  }
+
+   /**
+   * Get innerValidationResults
+   * @return innerValidationResults
+  **/
+  @Schema(description = "")
+  public ValidationResultsModel getInnerValidationResults() {
+    return innerValidationResults;
+  }
+
+  public void setInnerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
   }
 
 
@@ -130,28 +120,28 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    ValidationItemModel validationItemModel = (ValidationItemModel) o;
+    return Objects.equals(this.type, validationItemModel.type) &&
+        Objects.equals(this.message, validationItemModel.message) &&
+        Objects.equals(this.detail, validationItemModel.detail) &&
+        Objects.equals(this.innerValidationResults, validationItemModel.innerValidationResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(type, message, detail, innerValidationResults);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class ValidationItemModel {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    innerValidationResults: ").append(toIndentedString(innerValidationResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }
