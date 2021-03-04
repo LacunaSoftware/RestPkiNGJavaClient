@@ -2,8 +2,10 @@ package com.lacunasoftware.restpki;
 
 import org.threeten.bp.OffsetDateTime;
 
+import java.util.List;
 import java.util.UUID;
 import java.lang.*;
+import java.util.stream.Collectors;
 
 /**
  * Document
@@ -52,6 +54,10 @@ public class Document {
         signedFile = model.getSignedFile() != null ? new DocumentFile(service, model.getSignedFile()) : null;
     }
 
+
+    public List<SignerSummary> GetSignerSummariesAsync() {
+        return model.getSigners();
+    }
 
 }
 

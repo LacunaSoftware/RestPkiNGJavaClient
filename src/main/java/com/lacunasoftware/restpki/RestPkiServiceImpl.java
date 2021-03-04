@@ -86,4 +86,11 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return Util.readStream(stream);
 	}
 
+	public   DocumentModel GetDocumentModel(UUID id) throws RestException {
+		StringBuilder idUri = new StringBuilder("api/documents/").append(id.toString());
+		DocumentModel documentModel = client.getRestClient().get(idUri.toString(), new TypeReference<DocumentModel>(){});
+
+		return documentModel;
+	}
+
 }
