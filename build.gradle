@@ -22,6 +22,11 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
     compile 'io.swagger.core.v3:swagger-annotations:2.0.0'
     implementation 'com.lacunasoftware.restpki:restpki-client:1.14.0'
+    // https://mvnrepository.com/artifact/org.threeten/threetenbp
+    implementation group: 'org.threeten', name: 'threetenbp', version: '1.5.0'
+
+
+
 }
 
 task fatJar(type: Jar) {

@@ -1,13 +1,18 @@
 package com.lacunasoftware.restpki;
 
+import org.threeten.bp.OffsetDateTime;
+
 import java.util.UUID;
+import java.lang.*;
 
 /**
  * Document
  */
 public class Document {
 
+    private final RestPkiService service;
     private DocumentModel model;
+
     private DocumentFile originalFile;
     private DocumentFile signedFile;
 
@@ -31,17 +36,23 @@ public class Document {
         return signedFile;
     }
 
-    public DocumentStatus getStatus() {
-        return model.getStatus();
-    }
 
     public SignatureTypes getSignatureType() {
         return model.getSignatureType();
     }
 
+    public OffsetDateTime getAvailableUntil(){
+        return model.getAvailableUntil();
+    }
+
     public Document(RestPkiService service, DocumentModel model) {
+        this.service = service;
         this.model = model;
         originalFile = new DocumentFile(service, model.getOriginalFile());
         signedFile = model.getSignedFile() != null ? new DocumentFile(service, model.getSignedFile()) : null;
     }
+
+
 }
+
+

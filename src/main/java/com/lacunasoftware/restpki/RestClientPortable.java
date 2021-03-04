@@ -1,10 +1,13 @@
 package com.lacunasoftware.restpki;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
@@ -26,6 +29,15 @@ class RestClientPortable {
 	}
 
 	public <TResponse> TResponse get(String requestUri, Class<TResponse> responseType) throws RestException {
+		return get(requestUri, new TypeReference<TResponse>() {
+			@Override
+			public Type getType() {
+				return responseType;
+			}
+		});
+	}
+
+	public <TResponse> TResponse get(String requestUri, TypeReference<TResponse> responseType) throws RestException {
 
 		String verb = "GET";
 		String url = endpointUri + requestUri;
@@ -49,7 +61,7 @@ class RestClientPortable {
 			}
 			if (customHeaders != null){
 				customHeaders.forEach(
-					(key, value) -> conn.setRequestProperty(key, value));
+						(key, value) -> conn.setRequestProperty(key, value));
 			}
 
 		} catch (Exception e) {
@@ -209,6 +221,13 @@ class RestClientPortable {
 	}
 
 	private <T> T readResponse(HttpURLConnection conn, Class<T> valueType) throws IOException {
+		InputStream inStream = conn.getInputStream();
+		T response = new ObjectMapper().readValue(inStream, valueType);
+		inStream.close();
+		return response;
+	}
+
+	private <T> T readResponse(HttpURLConnection conn, TypeReference<T> valueType) throws IOException {
 		InputStream inStream = conn.getInputStream();
 		T response = new ObjectMapper().readValue(inStream, valueType);
 		inStream.close();
