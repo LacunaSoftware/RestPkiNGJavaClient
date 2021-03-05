@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -276,7 +277,7 @@ class RestClientPortable {
 
 	private <T> T readResponse(HttpURLConnection conn, TypeReference<T> valueType) throws IOException {
 		InputStream inStream = conn.getInputStream();
-		T response = new ObjectMapper().readValue(inStream, valueType);
+		T response = getJackson().readValue(inStream, valueType);
 		inStream.close();
 		return response;
 	}
@@ -292,7 +293,7 @@ class RestClientPortable {
 	protected ObjectMapper getJackson(){
 
 		ObjectMapper objectMapper = new ObjectMapper();
-
+		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
 		objectMapper.registerModule(new JavaTimeModule());
 
 		SimpleModule simpleModule = new SimpleModule();
