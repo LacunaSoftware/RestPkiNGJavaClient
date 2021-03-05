@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class CertificateModel {
+public class CertificateModel {
   @JsonProperty("subjectName")
   private NameModel subjectName = null;
 

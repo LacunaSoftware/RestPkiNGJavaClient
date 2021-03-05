@@ -1,7 +1,7 @@
 package com.lacunasoftware.restpki;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.sun.deploy.util.StringUtils;
+
 
 import java.beans.Customizer;
 import java.io.IOException;
