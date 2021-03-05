@@ -38,12 +38,16 @@ public class Signer {
         return model.getValidationResults();
     }
 
-    public PKCertificate getPKCertificate(){
-        return this.Certificate;
-    }
+//    public PKCertificate getPKCertificate(){
+//        return this.Certificate;
+//    }
 
     public Signer(RestPkiService service, SignerModel model) {
         this.service = service;
+        this.model = model;
+        //this.Certificate = new PKCertificate(model.getCertificate());
+    }
+    public Signer( SignerModel model) {
         this.model = model;
         this.Certificate = new PKCertificate(model.getCertificate());
     }

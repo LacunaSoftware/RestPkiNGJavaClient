@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.UUID;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -57,24 +54,29 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return new Document(this, model);
 	}
 
-	@SuppressWarnings("unchecked")
+
 	public List<Signer> getDocumentSigners(UUID id) throws RestException {
 
 		StringBuilder idUri = new StringBuilder("api/documents/").append(id.toString()).append("/signers");
 		List<SignerModel> listSignerModel = client.getRestClient().get(idUri.toString(), new TypeReference<List<SignerModel>>(){});
 
-		return (listSignerModel).stream().map(s -> new Signer(this,s)).collect(Collectors.toList());
+		List<Signer> listSigner = (listSignerModel).stream()
+				.map(s -> new Signer(this,s))
+				.collect(Collectors.toList());
+
+		return listSigner;
 	}
 
 	public  Document findDocumentByKey(String key) throws RestException, IOException{
-		if (key != null ||  key.isEmpty()) {
+		if (key != null && !key.isEmpty()) {
+			StringBuilder keyUri = new StringBuilder("api/documents/keys/").append(URLEncoder.encode(key.trim(), StandardCharsets.UTF_8.toString()));
+			//string format
+			DocumentQueryResponse model = client.getRestClient().get(keyUri.toString(), DocumentQueryResponse.class);
+			return getDocument(model.getDocument());
+		}else {
 			throw new RuntimeException("The key cannot be empty");
 		}
-		StringBuilder keyUri = new StringBuilder("api/documents/").append(URLEncoder.encode(key.trim(), StandardCharsets.UTF_8.toString()));
-	//string format
-		DocumentQueryResponse model = client.getRestClient().get(keyUri.toString(), DocumentQueryResponse.class);
 
-		return getDocument(model.getDocument());
 	}
 
 	public InputStream openRead(String location) throws RestException {

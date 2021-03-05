@@ -14,4 +14,9 @@ package com.lacunasoftware.restpki;
 
         return documentModel;
     }
+
+    static Signer toSigner(SignerModel signerModel){
+          Signer signer = new Signer(signerModel);
+          return signer;
+    }
 }
