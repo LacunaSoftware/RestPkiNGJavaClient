@@ -17,108 +17,206 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.DocumentFileModel;
+import com.lacunasoftware.restpki.DocumentStatus;
+import com.lacunasoftware.restpki.SignatureTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
 /**
- * ErrorModelV2
+ * SignatureSessionDocumentSummary
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class SignatureSessionDocumentSummary {
+  @JsonProperty("status")
+  private DocumentStatus status = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("dateSigned")
+  private OffsetDateTime dateSigned = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("id")
+  private UUID id = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
+  @JsonProperty("key")
+  private String key = null;
 
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  @JsonProperty("formattedKey")
+  private String formattedKey = null;
+
+  @JsonProperty("originalFile")
+  private DocumentFileModel originalFile = null;
+
+  @JsonProperty("signedFile")
+  private DocumentFileModel signedFile = null;
+
+  @JsonProperty("signatureType")
+  private SignatureTypes signatureType = null;
+
+  @JsonProperty("availableUntil")
+  private OffsetDateTime availableUntil = null;
+
+  public SignatureSessionDocumentSummary status(DocumentStatus status) {
+    this.status = status;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get status
+   * @return status
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public DocumentStatus getStatus() {
+    return status;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setStatus(DocumentStatus status) {
+    this.status = status;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public SignatureSessionDocumentSummary dateSigned(OffsetDateTime dateSigned) {
+    this.dateSigned = dateSigned;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get dateSigned
+   * @return dateSigned
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public OffsetDateTime getDateSigned() {
+    return dateSigned;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setDateSigned(OffsetDateTime dateSigned) {
+    this.dateSigned = dateSigned;
   }
 
-  public ErrorModelV2 message(String message) {
-    this.message = message;
+  public SignatureSessionDocumentSummary id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public UUID getId() {
+    return id;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
+  public SignatureSessionDocumentSummary key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
+  public String getKey() {
+    return key;
   }
 
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public SignatureSessionDocumentSummary formattedKey(String formattedKey) {
+    this.formattedKey = formattedKey;
+    return this;
+  }
+
+   /**
+   * Get formattedKey
+   * @return formattedKey
+  **/
+  @Schema(description = "")
+  public String getFormattedKey() {
+    return formattedKey;
+  }
+
+  public void setFormattedKey(String formattedKey) {
+    this.formattedKey = formattedKey;
+  }
+
+  public SignatureSessionDocumentSummary originalFile(DocumentFileModel originalFile) {
+    this.originalFile = originalFile;
+    return this;
+  }
+
+   /**
+   * Get originalFile
+   * @return originalFile
+  **/
+  @Schema(description = "")
+  public DocumentFileModel getOriginalFile() {
+    return originalFile;
+  }
+
+  public void setOriginalFile(DocumentFileModel originalFile) {
+    this.originalFile = originalFile;
+  }
+
+  public SignatureSessionDocumentSummary signedFile(DocumentFileModel signedFile) {
+    this.signedFile = signedFile;
+    return this;
+  }
+
+   /**
+   * Get signedFile
+   * @return signedFile
+  **/
+  @Schema(description = "")
+  public DocumentFileModel getSignedFile() {
+    return signedFile;
+  }
+
+  public void setSignedFile(DocumentFileModel signedFile) {
+    this.signedFile = signedFile;
+  }
+
+  public SignatureSessionDocumentSummary signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+   /**
+   * Get signatureType
+   * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
+
+  public SignatureSessionDocumentSummary availableUntil(OffsetDateTime availableUntil) {
+    this.availableUntil = availableUntil;
+    return this;
+  }
+
+   /**
+   * Get availableUntil
+   * @return availableUntil
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getAvailableUntil() {
+    return availableUntil;
+  }
+
+  public void setAvailableUntil(OffsetDateTime availableUntil) {
+    this.availableUntil = availableUntil;
   }
 
 
@@ -130,28 +228,38 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    SignatureSessionDocumentSummary signatureSessionDocumentSummary = (SignatureSessionDocumentSummary) o;
+    return Objects.equals(this.status, signatureSessionDocumentSummary.status) &&
+        Objects.equals(this.dateSigned, signatureSessionDocumentSummary.dateSigned) &&
+        Objects.equals(this.id, signatureSessionDocumentSummary.id) &&
+        Objects.equals(this.key, signatureSessionDocumentSummary.key) &&
+        Objects.equals(this.formattedKey, signatureSessionDocumentSummary.formattedKey) &&
+        Objects.equals(this.originalFile, signatureSessionDocumentSummary.originalFile) &&
+        Objects.equals(this.signedFile, signatureSessionDocumentSummary.signedFile) &&
+        Objects.equals(this.signatureType, signatureSessionDocumentSummary.signatureType) &&
+        Objects.equals(this.availableUntil, signatureSessionDocumentSummary.availableUntil);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(status, dateSigned, id, key, formattedKey, originalFile, signedFile, signatureType, availableUntil);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class SignatureSessionDocumentSummary {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    dateSigned: ").append(toIndentedString(dateSigned)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    formattedKey: ").append(toIndentedString(formattedKey)).append("\n");
+    sb.append("    originalFile: ").append(toIndentedString(originalFile)).append("\n");
+    sb.append("    signedFile: ").append(toIndentedString(signedFile)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
+    sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
     sb.append("}");
     return sb.toString();
   }
