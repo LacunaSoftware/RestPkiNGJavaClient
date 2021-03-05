@@ -17,31 +17,155 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpki.CertificateModel;
+import com.lacunasoftware.restpki.DigestAlgorithmAndValueModel;
+import com.lacunasoftware.restpki.SignatureAlgorithmAndValueModel;
 import com.lacunasoftware.restpki.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.threeten.bp.OffsetDateTime;
 /**
- * ErrorModelV2
+ * SignerModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
+class SignerModel {
+  @JsonProperty("messageDigest")
+  private DigestAlgorithmAndValueModel messageDigest = null;
+
+  @JsonProperty("signature")
+  private SignatureAlgorithmAndValueModel signature = null;
+
+  @JsonProperty("signingTime")
+  private OffsetDateTime signingTime = null;
+
+  @JsonProperty("certifiedDateReference")
+  private OffsetDateTime certifiedDateReference = null;
+
+  @JsonProperty("isDocumentTimestamp")
+  private Boolean isDocumentTimestamp = null;
+
+  @JsonProperty("signatureFieldName")
+  private String signatureFieldName = null;
+
   @JsonProperty("validationResults")
   private ValidationResultsModel validationResults = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("certificate")
+  private CertificateModel certificate = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("date")
+  private OffsetDateTime date = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
+  public SignerModel messageDigest(DigestAlgorithmAndValueModel messageDigest) {
+    this.messageDigest = messageDigest;
+    return this;
+  }
 
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
+   /**
+   * Get messageDigest
+   * @return messageDigest
+  **/
+  @Schema(description = "")
+  public DigestAlgorithmAndValueModel getMessageDigest() {
+    return messageDigest;
+  }
+
+  public void setMessageDigest(DigestAlgorithmAndValueModel messageDigest) {
+    this.messageDigest = messageDigest;
+  }
+
+  public SignerModel signature(SignatureAlgorithmAndValueModel signature) {
+    this.signature = signature;
+    return this;
+  }
+
+   /**
+   * Get signature
+   * @return signature
+  **/
+  @Schema(description = "")
+  public SignatureAlgorithmAndValueModel getSignature() {
+    return signature;
+  }
+
+  public void setSignature(SignatureAlgorithmAndValueModel signature) {
+    this.signature = signature;
+  }
+
+  public SignerModel signingTime(OffsetDateTime signingTime) {
+    this.signingTime = signingTime;
+    return this;
+  }
+
+   /**
+   * Get signingTime
+   * @return signingTime
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getSigningTime() {
+    return signingTime;
+  }
+
+  public void setSigningTime(OffsetDateTime signingTime) {
+    this.signingTime = signingTime;
+  }
+
+  public SignerModel certifiedDateReference(OffsetDateTime certifiedDateReference) {
+    this.certifiedDateReference = certifiedDateReference;
+    return this;
+  }
+
+   /**
+   * Get certifiedDateReference
+   * @return certifiedDateReference
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getCertifiedDateReference() {
+    return certifiedDateReference;
+  }
+
+  public void setCertifiedDateReference(OffsetDateTime certifiedDateReference) {
+    this.certifiedDateReference = certifiedDateReference;
+  }
+
+  public SignerModel isDocumentTimestamp(Boolean isDocumentTimestamp) {
+    this.isDocumentTimestamp = isDocumentTimestamp;
+    return this;
+  }
+
+   /**
+   * Get isDocumentTimestamp
+   * @return isDocumentTimestamp
+  **/
+  @Schema(description = "")
+  public Boolean isIsDocumentTimestamp() {
+    return isDocumentTimestamp;
+  }
+
+  public void setIsDocumentTimestamp(Boolean isDocumentTimestamp) {
+    this.isDocumentTimestamp = isDocumentTimestamp;
+  }
+
+  public SignerModel signatureFieldName(String signatureFieldName) {
+    this.signatureFieldName = signatureFieldName;
+    return this;
+  }
+
+   /**
+   * Get signatureFieldName
+   * @return signatureFieldName
+  **/
+  @Schema(description = "")
+  public String getSignatureFieldName() {
+    return signatureFieldName;
+  }
+
+  public void setSignatureFieldName(String signatureFieldName) {
+    this.signatureFieldName = signatureFieldName;
+  }
+
+  public SignerModel validationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
     return this;
   }
@@ -59,66 +183,40 @@ class ErrorModelV2 {
     this.validationResults = validationResults;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public SignerModel certificate(CertificateModel certificate) {
+    this.certificate = certificate;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get certificate
+   * @return certificate
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public CertificateModel getCertificate() {
+    return certificate;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setCertificate(CertificateModel certificate) {
+    this.certificate = certificate;
   }
 
-  public ErrorModelV2 message(String message) {
-    this.message = message;
+  public SignerModel date(OffsetDateTime date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get date
+   * @return date
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public OffsetDateTime getDate() {
+    return date;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
-  }
-
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setDate(OffsetDateTime date) {
+    this.date = date;
   }
 
 
@@ -130,28 +228,38 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    SignerModel signerModel = (SignerModel) o;
+    return Objects.equals(this.messageDigest, signerModel.messageDigest) &&
+        Objects.equals(this.signature, signerModel.signature) &&
+        Objects.equals(this.signingTime, signerModel.signingTime) &&
+        Objects.equals(this.certifiedDateReference, signerModel.certifiedDateReference) &&
+        Objects.equals(this.isDocumentTimestamp, signerModel.isDocumentTimestamp) &&
+        Objects.equals(this.signatureFieldName, signerModel.signatureFieldName) &&
+        Objects.equals(this.validationResults, signerModel.validationResults) &&
+        Objects.equals(this.certificate, signerModel.certificate) &&
+        Objects.equals(this.date, signerModel.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(messageDigest, signature, signingTime, certifiedDateReference, isDocumentTimestamp, signatureFieldName, validationResults, certificate, date);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class SignerModel {\n");
     
+    sb.append("    messageDigest: ").append(toIndentedString(messageDigest)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    signingTime: ").append(toIndentedString(signingTime)).append("\n");
+    sb.append("    certifiedDateReference: ").append(toIndentedString(certifiedDateReference)).append("\n");
+    sb.append("    isDocumentTimestamp: ").append(toIndentedString(isDocumentTimestamp)).append("\n");
+    sb.append("    signatureFieldName: ").append(toIndentedString(signatureFieldName)).append("\n");
     sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,157 +14,40 @@ package com.lacunasoftware.restpki;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 /**
- * ErrorModelV2
+ * Gets or Sets PkiItalyCertificateTypes
  */
+public enum PkiItalyCertificateTypes {
+  UNDEFINED("Undefined"),
+  CNS("Cns"),
+  DIGITALSIGNATURE("DigitalSignature");
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
-@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+  private String value;
 
-  @JsonProperty("code")
-  private String code = null;
-
-  @JsonProperty("message")
-  private String message = null;
-
-  @JsonProperty("details")
-  private Map<String, String> details = null;
-
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
-    return this;
+  PkiItalyCertificateTypes(String value) {
+    this.value = value;
   }
 
-   /**
-   * Get validationResults
-   * @return validationResults
-  **/
-  @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  @JsonValue
+  public String getValue() {
+    return value;
   }
-
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
-  }
-
-  public ErrorModelV2 code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @Schema(description = "")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ErrorModelV2 message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @Schema(description = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
-  }
-
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
-  }
-
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
-    
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+  @JsonCreator
+  public static PkiItalyCertificateTypes fromValue(String text) {
+    for (PkiItalyCertificateTypes b : PkiItalyCertificateTypes.values()) {
+      if (String.valueOf(b.value).equals(text)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    return null;
   }
-
 }

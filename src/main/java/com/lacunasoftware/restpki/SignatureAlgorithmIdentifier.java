@@ -17,108 +17,34 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.SignatureAlgorithms;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * SignatureAlgorithmIdentifier
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class SignatureAlgorithmIdentifier {
+  @JsonProperty("algorithm")
+  private SignatureAlgorithms algorithm = null;
 
-  @JsonProperty("code")
-  private String code = null;
-
-  @JsonProperty("message")
-  private String message = null;
-
-  @JsonProperty("details")
-  private Map<String, String> details = null;
-
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public SignatureAlgorithmIdentifier algorithm(SignatureAlgorithms algorithm) {
+    this.algorithm = algorithm;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get algorithm
+   * @return algorithm
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public SignatureAlgorithms getAlgorithm() {
+    return algorithm;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
-  }
-
-  public ErrorModelV2 code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @Schema(description = "")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ErrorModelV2 message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @Schema(description = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
-  }
-
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setAlgorithm(SignatureAlgorithms algorithm) {
+    this.algorithm = algorithm;
   }
 
 
@@ -130,28 +56,22 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    SignatureAlgorithmIdentifier signatureAlgorithmIdentifier = (SignatureAlgorithmIdentifier) o;
+    return Objects.equals(this.algorithm, signatureAlgorithmIdentifier.algorithm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(algorithm);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class SignatureAlgorithmIdentifier {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -8,7 +8,7 @@ import java.io.InputStream;
  */
 public class DocumentFile {
 
-    private RestPkiService service;
+    private final RestPkiService service;
     private DocumentFileModel model;
 
     public String getName() {

@@ -1,14 +1,29 @@
 package com.lacunasoftware.restpki;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
 import java.util.Map;
+
 
 class RestClientPortable {
 
@@ -26,6 +41,50 @@ class RestClientPortable {
 	}
 
 	public <TResponse> TResponse get(String requestUri, Class<TResponse> responseType) throws RestException {
+		String verb = "GET";
+		String url = endpointUri + requestUri;
+		HttpURLConnection conn;
+
+		try {
+
+			URL urlObj = new URL(url);
+			if (proxy != null) {
+				conn = (HttpURLConnection) urlObj.openConnection(proxy);
+			} else {
+				conn = (HttpURLConnection) urlObj.openConnection();
+			}
+			conn.setRequestMethod(verb);
+			conn.setRequestProperty("Accept", "application/json");
+			if (apiKey != null) {
+				conn.setRequestProperty("X-Api-Key", apiKey);
+			}
+			if (cultureName != null) {
+				conn.setRequestProperty("Accept-Language", cultureName);
+			}
+			if (customHeaders != null){
+				customHeaders.forEach(
+						(key, value) -> conn.setRequestProperty(key, value));
+			}
+
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, url, e);
+		}
+
+		checkResponse(verb, url, conn);
+
+		TResponse response;
+
+		try {
+			response = readResponse(conn, responseType);
+		} catch (Exception e) {
+			throw new RestDecodeException(verb, url, e);
+		}
+
+		conn.disconnect();
+		return response;
+	}
+
+	public <TResponse> TResponse get(String requestUri, TypeReference<TResponse> responseType) throws RestException {
 
 		String verb = "GET";
 		String url = endpointUri + requestUri;
@@ -49,7 +108,7 @@ class RestClientPortable {
 			}
 			if (customHeaders != null){
 				customHeaders.forEach(
-					(key, value) -> conn.setRequestProperty(key, value));
+						(key, value) -> conn.setRequestProperty(key, value));
 			}
 
 		} catch (Exception e) {
@@ -102,7 +161,7 @@ class RestClientPortable {
 
 			OutputStream outStream = conn.getOutputStream();
 			if (request != null) {
-				new ObjectMapper().writeValue(outStream, request);
+				new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL).writeValue(outStream, request);
 			}
 			outStream.close();
 
@@ -208,7 +267,14 @@ class RestClientPortable {
 		}
 	}
 
-	private <T> T readResponse(HttpURLConnection conn, Class<T> valueType) throws IOException {
+	private <T> T readResponse(HttpURLConnection conn, Class<T> typeToken) throws IOException {
+		InputStream inStream = conn.getInputStream();
+		T response = getJackson().readValue(inStream, typeToken);
+		inStream.close();
+		return response;
+	}
+
+	private <T> T readResponse(HttpURLConnection conn, TypeReference<T> valueType) throws IOException {
 		InputStream inStream = conn.getInputStream();
 		T response = new ObjectMapper().readValue(inStream, valueType);
 		inStream.close();
@@ -220,6 +286,30 @@ class RestClientPortable {
 		T response = new ObjectMapper().readValue(inStream, valueType);
 		inStream.close();
 		return response;
+	}
+
+
+	protected ObjectMapper getJackson(){
+
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		objectMapper.registerModule(new JavaTimeModule());
+
+		SimpleModule simpleModule = new SimpleModule();
+
+		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
+
+		objectMapper.registerModule(simpleModule);
+
+		return objectMapper;
+	}
+
+	protected class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime>{
+		@Override
+		public OffsetDateTime deserialize(JsonParser json, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			String dateString = json.getValueAsString();
+			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+		}
 	}
 
 	//region Attributes Getters/Setters

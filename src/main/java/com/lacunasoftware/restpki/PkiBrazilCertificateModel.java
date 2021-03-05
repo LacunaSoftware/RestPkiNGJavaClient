@@ -17,108 +17,244 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.PkiBrazilCertificateTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * PkiBrazilCertificateModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class PkiBrazilCertificateModel {
+  @JsonProperty("certificateType")
+  private PkiBrazilCertificateTypes certificateType = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("cpf")
+  private String cpf = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("cnpj")
+  private String cnpj = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
+  @JsonProperty("responsavel")
+  private String responsavel = null;
 
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  @JsonProperty("dateOfBirth")
+  private String dateOfBirth = null;
+
+  @JsonProperty("companyName")
+  private String companyName = null;
+
+  @JsonProperty("oabUF")
+  private String oabUF = null;
+
+  @JsonProperty("oabNumero")
+  private String oabNumero = null;
+
+  @JsonProperty("rgEmissor")
+  private String rgEmissor = null;
+
+  @JsonProperty("rgEmissorUF")
+  private String rgEmissorUF = null;
+
+  @JsonProperty("rgNumero")
+  private String rgNumero = null;
+
+  public PkiBrazilCertificateModel certificateType(PkiBrazilCertificateTypes certificateType) {
+    this.certificateType = certificateType;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get certificateType
+   * @return certificateType
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public PkiBrazilCertificateTypes getCertificateType() {
+    return certificateType;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setCertificateType(PkiBrazilCertificateTypes certificateType) {
+    this.certificateType = certificateType;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public PkiBrazilCertificateModel cpf(String cpf) {
+    this.cpf = cpf;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get cpf
+   * @return cpf
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public String getCpf() {
+    return cpf;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setCpf(String cpf) {
+    this.cpf = cpf;
   }
 
-  public ErrorModelV2 message(String message) {
-    this.message = message;
+  public PkiBrazilCertificateModel cnpj(String cnpj) {
+    this.cnpj = cnpj;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get cnpj
+   * @return cnpj
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public String getCnpj() {
+    return cnpj;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setCnpj(String cnpj) {
+    this.cnpj = cnpj;
   }
 
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
+  public PkiBrazilCertificateModel responsavel(String responsavel) {
+    this.responsavel = responsavel;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get responsavel
+   * @return responsavel
   **/
   @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
+  public String getResponsavel() {
+    return responsavel;
   }
 
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setResponsavel(String responsavel) {
+    this.responsavel = responsavel;
+  }
+
+  public PkiBrazilCertificateModel dateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+    return this;
+  }
+
+   /**
+   * Get dateOfBirth
+   * @return dateOfBirth
+  **/
+  @Schema(description = "")
+  public String getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public PkiBrazilCertificateModel companyName(String companyName) {
+    this.companyName = companyName;
+    return this;
+  }
+
+   /**
+   * Get companyName
+   * @return companyName
+  **/
+  @Schema(description = "")
+  public String getCompanyName() {
+    return companyName;
+  }
+
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
+
+  public PkiBrazilCertificateModel oabUF(String oabUF) {
+    this.oabUF = oabUF;
+    return this;
+  }
+
+   /**
+   * Get oabUF
+   * @return oabUF
+  **/
+  @Schema(description = "")
+  public String getOabUF() {
+    return oabUF;
+  }
+
+  public void setOabUF(String oabUF) {
+    this.oabUF = oabUF;
+  }
+
+  public PkiBrazilCertificateModel oabNumero(String oabNumero) {
+    this.oabNumero = oabNumero;
+    return this;
+  }
+
+   /**
+   * Get oabNumero
+   * @return oabNumero
+  **/
+  @Schema(description = "")
+  public String getOabNumero() {
+    return oabNumero;
+  }
+
+  public void setOabNumero(String oabNumero) {
+    this.oabNumero = oabNumero;
+  }
+
+  public PkiBrazilCertificateModel rgEmissor(String rgEmissor) {
+    this.rgEmissor = rgEmissor;
+    return this;
+  }
+
+   /**
+   * Get rgEmissor
+   * @return rgEmissor
+  **/
+  @Schema(description = "")
+  public String getRgEmissor() {
+    return rgEmissor;
+  }
+
+  public void setRgEmissor(String rgEmissor) {
+    this.rgEmissor = rgEmissor;
+  }
+
+  public PkiBrazilCertificateModel rgEmissorUF(String rgEmissorUF) {
+    this.rgEmissorUF = rgEmissorUF;
+    return this;
+  }
+
+   /**
+   * Get rgEmissorUF
+   * @return rgEmissorUF
+  **/
+  @Schema(description = "")
+  public String getRgEmissorUF() {
+    return rgEmissorUF;
+  }
+
+  public void setRgEmissorUF(String rgEmissorUF) {
+    this.rgEmissorUF = rgEmissorUF;
+  }
+
+  public PkiBrazilCertificateModel rgNumero(String rgNumero) {
+    this.rgNumero = rgNumero;
+    return this;
+  }
+
+   /**
+   * Get rgNumero
+   * @return rgNumero
+  **/
+  @Schema(description = "")
+  public String getRgNumero() {
+    return rgNumero;
+  }
+
+  public void setRgNumero(String rgNumero) {
+    this.rgNumero = rgNumero;
   }
 
 
@@ -130,28 +266,42 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    PkiBrazilCertificateModel pkiBrazilCertificateModel = (PkiBrazilCertificateModel) o;
+    return Objects.equals(this.certificateType, pkiBrazilCertificateModel.certificateType) &&
+        Objects.equals(this.cpf, pkiBrazilCertificateModel.cpf) &&
+        Objects.equals(this.cnpj, pkiBrazilCertificateModel.cnpj) &&
+        Objects.equals(this.responsavel, pkiBrazilCertificateModel.responsavel) &&
+        Objects.equals(this.dateOfBirth, pkiBrazilCertificateModel.dateOfBirth) &&
+        Objects.equals(this.companyName, pkiBrazilCertificateModel.companyName) &&
+        Objects.equals(this.oabUF, pkiBrazilCertificateModel.oabUF) &&
+        Objects.equals(this.oabNumero, pkiBrazilCertificateModel.oabNumero) &&
+        Objects.equals(this.rgEmissor, pkiBrazilCertificateModel.rgEmissor) &&
+        Objects.equals(this.rgEmissorUF, pkiBrazilCertificateModel.rgEmissorUF) &&
+        Objects.equals(this.rgNumero, pkiBrazilCertificateModel.rgNumero);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(certificateType, cpf, cnpj, responsavel, dateOfBirth, companyName, oabUF, oabNumero, rgEmissor, rgEmissorUF, rgNumero);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class PkiBrazilCertificateModel {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    certificateType: ").append(toIndentedString(certificateType)).append("\n");
+    sb.append("    cpf: ").append(toIndentedString(cpf)).append("\n");
+    sb.append("    cnpj: ").append(toIndentedString(cnpj)).append("\n");
+    sb.append("    responsavel: ").append(toIndentedString(responsavel)).append("\n");
+    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+    sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
+    sb.append("    oabUF: ").append(toIndentedString(oabUF)).append("\n");
+    sb.append("    oabNumero: ").append(toIndentedString(oabNumero)).append("\n");
+    sb.append("    rgEmissor: ").append(toIndentedString(rgEmissor)).append("\n");
+    sb.append("    rgEmissorUF: ").append(toIndentedString(rgEmissorUF)).append("\n");
+    sb.append("    rgNumero: ").append(toIndentedString(rgNumero)).append("\n");
     sb.append("}");
     return sb.toString();
   }

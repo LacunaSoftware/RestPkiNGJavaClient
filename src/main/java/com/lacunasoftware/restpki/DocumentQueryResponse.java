@@ -17,108 +17,55 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.DocumentModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * DocumentQueryResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class DocumentQueryResponse {
+  @JsonProperty("found")
+  private Boolean found = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("document")
+  private DocumentModel document = null;
 
-  @JsonProperty("message")
-  private String message = null;
-
-  @JsonProperty("details")
-  private Map<String, String> details = null;
-
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public DocumentQueryResponse found(Boolean found) {
+    this.found = found;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get found
+   * @return found
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public Boolean isFound() {
+    return found;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setFound(Boolean found) {
+    this.found = found;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public DocumentQueryResponse document(DocumentModel document) {
+    this.document = document;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get document
+   * @return document
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public DocumentModel getDocument() {
+    return document;
   }
 
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ErrorModelV2 message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @Schema(description = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
-  }
-
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setDocument(DocumentModel document) {
+    this.document = document;
   }
 
 
@@ -130,28 +77,24 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    DocumentQueryResponse documentQueryResponse = (DocumentQueryResponse) o;
+    return Objects.equals(this.found, documentQueryResponse.found) &&
+        Objects.equals(this.document, documentQueryResponse.document);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(found, document);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class DocumentQueryResponse {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    found: ").append(toIndentedString(found)).append("\n");
+    sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("}");
     return sb.toString();
   }

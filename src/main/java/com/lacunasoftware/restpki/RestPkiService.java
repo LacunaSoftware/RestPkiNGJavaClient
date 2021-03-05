@@ -22,4 +22,6 @@ public interface RestPkiService {
     InputStream openRead(String location) throws RestException;
 
     byte[] getContent(String location) throws RestException, IOException;
+
+    DocumentModel GetDocumentModel(UUID id) throws RestException;
 }

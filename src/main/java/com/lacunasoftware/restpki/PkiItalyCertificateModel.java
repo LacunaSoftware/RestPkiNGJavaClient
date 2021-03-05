@@ -17,108 +17,76 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.ValidationResultsModel;
+import com.lacunasoftware.restpki.PkiItalyCertificateTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /**
- * ErrorModelV2
+ * PkiItalyCertificateModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-03T10:47:58.693-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class ErrorModelV2 {
-  @JsonProperty("validationResults")
-  private ValidationResultsModel validationResults = null;
+class PkiItalyCertificateModel {
+  @JsonProperty("certificateType")
+  private PkiItalyCertificateTypes certificateType = null;
 
-  @JsonProperty("code")
-  private String code = null;
+  @JsonProperty("codiceFiscale")
+  private String codiceFiscale = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("idCarta")
+  private String idCarta = null;
 
-  @JsonProperty("details")
-  private Map<String, String> details = null;
-
-  public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public PkiItalyCertificateModel certificateType(PkiItalyCertificateTypes certificateType) {
+    this.certificateType = certificateType;
     return this;
   }
 
    /**
-   * Get validationResults
-   * @return validationResults
+   * Get certificateType
+   * @return certificateType
   **/
   @Schema(description = "")
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
+  public PkiItalyCertificateTypes getCertificateType() {
+    return certificateType;
   }
 
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
+  public void setCertificateType(PkiItalyCertificateTypes certificateType) {
+    this.certificateType = certificateType;
   }
 
-  public ErrorModelV2 code(String code) {
-    this.code = code;
+  public PkiItalyCertificateModel codiceFiscale(String codiceFiscale) {
+    this.codiceFiscale = codiceFiscale;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get codiceFiscale
+   * @return codiceFiscale
   **/
   @Schema(description = "")
-  public String getCode() {
-    return code;
+  public String getCodiceFiscale() {
+    return codiceFiscale;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setCodiceFiscale(String codiceFiscale) {
+    this.codiceFiscale = codiceFiscale;
   }
 
-  public ErrorModelV2 message(String message) {
-    this.message = message;
+  public PkiItalyCertificateModel idCarta(String idCarta) {
+    this.idCarta = idCarta;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get idCarta
+   * @return idCarta
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public String getIdCarta() {
+    return idCarta;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public ErrorModelV2 details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
-
-  public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
-    if (this.details == null) {
-      this.details = new HashMap<String, String>();
-    }
-    this.details.put(key, detailsItem);
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @Schema(description = "")
-  public Map<String, String> getDetails() {
-    return details;
-  }
-
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
+  public void setIdCarta(String idCarta) {
+    this.idCarta = idCarta;
   }
 
 
@@ -130,28 +98,26 @@ class ErrorModelV2 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorModelV2 errorModelV2 = (ErrorModelV2) o;
-    return Objects.equals(this.validationResults, errorModelV2.validationResults) &&
-        Objects.equals(this.code, errorModelV2.code) &&
-        Objects.equals(this.message, errorModelV2.message) &&
-        Objects.equals(this.details, errorModelV2.details);
+    PkiItalyCertificateModel pkiItalyCertificateModel = (PkiItalyCertificateModel) o;
+    return Objects.equals(this.certificateType, pkiItalyCertificateModel.certificateType) &&
+        Objects.equals(this.codiceFiscale, pkiItalyCertificateModel.codiceFiscale) &&
+        Objects.equals(this.idCarta, pkiItalyCertificateModel.idCarta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationResults, code, message, details);
+    return Objects.hash(certificateType, codiceFiscale, idCarta);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorModelV2 {\n");
+    sb.append("class PkiItalyCertificateModel {\n");
     
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    certificateType: ").append(toIndentedString(certificateType)).append("\n");
+    sb.append("    codiceFiscale: ").append(toIndentedString(codiceFiscale)).append("\n");
+    sb.append("    idCarta: ").append(toIndentedString(idCarta)).append("\n");
     sb.append("}");
     return sb.toString();
   }
