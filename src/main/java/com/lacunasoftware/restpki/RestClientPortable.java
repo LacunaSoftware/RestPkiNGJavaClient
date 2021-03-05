@@ -293,7 +293,7 @@ class RestClientPortable {
 	protected ObjectMapper getJackson(){
 
 		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS, true);
+
 		objectMapper.registerModule(new JavaTimeModule());
 
 		SimpleModule simpleModule = new SimpleModule();
