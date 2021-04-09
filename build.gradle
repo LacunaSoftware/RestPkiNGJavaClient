@@ -43,7 +43,7 @@ publishing {
             from components.java
             groupId 'com.lacunasoftware.restpki'
             artifactId 'restpki-core-client'
-            version '1.0.0'
+            version '2.0.1'
         }
     }
 }
@@ -59,9 +59,9 @@ bintray {
         licenses = ['Unlicense']
         vcsUrl = 'https://bitbucket.org/Lacunas/restpki-java-client.git'
         version {
-            name = '1.0.0'
+            name = '2.0.1'
             desc = 'Classes to consume Lacuna Software REST PKI'
-            vcsTag = '1.0.0'
+            vcsTag = '2.0.1'
         }
     }
 }
