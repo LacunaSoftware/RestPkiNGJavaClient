@@ -1,21 +1,19 @@
-plugins {
-    id "com.jfrog.bintray" version "1.8.4"
-}
-
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+group = 'com.lacunasoftware.restpki'
+archivesBaseName = 'restpki-core-client'
+version = '2.0.1'
+
 repositories {
     mavenCentral()
-    maven {
-        url "http://dl.bintray.com/lacunasoftware/maven"
-    }
 }
 
 dependencies {
@@ -37,31 +35,64 @@ task fatJar(type: Jar) {
     with jar
 }
 
-publishing {
-    publications {
-        ClientPublish(MavenPublication) {
-            from components.java
-            groupId 'com.lacunasoftware.restpki'
-            artifactId 'restpki-core-client'
-            version '2.0.1'
-        }
-    }
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
 }
 
-bintray {
-    user = 'lacunasoftware'
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['ClientPublish']
-    pkg {
-        repo = 'maven'
-        name = 'restpki-core-client'
-        userOrg = user
-        licenses = ['Unlicense']
-        vcsUrl = 'https://bitbucket.org/Lacunas/restpki-java-client.git'
-        version {
-            name = '2.0.1'
-            desc = 'Classes to consume Lacuna Software REST PKI'
-            vcsTag = '2.0.1'
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'restpki-core-client'
+                packaging 'jar'
+                artifactId 'restpki-core-client'
+                description 'Classes to consume Lacuna Software REST PKI Core'
+                url 'https://github.com/LacunaSoftware/RestPkiNGJavaClient'
+
+                scm {
+                    connection 'scm:git:git@github.com:LacunaSoftware/RestPkiNGJavaClient.git'
+                    developerConnection 'scm:git:git@github.com:LacunaSoftware/RestPkiNGJavaClient.git'
+                    url 'https://github.com/LacunaSoftware/RestPkiNGJavaClient'
+                }
+
+                licenses {
+                    license {
+                        name 'Unlicense'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'ismaelm'
+                        name 'Ismael Medeiros'
+                        email 'IsmaelM@lacunasoftware.com'
+                    }
+                }
+            }
         }
     }
 }
