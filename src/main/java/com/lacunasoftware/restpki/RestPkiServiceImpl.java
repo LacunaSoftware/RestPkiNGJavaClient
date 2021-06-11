@@ -8,7 +8,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import javafx.util.Pair;
 import java.util.stream.Collectors;
 
 /**
@@ -92,6 +98,150 @@ public class RestPkiServiceImpl implements RestPkiService {
 		DocumentModel documentModel = client.getRestClient().get(idUri.toString(), new TypeReference<DocumentModel>(){});
 
 		return documentModel;
+	}
+
+	// region AllocateDocumentKey 
+	public DocumentKeyModel AllocateDocumentKey(Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException {
+		Map<String, String> customHeaders = null;
+		if(subscriptionId != null){
+			customHeaders = new HashMap<String, String>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+		}
+
+		AllocateDocumentKeyRequest request = new AllocateDocumentKeyRequest();
+		request.setProvisionalMetadata(provisionalMetadata);
+
+		return this.client.getRestClient(customHeaders).post(
+			ApiRoutes.DOCUMENT_KEYS + "/",
+			provisionalMetadata != null ? request : null,
+			DocumentKeyModel.class);
+	}
+	public DocumentKeyModel AllocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws RestException {
+		return AllocateDocumentKey(provisionalMetadata, null);
+	}
+	public DocumentKeyModel AllocateDocumentKey(UUID subscriptionId) throws RestException { 
+		return AllocateDocumentKey(null, subscriptionId);
+	}
+	public DocumentKeyModel AllocateDocumentKey() throws RestException {
+		return AllocateDocumentKey(null, null);
+	}
+	// endregion AllocateDocumentKey
+
+	// region AllocateDocumentKeys
+	public List<DocumentKeyModel> AllocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException {
+		Map<String, String> customHeaders = null;
+		if(subscriptionId != null){
+			customHeaders = new HashMap<String, String>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+		}
+
+		AllocateDocumentKeyBatchRequest request = new AllocateDocumentKeyBatchRequest();
+		request.setCount(count);
+		request.setProvisionalMetadata(provisionalMetadata);
+
+		return this.client.getRestClient(customHeaders).post(
+			ApiRoutes.DOCUMENT_KEYS + "/batch/",
+			request,
+			List.class);
+	}
+	public List<DocumentKeyModel> AllocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata) throws RestException {
+		return AllocateDocumentKeys(count, provisionalMetadata, null);
+	}
+	public List<DocumentKeyModel> AllocateDocumentKeys(int count, UUID subscriptionId) throws RestException {
+		return AllocateDocumentKeys(count, null, subscriptionId);
+	}
+	public List<DocumentKeyModel> AllocateDocumentKeys(int count) throws RestException {
+		return AllocateDocumentKeys(count, null, null);
+	}
+	// endregion AllocateDocumentKeys
+
+	// region CreateApplication 
+	public ApplicationModel CreateApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException {
+		Map<String, String> customHeaders = null;
+		if(subscriptionId != null){
+			customHeaders = new HashMap<String, String>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+		}
+		
+		AuthorizationData authData = new AuthorizationData();
+		authData.setRoles(roles);
+		RootAuthorizationData rootAuthData = new RootAuthorizationData();
+		AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData request = new AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData();
+		request.setName(name);
+		request.setAuthorizationData(authData);
+		request.setRootAuthorizationData(rootAuthData);
+
+		ApplicationModel response = this.client.getRestClient()
+			.post(ApiRoutes.APPLICATIONS + "/", request, ApplicationModel.class);
+		if(defaultDocumentMetadata != null && !defaultDocumentMetadata.isEmpty()) {
+			UpdateApplicationDefaultDocumentMetadata(response.getId(), defaultDocumentMetadata);
+		}
+		return response;
+	}
+	public ApplicationModel CreateApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
+		return CreateApplication(name, roles, defaultDocumentMetadata, null); 
+	}
+	public ApplicationModel CreateApplication(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
+		return CreateApplication(name, roles, null, subscriptionId); 
+	}
+	public ApplicationModel CreateApplication(String name, List<Roles> roles) throws RestException {
+		return CreateApplication(name, roles, null, null); 
+	}
+	// endregion CreateApplication
+
+	// region CreateApplicationKey
+	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID id, OffsetDateTime expiresOn, String description) throws RestException {
+		description = !description.isEmpty() ? description :
+		 	"Generated on " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ssX"));
+
+		CreateApplicationApiKeyRequest request = new CreateApplicationApiKeyRequest();
+		request.setDescription(description);
+		request.setExpiresOn(expiresOn);
+
+		return this.client.getRestClient().post(
+			ApiRoutes.APPLICATIONS.getValue() + "/" + id.toString() + "/api-keys/",
+			request,
+			CreateApplicationApiKeyResponse.class);
+	}
+	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId, OffsetDateTime expiresOn) throws RestException {
+		return CreateApplicationKey(applicationId, expiresOn, null);
+	}
+	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId, String description) throws RestException {
+		return CreateApplicationKey(applicationId, null, description);
+	}
+	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId) throws RestException {
+		return CreateApplicationKey(applicationId, null, null);
+	}
+	// endregion CreateApplicationKey
+
+	// region CreateApplicationandKey
+	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException {
+		ApplicationModel app = CreateApplication(name, roles, defaultDocumentMetadata, subscriptionId);
+		CreateApplicationApiKeyResponse key = CreateApplicationKey(app.getId());
+		return new Pair<ApplicationModel, String>(app, key.getKey());
+	}
+	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
+		return CreateApplicationAndKey(name, roles, defaultDocumentMetadata, null);
+	}
+	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
+		return CreateApplicationAndKey(name, roles, null, subscriptionId);
+	}
+	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles) throws RestException {
+		return CreateApplicationAndKey(name, roles, null, null);
+	}
+	// endregion CreateApplicationandKey
+
+	public Map<String, List<String>> GetApplicationDefaultDocumentMetadata(UUID applicationId) throws RestException {
+		return this.client.getRestClient().get(
+			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
+			Map.class);
+	}
+
+	public Map<String, List<String>> UpdateApplicationDefaultDocumentMetadata(UUID applicationId, Map<String, List<String>> defaultDocumentMetadata) throws RestException {
+		return this.client.getRestClient().put(
+			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
+			defaultDocumentMetadata,
+			Map.class);
 	}
 
 }

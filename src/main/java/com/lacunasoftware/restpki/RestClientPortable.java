@@ -186,6 +186,62 @@ class RestClientPortable {
 		return response;
 	}
 
+	public <TRequest, TResponse> TResponse put(String requestUri, TRequest request, Class<TResponse> responseType) throws RestException {
+
+		String verb = "PUT";
+		String url = endpointUri + requestUri;
+		HttpURLConnection conn;
+
+		try {
+
+			URL urlObj = new URL(url);
+			if (proxy != null) {
+				conn = (HttpURLConnection) urlObj.openConnection(proxy);
+			} else {
+				conn = (HttpURLConnection) urlObj.openConnection();
+			}
+			conn.setDoOutput(true);
+			conn.setRequestMethod(verb);
+			conn.setRequestProperty("Content-Type", "application/json");
+			conn.setRequestProperty("Accept", "application/json");
+
+			if (apiKey != null) {
+				conn.setRequestProperty("X-Api-Key", apiKey);
+			}
+			if (cultureName != null) {
+				conn.setRequestProperty("Accept-Language", cultureName);
+			}
+			if (customHeaders != null){
+				customHeaders.forEach(
+					(key, value) -> conn.setRequestProperty(key, value));
+			}
+
+			OutputStream outStream = conn.getOutputStream();
+			if (request != null) {
+				new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL).writeValue(outStream, request);
+			}
+			outStream.close();
+
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, url, e);
+		}
+
+		checkResponse(verb, url, conn);
+
+		TResponse response = null;
+
+		try {
+			if (responseType != null) {
+				response = readResponse(conn, responseType);
+			}
+		} catch (Exception e) {
+			throw new RestDecodeException(verb, url, e);
+		}
+
+		conn.disconnect();
+		return response;
+	}
+
 	public InputStream openStream(String url) throws RestException {
 
 		String verb = "GET";
