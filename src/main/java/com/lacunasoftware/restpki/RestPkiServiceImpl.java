@@ -37,16 +37,16 @@ public class RestPkiServiceImpl implements RestPkiService {
 		} else {
 			client = this.client.getRestClient();
 		}
-		return client.post("api/signature-sessions", request, CreateSignatureSessionResponse.class);
+		return client.post(ApiRoutes.SIGNATURE_SESSION.getValue() + "/", request, CreateSignatureSessionResponse.class);
 	}
 
 	public SignatureSession getSignatureSession(UUID id) throws RestException {
-		SignatureSessionModel model = client.getRestClient().get("api/signature-sessions/" + id.toString(), SignatureSessionModel.class);
+		SignatureSessionModel model = client.getRestClient().get(ApiRoutes.SIGNATURE_SESSION.getValue() + "/" + id.toString(), SignatureSessionModel.class);
 		return new SignatureSession(this, model);
 	}
 
 	public Document getDocument(UUID id) throws RestException {
-		DocumentModel model = client.getRestClient().get("api/documents/" + id.toString(), DocumentModel.class);
+		DocumentModel model = client.getRestClient().get(ApiRoutes.DOCUMENTS.getValue() + "/" + id.toString(), DocumentModel.class);
 		return new Document(this, model);
 	}
 
@@ -54,10 +54,9 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return new Document(this, model);
 	}
 
-
 	public List<Signer> getDocumentSigners(UUID id) throws RestException {
 
-		StringBuilder idUri = new StringBuilder("api/documents/").append(id.toString()).append("/signers");
+		StringBuilder idUri = new StringBuilder(ApiRoutes.DOCUMENTS.getValue()).append('/').append(id.toString()).append("/signers");
 		List<SignerModel> listSignerModel = client.getRestClient().get(idUri.toString(), new TypeReference<List<SignerModel>>(){});
 
 		List<Signer> listSigner = (listSignerModel).stream()
@@ -69,7 +68,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 
 	public  Document findDocumentByKey(String key) throws RestException, IOException{
 		if (key != null && !key.isEmpty()) {
-			StringBuilder keyUri = new StringBuilder("api/documents/keys/").append(URLEncoder.encode(key.trim(), StandardCharsets.UTF_8.toString()));
+			StringBuilder keyUri = new StringBuilder(ApiRoutes.DOCUMENTS.getValue()).append("/keys/").append(URLEncoder.encode(key.trim(), StandardCharsets.UTF_8.toString()));
 			//string format
 			DocumentQueryResponse model = client.getRestClient().get(keyUri.toString(), DocumentQueryResponse.class);
 			return getDocument(model.getDocument());
@@ -88,8 +87,8 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return Util.readStream(stream);
 	}
 
-	public   DocumentModel GetDocumentModel(UUID id) throws RestException {
-		StringBuilder idUri = new StringBuilder("api/documents/").append(id.toString());
+	public DocumentModel GetDocumentModel(UUID id) throws RestException {
+		StringBuilder idUri = new StringBuilder(ApiRoutes.DOCUMENTS.getValue()).append(id.toString());
 		DocumentModel documentModel = client.getRestClient().get(idUri.toString(), new TypeReference<DocumentModel>(){});
 
 		return documentModel;
