@@ -16,58 +16,94 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.Roles;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
- * SignerSummary
+ * SubscriptionAccessModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SubscriptionAccessModel {
 
-  @JsonProperty("certificate")
+  @JsonProperty("subscriptionId")
 
-  private CertificateSummary certificate = null;
+  private UUID subscriptionId = null;
 
-  @JsonProperty("date")
+  @JsonProperty("roles")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private List<Roles> roles = null;
+
+  @JsonProperty("parentRoles")
+
+  private List<String> parentRoles = null;
+  public SubscriptionAccessModel subscriptionId(UUID subscriptionId) {
+    this.subscriptionId = subscriptionId;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get subscriptionId
+  * @return subscriptionId
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public UUID getSubscriptionId() {
+    return subscriptionId;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setSubscriptionId(UUID subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public SubscriptionAccessModel roles(List<Roles> roles) {
+    this.roles = roles;
     return this;
   }
 
-  
+  public SubscriptionAccessModel addRolesItem(Roles rolesItem) {
+    if (this.roles == null) {
+      this.roles = new ArrayList<Roles>();
+    }
+    this.roles.add(rolesItem);
+    return this;
+  }
 
   /**
-  * Get date
-  * @return date
+  * Get roles
+  * @return roles
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public List<Roles> getRoles() {
+    return roles;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setRoles(List<Roles> roles) {
+    this.roles = roles;
+  }
+  public SubscriptionAccessModel parentRoles(List<String> parentRoles) {
+    this.parentRoles = parentRoles;
+    return this;
+  }
+
+  public SubscriptionAccessModel addParentRolesItem(String parentRolesItem) {
+    if (this.parentRoles == null) {
+      this.parentRoles = new ArrayList<String>();
+    }
+    this.parentRoles.add(parentRolesItem);
+    return this;
+  }
+
+  /**
+  * Get parentRoles
+  * @return parentRoles
+  **/
+  @Schema(description = "")
+  public List<String> getParentRoles() {
+    return parentRoles;
+  }
+  public void setParentRoles(List<String> parentRoles) {
+    this.parentRoles = parentRoles;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +113,25 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    SubscriptionAccessModel subscriptionAccessModel = (SubscriptionAccessModel) o;
+    return Objects.equals(this.subscriptionId, subscriptionAccessModel.subscriptionId) &&
+        Objects.equals(this.roles, subscriptionAccessModel.roles) &&
+        Objects.equals(this.parentRoles, subscriptionAccessModel.parentRoles);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(subscriptionId, roles, parentRoles);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class SubscriptionAccessModel {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    parentRoles: ").append(toIndentedString(parentRoles)).append("\n");
     sb.append("}");
     return sb.toString();
   }

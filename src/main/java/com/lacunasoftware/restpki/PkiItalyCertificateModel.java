@@ -16,58 +16,79 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.PkiItalyCertificateTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * PkiItalyCertificateModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class PkiItalyCertificateModel {
 
-  @JsonProperty("certificate")
+  @JsonProperty("certificateType")
 
-  private CertificateSummary certificate = null;
+  private PkiItalyCertificateTypes certificateType = null;
 
-  @JsonProperty("date")
+  @JsonProperty("codiceFiscale")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private String codiceFiscale = null;
+
+  @JsonProperty("idCarta")
+
+  private String idCarta = null;
+  public PkiItalyCertificateModel certificateType(PkiItalyCertificateTypes certificateType) {
+    this.certificateType = certificateType;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get certificateType
+  * @return certificateType
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public PkiItalyCertificateTypes getCertificateType() {
+    return certificateType;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setCertificateType(PkiItalyCertificateTypes certificateType) {
+    this.certificateType = certificateType;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public PkiItalyCertificateModel codiceFiscale(String codiceFiscale) {
+    this.codiceFiscale = codiceFiscale;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get codiceFiscale
+  * @return codiceFiscale
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public String getCodiceFiscale() {
+    return codiceFiscale;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setCodiceFiscale(String codiceFiscale) {
+    this.codiceFiscale = codiceFiscale;
+  }
+  public PkiItalyCertificateModel idCarta(String idCarta) {
+    this.idCarta = idCarta;
+    return this;
+  }
+
+  
+
+  /**
+  * Get idCarta
+  * @return idCarta
+  **/
+  @Schema(description = "")
+  public String getIdCarta() {
+    return idCarta;
+  }
+  public void setIdCarta(String idCarta) {
+    this.idCarta = idCarta;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +98,25 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    PkiItalyCertificateModel pkiItalyCertificateModel = (PkiItalyCertificateModel) o;
+    return Objects.equals(this.certificateType, pkiItalyCertificateModel.certificateType) &&
+        Objects.equals(this.codiceFiscale, pkiItalyCertificateModel.codiceFiscale) &&
+        Objects.equals(this.idCarta, pkiItalyCertificateModel.idCarta);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(certificateType, codiceFiscale, idCarta);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class PkiItalyCertificateModel {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    certificateType: ").append(toIndentedString(certificateType)).append("\n");
+    sb.append("    codiceFiscale: ").append(toIndentedString(codiceFiscale)).append("\n");
+    sb.append("    idCarta: ").append(toIndentedString(idCarta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

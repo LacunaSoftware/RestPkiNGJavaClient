@@ -16,58 +16,147 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.ApplicationKeyTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * ApplicationKeyModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class ApplicationKeyModel {
 
-  @JsonProperty("certificate")
+  @JsonProperty("id")
 
-  private CertificateSummary certificate = null;
+  private UUID id = null;
 
-  @JsonProperty("date")
+  @JsonProperty("type")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private ApplicationKeyTypes type = null;
+
+  @JsonProperty("applicationId")
+
+  private UUID applicationId = null;
+
+  @JsonProperty("description")
+
+  private String description = null;
+
+  @JsonProperty("expiresOn")
+
+  private OffsetDateTime expiresOn = null;
+
+  @JsonProperty("certificateThumbprint")
+
+  private String certificateThumbprint = null;
+  public ApplicationKeyModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get id
+  * @return id
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public UUID getId() {
+    return id;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setId(UUID id) {
+    this.id = id;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public ApplicationKeyModel type(ApplicationKeyTypes type) {
+    this.type = type;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get type
+  * @return type
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public ApplicationKeyTypes getType() {
+    return type;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setType(ApplicationKeyTypes type) {
+    this.type = type;
+  }
+  public ApplicationKeyModel applicationId(UUID applicationId) {
+    this.applicationId = applicationId;
+    return this;
+  }
+
+  
+
+  /**
+  * Get applicationId
+  * @return applicationId
+  **/
+  @Schema(description = "")
+  public UUID getApplicationId() {
+    return applicationId;
+  }
+  public void setApplicationId(UUID applicationId) {
+    this.applicationId = applicationId;
+  }
+  public ApplicationKeyModel description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  
+
+  /**
+  * Get description
+  * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+  public void setDescription(String description) {
+    this.description = description;
+  }
+  public ApplicationKeyModel expiresOn(OffsetDateTime expiresOn) {
+    this.expiresOn = expiresOn;
+    return this;
+  }
+
+  
+
+  /**
+  * Get expiresOn
+  * @return expiresOn
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getExpiresOn() {
+    return expiresOn;
+  }
+  public void setExpiresOn(OffsetDateTime expiresOn) {
+    this.expiresOn = expiresOn;
+  }
+  public ApplicationKeyModel certificateThumbprint(String certificateThumbprint) {
+    this.certificateThumbprint = certificateThumbprint;
+    return this;
+  }
+
+  
+
+  /**
+  * Get certificateThumbprint
+  * @return certificateThumbprint
+  **/
+  @Schema(description = "")
+  public String getCertificateThumbprint() {
+    return certificateThumbprint;
+  }
+  public void setCertificateThumbprint(String certificateThumbprint) {
+    this.certificateThumbprint = certificateThumbprint;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +166,31 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    ApplicationKeyModel applicationKeyModel = (ApplicationKeyModel) o;
+    return Objects.equals(this.id, applicationKeyModel.id) &&
+        Objects.equals(this.type, applicationKeyModel.type) &&
+        Objects.equals(this.applicationId, applicationKeyModel.applicationId) &&
+        Objects.equals(this.description, applicationKeyModel.description) &&
+        Objects.equals(this.expiresOn, applicationKeyModel.expiresOn) &&
+        Objects.equals(this.certificateThumbprint, applicationKeyModel.certificateThumbprint);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(id, type, applicationId, description, expiresOn, certificateThumbprint);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class ApplicationKeyModel {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
+    sb.append("    certificateThumbprint: ").append(toIndentedString(certificateThumbprint)).append("\n");
     sb.append("}");
     return sb.toString();
   }

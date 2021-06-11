@@ -16,58 +16,65 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.SubscriptionAccessModelRolesRootRolesApplicationModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * SignerSummary
+ * SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse {
 
-  @JsonProperty("certificate")
+  @JsonProperty("items")
 
-  private CertificateSummary certificate = null;
+  private List<SubscriptionAccessModelRolesRootRolesApplicationModel> items = null;
 
-  @JsonProperty("date")
+  @JsonProperty("totalCount")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private Integer totalCount = null;
+  public SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse items(List<SubscriptionAccessModelRolesRootRolesApplicationModel> items) {
+    this.items = items;
+    return this;
+  }
+
+  public SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse addItemsItem(SubscriptionAccessModelRolesRootRolesApplicationModel itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<SubscriptionAccessModelRolesRootRolesApplicationModel>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+  /**
+  * Get items
+  * @return items
+  **/
+  @Schema(description = "")
+  public List<SubscriptionAccessModelRolesRootRolesApplicationModel> getItems() {
+    return items;
+  }
+  public void setItems(List<SubscriptionAccessModelRolesRootRolesApplicationModel> items) {
+    this.items = items;
+  }
+  public SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get totalCount
+  * @return totalCount
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public Integer getTotalCount() {
+    return totalCount;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-  }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  
-
-  /**
-  * Get date
-  * @return date
-  **/
-  @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
-  }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +84,23 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse subscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse = (SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse) o;
+    return Objects.equals(this.items, subscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse.items) &&
+        Objects.equals(this.totalCount, subscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(items, totalCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

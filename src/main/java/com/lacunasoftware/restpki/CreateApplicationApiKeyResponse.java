@@ -16,58 +16,57 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.ApplicationKeyModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * CreateApplicationApiKeyResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class CreateApplicationApiKeyResponse {
 
-  @JsonProperty("certificate")
+  @JsonProperty("key")
 
-  private CertificateSummary certificate = null;
+  private String key = null;
 
-  @JsonProperty("date")
+  @JsonProperty("info")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private ApplicationKeyModel info = null;
+  public CreateApplicationApiKeyResponse key(String key) {
+    this.key = key;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get key
+  * @return key
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public String getKey() {
+    return key;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setKey(String key) {
+    this.key = key;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public CreateApplicationApiKeyResponse info(ApplicationKeyModel info) {
+    this.info = info;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get info
+  * @return info
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public ApplicationKeyModel getInfo() {
+    return info;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setInfo(ApplicationKeyModel info) {
+    this.info = info;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +76,23 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    CreateApplicationApiKeyResponse createApplicationApiKeyResponse = (CreateApplicationApiKeyResponse) o;
+    return Objects.equals(this.key, createApplicationApiKeyResponse.key) &&
+        Objects.equals(this.info, createApplicationApiKeyResponse.info);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(key, info);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class CreateApplicationApiKeyResponse {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("}");
     return sb.toString();
   }

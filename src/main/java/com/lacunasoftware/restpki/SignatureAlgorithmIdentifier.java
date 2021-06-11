@@ -16,58 +16,35 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.SignatureAlgorithms;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * SignatureAlgorithmIdentifier
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignatureAlgorithmIdentifier {
 
-  @JsonProperty("certificate")
+  @JsonProperty("algorithm")
 
-  private CertificateSummary certificate = null;
-
-  @JsonProperty("date")
-
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private SignatureAlgorithms algorithm = null;
+  public SignatureAlgorithmIdentifier algorithm(SignatureAlgorithms algorithm) {
+    this.algorithm = algorithm;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get algorithm
+  * @return algorithm
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public SignatureAlgorithms getAlgorithm() {
+    return algorithm;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-  }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  
-
-  /**
-  * Get date
-  * @return date
-  **/
-  @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
-  }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setAlgorithm(SignatureAlgorithms algorithm) {
+    this.algorithm = algorithm;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +54,21 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    SignatureAlgorithmIdentifier signatureAlgorithmIdentifier = (SignatureAlgorithmIdentifier) o;
+    return Objects.equals(this.algorithm, signatureAlgorithmIdentifier.algorithm);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(algorithm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class SignatureAlgorithmIdentifier {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

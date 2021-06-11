@@ -16,58 +16,65 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.RootRoles;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * SignerSummary
+ * RootAuthorizationData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class RootAuthorizationData {
 
-  @JsonProperty("certificate")
+  @JsonProperty("roles")
 
-  private CertificateSummary certificate = null;
+  private List<RootRoles> roles = null;
 
-  @JsonProperty("date")
+  @JsonProperty("grantAppId")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private String grantAppId = null;
+  public RootAuthorizationData roles(List<RootRoles> roles) {
+    this.roles = roles;
+    return this;
+  }
+
+  public RootAuthorizationData addRolesItem(RootRoles rolesItem) {
+    if (this.roles == null) {
+      this.roles = new ArrayList<RootRoles>();
+    }
+    this.roles.add(rolesItem);
+    return this;
+  }
+
+  /**
+  * Get roles
+  * @return roles
+  **/
+  @Schema(description = "")
+  public List<RootRoles> getRoles() {
+    return roles;
+  }
+  public void setRoles(List<RootRoles> roles) {
+    this.roles = roles;
+  }
+  public RootAuthorizationData grantAppId(String grantAppId) {
+    this.grantAppId = grantAppId;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get grantAppId
+  * @return grantAppId
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public String getGrantAppId() {
+    return grantAppId;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-  }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  
-
-  /**
-  * Get date
-  * @return date
-  **/
-  @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
-  }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setGrantAppId(String grantAppId) {
+    this.grantAppId = grantAppId;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +84,23 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    RootAuthorizationData rootAuthorizationData = (RootAuthorizationData) o;
+    return Objects.equals(this.roles, rootAuthorizationData.roles) &&
+        Objects.equals(this.grantAppId, rootAuthorizationData.grantAppId);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(roles, grantAppId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class RootAuthorizationData {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
+    sb.append("    grantAppId: ").append(toIndentedString(grantAppId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
