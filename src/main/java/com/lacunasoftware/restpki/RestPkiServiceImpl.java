@@ -100,8 +100,8 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return documentModel;
 	}
 
-	// region AllocateDocumentKey 
-	public DocumentKeyModel AllocateDocumentKey(Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException {
+	// region allocateDocumentKey 
+	public DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException {
 		Map<String, String> customHeaders = null;
 		if(subscriptionId != null){
 			customHeaders = new HashMap<String, String>();
@@ -116,19 +116,19 @@ public class RestPkiServiceImpl implements RestPkiService {
 			provisionalMetadata != null ? request : null,
 			DocumentKeyModel.class);
 	}
-	public DocumentKeyModel AllocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws RestException {
-		return AllocateDocumentKey(provisionalMetadata, null);
+	public DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws RestException {
+		return allocateDocumentKey(provisionalMetadata, null);
 	}
-	public DocumentKeyModel AllocateDocumentKey(UUID subscriptionId) throws RestException { 
-		return AllocateDocumentKey(null, subscriptionId);
+	public DocumentKeyModel allocateDocumentKey(UUID subscriptionId) throws RestException { 
+		return allocateDocumentKey(null, subscriptionId);
 	}
-	public DocumentKeyModel AllocateDocumentKey() throws RestException {
-		return AllocateDocumentKey(null, null);
+	public DocumentKeyModel allocateDocumentKey() throws RestException {
+		return allocateDocumentKey(null, null);
 	}
-	// endregion AllocateDocumentKey
+	// endregion allocateDocumentKey
 
-	// region AllocateDocumentKeys
-	public List<DocumentKeyModel> AllocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException {
+	// region allocateDocumentKeys
+	public List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException {
 		Map<String, String> customHeaders = null;
 		if(subscriptionId != null){
 			customHeaders = new HashMap<String, String>();
@@ -144,19 +144,19 @@ public class RestPkiServiceImpl implements RestPkiService {
 			request,
 			List.class);
 	}
-	public List<DocumentKeyModel> AllocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata) throws RestException {
-		return AllocateDocumentKeys(count, provisionalMetadata, null);
+	public List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata) throws RestException {
+		return allocateDocumentKeys(count, provisionalMetadata, null);
 	}
-	public List<DocumentKeyModel> AllocateDocumentKeys(int count, UUID subscriptionId) throws RestException {
-		return AllocateDocumentKeys(count, null, subscriptionId);
+	public List<DocumentKeyModel> allocateDocumentKeys(int count, UUID subscriptionId) throws RestException {
+		return allocateDocumentKeys(count, null, subscriptionId);
 	}
-	public List<DocumentKeyModel> AllocateDocumentKeys(int count) throws RestException {
-		return AllocateDocumentKeys(count, null, null);
+	public List<DocumentKeyModel> allocateDocumentKeys(int count) throws RestException {
+		return allocateDocumentKeys(count, null, null);
 	}
-	// endregion AllocateDocumentKeys
+	// endregion allocateDocumentKeys
 
-	// region CreateApplication 
-	public ApplicationModel CreateApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException {
+	// region createApplication 
+	public ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException {
 		Map<String, String> customHeaders = null;
 		if(subscriptionId != null){
 			customHeaders = new HashMap<String, String>();
@@ -174,25 +174,26 @@ public class RestPkiServiceImpl implements RestPkiService {
 		ApplicationModel response = this.client.getRestClient()
 			.post(ApiRoutes.APPLICATIONS + "/", request, ApplicationModel.class);
 		if(defaultDocumentMetadata != null && !defaultDocumentMetadata.isEmpty()) {
-			UpdateApplicationDefaultDocumentMetadata(response.getId(), defaultDocumentMetadata);
+			updateApplicationDefaultDocumentMetadata(response.getId(), defaultDocumentMetadata);
 		}
 		return response;
 	}
-	public ApplicationModel CreateApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
-		return CreateApplication(name, roles, defaultDocumentMetadata, null); 
+	public ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
+		return createApplication(name, roles, defaultDocumentMetadata, null); 
 	}
-	public ApplicationModel CreateApplication(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
-		return CreateApplication(name, roles, null, subscriptionId); 
+	public ApplicationModel createApplication(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
+		return createApplication(name, roles, null, subscriptionId); 
 	}
-	public ApplicationModel CreateApplication(String name, List<Roles> roles) throws RestException {
-		return CreateApplication(name, roles, null, null); 
+	public ApplicationModel createApplication(String name, List<Roles> roles) throws RestException {
+		return createApplication(name, roles, null, null); 
 	}
-	// endregion CreateApplication
+	// endregion createApplication
 
-	// region CreateApplicationKey
-	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID id, OffsetDateTime expiresOn, String description) throws RestException {
-		description = !description.isEmpty() ? description :
-		 	"Generated on " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ssX"));
+	// region createApplicationKey
+	public CreateApplicationApiKeyResponse createApplicationKey(UUID id, OffsetDateTime expiresOn, String description) throws RestException {
+		if (description == null || description.isEmpty()){
+			description = "Generated on " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ssX"));
+		}
 
 		CreateApplicationApiKeyRequest request = new CreateApplicationApiKeyRequest();
 		request.setDescription(description);
@@ -203,41 +204,41 @@ public class RestPkiServiceImpl implements RestPkiService {
 			request,
 			CreateApplicationApiKeyResponse.class);
 	}
-	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId, OffsetDateTime expiresOn) throws RestException {
-		return CreateApplicationKey(applicationId, expiresOn, null);
+	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, OffsetDateTime expiresOn) throws RestException {
+		return createApplicationKey(applicationId, expiresOn, null);
 	}
-	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId, String description) throws RestException {
-		return CreateApplicationKey(applicationId, null, description);
+	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, String description) throws RestException {
+		return createApplicationKey(applicationId, null, description);
 	}
-	public CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId) throws RestException {
-		return CreateApplicationKey(applicationId, null, null);
+	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws RestException {
+		return createApplicationKey(applicationId, null, null);
 	}
-	// endregion CreateApplicationKey
+	// endregion createApplicationKey
 
-	// region CreateApplicationandKey
-	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException {
-		ApplicationModel app = CreateApplication(name, roles, defaultDocumentMetadata, subscriptionId);
-		CreateApplicationApiKeyResponse key = CreateApplicationKey(app.getId());
+	// region createApplicationAndKey
+	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException {
+		ApplicationModel app = createApplication(name, roles, defaultDocumentMetadata, subscriptionId);
+		CreateApplicationApiKeyResponse key = createApplicationKey(app.getId());
 		return new Pair<ApplicationModel, String>(app, key.getKey());
 	}
-	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
-		return CreateApplicationAndKey(name, roles, defaultDocumentMetadata, null);
+	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
+		return createApplicationAndKey(name, roles, defaultDocumentMetadata, null);
 	}
-	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
-		return CreateApplicationAndKey(name, roles, null, subscriptionId);
+	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
+		return createApplicationAndKey(name, roles, null, subscriptionId);
 	}
-	public Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles) throws RestException {
-		return CreateApplicationAndKey(name, roles, null, null);
+	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles) throws RestException {
+		return createApplicationAndKey(name, roles, null, null);
 	}
-	// endregion CreateApplicationandKey
+	// endregion createApplicationAndKey
 
-	public Map<String, List<String>> GetApplicationDefaultDocumentMetadata(UUID applicationId) throws RestException {
+	public Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws RestException {
 		return this.client.getRestClient().get(
 			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
 			Map.class);
 	}
 
-	public Map<String, List<String>> UpdateApplicationDefaultDocumentMetadata(UUID applicationId, Map<String, List<String>> defaultDocumentMetadata) throws RestException {
+	public Map<String, List<String>> updateApplicationDefaultDocumentMetadata(UUID applicationId, Map<String, List<String>> defaultDocumentMetadata) throws RestException {
 		return this.client.getRestClient().put(
 			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
 			defaultDocumentMetadata,

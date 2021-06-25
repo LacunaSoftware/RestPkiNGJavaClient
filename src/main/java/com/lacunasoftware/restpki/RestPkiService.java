@@ -34,21 +34,21 @@ public interface RestPkiService {
 
     DocumentModel GetDocumentModel(UUID id) throws RestException;
 
-    DocumentKeyModel AllocateDocumentKey(Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException;
+    DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException;
 
-    List<DocumentKeyModel> AllocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException;
+    List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException;
 
     // region Application management
 
-    ApplicationModel CreateApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
+    ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
 
-    CreateApplicationApiKeyResponse CreateApplicationKey(UUID applicationId, OffsetDateTime expiresOn, String description) throws RestException;
+    CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, OffsetDateTime expiresOn, String description) throws RestException;
 
-    Pair<ApplicationModel, String> CreateApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
+    Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
 
-    Map<String, List<String>> GetApplicationDefaultDocumentMetadata(UUID applicationId) throws RestException;
+    Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws RestException;
 
-    Map<String, List<String>> UpdateApplicationDefaultDocumentMetadata(UUID applicationId,  Map<String, List<String>> defaultDocumentMetadata) throws RestException;
+    Map<String, List<String>> updateApplicationDefaultDocumentMetadata(UUID applicationId,  Map<String, List<String>> defaultDocumentMetadata) throws RestException;
 
     // endregion
 }
