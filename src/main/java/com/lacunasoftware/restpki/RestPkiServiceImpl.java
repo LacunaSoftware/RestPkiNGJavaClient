@@ -119,9 +119,6 @@ public class RestPkiServiceImpl implements RestPkiService {
 	public DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws RestException {
 		return allocateDocumentKey(provisionalMetadata, null);
 	}
-	public DocumentKeyModel allocateDocumentKey(UUID subscriptionId) throws RestException { 
-		return allocateDocumentKey(null, subscriptionId);
-	}
 	public DocumentKeyModel allocateDocumentKey() throws RestException {
 		return allocateDocumentKey(null, null);
 	}
@@ -146,9 +143,6 @@ public class RestPkiServiceImpl implements RestPkiService {
 	}
 	public List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata) throws RestException {
 		return allocateDocumentKeys(count, provisionalMetadata, null);
-	}
-	public List<DocumentKeyModel> allocateDocumentKeys(int count, UUID subscriptionId) throws RestException {
-		return allocateDocumentKeys(count, null, subscriptionId);
 	}
 	public List<DocumentKeyModel> allocateDocumentKeys(int count) throws RestException {
 		return allocateDocumentKeys(count, null, null);
@@ -181,9 +175,6 @@ public class RestPkiServiceImpl implements RestPkiService {
 	public ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
 		return createApplication(name, roles, defaultDocumentMetadata, null); 
 	}
-	public ApplicationModel createApplication(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
-		return createApplication(name, roles, null, subscriptionId); 
-	}
 	public ApplicationModel createApplication(String name, List<Roles> roles) throws RestException {
 		return createApplication(name, roles, null, null); 
 	}
@@ -207,9 +198,6 @@ public class RestPkiServiceImpl implements RestPkiService {
 	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, OffsetDateTime expiresOn) throws RestException {
 		return createApplicationKey(applicationId, expiresOn, null);
 	}
-	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, String description) throws RestException {
-		return createApplicationKey(applicationId, null, description);
-	}
 	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws RestException {
 		return createApplicationKey(applicationId, null, null);
 	}
@@ -223,9 +211,6 @@ public class RestPkiServiceImpl implements RestPkiService {
 	}
 	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException {
 		return createApplicationAndKey(name, roles, defaultDocumentMetadata, null);
-	}
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles, UUID subscriptionId) throws RestException {
-		return createApplicationAndKey(name, roles, null, subscriptionId);
 	}
 	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles) throws RestException {
 		return createApplicationAndKey(name, roles, null, null);
