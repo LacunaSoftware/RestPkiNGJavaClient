@@ -72,7 +72,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return listSigner;
 	}
 
-	public  Document findDocumentByKey(String key) throws RestException, IOException{
+	public Document findDocumentByKey(String key) throws RestException, IOException{
 		if (key != null && !key.isEmpty()) {
 			StringBuilder keyUri = new StringBuilder(ApiRoutes.DOCUMENTS.getValue()).append("/keys/").append(URLEncoder.encode(key.trim(), StandardCharsets.UTF_8.toString()));
 			//string format
@@ -94,7 +94,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 	}
 
 	public DocumentModel GetDocumentModel(UUID id) throws RestException {
-		StringBuilder idUri = new StringBuilder(ApiRoutes.DOCUMENTS.getValue()).append(id.toString());
+		StringBuilder idUri = new StringBuilder(ApiRoutes.DOCUMENTS.getValue()).append('/').append(id.toString());
 		DocumentModel documentModel = client.getRestClient().get(idUri.toString(), new TypeReference<DocumentModel>(){});
 
 		return documentModel;
