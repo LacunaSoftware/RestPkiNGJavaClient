@@ -16,58 +16,57 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 
 /**
- * SignerSummary
+ * CreateApplicationApiKeyRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class CreateApplicationApiKeyRequest {
 
-  @JsonProperty("certificate")
+  @JsonProperty("description")
 
-  private CertificateSummary certificate = null;
+  private String description = null;
 
-  @JsonProperty("date")
+  @JsonProperty("expiresOn")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private OffsetDateTime expiresOn = null;
+  public CreateApplicationApiKeyRequest description(String description) {
+    this.description = description;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get description
+  * @return description
   **/
-  @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  @Schema(required = true, description = "")
+  public String getDescription() {
+    return description;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setDescription(String description) {
+    this.description = description;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public CreateApplicationApiKeyRequest expiresOn(OffsetDateTime expiresOn) {
+    this.expiresOn = expiresOn;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get expiresOn
+  * @return expiresOn
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public OffsetDateTime getExpiresOn() {
+    return expiresOn;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setExpiresOn(OffsetDateTime expiresOn) {
+    this.expiresOn = expiresOn;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +76,23 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    CreateApplicationApiKeyRequest createApplicationApiKeyRequest = (CreateApplicationApiKeyRequest) o;
+    return Objects.equals(this.description, createApplicationApiKeyRequest.description) &&
+        Objects.equals(this.expiresOn, createApplicationApiKeyRequest.expiresOn);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(description, expiresOn);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class CreateApplicationApiKeyRequest {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

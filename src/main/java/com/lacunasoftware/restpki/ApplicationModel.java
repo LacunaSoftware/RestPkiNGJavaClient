@@ -1,0 +1,3 @@
+package com.lacunasoftware.restpki;
+
+public class ApplicationModel extends SubscriptionAccessModelRolesRootRolesApplicationModel {}

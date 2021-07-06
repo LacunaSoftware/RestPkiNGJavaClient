@@ -16,58 +16,161 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.RootRoles;
+import com.lacunasoftware.restpki.SubscriptionAccessModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
- * SignerSummary
+ * SubscriptionAccessModelRolesRootRolesApplicationModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SubscriptionAccessModelRolesRootRolesApplicationModel {
 
-  @JsonProperty("certificate")
+  @JsonProperty("id")
 
-  private CertificateSummary certificate = null;
+  private UUID id = null;
 
-  @JsonProperty("date")
+  @JsonProperty("subscriptionId")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private UUID subscriptionId = null;
+
+  @JsonProperty("name")
+
+  private String name = null;
+
+  @JsonProperty("rootRoles")
+
+  private List<RootRoles> rootRoles = null;
+
+  @JsonProperty("subscriptions")
+
+  private List<SubscriptionAccessModel> subscriptions = null;
+
+  @JsonProperty("grantAppId")
+
+  private String grantAppId = null;
+  public SubscriptionAccessModelRolesRootRolesApplicationModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get id
+  * @return id
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public UUID getId() {
+    return id;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setId(UUID id) {
+    this.id = id;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public SubscriptionAccessModelRolesRootRolesApplicationModel subscriptionId(UUID subscriptionId) {
+    this.subscriptionId = subscriptionId;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get subscriptionId
+  * @return subscriptionId
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public UUID getSubscriptionId() {
+    return subscriptionId;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setSubscriptionId(UUID subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+  public SubscriptionAccessModelRolesRootRolesApplicationModel name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  
+
+  /**
+  * Get name
+  * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public SubscriptionAccessModelRolesRootRolesApplicationModel rootRoles(List<RootRoles> rootRoles) {
+    this.rootRoles = rootRoles;
+    return this;
+  }
+
+  public SubscriptionAccessModelRolesRootRolesApplicationModel addRootRolesItem(RootRoles rootRolesItem) {
+    if (this.rootRoles == null) {
+      this.rootRoles = new ArrayList<RootRoles>();
+    }
+    this.rootRoles.add(rootRolesItem);
+    return this;
+  }
+
+  /**
+  * Get rootRoles
+  * @return rootRoles
+  **/
+  @Schema(description = "")
+  public List<RootRoles> getRootRoles() {
+    return rootRoles;
+  }
+  public void setRootRoles(List<RootRoles> rootRoles) {
+    this.rootRoles = rootRoles;
+  }
+  public SubscriptionAccessModelRolesRootRolesApplicationModel subscriptions(List<SubscriptionAccessModel> subscriptions) {
+    this.subscriptions = subscriptions;
+    return this;
+  }
+
+  public SubscriptionAccessModelRolesRootRolesApplicationModel addSubscriptionsItem(SubscriptionAccessModel subscriptionsItem) {
+    if (this.subscriptions == null) {
+      this.subscriptions = new ArrayList<SubscriptionAccessModel>();
+    }
+    this.subscriptions.add(subscriptionsItem);
+    return this;
+  }
+
+  /**
+  * Get subscriptions
+  * @return subscriptions
+  **/
+  @Schema(description = "")
+  public List<SubscriptionAccessModel> getSubscriptions() {
+    return subscriptions;
+  }
+  public void setSubscriptions(List<SubscriptionAccessModel> subscriptions) {
+    this.subscriptions = subscriptions;
+  }
+  public SubscriptionAccessModelRolesRootRolesApplicationModel grantAppId(String grantAppId) {
+    this.grantAppId = grantAppId;
+    return this;
+  }
+
+  
+
+  /**
+  * Get grantAppId
+  * @return grantAppId
+  **/
+  @Schema(description = "")
+  public String getGrantAppId() {
+    return grantAppId;
+  }
+  public void setGrantAppId(String grantAppId) {
+    this.grantAppId = grantAppId;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +180,31 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    SubscriptionAccessModelRolesRootRolesApplicationModel subscriptionAccessModelRolesRootRolesApplicationModel = (SubscriptionAccessModelRolesRootRolesApplicationModel) o;
+    return Objects.equals(this.id, subscriptionAccessModelRolesRootRolesApplicationModel.id) &&
+        Objects.equals(this.subscriptionId, subscriptionAccessModelRolesRootRolesApplicationModel.subscriptionId) &&
+        Objects.equals(this.name, subscriptionAccessModelRolesRootRolesApplicationModel.name) &&
+        Objects.equals(this.rootRoles, subscriptionAccessModelRolesRootRolesApplicationModel.rootRoles) &&
+        Objects.equals(this.subscriptions, subscriptionAccessModelRolesRootRolesApplicationModel.subscriptions) &&
+        Objects.equals(this.grantAppId, subscriptionAccessModelRolesRootRolesApplicationModel.grantAppId);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(id, subscriptionId, name, rootRoles, subscriptions, grantAppId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class SubscriptionAccessModelRolesRootRolesApplicationModel {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rootRoles: ").append(toIndentedString(rootRoles)).append("\n");
+    sb.append("    subscriptions: ").append(toIndentedString(subscriptions)).append("\n");
+    sb.append("    grantAppId: ").append(toIndentedString(grantAppId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

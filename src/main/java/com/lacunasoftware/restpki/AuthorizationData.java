@@ -16,58 +16,43 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.Roles;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * SignerSummary
+ * AuthorizationData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class AuthorizationData {
 
-  @JsonProperty("certificate")
+  @JsonProperty("roles")
 
-  private CertificateSummary certificate = null;
-
-  @JsonProperty("date")
-
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private List<Roles> roles = null;
+  public AuthorizationData roles(List<Roles> roles) {
+    this.roles = roles;
     return this;
   }
 
-  
-
-  /**
-  * Get certificate
-  * @return certificate
-  **/
-  @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
-  }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-  }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public AuthorizationData addRolesItem(Roles rolesItem) {
+    if (this.roles == null) {
+      this.roles = new ArrayList<Roles>();
+    }
+    this.roles.add(rolesItem);
     return this;
   }
 
-  
-
   /**
-  * Get date
-  * @return date
+  * Get roles
+  * @return roles
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public List<Roles> getRoles() {
+    return roles;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setRoles(List<Roles> roles) {
+    this.roles = roles;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +62,21 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    AuthorizationData authorizationData = (AuthorizationData) o;
+    return Objects.equals(this.roles, authorizationData.roles);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(roles);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class AuthorizationData {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("}");
     return sb.toString();
   }

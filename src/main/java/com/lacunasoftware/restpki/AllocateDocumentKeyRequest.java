@@ -16,58 +16,43 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * SignerSummary
+ * AllocateDocumentKeyRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class AllocateDocumentKeyRequest {
 
-  @JsonProperty("certificate")
+  @JsonProperty("provisionalMetadata")
 
-  private CertificateSummary certificate = null;
-
-  @JsonProperty("date")
-
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private Map<String, List<String>> provisionalMetadata = null;
+  public AllocateDocumentKeyRequest provisionalMetadata(Map<String, List<String>> provisionalMetadata) {
+    this.provisionalMetadata = provisionalMetadata;
     return this;
   }
 
   
-
-  /**
-  * Get certificate
-  * @return certificate
-  **/
-  @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
-  }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-  }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public AllocateDocumentKeyRequest putProvisionalMetadataItem(String key, List<String> provisionalMetadataItem) {
+    if (this.provisionalMetadata == null) {
+      this.provisionalMetadata = null;
+    }
+    this.provisionalMetadata.put(key, provisionalMetadataItem);
     return this;
   }
-
-  
-
   /**
-  * Get date
-  * @return date
+  * Get provisionalMetadata
+  * @return provisionalMetadata
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public Map<String, List<String>> getProvisionalMetadata() {
+    return provisionalMetadata;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setProvisionalMetadata(Map<String, List<String>> provisionalMetadata) {
+    this.provisionalMetadata = provisionalMetadata;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +62,21 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    AllocateDocumentKeyRequest allocateDocumentKeyRequest = (AllocateDocumentKeyRequest) o;
+    return Objects.equals(this.provisionalMetadata, allocateDocumentKeyRequest.provisionalMetadata);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(provisionalMetadata);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class AllocateDocumentKeyRequest {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    provisionalMetadata: ").append(toIndentedString(provisionalMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

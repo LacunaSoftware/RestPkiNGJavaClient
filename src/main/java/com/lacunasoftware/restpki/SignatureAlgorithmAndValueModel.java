@@ -16,58 +16,79 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.SignatureAlgorithmIdentifier;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * SignatureAlgorithmAndValueModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignatureAlgorithmAndValueModel {
 
-  @JsonProperty("certificate")
+  @JsonProperty("algorithmIdentifier")
 
-  private CertificateSummary certificate = null;
+  private SignatureAlgorithmIdentifier algorithmIdentifier = null;
 
-  @JsonProperty("date")
+  @JsonProperty("value")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private byte[] value = null;
+
+  @JsonProperty("hexValue")
+
+  private String hexValue = null;
+  public SignatureAlgorithmAndValueModel algorithmIdentifier(SignatureAlgorithmIdentifier algorithmIdentifier) {
+    this.algorithmIdentifier = algorithmIdentifier;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get algorithmIdentifier
+  * @return algorithmIdentifier
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public SignatureAlgorithmIdentifier getAlgorithmIdentifier() {
+    return algorithmIdentifier;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setAlgorithmIdentifier(SignatureAlgorithmIdentifier algorithmIdentifier) {
+    this.algorithmIdentifier = algorithmIdentifier;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public SignatureAlgorithmAndValueModel value(byte[] value) {
+    this.value = value;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get value
+  * @return value
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public byte[] getValue() {
+    return value;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setValue(byte[] value) {
+    this.value = value;
+  }
+  public SignatureAlgorithmAndValueModel hexValue(String hexValue) {
+    this.hexValue = hexValue;
+    return this;
+  }
+
+  
+
+  /**
+  * Get hexValue
+  * @return hexValue
+  **/
+  @Schema(description = "")
+  public String getHexValue() {
+    return hexValue;
+  }
+  public void setHexValue(String hexValue) {
+    this.hexValue = hexValue;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +98,25 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    SignatureAlgorithmAndValueModel signatureAlgorithmAndValueModel = (SignatureAlgorithmAndValueModel) o;
+    return Objects.equals(this.algorithmIdentifier, signatureAlgorithmAndValueModel.algorithmIdentifier) &&
+        Objects.equals(this.value, signatureAlgorithmAndValueModel.value) &&
+        Objects.equals(this.hexValue, signatureAlgorithmAndValueModel.hexValue);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(algorithmIdentifier, value, hexValue);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class SignatureAlgorithmAndValueModel {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    algorithmIdentifier: ").append(toIndentedString(algorithmIdentifier)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    hexValue: ").append(toIndentedString(hexValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
