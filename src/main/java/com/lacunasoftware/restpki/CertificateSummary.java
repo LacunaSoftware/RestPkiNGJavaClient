@@ -16,58 +16,166 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * CertificateSummary
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class CertificateSummary {
 
-  @JsonProperty("certificate")
+  @JsonProperty("thumbprint")
 
-  private CertificateSummary certificate = null;
+  private String thumbprint = null;
 
-  @JsonProperty("date")
+  @JsonProperty("subjectCommonName")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private String subjectCommonName = null;
+
+  @JsonProperty("subjectDisplayName")
+
+  private String subjectDisplayName = null;
+
+  @JsonProperty("subjectIdentifier")
+
+  private String subjectIdentifier = null;
+
+  @JsonProperty("emailAddress")
+
+  private String emailAddress = null;
+
+  @JsonProperty("organization")
+
+  private String organization = null;
+
+  @JsonProperty("organizationIdentifier")
+
+  private String organizationIdentifier = null;
+  public CertificateSummary thumbprint(String thumbprint) {
+    this.thumbprint = thumbprint;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get thumbprint
+  * @return thumbprint
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public String getThumbprint() {
+    return thumbprint;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setThumbprint(String thumbprint) {
+    this.thumbprint = thumbprint;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public CertificateSummary subjectCommonName(String subjectCommonName) {
+    this.subjectCommonName = subjectCommonName;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get subjectCommonName
+  * @return subjectCommonName
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public String getSubjectCommonName() {
+    return subjectCommonName;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setSubjectCommonName(String subjectCommonName) {
+    this.subjectCommonName = subjectCommonName;
+  }
+  public CertificateSummary subjectDisplayName(String subjectDisplayName) {
+    this.subjectDisplayName = subjectDisplayName;
+    return this;
+  }
+
+  
+
+  /**
+  * Get subjectDisplayName
+  * @return subjectDisplayName
+  **/
+  @Schema(description = "")
+  public String getSubjectDisplayName() {
+    return subjectDisplayName;
+  }
+  public void setSubjectDisplayName(String subjectDisplayName) {
+    this.subjectDisplayName = subjectDisplayName;
+  }
+  public CertificateSummary subjectIdentifier(String subjectIdentifier) {
+    this.subjectIdentifier = subjectIdentifier;
+    return this;
+  }
+
+  
+
+  /**
+  * Get subjectIdentifier
+  * @return subjectIdentifier
+  **/
+  @Schema(description = "")
+  public String getSubjectIdentifier() {
+    return subjectIdentifier;
+  }
+  public void setSubjectIdentifier(String subjectIdentifier) {
+    this.subjectIdentifier = subjectIdentifier;
+  }
+  public CertificateSummary emailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+    return this;
+  }
+
+  
+
+  /**
+  * Get emailAddress
+  * @return emailAddress
+  **/
+  @Schema(description = "")
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+  public CertificateSummary organization(String organization) {
+    this.organization = organization;
+    return this;
+  }
+
+  
+
+  /**
+  * Get organization
+  * @return organization
+  **/
+  @Schema(description = "")
+  public String getOrganization() {
+    return organization;
+  }
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
+  public CertificateSummary organizationIdentifier(String organizationIdentifier) {
+    this.organizationIdentifier = organizationIdentifier;
+    return this;
+  }
+
+  
+
+  /**
+  * Get organizationIdentifier
+  * @return organizationIdentifier
+  **/
+  @Schema(description = "")
+  public String getOrganizationIdentifier() {
+    return organizationIdentifier;
+  }
+  public void setOrganizationIdentifier(String organizationIdentifier) {
+    this.organizationIdentifier = organizationIdentifier;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +185,33 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    CertificateSummary certificateSummary = (CertificateSummary) o;
+    return Objects.equals(this.thumbprint, certificateSummary.thumbprint) &&
+        Objects.equals(this.subjectCommonName, certificateSummary.subjectCommonName) &&
+        Objects.equals(this.subjectDisplayName, certificateSummary.subjectDisplayName) &&
+        Objects.equals(this.subjectIdentifier, certificateSummary.subjectIdentifier) &&
+        Objects.equals(this.emailAddress, certificateSummary.emailAddress) &&
+        Objects.equals(this.organization, certificateSummary.organization) &&
+        Objects.equals(this.organizationIdentifier, certificateSummary.organizationIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(thumbprint, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class CertificateSummary {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    thumbprint: ").append(toIndentedString(thumbprint)).append("\n");
+    sb.append("    subjectCommonName: ").append(toIndentedString(subjectCommonName)).append("\n");
+    sb.append("    subjectDisplayName: ").append(toIndentedString(subjectDisplayName)).append("\n");
+    sb.append("    subjectIdentifier: ").append(toIndentedString(subjectIdentifier)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    organizationIdentifier: ").append(toIndentedString(organizationIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

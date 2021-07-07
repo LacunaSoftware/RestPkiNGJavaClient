@@ -16,58 +16,132 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.DocumentModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * SignerSummary
+ * DocumentKeyQueryResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class DocumentKeyQueryResponse {
 
-  @JsonProperty("certificate")
+  @JsonProperty("found")
 
-  private CertificateSummary certificate = null;
+  private Boolean found = null;
 
-  @JsonProperty("date")
+  @JsonProperty("formattedKey")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private String formattedKey = null;
+
+  @JsonProperty("hasDocument")
+
+  private Boolean hasDocument = null;
+
+  @JsonProperty("provisionalMetadata")
+
+  private Map<String, List<String>> provisionalMetadata = null;
+
+  @JsonProperty("document")
+
+  private DocumentModel document = null;
+  public DocumentKeyQueryResponse found(Boolean found) {
+    this.found = found;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get found
+  * @return found
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public Boolean isFound() {
+    return found;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setFound(Boolean found) {
+    this.found = found;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public DocumentKeyQueryResponse formattedKey(String formattedKey) {
+    this.formattedKey = formattedKey;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get formattedKey
+  * @return formattedKey
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public String getFormattedKey() {
+    return formattedKey;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setFormattedKey(String formattedKey) {
+    this.formattedKey = formattedKey;
+  }
+  public DocumentKeyQueryResponse hasDocument(Boolean hasDocument) {
+    this.hasDocument = hasDocument;
+    return this;
+  }
+
+  
+
+  /**
+  * Get hasDocument
+  * @return hasDocument
+  **/
+  @Schema(description = "")
+  public Boolean isHasDocument() {
+    return hasDocument;
+  }
+  public void setHasDocument(Boolean hasDocument) {
+    this.hasDocument = hasDocument;
+  }
+  public DocumentKeyQueryResponse provisionalMetadata(Map<String, List<String>> provisionalMetadata) {
+    this.provisionalMetadata = provisionalMetadata;
+    return this;
+  }
+
+  
+  public DocumentKeyQueryResponse putProvisionalMetadataItem(String key, List<String> provisionalMetadataItem) {
+    if (this.provisionalMetadata == null) {
+      this.provisionalMetadata = null;
+    }
+    this.provisionalMetadata.put(key, provisionalMetadataItem);
+    return this;
+  }
+  /**
+  * Get provisionalMetadata
+  * @return provisionalMetadata
+  **/
+  @Schema(description = "")
+  public Map<String, List<String>> getProvisionalMetadata() {
+    return provisionalMetadata;
+  }
+  public void setProvisionalMetadata(Map<String, List<String>> provisionalMetadata) {
+    this.provisionalMetadata = provisionalMetadata;
+  }
+  public DocumentKeyQueryResponse document(DocumentModel document) {
+    this.document = document;
+    return this;
+  }
+
+  
+
+  /**
+  * Get document
+  * @return document
+  **/
+  @Schema(description = "")
+  public DocumentModel getDocument() {
+    return document;
+  }
+  public void setDocument(DocumentModel document) {
+    this.document = document;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +151,29 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    DocumentKeyQueryResponse documentKeyQueryResponse = (DocumentKeyQueryResponse) o;
+    return Objects.equals(this.found, documentKeyQueryResponse.found) &&
+        Objects.equals(this.formattedKey, documentKeyQueryResponse.formattedKey) &&
+        Objects.equals(this.hasDocument, documentKeyQueryResponse.hasDocument) &&
+        Objects.equals(this.provisionalMetadata, documentKeyQueryResponse.provisionalMetadata) &&
+        Objects.equals(this.document, documentKeyQueryResponse.document);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(found, formattedKey, hasDocument, provisionalMetadata, document);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class DocumentKeyQueryResponse {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    found: ").append(toIndentedString(found)).append("\n");
+    sb.append("    formattedKey: ").append(toIndentedString(formattedKey)).append("\n");
+    sb.append("    hasDocument: ").append(toIndentedString(hasDocument)).append("\n");
+    sb.append("    provisionalMetadata: ").append(toIndentedString(provisionalMetadata)).append("\n");
+    sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("}");
     return sb.toString();
   }

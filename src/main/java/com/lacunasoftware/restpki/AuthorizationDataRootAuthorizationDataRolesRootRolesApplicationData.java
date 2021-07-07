@@ -16,58 +16,80 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.AuthorizationData;
+import com.lacunasoftware.restpki.RootAuthorizationData;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData {
 
-  @JsonProperty("certificate")
+  @JsonProperty("name")
 
-  private CertificateSummary certificate = null;
+  private String name = null;
 
-  @JsonProperty("date")
+  @JsonProperty("authorizationData")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private AuthorizationData authorizationData = null;
+
+  @JsonProperty("rootAuthorizationData")
+
+  private RootAuthorizationData rootAuthorizationData = null;
+  public AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData name(String name) {
+    this.name = name;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get name
+  * @return name
   **/
-  @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  @Schema(required = true, description = "")
+  public String getName() {
+    return name;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setName(String name) {
+    this.name = name;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData authorizationData(AuthorizationData authorizationData) {
+    this.authorizationData = authorizationData;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get authorizationData
+  * @return authorizationData
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public AuthorizationData getAuthorizationData() {
+    return authorizationData;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setAuthorizationData(AuthorizationData authorizationData) {
+    this.authorizationData = authorizationData;
+  }
+  public AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData rootAuthorizationData(RootAuthorizationData rootAuthorizationData) {
+    this.rootAuthorizationData = rootAuthorizationData;
+    return this;
+  }
+
+  
+
+  /**
+  * Get rootAuthorizationData
+  * @return rootAuthorizationData
+  **/
+  @Schema(description = "")
+  public RootAuthorizationData getRootAuthorizationData() {
+    return rootAuthorizationData;
+  }
+  public void setRootAuthorizationData(RootAuthorizationData rootAuthorizationData) {
+    this.rootAuthorizationData = rootAuthorizationData;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +99,25 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData authorizationDataRootAuthorizationDataRolesRootRolesApplicationData = (AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData) o;
+    return Objects.equals(this.name, authorizationDataRootAuthorizationDataRolesRootRolesApplicationData.name) &&
+        Objects.equals(this.authorizationData, authorizationDataRootAuthorizationDataRolesRootRolesApplicationData.authorizationData) &&
+        Objects.equals(this.rootAuthorizationData, authorizationDataRootAuthorizationDataRolesRootRolesApplicationData.rootAuthorizationData);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(name, authorizationData, rootAuthorizationData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    authorizationData: ").append(toIndentedString(authorizationData)).append("\n");
+    sb.append("    rootAuthorizationData: ").append(toIndentedString(rootAuthorizationData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

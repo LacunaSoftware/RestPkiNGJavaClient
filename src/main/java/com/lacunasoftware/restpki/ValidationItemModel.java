@@ -16,58 +16,102 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.ValidationItemTypes;
+import com.lacunasoftware.restpki.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * ValidationItemModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class ValidationItemModel {
 
-  @JsonProperty("certificate")
+  @JsonProperty("type")
 
-  private CertificateSummary certificate = null;
+  private ValidationItemTypes type = null;
 
-  @JsonProperty("date")
+  @JsonProperty("message")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private String message = null;
+
+  @JsonProperty("detail")
+
+  private String detail = null;
+
+  @JsonProperty("innerValidationResults")
+
+  private ValidationResultsModel innerValidationResults = null;
+  public ValidationItemModel type(ValidationItemTypes type) {
+    this.type = type;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get type
+  * @return type
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public ValidationItemTypes getType() {
+    return type;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setType(ValidationItemTypes type) {
+    this.type = type;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public ValidationItemModel message(String message) {
+    this.message = message;
     return this;
   }
 
   
 
   /**
-  * Get date
-  * @return date
+  * Get message
+  * @return message
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public String getMessage() {
+    return message;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+  public ValidationItemModel detail(String detail) {
+    this.detail = detail;
+    return this;
+  }
+
+  
+
+  /**
+  * Get detail
+  * @return detail
+  **/
+  @Schema(description = "")
+  public String getDetail() {
+    return detail;
+  }
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+  public ValidationItemModel innerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
+    return this;
+  }
+
+  
+
+  /**
+  * Get innerValidationResults
+  * @return innerValidationResults
+  **/
+  @Schema(description = "")
+  public ValidationResultsModel getInnerValidationResults() {
+    return innerValidationResults;
+  }
+  public void setInnerValidationResults(ValidationResultsModel innerValidationResults) {
+    this.innerValidationResults = innerValidationResults;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +121,27 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    ValidationItemModel validationItemModel = (ValidationItemModel) o;
+    return Objects.equals(this.type, validationItemModel.type) &&
+        Objects.equals(this.message, validationItemModel.message) &&
+        Objects.equals(this.detail, validationItemModel.detail) &&
+        Objects.equals(this.innerValidationResults, validationItemModel.innerValidationResults);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(type, message, detail, innerValidationResults);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class ValidationItemModel {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    innerValidationResults: ").append(toIndentedString(innerValidationResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }

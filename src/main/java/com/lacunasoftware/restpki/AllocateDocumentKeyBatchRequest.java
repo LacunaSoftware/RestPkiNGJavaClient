@@ -16,58 +16,67 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * SignerSummary
+ * AllocateDocumentKeyBatchRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class AllocateDocumentKeyBatchRequest {
 
-  @JsonProperty("certificate")
+  @JsonProperty("count")
 
-  private CertificateSummary certificate = null;
+  private Integer count = null;
 
-  @JsonProperty("date")
+  @JsonProperty("provisionalMetadata")
 
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  private Map<String, List<String>> provisionalMetadata = null;
+  public AllocateDocumentKeyBatchRequest count(Integer count) {
+    this.count = count;
     return this;
   }
 
   
 
   /**
-  * Get certificate
-  * @return certificate
+  * Get count
+  * minimum: 1
+  * maximum: 100
+  * @return count
   **/
   @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
+  public Integer getCount() {
+    return count;
   }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
+  public void setCount(Integer count) {
+    this.count = count;
   }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
+  public AllocateDocumentKeyBatchRequest provisionalMetadata(Map<String, List<String>> provisionalMetadata) {
+    this.provisionalMetadata = provisionalMetadata;
     return this;
   }
 
   
-
+  public AllocateDocumentKeyBatchRequest putProvisionalMetadataItem(String key, List<String> provisionalMetadataItem) {
+    if (this.provisionalMetadata == null) {
+      this.provisionalMetadata = null;
+    }
+    this.provisionalMetadata.put(key, provisionalMetadataItem);
+    return this;
+  }
   /**
-  * Get date
-  * @return date
+  * Get provisionalMetadata
+  * @return provisionalMetadata
   **/
   @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
+  public Map<String, List<String>> getProvisionalMetadata() {
+    return provisionalMetadata;
   }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setProvisionalMetadata(Map<String, List<String>> provisionalMetadata) {
+    this.provisionalMetadata = provisionalMetadata;
   }
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,23 +86,23 @@ import org.threeten.bp.OffsetDateTime;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
+    AllocateDocumentKeyBatchRequest allocateDocumentKeyBatchRequest = (AllocateDocumentKeyBatchRequest) o;
+    return Objects.equals(this.count, allocateDocumentKeyBatchRequest.count) &&
+        Objects.equals(this.provisionalMetadata, allocateDocumentKeyBatchRequest.provisionalMetadata);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return java.util.Objects.hash(count, provisionalMetadata);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
+    sb.append("class AllocateDocumentKeyBatchRequest {\n");
     
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    provisionalMetadata: ").append(toIndentedString(provisionalMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

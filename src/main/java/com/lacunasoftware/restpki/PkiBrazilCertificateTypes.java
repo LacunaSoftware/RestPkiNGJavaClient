@@ -12,101 +12,49 @@
 
 package com.lacunasoftware.restpki;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpki.CertificateSummary;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * SignerSummary
+ * Gets or Sets PkiBrazilCertificateTypes
  */
+public enum PkiBrazilCertificateTypes {
+  UNKNOWN("Unknown"),
+  A1("A1"),
+  A2("A2"),
+  A3("A3"),
+  A4("A4"),
+  S1("S1"),
+  S2("S2"),
+  S3("S3"),
+  S4("S4"),
+  T3("T3"),
+  T4("T4");
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-11T15:24:24.708-03:00[America/Sao_Paulo]")public class SignerSummary {
+  private String value;
 
-  @JsonProperty("certificate")
-
-  private CertificateSummary certificate = null;
-
-  @JsonProperty("date")
-
-  private OffsetDateTime date = null;
-  public SignerSummary certificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-    return this;
+  PkiBrazilCertificateTypes(String value) {
+    this.value = value;
   }
 
-  
-
-  /**
-  * Get certificate
-  * @return certificate
-  **/
-  @Schema(description = "")
-  public CertificateSummary getCertificate() {
-    return certificate;
-  }
-  public void setCertificate(CertificateSummary certificate) {
-    this.certificate = certificate;
-  }
-  public SignerSummary date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  
-
-  /**
-  * Get date
-  * @return date
-  **/
-  @Schema(description = "")
-  public OffsetDateTime getDate() {
-    return date;
-  }
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
-  }
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SignerSummary signerSummary = (SignerSummary) o;
-    return Objects.equals(this.certificate, signerSummary.certificate) &&
-        Objects.equals(this.date, signerSummary.date);
-  }
-
-  @Override
-  public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+  @JsonValue
+  public String getValue() {
+    return value;
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SignerSummary {\n");
-    
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+  @JsonCreator
+  public static PkiBrazilCertificateTypes fromValue(String text) {
+    for (PkiBrazilCertificateTypes b : PkiBrazilCertificateTypes.values()) {
+      if (String.valueOf(b.value).equals(text)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    return null;
   }
-
 }
