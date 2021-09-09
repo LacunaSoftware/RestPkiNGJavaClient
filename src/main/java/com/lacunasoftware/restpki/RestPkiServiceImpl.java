@@ -3,7 +3,6 @@ package com.lacunasoftware.restpki;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 
-import java.beans.Customizer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;

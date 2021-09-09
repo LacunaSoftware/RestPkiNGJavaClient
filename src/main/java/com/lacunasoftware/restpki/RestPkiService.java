@@ -1,6 +1,5 @@
 package com.lacunasoftware.restpki;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javafx.util.Pair;
@@ -44,7 +43,7 @@ public interface RestPkiService {
 
     // region Application management
 
-    ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
+    ApplicationModel createApplication(String name, List<Roles> roles, Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
     ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException;
     ApplicationModel createApplication(String name, List<Roles> roles) throws RestException;
 

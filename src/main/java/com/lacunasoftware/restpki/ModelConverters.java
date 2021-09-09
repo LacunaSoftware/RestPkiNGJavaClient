@@ -1,6 +1,6 @@
 package com.lacunasoftware.restpki;
 
- class ModelConverters {
+class ModelConverters {
 
       static DocumentModel toDocumentModel(SignatureSessionDocumentSummary model){
         DocumentModel documentModel = new DocumentModel();
