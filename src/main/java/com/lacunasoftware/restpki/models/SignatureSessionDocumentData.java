@@ -24,7 +24,7 @@ import java.util.UUID;
  * SignatureSessionDocumentData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-09-09T11:28:54.519054500-03:00[America/Sao_Paulo]")public class SignatureSessionDocumentData {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-09-13T14:53:25.570-03:00[America/Sao_Paulo]")public class SignatureSessionDocumentData {
 
   @JsonProperty("id")
 
@@ -41,6 +41,10 @@ import java.util.UUID;
   @JsonProperty("documentKey")
 
   private String documentKey = null;
+
+  @JsonProperty("signatureType")
+
+  private SignatureTypes signatureType = null;
   public SignatureSessionDocumentData id(UUID id) {
     this.id = id;
     return this;
@@ -119,6 +123,24 @@ import java.util.UUID;
   public void setDocumentKey(String documentKey) {
     this.documentKey = documentKey;
   }
+  public SignatureSessionDocumentData signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+  
+
+  /**
+  * Get signatureType
+  * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -131,12 +153,13 @@ import java.util.UUID;
     return Objects.equals(this.id, signatureSessionDocumentData.id) &&
         Objects.equals(this.file, signatureSessionDocumentData.file) &&
         Objects.equals(this.metadata, signatureSessionDocumentData.metadata) &&
-        Objects.equals(this.documentKey, signatureSessionDocumentData.documentKey);
+        Objects.equals(this.documentKey, signatureSessionDocumentData.documentKey) &&
+        Objects.equals(this.signatureType, signatureSessionDocumentData.signatureType);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(id, file, metadata, documentKey);
+    return java.util.Objects.hash(id, file, metadata, documentKey, signatureType);
   }
 
   @Override
@@ -148,6 +171,7 @@ import java.util.UUID;
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    documentKey: ").append(toIndentedString(documentKey)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
