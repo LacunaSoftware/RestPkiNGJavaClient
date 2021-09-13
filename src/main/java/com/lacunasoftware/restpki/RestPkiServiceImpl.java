@@ -263,11 +263,11 @@ public class RestPkiServiceImpl implements RestPkiService {
 
 		FileReferenceModel model = new FileReferenceModel();
 
-		if (!file.getBlobToken().isEmpty()) {
+		if (file.getBlobToken() != null && !file.getBlobToken().isEmpty()) {
 
 			model.setBlobToken(file.getBlobToken());
 
-		} else if (!file.getUrl().isEmpty()) {
+		} else if (file.getUrl() != null && !file.getUrl().isEmpty()) {
 
 			model.setUrl(file.getUrl());
 
