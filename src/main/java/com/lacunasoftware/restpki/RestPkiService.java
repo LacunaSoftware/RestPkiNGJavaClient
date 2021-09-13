@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import javafx.util.Pair;
 import java.util.UUID;
-import java.io.IOException;
 import java.io.InputStream;
 import java.time.OffsetDateTime;
 
@@ -13,51 +12,91 @@ import java.time.OffsetDateTime;
  */
 public interface RestPkiService {
 
-    CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request) throws RestException;
+    CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request) throws Exception;
+    CreateSignatureSessionResponse createSignatureSession(
+            CreateSignatureSessionRequest request,
+            UUID subscriptionId) throws Exception;
+    CreateSignatureSessionResponse createSignatureSession(
+            CreateSignatureSessionRequest request,
+            UUID subscriptionId,
+            Map<String, List<String>> metadata) throws Exception;
+    CreateSignatureSessionResponse createSignatureSession(
+            CreateSignatureSessionRequest request,
+            UUID subscriptionId,
+            Map<String, List<String>> metadata,
+            List<SignatureSessionDocumentToSign> documents) throws Exception;
 
-    CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request, UUID subscriptionId) throws RestException;
+    SignatureSession getSignatureSession(UUID id) throws Exception;
 
-    SignatureSession getSignatureSession(UUID id) throws RestException;
-
-    Document getDocument(UUID id) throws RestException;
-
+    Document getDocument(UUID id) throws Exception;
     Document getDocument(DocumentModel model);
 
-    public List<Signer> getDocumentSigners(UUID id) throws RestException;
+    public List<Signer> getDocumentSigners(UUID id) throws Exception;
 
-    public  Document findDocumentByKey(String key) throws RestException, IOException;
+    public  Document findDocumentByKey(String key) throws Exception;
 
-    InputStream openRead(String location) throws RestException;
+    InputStream openRead(String location) throws Exception;
 
-    byte[] getContent(String location) throws RestException, IOException;
+    byte[] getContent(String location) throws Exception;
 
-    DocumentModel GetDocumentModel(UUID id) throws RestException;
+    DocumentModel getDocumentModel(UUID id) throws Exception;
 
-    DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException;
-    DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws RestException;
-    DocumentKeyModel allocateDocumentKey() throws RestException;
+    DocumentKeyModel allocateDocumentKey(
+            Map<String, List<String>> provisionalMetadata,
+            UUID subscriptionId) throws Exception;
+    DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws Exception;
+    DocumentKeyModel allocateDocumentKey() throws Exception;
 
-    List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws RestException;
-    List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata) throws RestException;
-    List<DocumentKeyModel> allocateDocumentKeys(int count) throws RestException;
+    List<DocumentKeyModel> allocateDocumentKeys(
+            int count,
+            Map<String, List<String>> provisionalMetadata,
+            UUID subscriptionId) throws Exception;
+    List<DocumentKeyModel> allocateDocumentKeys(
+            int count,
+            Map<String, List<String>> provisionalMetadata) throws Exception;
+    List<DocumentKeyModel> allocateDocumentKeys(int count) throws Exception;
 
     // region Application management
 
-    ApplicationModel createApplication(String name, List<Roles> roles, Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
-    ApplicationModel createApplication(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException;
-    ApplicationModel createApplication(String name, List<Roles> roles) throws RestException;
+    ApplicationModel createApplication(
+            String name,
+            List<Roles> roles,
+            Map<String, List<String>> defaultDocumentMetadata,
+            UUID subscriptionId) throws Exception;
+    ApplicationModel createApplication(
+            String name,
+            List<Roles> roles,
+            Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+    ApplicationModel createApplication(
+            String name,
+            List<Roles> roles) throws Exception;
 
-    CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, OffsetDateTime expiresOn, String description) throws RestException;
-    CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, OffsetDateTime expiresOn) throws RestException;
-    CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws RestException;
+    CreateApplicationApiKeyResponse createApplicationKey(
+            UUID applicationId,
+            OffsetDateTime expiresOn,
+            String description) throws Exception;
+    CreateApplicationApiKeyResponse createApplicationKey(
+            UUID applicationId,
+            OffsetDateTime expiresOn) throws Exception;
+    CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws Exception;
 
-    Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws RestException;
-    Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws RestException;
-    Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles) throws RestException;
+    Pair<ApplicationModel, String> createApplicationAndKey(
+            String name,
+            List<Roles> roles,
+            Map<String, List<String>> defaultDocumentMetadata,
+            UUID subscriptionId) throws Exception;
+    Pair<ApplicationModel, String> createApplicationAndKey(
+            String name,
+            List<Roles> roles,
+            Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+    Pair<ApplicationModel, String> createApplicationAndKey(
+            String name,
+            List<Roles> roles) throws Exception;
 
-    Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws RestException;
-
-    Map<String, List<String>> updateApplicationDefaultDocumentMetadata(UUID applicationId,  Map<String, List<String>> defaultDocumentMetadata) throws RestException;
+    Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception;
+    Map<String, List<String>> updateApplicationDefaultDocumentMetadata(
+            UUID applicationId,
+            Map<String, List<String>> defaultDocumentMetadata) throws Exception;
 
     // endregion
 }
