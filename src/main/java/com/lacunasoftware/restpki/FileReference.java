@@ -68,14 +68,14 @@ public class FileReference {
         if (path.isEmpty()) {
             throw new IllegalArgumentException("Cannot reference an empty path");
         }
-        return FromFile(new File(path), name, null);
+        return FromFile(new File(path), name, mimeType);
     }
 
     public static FileReference FromFile(File file, String name, String mimeType) {
         if (file == null) {
             throw new IllegalArgumentException("File cannot be null");
         }
-        return new FileReference(name, null, file.length(), null, null, file.getPath(), null);
+        return new FileReference(name, mimeType, file.length(), null, null, file.getPath(), null);
     }
 
     public static FileReference FromBytes(byte[] bytes, String name, String mimeType) {
@@ -85,7 +85,7 @@ public class FileReference {
         if (bytes.length == 0) {
             throw new IllegalArgumentException("Cannot reference an empty byte array");
         }
-        return new FileReference(name, mimeType, 0, null, null, null, bytes);
+        return new FileReference(name, mimeType, bytes.length, null, null, null, bytes);
     }
 
     public static FileReference FromUrl(String url, String name, String mimeType) {
