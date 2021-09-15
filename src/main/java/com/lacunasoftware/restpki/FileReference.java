@@ -54,31 +54,31 @@ public class FileReference {
         this.blobToken = model.getBlobToken();
     }
 
-    public static FileReference FromStream(InputStream stream, String name, String mimeType) {
+    public static FileReference fromStream(InputStream stream, String name, String mimeType) {
         if (stream == null) {
             throw new IllegalArgumentException("Stream cannot be null");
         }
         return new FileReference(name, mimeType, 0, null, stream, null, null);
     }
 
-    public static FileReference FromFile(String path, String name, String mimeType) {
+    public static FileReference fromFile(String path, String name, String mimeType) {
         if (path == null) {
             throw new IllegalArgumentException("Path cannot be null");
         }
         if (path.isEmpty()) {
             throw new IllegalArgumentException("Cannot reference an empty path");
         }
-        return FromFile(new File(path), name, mimeType);
+        return fromFile(new File(path), name, mimeType);
     }
 
-    public static FileReference FromFile(File file, String name, String mimeType) {
+    public static FileReference fromFile(File file, String name, String mimeType) {
         if (file == null) {
             throw new IllegalArgumentException("File cannot be null");
         }
         return new FileReference(name, mimeType, file.length(), null, null, file.getPath(), null);
     }
 
-    public static FileReference FromBytes(byte[] bytes, String name, String mimeType) {
+    public static FileReference fromBytes(byte[] bytes, String name, String mimeType) {
         if (bytes == null) {
             throw new IllegalArgumentException("Bytes cannot be null");
         }
@@ -88,7 +88,7 @@ public class FileReference {
         return new FileReference(name, mimeType, bytes.length, null, null, null, bytes);
     }
 
-    public static FileReference FromUrl(String url, String name, String mimeType) {
+    public static FileReference fromUrl(String url, String name, String mimeType) {
         if (url == null) {
             throw new IllegalArgumentException("URL cannot be null");
         }
@@ -102,7 +102,7 @@ public class FileReference {
         return new FileReference(name, mimeType, 0, url, null, null, null);
     }
 
-    public InputStream OpenRead() throws Exception {
+    public InputStream openRead() throws Exception {
         if (!this.canRead()) {
             throw new IllegalArgumentException("This FileReference cannot be read");
         }
@@ -119,11 +119,11 @@ public class FileReference {
         }
     }
 
-    public byte[] GetContent() throws Exception {
+    public byte[] getContent() throws Exception {
         if (this.content != null) {
             return this.content;
         }
-        InputStream stream = this.OpenRead();
+        InputStream stream = this.openRead();
         return Util.readStream(stream);
     }
 }

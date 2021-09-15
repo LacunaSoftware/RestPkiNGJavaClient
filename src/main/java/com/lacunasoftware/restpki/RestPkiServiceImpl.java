@@ -274,7 +274,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 		} else {
 
 			// TODO: upload depending on file size
-			model.setContent(file.GetContent());
+			model.setContent(file.getContent());
 		}
 
 		model.setName(file.getName());
