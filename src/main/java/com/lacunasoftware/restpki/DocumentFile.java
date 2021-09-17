@@ -36,11 +36,11 @@ public class DocumentFile {
         this.model = model;
     }
 
-    public InputStream openRead() throws RestException {
+    public InputStream openRead() throws Exception {
         return service.openRead(getLocation());
     }
 
-    public byte[] getContent() throws RestException, IOException {
+    public byte[] getContent() throws Exception {
         return service.getContent(getLocation());
     }
 }
