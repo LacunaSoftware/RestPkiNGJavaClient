@@ -10,7 +10,7 @@ targetCompatibility = 1.8
 
 group = 'com.lacunasoftware.restpki'
 archivesBaseName = 'restpki-core-client'
-version = '2.1.0'
+version = '3.0.0'
 
 repositories {
     mavenCentral()
