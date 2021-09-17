@@ -87,9 +87,9 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'ismaelm'
-                        name 'Ismael Medeiros'
-                        email 'IsmaelM@lacunasoftware.com'
+                        id 'EmilySouza'
+                        name 'Emily Souza'
+                        email 'EmilyS@lacunasoftware.com'
                     }
                 }
             }
