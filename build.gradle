@@ -10,14 +10,14 @@ targetCompatibility = 1.8
 
 group = 'com.lacunasoftware.restpki'
 archivesBaseName = 'restpki-core-client'
-version = '3.0.2'
+version = '3.0.3'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.1'
     compile 'io.swagger.core.v3:swagger-annotations:2.0.0'
     implementation 'com.lacunasoftware.restpki:restpki-client:1.15.5'
    
