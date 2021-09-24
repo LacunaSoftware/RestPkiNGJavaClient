@@ -9,6 +9,7 @@ class ModelConverters {
         documentModel.setFormattedKey(model.getFormattedKey());
         documentModel.setOriginalFile(model.getOriginalFile());
         documentModel.setSignedFile(model.getSignedFile());
+        documentModel.setMarkedFile(model.getMarkedFile());
         documentModel.setSignatureType(model.getSignatureType());
         documentModel.setAvailableUntil(model.getAvailableUntil());
 
