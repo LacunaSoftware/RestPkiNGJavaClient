@@ -16,6 +16,7 @@ public class Document {
 
     private DocumentFile originalFile;
     private DocumentFile signedFile;
+    private DocumentFile markedFile;
 
     public UUID getId() {
         return model.getId();
@@ -37,6 +38,10 @@ public class Document {
         return signedFile;
     }
 
+    public DocumentFile getMarkedFile() {
+        return markedFile;
+    }
+
 
     public SignatureTypes getSignatureType() {
         return model.getSignatureType();
@@ -51,6 +56,7 @@ public class Document {
         this.model = model;
         originalFile = new DocumentFile(service, model.getOriginalFile());
         signedFile = model.getSignedFile() != null ? new DocumentFile(service, model.getSignedFile()) : null;
+        markedFile = model.getMarkedFile() != null ? new DocumentFile(service, model.getMarkedFile()) : null;
     }
 
 
