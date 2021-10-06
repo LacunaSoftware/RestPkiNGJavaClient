@@ -1,5 +1,9 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.DigestAlgorithmAndValueModel;
+import com.lacunasoftware.restpki.SignatureAlgorithmAndValueModel;
+import com.lacunasoftware.restpki.SignerModel;
+import com.lacunasoftware.restpki.ValidationResultsModel;
 import org.threeten.bp.OffsetDateTime;
 
 public class Signer {

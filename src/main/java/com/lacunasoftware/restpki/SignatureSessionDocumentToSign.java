@@ -1,5 +1,7 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.SignatureTypes;
+
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;

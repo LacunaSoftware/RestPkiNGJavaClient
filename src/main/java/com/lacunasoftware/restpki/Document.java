@@ -1,5 +1,8 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.DocumentModel;
+import com.lacunasoftware.restpki.SignatureTypes;
+import com.lacunasoftware.restpki.SignerSummary;
 import org.threeten.bp.OffsetDateTime;
 
 import java.util.List;

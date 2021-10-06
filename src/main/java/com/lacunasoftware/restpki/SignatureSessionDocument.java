@@ -1,5 +1,7 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.DocumentStatus;
+import com.lacunasoftware.restpki.SignatureSessionDocumentSummary;
 import org.threeten.bp.OffsetDateTime;
 
 public class SignatureSessionDocument extends Document {

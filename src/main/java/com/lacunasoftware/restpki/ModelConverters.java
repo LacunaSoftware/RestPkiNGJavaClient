@@ -1,5 +1,9 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.DocumentModel;
+import com.lacunasoftware.restpki.SignatureSessionDocumentSummary;
+import com.lacunasoftware.restpki.SignerModel;
+
 class ModelConverters {
 
       static DocumentModel toDocumentModel(SignatureSessionDocumentSummary model){

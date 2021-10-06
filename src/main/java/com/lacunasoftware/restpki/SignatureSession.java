@@ -1,5 +1,9 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.CertificateSummary;
+import com.lacunasoftware.restpki.SignatureSessionModel;
+import com.lacunasoftware.restpki.SignatureSessionStatus;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;

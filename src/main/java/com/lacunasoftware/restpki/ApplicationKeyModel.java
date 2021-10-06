@@ -14,6 +14,7 @@ package com.lacunasoftware.restpki;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lacunasoftware.restpki.ApplicationKeyTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
 import org.threeten.bp.OffsetDateTime;

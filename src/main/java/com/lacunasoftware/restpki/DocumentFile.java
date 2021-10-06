@@ -1,5 +1,7 @@
 package com.lacunasoftware.restpki;
 
+import com.lacunasoftware.restpki.DocumentFileModel;
+
 import java.io.IOException;
 import java.io.InputStream;
 

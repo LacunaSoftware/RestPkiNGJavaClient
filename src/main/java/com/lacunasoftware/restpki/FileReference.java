@@ -1,6 +1,8 @@
 package com.lacunasoftware.restpki;
 
 
+import com.lacunasoftware.restpki.FileReferenceModel;
+
 import java.io.*;
 import java.net.URI;
 
