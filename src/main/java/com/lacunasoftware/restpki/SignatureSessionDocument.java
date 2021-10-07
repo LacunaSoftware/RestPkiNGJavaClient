@@ -4,6 +4,8 @@ import com.lacunasoftware.restpki.DocumentStatus;
 import com.lacunasoftware.restpki.SignatureSessionDocumentSummary;
 import org.threeten.bp.OffsetDateTime;
 
+import java.util.Date;
+
 public class SignatureSessionDocument extends Document {
 
     private SignatureSessionDocumentSummary model;
@@ -18,7 +20,7 @@ public class SignatureSessionDocument extends Document {
         return model.getStatus();
     }
 
-    public OffsetDateTime getDateSigned() {
+    public Date getDateSigned() {
         return model.getDateSigned();
     }
 

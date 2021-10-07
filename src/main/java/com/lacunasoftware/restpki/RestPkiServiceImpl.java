@@ -212,7 +212,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 	// endregion createApplication
 
 	// region createApplicationKey
-	public CreateApplicationApiKeyResponse createApplicationKey(UUID id, OffsetDateTime expiresOn, String description) throws Exception {
+	public CreateApplicationApiKeyResponse createApplicationKey(UUID id, Date expiresOn, String description) throws Exception {
 		if (description == null || description.isEmpty()){
 			description = "Generated on " + OffsetDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ssX"));
 		}
@@ -226,7 +226,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 			request,
 			CreateApplicationApiKeyResponse.class);
 	}
-	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, OffsetDateTime expiresOn) throws Exception {
+	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId, Date expiresOn) throws Exception {
 		return createApplicationKey(applicationId, expiresOn, null);
 	}
 	public CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws Exception {

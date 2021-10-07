@@ -60,7 +60,7 @@ class Util {
 		return new ObjectMapper().convertValue(content, String.class);
 	}
 
-	static Date parseApiDate(OffsetDateTime dateStr) {
+	static Date parseApiDate(Date dateStr) {
 		Date date;
 		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
 		try {

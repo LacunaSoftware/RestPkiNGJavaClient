@@ -5,6 +5,7 @@ import com.lacunasoftware.restpki.SignatureTypes;
 import com.lacunasoftware.restpki.SignerSummary;
 import org.threeten.bp.OffsetDateTime;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.lang.*;
@@ -50,7 +51,7 @@ public class Document {
         return model.getSignatureType();
     }
 
-    public OffsetDateTime getAvailableUntil(){
+    public Date getAvailableUntil(){
         return model.getAvailableUntil();
     }
 

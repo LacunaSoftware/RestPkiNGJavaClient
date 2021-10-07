@@ -6,6 +6,8 @@ import com.lacunasoftware.restpki.SignerModel;
 import com.lacunasoftware.restpki.ValidationResultsModel;
 import org.threeten.bp.OffsetDateTime;
 
+import java.util.Date;
+
 public class Signer {
 
 
@@ -22,11 +24,11 @@ public class Signer {
         return model.getSignature();
     }
 
-    public OffsetDateTime SigningTime(){
+    public Date SigningTime(){
         return model.getSigningTime();
     }
 
-    public OffsetDateTime CertifiedDateReference(){
+    public Date CertifiedDateReference(){
         return model.getCertifiedDateReference();
     }
 

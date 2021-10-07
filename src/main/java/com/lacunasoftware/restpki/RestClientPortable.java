@@ -366,7 +366,7 @@ class RestClientPortable {
 		@Override
 		public OffsetDateTime deserialize(JsonParser json, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			String dateString = json.getValueAsString();
-			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
 		}
 	}
 

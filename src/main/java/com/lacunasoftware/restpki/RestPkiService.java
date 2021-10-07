@@ -1,5 +1,6 @@
 package com.lacunasoftware.restpki;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -75,11 +76,11 @@ public interface RestPkiService {
 
     CreateApplicationApiKeyResponse createApplicationKey(
             UUID applicationId,
-            OffsetDateTime expiresOn,
+            Date expiresOn,
             String description) throws Exception;
     CreateApplicationApiKeyResponse createApplicationKey(
             UUID applicationId,
-            OffsetDateTime expiresOn) throws Exception;
+            Date expiresOn) throws Exception;
     CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws Exception;
 
     Pair<ApplicationModel, String> createApplicationAndKey(
