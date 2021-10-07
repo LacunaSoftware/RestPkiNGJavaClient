@@ -16,7 +16,7 @@ import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
 
-import javax.xml.bind.ValidationException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -299,7 +299,7 @@ class RestClientPortable {
 					ErrorModel errorModel = readErrorResponse(conn, ErrorModel.class);
 					ErrorCodes errorCode = ErrorCodes.valueOf(errorModel.code);
 					if (errorCode.equals(ErrorCodes.ValidationError)) {
-						ex = new RestException(verb, url, new ValidationResults(errorModel.validationResults).toString());
+						ex = new ValidationException(verb, url, new ValidationResults(errorModel.validationResults));
 					} else {
 						ex = new RestPkiException(verb, url, errorCode, errorModel.detail);
 					}
