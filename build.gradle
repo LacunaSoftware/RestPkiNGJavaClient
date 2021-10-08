@@ -9,8 +9,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group = 'com.lacunasoftware.restpki'
-archivesBaseName = 'restpki-core-client'
-version = '4.0.0'
+archivesBaseName = 'restpkicore-client'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
@@ -64,9 +64,9 @@ uploadArchives {
             }
 
             pom.project {
-                name 'restpki-core-client'
+                name 'restpkicore-client'
                 packaging 'jar'
-                artifactId 'restpki-core-client'
+                artifactId 'restpkicore-client'
                 description 'Classes to consume Lacuna Software REST PKI Core'
                 url 'https://github.com/LacunaSoftware/RestPkiNGJavaClient'
 
@@ -84,9 +84,9 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'EmilySouza'
-                        name 'Emily Souza'
-                        email 'EmilyS@lacunasoftware.com'
+                        id 'JeanM'
+                        name 'Jean Magalhães'
+                        email 'JeanM@lacunasoftware.com'
                     }
                 }
             }
