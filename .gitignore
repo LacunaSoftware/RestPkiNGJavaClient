@@ -14,3 +14,5 @@ out/
 .idea/
 docs/
 gradle.properties
+gpg_key/lacuna_0xAD3DA507_SECRET.gpg
+modules/swagger-codegen-cli/target/swagger-codegen-cli.jar
