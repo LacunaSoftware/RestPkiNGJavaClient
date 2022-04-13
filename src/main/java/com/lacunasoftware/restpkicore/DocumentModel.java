@@ -33,7 +33,7 @@ import java.util.UUID;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-13T10:50:43.275-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-class DocumentModel {
+public class DocumentModel {
   @JsonProperty("signers")
   private List<SignerSummary> signers = null;
 
