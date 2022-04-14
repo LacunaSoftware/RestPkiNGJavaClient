@@ -12,40 +12,102 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.CertificateRequirementTypes;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Gets or Sets PaginationOrders
+ * CertificateRequirement
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class CertificateRequirement {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("type")
+
+  private CertificateRequirementTypes type = null;
+
+  @JsonProperty("argument")
+
+  private String argument = null;
+  public CertificateRequirement type(CertificateRequirementTypes type) {
+    this.type = type;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get type
+  * @return type
+  **/
+  @Schema(description = "")
+  public CertificateRequirementTypes getType() {
+    return type;
+  }
+  public void setType(CertificateRequirementTypes type) {
+    this.type = type;
+  }
+  public CertificateRequirement argument(String argument) {
+    this.argument = argument;
+    return this;
+  }
+
+  
+
+  /**
+  * Get argument
+  * @return argument
+  **/
+  @Schema(description = "")
+  public String getArgument() {
+    return argument;
+  }
+  public void setArgument(String argument) {
+    this.argument = argument;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CertificateRequirement certificateRequirement = (CertificateRequirement) o;
+    return Objects.equals(this.type, certificateRequirement.type) &&
+        Objects.equals(this.argument, certificateRequirement.argument);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(type, argument);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CertificateRequirement {\n");
+    
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    argument: ").append(toIndentedString(argument)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

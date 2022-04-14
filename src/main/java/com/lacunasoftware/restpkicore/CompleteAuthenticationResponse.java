@@ -12,40 +12,152 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.AuthenticationFailures;
+import com.lacunasoftware.restpkicore.CertificateModel;
+import com.lacunasoftware.restpkicore.ValidationResultsModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Gets or Sets PaginationOrders
+ * CompleteAuthenticationResponse
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class CompleteAuthenticationResponse {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("success")
+
+  private Boolean success = null;
+
+  @JsonProperty("failure")
+
+  private AuthenticationFailures failure = null;
+
+  @JsonProperty("certificate")
+
+  private CertificateModel certificate = null;
+
+  @JsonProperty("validationResults")
+
+  private ValidationResultsModel validationResults = null;
+  public CompleteAuthenticationResponse success(Boolean success) {
+    this.success = success;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get success
+  * @return success
+  **/
+  @Schema(description = "")
+  public Boolean isSuccess() {
+    return success;
+  }
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+  public CompleteAuthenticationResponse failure(AuthenticationFailures failure) {
+    this.failure = failure;
+    return this;
+  }
+
+  
+
+  /**
+  * Get failure
+  * @return failure
+  **/
+  @Schema(description = "")
+  public AuthenticationFailures getFailure() {
+    return failure;
+  }
+  public void setFailure(AuthenticationFailures failure) {
+    this.failure = failure;
+  }
+  public CompleteAuthenticationResponse certificate(CertificateModel certificate) {
+    this.certificate = certificate;
+    return this;
+  }
+
+  
+
+  /**
+  * Get certificate
+  * @return certificate
+  **/
+  @Schema(description = "")
+  public CertificateModel getCertificate() {
+    return certificate;
+  }
+  public void setCertificate(CertificateModel certificate) {
+    this.certificate = certificate;
+  }
+  public CompleteAuthenticationResponse validationResults(ValidationResultsModel validationResults) {
+    this.validationResults = validationResults;
+    return this;
+  }
+
+  
+
+  /**
+  * Get validationResults
+  * @return validationResults
+  **/
+  @Schema(description = "")
+  public ValidationResultsModel getValidationResults() {
+    return validationResults;
+  }
+  public void setValidationResults(ValidationResultsModel validationResults) {
+    this.validationResults = validationResults;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CompleteAuthenticationResponse completeAuthenticationResponse = (CompleteAuthenticationResponse) o;
+    return Objects.equals(this.success, completeAuthenticationResponse.success) &&
+        Objects.equals(this.failure, completeAuthenticationResponse.failure) &&
+        Objects.equals(this.certificate, completeAuthenticationResponse.certificate) &&
+        Objects.equals(this.validationResults, completeAuthenticationResponse.validationResults);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(success, failure, certificate, validationResults);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CompleteAuthenticationResponse {\n");
+    
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

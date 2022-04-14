@@ -31,7 +31,7 @@ public class SignatureSession {
         return model.getCallbackArgument();
     }
 
-    public CertificateSummary getSignerCertificate(){
+    public CertificateModel getSignerCertificate(){
         return model.getSignerCertificate();
     }
 

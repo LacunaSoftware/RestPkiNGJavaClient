@@ -12,40 +12,77 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Gets or Sets PaginationOrders
+ * CmsSignatureOptions
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class CmsSignatureOptions {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("detached")
+
+  private Boolean detached = null;
+  public CmsSignatureOptions detached(Boolean detached) {
+    this.detached = detached;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get detached
+  * @return detached
+  **/
+  @Schema(description = "")
+  public Boolean isDetached() {
+    return detached;
+  }
+  public void setDetached(Boolean detached) {
+    this.detached = detached;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CmsSignatureOptions cmsSignatureOptions = (CmsSignatureOptions) o;
+    return Objects.equals(this.detached, cmsSignatureOptions.detached);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(detached);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CmsSignatureOptions {\n");
+    
+    sb.append("    detached: ").append(toIndentedString(detached)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

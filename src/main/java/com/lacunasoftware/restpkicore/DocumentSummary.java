@@ -12,40 +12,249 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.DocumentFileModel;
+import com.lacunasoftware.restpkicore.SignatureTypes;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.Date;
+import java.util.UUID;
 
 /**
- * Gets or Sets PaginationOrders
+ * DocumentSummary
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class DocumentSummary {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("id")
+
+  private UUID id = null;
+
+  @JsonProperty("key")
+
+  private String key = null;
+
+  @JsonProperty("formattedKey")
+
+  private String formattedKey = null;
+
+  @JsonProperty("originalFile")
+
+  private DocumentFileModel originalFile = null;
+
+  @JsonProperty("markedFile")
+
+  private DocumentFileModel markedFile = null;
+
+  @JsonProperty("signedFile")
+
+  private DocumentFileModel signedFile = null;
+
+  @JsonProperty("signatureType")
+
+  private SignatureTypes signatureType = null;
+
+  @JsonProperty("availableUntil")
+
+  private Date availableUntil = null;
+  public DocumentSummary id(UUID id) {
+    this.id = id;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get id
+  * @return id
+  **/
+  @Schema(description = "")
+  public UUID getId() {
+    return id;
+  }
+  public void setId(UUID id) {
+    this.id = id;
+  }
+  public DocumentSummary key(String key) {
+    this.key = key;
+    return this;
+  }
+
+  
+
+  /**
+  * Get key
+  * @return key
+  **/
+  @Schema(description = "")
+  public String getKey() {
+    return key;
+  }
+  public void setKey(String key) {
+    this.key = key;
+  }
+  public DocumentSummary formattedKey(String formattedKey) {
+    this.formattedKey = formattedKey;
+    return this;
+  }
+
+  
+
+  /**
+  * Get formattedKey
+  * @return formattedKey
+  **/
+  @Schema(description = "")
+  public String getFormattedKey() {
+    return formattedKey;
+  }
+  public void setFormattedKey(String formattedKey) {
+    this.formattedKey = formattedKey;
+  }
+  public DocumentSummary originalFile(DocumentFileModel originalFile) {
+    this.originalFile = originalFile;
+    return this;
+  }
+
+  
+
+  /**
+  * Get originalFile
+  * @return originalFile
+  **/
+  @Schema(description = "")
+  public DocumentFileModel getOriginalFile() {
+    return originalFile;
+  }
+  public void setOriginalFile(DocumentFileModel originalFile) {
+    this.originalFile = originalFile;
+  }
+  public DocumentSummary markedFile(DocumentFileModel markedFile) {
+    this.markedFile = markedFile;
+    return this;
+  }
+
+  
+
+  /**
+  * Get markedFile
+  * @return markedFile
+  **/
+  @Schema(description = "")
+  public DocumentFileModel getMarkedFile() {
+    return markedFile;
+  }
+  public void setMarkedFile(DocumentFileModel markedFile) {
+    this.markedFile = markedFile;
+  }
+  public DocumentSummary signedFile(DocumentFileModel signedFile) {
+    this.signedFile = signedFile;
+    return this;
+  }
+
+  
+
+  /**
+  * Get signedFile
+  * @return signedFile
+  **/
+  @Schema(description = "")
+  public DocumentFileModel getSignedFile() {
+    return signedFile;
+  }
+  public void setSignedFile(DocumentFileModel signedFile) {
+    this.signedFile = signedFile;
+  }
+  public DocumentSummary signatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+    return this;
+  }
+
+  
+
+  /**
+  * Get signatureType
+  * @return signatureType
+  **/
+  @Schema(description = "")
+  public SignatureTypes getSignatureType() {
+    return signatureType;
+  }
+  public void setSignatureType(SignatureTypes signatureType) {
+    this.signatureType = signatureType;
+  }
+  public DocumentSummary availableUntil(Date availableUntil) {
+    this.availableUntil = availableUntil;
+    return this;
+  }
+
+  
+
+  /**
+  * Get availableUntil
+  * @return availableUntil
+  **/
+  @Schema(description = "")
+  public Date getAvailableUntil() {
+    return availableUntil;
+  }
+  public void setAvailableUntil(Date availableUntil) {
+    this.availableUntil = availableUntil;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DocumentSummary documentSummary = (DocumentSummary) o;
+    return Objects.equals(this.id, documentSummary.id) &&
+        Objects.equals(this.key, documentSummary.key) &&
+        Objects.equals(this.formattedKey, documentSummary.formattedKey) &&
+        Objects.equals(this.originalFile, documentSummary.originalFile) &&
+        Objects.equals(this.markedFile, documentSummary.markedFile) &&
+        Objects.equals(this.signedFile, documentSummary.signedFile) &&
+        Objects.equals(this.signatureType, documentSummary.signatureType) &&
+        Objects.equals(this.availableUntil, documentSummary.availableUntil);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(id, key, formattedKey, originalFile, markedFile, signedFile, signatureType, availableUntil);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DocumentSummary {\n");
+    
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    formattedKey: ").append(toIndentedString(formattedKey)).append("\n");
+    sb.append("    originalFile: ").append(toIndentedString(originalFile)).append("\n");
+    sb.append("    markedFile: ").append(toIndentedString(markedFile)).append("\n");
+    sb.append("    signedFile: ").append(toIndentedString(signedFile)).append("\n");
+    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
+    sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

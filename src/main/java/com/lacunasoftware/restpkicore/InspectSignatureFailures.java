@@ -17,15 +17,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets PaginationOrders
+ * Gets or Sets InspectSignatureFailures
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
+public enum InspectSignatureFailures {
+  DATAFILEREQUIRED("DataFileRequired");
 
   private String value;
 
-  PaginationOrders(String value) {
+  InspectSignatureFailures(String value) {
     this.value = value;
   }
 
@@ -40,8 +39,8 @@ public enum PaginationOrders {
   }
 
   @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
+  public static InspectSignatureFailures fromValue(String text) {
+    for (InspectSignatureFailures b : InspectSignatureFailures.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }

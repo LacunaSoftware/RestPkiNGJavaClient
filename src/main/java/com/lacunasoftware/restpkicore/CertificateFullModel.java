@@ -16,15 +16,72 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.CertificateModel;
+import com.lacunasoftware.restpkicore.NameModel;
+import com.lacunasoftware.restpkicore.PkiBrazilCertificateModel;
+import com.lacunasoftware.restpkicore.PkiItalyCertificateModel;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.Date;
 
 /**
- * CertificateSummary
+ * CertificateFullModel
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-public class CertificateSummary {
+public class CertificateFullModel {
+
+  @JsonProperty("encoded")
+
+  private byte[] encoded = null;
+
+  @JsonProperty("pemEncoded")
+
+  private String pemEncoded = null;
+
+  @JsonProperty("downloadUrl")
+
+  private String downloadUrl = null;
+
+  @JsonProperty("subjectName")
+
+  private NameModel subjectName = null;
+
+  @JsonProperty("issuerName")
+
+  private NameModel issuerName = null;
+
+  @JsonProperty("issuerDisplayName")
+
+  private String issuerDisplayName = null;
+
+  @JsonProperty("serialNumber")
+
+  private String serialNumber = null;
+
+  @JsonProperty("validityStart")
+
+  private Date validityStart = null;
+
+  @JsonProperty("validityEnd")
+
+  private Date validityEnd = null;
+
+  @JsonProperty("issuer")
+
+  private CertificateModel issuer = null;
+
+  @JsonProperty("pkiBrazil")
+
+  private PkiBrazilCertificateModel pkiBrazil = null;
+
+  @JsonProperty("pkiItaly")
+
+  private PkiItalyCertificateModel pkiItaly = null;
+
+  @JsonProperty("binaryThumbprintSHA256")
+
+  private byte[] binaryThumbprintSHA256 = null;
 
   @JsonProperty("thumbprint")
 
@@ -57,7 +114,241 @@ public class CertificateSummary {
   @JsonProperty("organizationIdentifier")
 
   private String organizationIdentifier = null;
-  public CertificateSummary thumbprint(String thumbprint) {
+  public CertificateFullModel encoded(byte[] encoded) {
+    this.encoded = encoded;
+    return this;
+  }
+
+  
+
+  /**
+  * Get encoded
+  * @return encoded
+  **/
+  @Schema(description = "")
+  public byte[] getEncoded() {
+    return encoded;
+  }
+  public void setEncoded(byte[] encoded) {
+    this.encoded = encoded;
+  }
+  public CertificateFullModel pemEncoded(String pemEncoded) {
+    this.pemEncoded = pemEncoded;
+    return this;
+  }
+
+  
+
+  /**
+  * Get pemEncoded
+  * @return pemEncoded
+  **/
+  @Schema(description = "")
+  public String getPemEncoded() {
+    return pemEncoded;
+  }
+  public void setPemEncoded(String pemEncoded) {
+    this.pemEncoded = pemEncoded;
+  }
+  public CertificateFullModel downloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+    return this;
+  }
+
+  
+
+  /**
+  * Get downloadUrl
+  * @return downloadUrl
+  **/
+  @Schema(description = "")
+  public String getDownloadUrl() {
+    return downloadUrl;
+  }
+  public void setDownloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+  }
+  public CertificateFullModel subjectName(NameModel subjectName) {
+    this.subjectName = subjectName;
+    return this;
+  }
+
+  
+
+  /**
+  * Get subjectName
+  * @return subjectName
+  **/
+  @Schema(description = "")
+  public NameModel getSubjectName() {
+    return subjectName;
+  }
+  public void setSubjectName(NameModel subjectName) {
+    this.subjectName = subjectName;
+  }
+  public CertificateFullModel issuerName(NameModel issuerName) {
+    this.issuerName = issuerName;
+    return this;
+  }
+
+  
+
+  /**
+  * Get issuerName
+  * @return issuerName
+  **/
+  @Schema(description = "")
+  public NameModel getIssuerName() {
+    return issuerName;
+  }
+  public void setIssuerName(NameModel issuerName) {
+    this.issuerName = issuerName;
+  }
+  public CertificateFullModel issuerDisplayName(String issuerDisplayName) {
+    this.issuerDisplayName = issuerDisplayName;
+    return this;
+  }
+
+  
+
+  /**
+  * Get issuerDisplayName
+  * @return issuerDisplayName
+  **/
+  @Schema(description = "")
+  public String getIssuerDisplayName() {
+    return issuerDisplayName;
+  }
+  public void setIssuerDisplayName(String issuerDisplayName) {
+    this.issuerDisplayName = issuerDisplayName;
+  }
+  public CertificateFullModel serialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+    return this;
+  }
+
+  
+
+  /**
+  * Get serialNumber
+  * @return serialNumber
+  **/
+  @Schema(description = "")
+  public String getSerialNumber() {
+    return serialNumber;
+  }
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
+  public CertificateFullModel validityStart(Date validityStart) {
+    this.validityStart = validityStart;
+    return this;
+  }
+
+  
+
+  /**
+  * Get validityStart
+  * @return validityStart
+  **/
+  @Schema(description = "")
+  public Date getValidityStart() {
+    return validityStart;
+  }
+  public void setValidityStart(Date validityStart) {
+    this.validityStart = validityStart;
+  }
+  public CertificateFullModel validityEnd(Date validityEnd) {
+    this.validityEnd = validityEnd;
+    return this;
+  }
+
+  
+
+  /**
+  * Get validityEnd
+  * @return validityEnd
+  **/
+  @Schema(description = "")
+  public Date getValidityEnd() {
+    return validityEnd;
+  }
+  public void setValidityEnd(Date validityEnd) {
+    this.validityEnd = validityEnd;
+  }
+  public CertificateFullModel issuer(CertificateModel issuer) {
+    this.issuer = issuer;
+    return this;
+  }
+
+  
+
+  /**
+  * Get issuer
+  * @return issuer
+  **/
+  @Schema(description = "")
+  public CertificateModel getIssuer() {
+    return issuer;
+  }
+  public void setIssuer(CertificateModel issuer) {
+    this.issuer = issuer;
+  }
+  public CertificateFullModel pkiBrazil(PkiBrazilCertificateModel pkiBrazil) {
+    this.pkiBrazil = pkiBrazil;
+    return this;
+  }
+
+  
+
+  /**
+  * Get pkiBrazil
+  * @return pkiBrazil
+  **/
+  @Schema(description = "")
+  public PkiBrazilCertificateModel getPkiBrazil() {
+    return pkiBrazil;
+  }
+  public void setPkiBrazil(PkiBrazilCertificateModel pkiBrazil) {
+    this.pkiBrazil = pkiBrazil;
+  }
+  public CertificateFullModel pkiItaly(PkiItalyCertificateModel pkiItaly) {
+    this.pkiItaly = pkiItaly;
+    return this;
+  }
+
+  
+
+  /**
+  * Get pkiItaly
+  * @return pkiItaly
+  **/
+  @Schema(description = "")
+  public PkiItalyCertificateModel getPkiItaly() {
+    return pkiItaly;
+  }
+  public void setPkiItaly(PkiItalyCertificateModel pkiItaly) {
+    this.pkiItaly = pkiItaly;
+  }
+  public CertificateFullModel binaryThumbprintSHA256(byte[] binaryThumbprintSHA256) {
+    this.binaryThumbprintSHA256 = binaryThumbprintSHA256;
+    return this;
+  }
+
+  
+
+  /**
+  * Get binaryThumbprintSHA256
+  * @return binaryThumbprintSHA256
+  **/
+  @Schema(description = "")
+  public byte[] getBinaryThumbprintSHA256() {
+    return binaryThumbprintSHA256;
+  }
+  public void setBinaryThumbprintSHA256(byte[] binaryThumbprintSHA256) {
+    this.binaryThumbprintSHA256 = binaryThumbprintSHA256;
+  }
+  public CertificateFullModel thumbprint(String thumbprint) {
     this.thumbprint = thumbprint;
     return this;
   }
@@ -75,7 +366,7 @@ public class CertificateSummary {
   public void setThumbprint(String thumbprint) {
     this.thumbprint = thumbprint;
   }
-  public CertificateSummary thumbprintSHA256(String thumbprintSHA256) {
+  public CertificateFullModel thumbprintSHA256(String thumbprintSHA256) {
     this.thumbprintSHA256 = thumbprintSHA256;
     return this;
   }
@@ -93,7 +384,7 @@ public class CertificateSummary {
   public void setThumbprintSHA256(String thumbprintSHA256) {
     this.thumbprintSHA256 = thumbprintSHA256;
   }
-  public CertificateSummary subjectCommonName(String subjectCommonName) {
+  public CertificateFullModel subjectCommonName(String subjectCommonName) {
     this.subjectCommonName = subjectCommonName;
     return this;
   }
@@ -111,7 +402,7 @@ public class CertificateSummary {
   public void setSubjectCommonName(String subjectCommonName) {
     this.subjectCommonName = subjectCommonName;
   }
-  public CertificateSummary subjectDisplayName(String subjectDisplayName) {
+  public CertificateFullModel subjectDisplayName(String subjectDisplayName) {
     this.subjectDisplayName = subjectDisplayName;
     return this;
   }
@@ -129,7 +420,7 @@ public class CertificateSummary {
   public void setSubjectDisplayName(String subjectDisplayName) {
     this.subjectDisplayName = subjectDisplayName;
   }
-  public CertificateSummary subjectIdentifier(String subjectIdentifier) {
+  public CertificateFullModel subjectIdentifier(String subjectIdentifier) {
     this.subjectIdentifier = subjectIdentifier;
     return this;
   }
@@ -147,7 +438,7 @@ public class CertificateSummary {
   public void setSubjectIdentifier(String subjectIdentifier) {
     this.subjectIdentifier = subjectIdentifier;
   }
-  public CertificateSummary emailAddress(String emailAddress) {
+  public CertificateFullModel emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -165,7 +456,7 @@ public class CertificateSummary {
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
-  public CertificateSummary organization(String organization) {
+  public CertificateFullModel organization(String organization) {
     this.organization = organization;
     return this;
   }
@@ -183,7 +474,7 @@ public class CertificateSummary {
   public void setOrganization(String organization) {
     this.organization = organization;
   }
-  public CertificateSummary organizationIdentifier(String organizationIdentifier) {
+  public CertificateFullModel organizationIdentifier(String organizationIdentifier) {
     this.organizationIdentifier = organizationIdentifier;
     return this;
   }
@@ -209,27 +500,53 @@ public class CertificateSummary {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CertificateSummary certificateSummary = (CertificateSummary) o;
-    return Objects.equals(this.thumbprint, certificateSummary.thumbprint) &&
-        Objects.equals(this.thumbprintSHA256, certificateSummary.thumbprintSHA256) &&
-        Objects.equals(this.subjectCommonName, certificateSummary.subjectCommonName) &&
-        Objects.equals(this.subjectDisplayName, certificateSummary.subjectDisplayName) &&
-        Objects.equals(this.subjectIdentifier, certificateSummary.subjectIdentifier) &&
-        Objects.equals(this.emailAddress, certificateSummary.emailAddress) &&
-        Objects.equals(this.organization, certificateSummary.organization) &&
-        Objects.equals(this.organizationIdentifier, certificateSummary.organizationIdentifier);
+    CertificateFullModel certificateFullModel = (CertificateFullModel) o;
+    return Objects.equals(this.encoded, certificateFullModel.encoded) &&
+        Objects.equals(this.pemEncoded, certificateFullModel.pemEncoded) &&
+        Objects.equals(this.downloadUrl, certificateFullModel.downloadUrl) &&
+        Objects.equals(this.subjectName, certificateFullModel.subjectName) &&
+        Objects.equals(this.issuerName, certificateFullModel.issuerName) &&
+        Objects.equals(this.issuerDisplayName, certificateFullModel.issuerDisplayName) &&
+        Objects.equals(this.serialNumber, certificateFullModel.serialNumber) &&
+        Objects.equals(this.validityStart, certificateFullModel.validityStart) &&
+        Objects.equals(this.validityEnd, certificateFullModel.validityEnd) &&
+        Objects.equals(this.issuer, certificateFullModel.issuer) &&
+        Objects.equals(this.pkiBrazil, certificateFullModel.pkiBrazil) &&
+        Objects.equals(this.pkiItaly, certificateFullModel.pkiItaly) &&
+        Objects.equals(this.binaryThumbprintSHA256, certificateFullModel.binaryThumbprintSHA256) &&
+        Objects.equals(this.thumbprint, certificateFullModel.thumbprint) &&
+        Objects.equals(this.thumbprintSHA256, certificateFullModel.thumbprintSHA256) &&
+        Objects.equals(this.subjectCommonName, certificateFullModel.subjectCommonName) &&
+        Objects.equals(this.subjectDisplayName, certificateFullModel.subjectDisplayName) &&
+        Objects.equals(this.subjectIdentifier, certificateFullModel.subjectIdentifier) &&
+        Objects.equals(this.emailAddress, certificateFullModel.emailAddress) &&
+        Objects.equals(this.organization, certificateFullModel.organization) &&
+        Objects.equals(this.organizationIdentifier, certificateFullModel.organizationIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(thumbprint, thumbprintSHA256, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
+    return java.util.Objects.hash(encoded, pemEncoded, downloadUrl, subjectName, issuerName, issuerDisplayName, serialNumber, validityStart, validityEnd, issuer, pkiBrazil, pkiItaly, binaryThumbprintSHA256, thumbprint, thumbprintSHA256, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CertificateSummary {\n");
+    sb.append("class CertificateFullModel {\n");
     
+    sb.append("    encoded: ").append(toIndentedString(encoded)).append("\n");
+    sb.append("    pemEncoded: ").append(toIndentedString(pemEncoded)).append("\n");
+    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
+    sb.append("    issuerName: ").append(toIndentedString(issuerName)).append("\n");
+    sb.append("    issuerDisplayName: ").append(toIndentedString(issuerDisplayName)).append("\n");
+    sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
+    sb.append("    validityStart: ").append(toIndentedString(validityStart)).append("\n");
+    sb.append("    validityEnd: ").append(toIndentedString(validityEnd)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    pkiBrazil: ").append(toIndentedString(pkiBrazil)).append("\n");
+    sb.append("    pkiItaly: ").append(toIndentedString(pkiItaly)).append("\n");
+    sb.append("    binaryThumbprintSHA256: ").append(toIndentedString(binaryThumbprintSHA256)).append("\n");
     sb.append("    thumbprint: ").append(toIndentedString(thumbprint)).append("\n");
     sb.append("    thumbprintSHA256: ").append(toIndentedString(thumbprintSHA256)).append("\n");
     sb.append("    subjectCommonName: ").append(toIndentedString(subjectCommonName)).append("\n");

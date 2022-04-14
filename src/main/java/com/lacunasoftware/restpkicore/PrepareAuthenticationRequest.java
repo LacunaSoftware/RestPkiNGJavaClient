@@ -12,40 +12,102 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.UUID;
 
 /**
- * Gets or Sets PaginationOrders
+ * PrepareAuthenticationRequest
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class PrepareAuthenticationRequest {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("securityContextId")
+
+  private UUID securityContextId = null;
+
+  @JsonProperty("ignoreRevocationStatusUnknown")
+
+  private Boolean ignoreRevocationStatusUnknown = null;
+  public PrepareAuthenticationRequest securityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get securityContextId
+  * @return securityContextId
+  **/
+  @Schema(description = "")
+  public UUID getSecurityContextId() {
+    return securityContextId;
+  }
+  public void setSecurityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+  }
+  public PrepareAuthenticationRequest ignoreRevocationStatusUnknown(Boolean ignoreRevocationStatusUnknown) {
+    this.ignoreRevocationStatusUnknown = ignoreRevocationStatusUnknown;
+    return this;
+  }
+
+  
+
+  /**
+  * Get ignoreRevocationStatusUnknown
+  * @return ignoreRevocationStatusUnknown
+  **/
+  @Schema(description = "")
+  public Boolean isIgnoreRevocationStatusUnknown() {
+    return ignoreRevocationStatusUnknown;
+  }
+  public void setIgnoreRevocationStatusUnknown(Boolean ignoreRevocationStatusUnknown) {
+    this.ignoreRevocationStatusUnknown = ignoreRevocationStatusUnknown;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PrepareAuthenticationRequest prepareAuthenticationRequest = (PrepareAuthenticationRequest) o;
+    return Objects.equals(this.securityContextId, prepareAuthenticationRequest.securityContextId) &&
+        Objects.equals(this.ignoreRevocationStatusUnknown, prepareAuthenticationRequest.ignoreRevocationStatusUnknown);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(securityContextId, ignoreRevocationStatusUnknown);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PrepareAuthenticationRequest {\n");
+    
+    sb.append("    securityContextId: ").append(toIndentedString(securityContextId)).append("\n");
+    sb.append("    ignoreRevocationStatusUnknown: ").append(toIndentedString(ignoreRevocationStatusUnknown)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

@@ -29,6 +29,7 @@ try {
 	Remove-Item "$tempDir\src\test" -Recurse
 	Remove-Item "$tempDir\src\main\java\io" -Recurse
 	Remove-Item "$tempDir\src\main\java\com\lacunasoftware\auth" -Recurse
+	Remove-Item "$tempDir\src\main\AndroidManifest.xml"
 	Get-ChildItem "$tempDir\src\main\java\com\lacunasoftware" | where { !$_.PSIsContainer } | Remove-Item
 	
 	Write-Host ">>> Customizing classes ..."

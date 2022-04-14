@@ -12,40 +12,184 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
+import com.lacunasoftware.restpkicore.FileReferenceModel;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
- * Gets or Sets PaginationOrders
+ * InspectSignatureRequest
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class InspectSignatureRequest {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("file")
+
+  private FileReferenceModel file = null;
+
+  @JsonProperty("validate")
+
+  private Boolean validate = null;
+
+  @JsonProperty("securityContextId")
+
+  private UUID securityContextId = null;
+
+  @JsonProperty("dataFile")
+
+  private FileReferenceModel dataFile = null;
+
+  @JsonProperty("dataHashes")
+
+  private List<DigestAlgorithmAndValueModel> dataHashes = null;
+  public InspectSignatureRequest file(FileReferenceModel file) {
+    this.file = file;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get file
+  * @return file
+  **/
+  @Schema(required = true, description = "")
+  public FileReferenceModel getFile() {
+    return file;
+  }
+  public void setFile(FileReferenceModel file) {
+    this.file = file;
+  }
+  public InspectSignatureRequest validate(Boolean validate) {
+    this.validate = validate;
+    return this;
+  }
+
+  
+
+  /**
+  * Get validate
+  * @return validate
+  **/
+  @Schema(description = "")
+  public Boolean isValidate() {
+    return validate;
+  }
+  public void setValidate(Boolean validate) {
+    this.validate = validate;
+  }
+  public InspectSignatureRequest securityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+    return this;
+  }
+
+  
+
+  /**
+  * Get securityContextId
+  * @return securityContextId
+  **/
+  @Schema(description = "")
+  public UUID getSecurityContextId() {
+    return securityContextId;
+  }
+  public void setSecurityContextId(UUID securityContextId) {
+    this.securityContextId = securityContextId;
+  }
+  public InspectSignatureRequest dataFile(FileReferenceModel dataFile) {
+    this.dataFile = dataFile;
+    return this;
+  }
+
+  
+
+  /**
+  * Get dataFile
+  * @return dataFile
+  **/
+  @Schema(description = "")
+  public FileReferenceModel getDataFile() {
+    return dataFile;
+  }
+  public void setDataFile(FileReferenceModel dataFile) {
+    this.dataFile = dataFile;
+  }
+  public InspectSignatureRequest dataHashes(List<DigestAlgorithmAndValueModel> dataHashes) {
+    this.dataHashes = dataHashes;
+    return this;
+  }
+
+  public InspectSignatureRequest addDataHashesItem(DigestAlgorithmAndValueModel dataHashesItem) {
+    if (this.dataHashes == null) {
+      this.dataHashes = new ArrayList<>();
+    }
+    this.dataHashes.add(dataHashesItem);
+    return this;
+  }
+
+  /**
+  * Get dataHashes
+  * @return dataHashes
+  **/
+  @Schema(description = "")
+  public List<DigestAlgorithmAndValueModel> getDataHashes() {
+    return dataHashes;
+  }
+  public void setDataHashes(List<DigestAlgorithmAndValueModel> dataHashes) {
+    this.dataHashes = dataHashes;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    InspectSignatureRequest inspectSignatureRequest = (InspectSignatureRequest) o;
+    return Objects.equals(this.file, inspectSignatureRequest.file) &&
+        Objects.equals(this.validate, inspectSignatureRequest.validate) &&
+        Objects.equals(this.securityContextId, inspectSignatureRequest.securityContextId) &&
+        Objects.equals(this.dataFile, inspectSignatureRequest.dataFile) &&
+        Objects.equals(this.dataHashes, inspectSignatureRequest.dataHashes);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(file, validate, securityContextId, dataFile, dataHashes);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class InspectSignatureRequest {\n");
+    
+    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    validate: ").append(toIndentedString(validate)).append("\n");
+    sb.append("    securityContextId: ").append(toIndentedString(securityContextId)).append("\n");
+    sb.append("    dataFile: ").append(toIndentedString(dataFile)).append("\n");
+    sb.append("    dataHashes: ").append(toIndentedString(dataHashes)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

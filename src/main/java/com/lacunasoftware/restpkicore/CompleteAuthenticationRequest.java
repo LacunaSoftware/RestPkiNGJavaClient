@@ -12,40 +12,125 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Gets or Sets PaginationOrders
+ * CompleteAuthenticationRequest
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class CompleteAuthenticationRequest {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("state")
+
+  private String state = null;
+
+  @JsonProperty("certificate")
+
+  private byte[] certificate = null;
+
+  @JsonProperty("signature")
+
+  private byte[] signature = null;
+  public CompleteAuthenticationRequest state(String state) {
+    this.state = state;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get state
+  * @return state
+  **/
+  @Schema(required = true, description = "")
+  public String getState() {
+    return state;
+  }
+  public void setState(String state) {
+    this.state = state;
+  }
+  public CompleteAuthenticationRequest certificate(byte[] certificate) {
+    this.certificate = certificate;
+    return this;
+  }
+
+  
+
+  /**
+  * Get certificate
+  * @return certificate
+  **/
+  @Schema(required = true, description = "")
+  public byte[] getCertificate() {
+    return certificate;
+  }
+  public void setCertificate(byte[] certificate) {
+    this.certificate = certificate;
+  }
+  public CompleteAuthenticationRequest signature(byte[] signature) {
+    this.signature = signature;
+    return this;
+  }
+
+  
+
+  /**
+  * Get signature
+  * @return signature
+  **/
+  @Schema(required = true, description = "")
+  public byte[] getSignature() {
+    return signature;
+  }
+  public void setSignature(byte[] signature) {
+    this.signature = signature;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CompleteAuthenticationRequest completeAuthenticationRequest = (CompleteAuthenticationRequest) o;
+    return Objects.equals(this.state, completeAuthenticationRequest.state) &&
+        Objects.equals(this.certificate, completeAuthenticationRequest.certificate) &&
+        Objects.equals(this.signature, completeAuthenticationRequest.signature);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(state, certificate, signature);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CompleteAuthenticationRequest {\n");
+    
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

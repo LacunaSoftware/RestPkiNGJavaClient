@@ -17,15 +17,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets PaginationOrders
+ * Gets or Sets CertificateRequirementTypes
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
+public enum CertificateRequirementTypes {
+  CRYPTODEVICE("CryptoDevice"),
+  CPF("Cpf");
 
   private String value;
 
-  PaginationOrders(String value) {
+  CertificateRequirementTypes(String value) {
     this.value = value;
   }
 
@@ -40,8 +40,8 @@ public enum PaginationOrders {
   }
 
   @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
+  public static CertificateRequirementTypes fromValue(String text) {
+    for (CertificateRequirementTypes b : CertificateRequirementTypes.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }

@@ -12,40 +12,102 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Gets or Sets PaginationOrders
+ * PrepareAuthenticationResponse
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class PrepareAuthenticationResponse {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("state")
+
+  private String state = null;
+
+  @JsonProperty("toSignHash")
+
+  private DigestAlgorithmAndValueModel toSignHash = null;
+  public PrepareAuthenticationResponse state(String state) {
+    this.state = state;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get state
+  * @return state
+  **/
+  @Schema(description = "")
+  public String getState() {
+    return state;
+  }
+  public void setState(String state) {
+    this.state = state;
+  }
+  public PrepareAuthenticationResponse toSignHash(DigestAlgorithmAndValueModel toSignHash) {
+    this.toSignHash = toSignHash;
+    return this;
+  }
+
+  
+
+  /**
+  * Get toSignHash
+  * @return toSignHash
+  **/
+  @Schema(description = "")
+  public DigestAlgorithmAndValueModel getToSignHash() {
+    return toSignHash;
+  }
+  public void setToSignHash(DigestAlgorithmAndValueModel toSignHash) {
+    this.toSignHash = toSignHash;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PrepareAuthenticationResponse prepareAuthenticationResponse = (PrepareAuthenticationResponse) o;
+    return Objects.equals(this.state, prepareAuthenticationResponse.state) &&
+        Objects.equals(this.toSignHash, prepareAuthenticationResponse.toSignHash);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(state, toSignHash);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PrepareAuthenticationResponse {\n");
+    
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

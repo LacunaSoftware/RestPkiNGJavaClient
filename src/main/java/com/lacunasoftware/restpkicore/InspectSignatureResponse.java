@@ -12,40 +12,160 @@
 
 package com.lacunasoftware.restpkicore;
 
-
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.DocumentSummary;
+import com.lacunasoftware.restpkicore.InspectSignatureFailures;
+import com.lacunasoftware.restpkicore.SignerModel;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Gets or Sets PaginationOrders
+ * InspectSignatureResponse
  */
-public enum PaginationOrders {
-  ASC("Asc"),
-  DESC("Desc");
 
-  private String value;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+public class InspectSignatureResponse {
 
-  PaginationOrders(String value) {
-    this.value = value;
+  @JsonProperty("success")
+
+  private Boolean success = null;
+
+  @JsonProperty("failure")
+
+  private InspectSignatureFailures failure = null;
+
+  @JsonProperty("signers")
+
+  private List<SignerModel> signers = null;
+
+  @JsonProperty("document")
+
+  private DocumentSummary document = null;
+  public InspectSignatureResponse success(Boolean success) {
+    this.success = success;
+    return this;
   }
 
-  @JsonValue
-  public String getValue() {
-    return value;
+  
+
+  /**
+  * Get success
+  * @return success
+  **/
+  @Schema(description = "")
+  public Boolean isSuccess() {
+    return success;
+  }
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+  public InspectSignatureResponse failure(InspectSignatureFailures failure) {
+    this.failure = failure;
+    return this;
+  }
+
+  
+
+  /**
+  * Get failure
+  * @return failure
+  **/
+  @Schema(description = "")
+  public InspectSignatureFailures getFailure() {
+    return failure;
+  }
+  public void setFailure(InspectSignatureFailures failure) {
+    this.failure = failure;
+  }
+  public InspectSignatureResponse signers(List<SignerModel> signers) {
+    this.signers = signers;
+    return this;
+  }
+
+  public InspectSignatureResponse addSignersItem(SignerModel signersItem) {
+    if (this.signers == null) {
+      this.signers = new ArrayList<>();
+    }
+    this.signers.add(signersItem);
+    return this;
+  }
+
+  /**
+  * Get signers
+  * @return signers
+  **/
+  @Schema(description = "")
+  public List<SignerModel> getSigners() {
+    return signers;
+  }
+  public void setSigners(List<SignerModel> signers) {
+    this.signers = signers;
+  }
+  public InspectSignatureResponse document(DocumentSummary document) {
+    this.document = document;
+    return this;
+  }
+
+  
+
+  /**
+  * Get document
+  * @return document
+  **/
+  @Schema(description = "")
+  public DocumentSummary getDocument() {
+    return document;
+  }
+  public void setDocument(DocumentSummary document) {
+    this.document = document;
+  }
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    InspectSignatureResponse inspectSignatureResponse = (InspectSignatureResponse) o;
+    return Objects.equals(this.success, inspectSignatureResponse.success) &&
+        Objects.equals(this.failure, inspectSignatureResponse.failure) &&
+        Objects.equals(this.signers, inspectSignatureResponse.signers) &&
+        Objects.equals(this.document, inspectSignatureResponse.document);
+  }
+
+  @Override
+  public int hashCode() {
+    return java.util.Objects.hash(success, failure, signers, document);
   }
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    StringBuilder sb = new StringBuilder();
+    sb.append("class InspectSignatureResponse {\n");
+    
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
+    sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
+    sb.append("    document: ").append(toIndentedString(document)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
-  @JsonCreator
-  public static PaginationOrders fromValue(String text) {
-    for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
     }
-    return null;
+    return o.toString().replace("\n", "\n    ");
   }
+
 }
