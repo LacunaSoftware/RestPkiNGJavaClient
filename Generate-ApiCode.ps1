@@ -26,11 +26,11 @@ try {
 	
 	Write-Host ">>> Pruning ..."
 	
-	Remove-Item docs -Recurse
-	Remove-Item src\test -Recurse
-	Remove-Item src\main\java\io
-	Remove-Item src\main\java\com\lacunasoftware\auth -Recurse
-	Get-ChildItem src\main\java\com\lacunasoftware | where { !$_.PSIsContainer } | Remove-Item
+	Remove-Item "$tempDir\docs" -Recurse
+	Remove-Item "$tempDir\src\test" -Recurse
+	Remove-Item "$tempDir\src\main\java\io" -Recurse
+	Remove-Item "$tempDir\src\main\java\com\lacunasoftware\auth" -Recurse
+	Get-ChildItem "$tempDir\src\main\java\com\lacunasoftware" | where { !$_.PSIsContainer } | Remove-Item
 	
 	Write-Host ">>> Customizing classes ..."
 
