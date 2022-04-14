@@ -15,7 +15,7 @@ try {
 
 	Write-Host ">>> Generating code ..."
 
-	&java -jar $toolJarPath generate -i https://core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	&java -jar $toolJarPath generate -i https://homolog.core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
 	
 	Write-Host ">>> Customizing classes ..."
 
