@@ -1,6 +1,12 @@
 param([string]$ToolPath)
 $ErrorActionPreference = "Stop"
 
+function Assert-SuccessExitCode($errorMessage) {
+    if ($LASTEXITCODE -ne 0) {
+        throw $errorMessage
+    }
+}
+
 try {
 
 	if ([String]::IsNullOrEmpty($ToolPath)) {
@@ -15,28 +21,16 @@ try {
 
 	Write-Host ">>> Generating code ..."
 
-	&java -jar $toolJarPath generate -i https://core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	&java -jar $toolJarPath generate -i https://homolog.core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	Assert-SuccessExitCode "Swagger codegen failed"
 	
 	Write-Host ">>> Customizing classes ..."
 
 	$encoding = New-Object System.Text.UTF8Encoding $false
-	# $regex = New-Object System.Text.RegularExpressions.Regex "public enum (\w+) {.*?};?", "Singleline"
 	ls $tempDir -filter *.java -recurse | foreach {
 		$content = [System.IO.File]::ReadAllText($_.Fullname, $encoding)
-		$content = $content.Replace("public class", "@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)`nclass")
-		# $matches = $regex.Matches($content)
-		# $content = $regex.Replace($content, "")
+		$content = $content.Replace("public class", "@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)`npublic class")
 		[System.IO.File]::WriteAllText($_.Fullname, $content, $encoding)
-		# $matches | foreach {
-			# $enumName = $_.Groups[1].Value
-			# Write-Host (">>> Extracting enum: " + $enumName)
-			# $enumDefinition = $_.Value
-			# $code = New-Object System.Text.StringBuilder
-			# $code.AppendLine("package com.lacunasoftware.restpki;");
-			# $code.AppendLine($enumDefinition)
-			# $enumFilePath = ("{0}\src\main\java\com\lacunasoftware\restpki\{1}.java" -f $tempDir, $enumName)
-			# [System.IO.File]::WriteAllText($enumFilePath, $code.ToString(), $encoding)
-		# }
 	}
 	
 	Write-Host ">>> Copying classes to project ..."

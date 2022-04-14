@@ -1,4 +1,6 @@
 {
-	"modelPackage": "com.lacunasoftware.restpki",
-	"library": "jersey1"
+	"modelPackage": "com.lacunasoftware.restpkicore",
+	"library": "jersey1",
+	"dateLibrary": "legacy",
+	"java8": true
 }

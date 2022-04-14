@@ -14,3 +14,5 @@ out/
 .idea/
 docs/
 gradle.properties
+*.jar
+.swagger-codegen/
