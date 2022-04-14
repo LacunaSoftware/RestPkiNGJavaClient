@@ -26,7 +26,6 @@ try {
 	
 	Write-Host ">>> Pruning ..."
 	
-	Remove-Item "$tempDir\docs" -Recurse
 	Remove-Item "$tempDir\src\test" -Recurse
 	Remove-Item "$tempDir\src\main\java\io" -Recurse
 	Remove-Item "$tempDir\src\main\java\com\lacunasoftware\auth" -Recurse
@@ -43,7 +42,7 @@ try {
 	
 	Write-Host ">>> Copying classes to project ..."
 
-	Copy-Item ("{0}\*" -f $tempDir) . -Recurse -Force
+	Copy-Item "$tempDir\src\*" .\src -Recurse -Force
 	
 	Write-Host ">>> Doing some housekeeping ..."
 
