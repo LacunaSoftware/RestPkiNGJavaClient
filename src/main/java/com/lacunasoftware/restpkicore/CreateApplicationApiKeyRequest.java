@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
-
 /**
  * CreateApplicationApiKeyRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CreateApplicationApiKeyRequest {
-
   @JsonProperty("description")
-
   private String description = null;
 
   @JsonProperty("expiresOn")
-
   private Date expiresOn = null;
+
   public CreateApplicationApiKeyRequest description(String description) {
     this.description = description;
     return this;
   }
 
-  
-
-  /**
-  * Get description
-  * @return description
+   /**
+   * Get description
+   * @return description
   **/
   @Schema(required = true, description = "")
   public String getDescription() {
     return description;
   }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public CreateApplicationApiKeyRequest expiresOn(Date expiresOn) {
     this.expiresOn = expiresOn;
     return this;
   }
 
-  
-
-  /**
-  * Get expiresOn
-  * @return expiresOn
+   /**
+   * Get expiresOn
+   * @return expiresOn
   **/
   @Schema(description = "")
   public Date getExpiresOn() {
     return expiresOn;
   }
+
   public void setExpiresOn(Date expiresOn) {
     this.expiresOn = expiresOn;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class CreateApplicationApiKeyRequest {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(description, expiresOn);
+    return Objects.hash(description, expiresOn);
   }
+
 
   @Override
   public String toString() {

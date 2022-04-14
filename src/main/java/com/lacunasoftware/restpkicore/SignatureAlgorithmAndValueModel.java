@@ -13,85 +13,84 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.SignatureAlgorithmIdentifier;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * SignatureAlgorithmAndValueModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureAlgorithmAndValueModel {
-
   @JsonProperty("algorithmIdentifier")
-
   private SignatureAlgorithmIdentifier algorithmIdentifier = null;
 
   @JsonProperty("value")
-
   private byte[] value = null;
 
   @JsonProperty("hexValue")
-
   private String hexValue = null;
+
   public SignatureAlgorithmAndValueModel algorithmIdentifier(SignatureAlgorithmIdentifier algorithmIdentifier) {
     this.algorithmIdentifier = algorithmIdentifier;
     return this;
   }
 
-  
-
-  /**
-  * Get algorithmIdentifier
-  * @return algorithmIdentifier
+   /**
+   * Get algorithmIdentifier
+   * @return algorithmIdentifier
   **/
   @Schema(description = "")
   public SignatureAlgorithmIdentifier getAlgorithmIdentifier() {
     return algorithmIdentifier;
   }
+
   public void setAlgorithmIdentifier(SignatureAlgorithmIdentifier algorithmIdentifier) {
     this.algorithmIdentifier = algorithmIdentifier;
   }
+
   public SignatureAlgorithmAndValueModel value(byte[] value) {
     this.value = value;
     return this;
   }
 
-  
-
-  /**
-  * Get value
-  * @return value
+   /**
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
   public byte[] getValue() {
     return value;
   }
+
   public void setValue(byte[] value) {
     this.value = value;
   }
+
   public SignatureAlgorithmAndValueModel hexValue(String hexValue) {
     this.hexValue = hexValue;
     return this;
   }
 
-  
-
-  /**
-  * Get hexValue
-  * @return hexValue
+   /**
+   * Get hexValue
+   * @return hexValue
   **/
   @Schema(description = "")
   public String getHexValue() {
     return hexValue;
   }
+
   public void setHexValue(String hexValue) {
     this.hexValue = hexValue;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -102,14 +101,15 @@ public class SignatureAlgorithmAndValueModel {
     }
     SignatureAlgorithmAndValueModel signatureAlgorithmAndValueModel = (SignatureAlgorithmAndValueModel) o;
     return Objects.equals(this.algorithmIdentifier, signatureAlgorithmAndValueModel.algorithmIdentifier) &&
-        Objects.equals(this.value, signatureAlgorithmAndValueModel.value) &&
+        Arrays.equals(this.value, signatureAlgorithmAndValueModel.value) &&
         Objects.equals(this.hexValue, signatureAlgorithmAndValueModel.hexValue);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(algorithmIdentifier, value, hexValue);
+    return Objects.hash(algorithmIdentifier, Arrays.hashCode(value), hexValue);
   }
+
 
   @Override
   public String toString() {

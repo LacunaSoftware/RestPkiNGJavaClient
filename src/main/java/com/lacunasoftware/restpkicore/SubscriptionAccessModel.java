@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,44 +22,41 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 /**
  * SubscriptionAccessModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionAccessModel {
-
   @JsonProperty("subscriptionId")
-
   private UUID subscriptionId = null;
 
   @JsonProperty("roles")
-
   private List<Roles> roles = null;
 
   @JsonProperty("parentRoles")
-
   private List<String> parentRoles = null;
+
   public SubscriptionAccessModel subscriptionId(UUID subscriptionId) {
     this.subscriptionId = subscriptionId;
     return this;
   }
 
-  
-
-  /**
-  * Get subscriptionId
-  * @return subscriptionId
+   /**
+   * Get subscriptionId
+   * @return subscriptionId
   **/
   @Schema(description = "")
   public UUID getSubscriptionId() {
     return subscriptionId;
   }
+
   public void setSubscriptionId(UUID subscriptionId) {
     this.subscriptionId = subscriptionId;
   }
+
   public SubscriptionAccessModel roles(List<Roles> roles) {
     this.roles = roles;
     return this;
@@ -72,17 +70,19 @@ public class SubscriptionAccessModel {
     return this;
   }
 
-  /**
-  * Get roles
-  * @return roles
+   /**
+   * Get roles
+   * @return roles
   **/
   @Schema(description = "")
   public List<Roles> getRoles() {
     return roles;
   }
+
   public void setRoles(List<Roles> roles) {
     this.roles = roles;
   }
+
   public SubscriptionAccessModel parentRoles(List<String> parentRoles) {
     this.parentRoles = parentRoles;
     return this;
@@ -96,17 +96,20 @@ public class SubscriptionAccessModel {
     return this;
   }
 
-  /**
-  * Get parentRoles
-  * @return parentRoles
+   /**
+   * Get parentRoles
+   * @return parentRoles
   **/
   @Schema(description = "")
   public List<String> getParentRoles() {
     return parentRoles;
   }
+
   public void setParentRoles(List<String> parentRoles) {
     this.parentRoles = parentRoles;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -123,8 +126,9 @@ public class SubscriptionAccessModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(subscriptionId, roles, parentRoles);
+    return Objects.hash(subscriptionId, roles, parentRoles);
   }
+
 
   @Override
   public String toString() {

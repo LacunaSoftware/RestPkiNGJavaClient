@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
-
 /**
  * CreateSignatureSessionResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CreateSignatureSessionResponse {
-
   @JsonProperty("sessionId")
-
   private UUID sessionId = null;
 
   @JsonProperty("redirectUrl")
-
   private String redirectUrl = null;
+
   public CreateSignatureSessionResponse sessionId(UUID sessionId) {
     this.sessionId = sessionId;
     return this;
   }
 
-  
-
-  /**
-  * Get sessionId
-  * @return sessionId
+   /**
+   * Get sessionId
+   * @return sessionId
   **/
   @Schema(description = "")
   public UUID getSessionId() {
     return sessionId;
   }
+
   public void setSessionId(UUID sessionId) {
     this.sessionId = sessionId;
   }
+
   public CreateSignatureSessionResponse redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
 
-  
-
-  /**
-  * Get redirectUrl
-  * @return redirectUrl
+   /**
+   * Get redirectUrl
+   * @return redirectUrl
   **/
   @Schema(description = "")
   public String getRedirectUrl() {
     return redirectUrl;
   }
+
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class CreateSignatureSessionResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(sessionId, redirectUrl);
+    return Objects.hash(sessionId, redirectUrl);
   }
+
 
   @Override
   public String toString() {

@@ -13,86 +13,85 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.AuthorizationData;
 import com.lacunasoftware.restpkicore.RootAuthorizationData;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData {
-
   @JsonProperty("name")
-
   private String name = null;
 
   @JsonProperty("authorizationData")
-
   private AuthorizationData authorizationData = null;
 
   @JsonProperty("rootAuthorizationData")
-
   private RootAuthorizationData rootAuthorizationData = null;
+
   public AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData name(String name) {
     this.name = name;
     return this;
   }
 
-  
-
-  /**
-  * Get name
-  * @return name
+   /**
+   * Get name
+   * @return name
   **/
   @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData authorizationData(AuthorizationData authorizationData) {
     this.authorizationData = authorizationData;
     return this;
   }
 
-  
-
-  /**
-  * Get authorizationData
-  * @return authorizationData
+   /**
+   * Get authorizationData
+   * @return authorizationData
   **/
   @Schema(description = "")
   public AuthorizationData getAuthorizationData() {
     return authorizationData;
   }
+
   public void setAuthorizationData(AuthorizationData authorizationData) {
     this.authorizationData = authorizationData;
   }
+
   public AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData rootAuthorizationData(RootAuthorizationData rootAuthorizationData) {
     this.rootAuthorizationData = rootAuthorizationData;
     return this;
   }
 
-  
-
-  /**
-  * Get rootAuthorizationData
-  * @return rootAuthorizationData
+   /**
+   * Get rootAuthorizationData
+   * @return rootAuthorizationData
   **/
   @Schema(description = "")
   public RootAuthorizationData getRootAuthorizationData() {
     return rootAuthorizationData;
   }
+
   public void setRootAuthorizationData(RootAuthorizationData rootAuthorizationData) {
     this.rootAuthorizationData = rootAuthorizationData;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -109,8 +108,9 @@ public class AuthorizationDataRootAuthorizationDataRolesRootRolesApplicationData
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(name, authorizationData, rootAuthorizationData);
+    return Objects.hash(name, authorizationData, rootAuthorizationData);
   }
+
 
   @Override
   public String toString() {

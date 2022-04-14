@@ -13,108 +13,106 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.ValidationItemTypes;
 import com.lacunasoftware.restpkicore.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * ValidationItemModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class ValidationItemModel {
-
   @JsonProperty("type")
-
   private ValidationItemTypes type = null;
 
   @JsonProperty("message")
-
   private String message = null;
 
   @JsonProperty("detail")
-
   private String detail = null;
 
   @JsonProperty("innerValidationResults")
-
   private ValidationResultsModel innerValidationResults = null;
+
   public ValidationItemModel type(ValidationItemTypes type) {
     this.type = type;
     return this;
   }
 
-  
-
-  /**
-  * Get type
-  * @return type
+   /**
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
   public ValidationItemTypes getType() {
     return type;
   }
+
   public void setType(ValidationItemTypes type) {
     this.type = type;
   }
+
   public ValidationItemModel message(String message) {
     this.message = message;
     return this;
   }
 
-  
-
-  /**
-  * Get message
-  * @return message
+   /**
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
   public String getMessage() {
     return message;
   }
+
   public void setMessage(String message) {
     this.message = message;
   }
+
   public ValidationItemModel detail(String detail) {
     this.detail = detail;
     return this;
   }
 
-  
-
-  /**
-  * Get detail
-  * @return detail
+   /**
+   * Get detail
+   * @return detail
   **/
   @Schema(description = "")
   public String getDetail() {
     return detail;
   }
+
   public void setDetail(String detail) {
     this.detail = detail;
   }
+
   public ValidationItemModel innerValidationResults(ValidationResultsModel innerValidationResults) {
     this.innerValidationResults = innerValidationResults;
     return this;
   }
 
-  
-
-  /**
-  * Get innerValidationResults
-  * @return innerValidationResults
+   /**
+   * Get innerValidationResults
+   * @return innerValidationResults
   **/
   @Schema(description = "")
   public ValidationResultsModel getInnerValidationResults() {
     return innerValidationResults;
   }
+
   public void setInnerValidationResults(ValidationResultsModel innerValidationResults) {
     this.innerValidationResults = innerValidationResults;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -132,8 +130,9 @@ public class ValidationItemModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(type, message, detail, innerValidationResults);
+    return Objects.hash(type, message, detail, innerValidationResults);
   }
+
 
   @Override
   public String toString() {

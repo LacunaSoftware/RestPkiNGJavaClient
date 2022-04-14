@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,22 +21,20 @@ import com.lacunasoftware.restpkicore.RootRoles;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * RootAuthorizationData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class RootAuthorizationData {
-
   @JsonProperty("roles")
-
   private List<RootRoles> roles = null;
 
   @JsonProperty("grantAppId")
-
   private String grantAppId = null;
+
   public RootAuthorizationData roles(List<RootRoles> roles) {
     this.roles = roles;
     return this;
@@ -49,35 +48,38 @@ public class RootAuthorizationData {
     return this;
   }
 
-  /**
-  * Get roles
-  * @return roles
+   /**
+   * Get roles
+   * @return roles
   **/
   @Schema(description = "")
   public List<RootRoles> getRoles() {
     return roles;
   }
+
   public void setRoles(List<RootRoles> roles) {
     this.roles = roles;
   }
+
   public RootAuthorizationData grantAppId(String grantAppId) {
     this.grantAppId = grantAppId;
     return this;
   }
 
-  
-
-  /**
-  * Get grantAppId
-  * @return grantAppId
+   /**
+   * Get grantAppId
+   * @return grantAppId
   **/
   @Schema(description = "")
   public String getGrantAppId() {
     return grantAppId;
   }
+
   public void setGrantAppId(String grantAppId) {
     this.grantAppId = grantAppId;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -93,8 +95,9 @@ public class RootAuthorizationData {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(roles, grantAppId);
+    return Objects.hash(roles, grantAppId);
   }
+
 
   @Override
   public String toString() {

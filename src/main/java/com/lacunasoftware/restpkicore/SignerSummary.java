@@ -13,64 +13,64 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.CertificateSummary;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
-
 /**
  * SignerSummary
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignerSummary {
-
   @JsonProperty("certificate")
-
   private CertificateSummary certificate = null;
 
   @JsonProperty("date")
-
   private Date date = null;
+
   public SignerSummary certificate(CertificateSummary certificate) {
     this.certificate = certificate;
     return this;
   }
 
-  
-
-  /**
-  * Get certificate
-  * @return certificate
+   /**
+   * Get certificate
+   * @return certificate
   **/
   @Schema(description = "")
   public CertificateSummary getCertificate() {
     return certificate;
   }
+
   public void setCertificate(CertificateSummary certificate) {
     this.certificate = certificate;
   }
+
   public SignerSummary date(Date date) {
     this.date = date;
     return this;
   }
 
-  
-
-  /**
-  * Get date
-  * @return date
+   /**
+   * Get date
+   * @return date
   **/
   @Schema(description = "")
   public Date getDate() {
     return date;
   }
+
   public void setDate(Date date) {
     this.date = date;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -86,8 +86,9 @@ public class SignerSummary {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificate, date);
+    return Objects.hash(certificate, date);
   }
+
 
   @Override
   public String toString() {

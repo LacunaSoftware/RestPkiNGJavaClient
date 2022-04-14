@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -22,66 +23,62 @@ import com.lacunasoftware.restpkicore.SignerModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * InspectSignatureResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class InspectSignatureResponse {
-
   @JsonProperty("success")
-
   private Boolean success = null;
 
   @JsonProperty("failure")
-
   private InspectSignatureFailures failure = null;
 
   @JsonProperty("signers")
-
   private List<SignerModel> signers = null;
 
   @JsonProperty("document")
-
   private DocumentSummary document = null;
+
   public InspectSignatureResponse success(Boolean success) {
     this.success = success;
     return this;
   }
 
-  
-
-  /**
-  * Get success
-  * @return success
+   /**
+   * Get success
+   * @return success
   **/
   @Schema(description = "")
   public Boolean isSuccess() {
     return success;
   }
+
   public void setSuccess(Boolean success) {
     this.success = success;
   }
+
   public InspectSignatureResponse failure(InspectSignatureFailures failure) {
     this.failure = failure;
     return this;
   }
 
-  
-
-  /**
-  * Get failure
-  * @return failure
+   /**
+   * Get failure
+   * @return failure
   **/
   @Schema(description = "")
   public InspectSignatureFailures getFailure() {
     return failure;
   }
+
   public void setFailure(InspectSignatureFailures failure) {
     this.failure = failure;
   }
+
   public InspectSignatureResponse signers(List<SignerModel> signers) {
     this.signers = signers;
     return this;
@@ -95,35 +92,38 @@ public class InspectSignatureResponse {
     return this;
   }
 
-  /**
-  * Get signers
-  * @return signers
+   /**
+   * Get signers
+   * @return signers
   **/
   @Schema(description = "")
   public List<SignerModel> getSigners() {
     return signers;
   }
+
   public void setSigners(List<SignerModel> signers) {
     this.signers = signers;
   }
+
   public InspectSignatureResponse document(DocumentSummary document) {
     this.document = document;
     return this;
   }
 
-  
-
-  /**
-  * Get document
-  * @return document
+   /**
+   * Get document
+   * @return document
   **/
   @Schema(description = "")
   public DocumentSummary getDocument() {
     return document;
   }
+
   public void setDocument(DocumentSummary document) {
     this.document = document;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -141,8 +141,9 @@ public class InspectSignatureResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(success, failure, signers, document);
+    return Objects.hash(success, failure, signers, document);
   }
+
 
   @Override
   public String toString() {

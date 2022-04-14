@@ -13,85 +13,84 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.PkiItalyCertificateTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * PkiItalyCertificateModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class PkiItalyCertificateModel {
-
   @JsonProperty("certificateType")
-
   private PkiItalyCertificateTypes certificateType = null;
 
   @JsonProperty("codiceFiscale")
-
   private String codiceFiscale = null;
 
   @JsonProperty("idCarta")
-
   private String idCarta = null;
+
   public PkiItalyCertificateModel certificateType(PkiItalyCertificateTypes certificateType) {
     this.certificateType = certificateType;
     return this;
   }
 
-  
-
-  /**
-  * Get certificateType
-  * @return certificateType
+   /**
+   * Get certificateType
+   * @return certificateType
   **/
   @Schema(description = "")
   public PkiItalyCertificateTypes getCertificateType() {
     return certificateType;
   }
+
   public void setCertificateType(PkiItalyCertificateTypes certificateType) {
     this.certificateType = certificateType;
   }
+
   public PkiItalyCertificateModel codiceFiscale(String codiceFiscale) {
     this.codiceFiscale = codiceFiscale;
     return this;
   }
 
-  
-
-  /**
-  * Get codiceFiscale
-  * @return codiceFiscale
+   /**
+   * Get codiceFiscale
+   * @return codiceFiscale
   **/
   @Schema(description = "")
   public String getCodiceFiscale() {
     return codiceFiscale;
   }
+
   public void setCodiceFiscale(String codiceFiscale) {
     this.codiceFiscale = codiceFiscale;
   }
+
   public PkiItalyCertificateModel idCarta(String idCarta) {
     this.idCarta = idCarta;
     return this;
   }
 
-  
-
-  /**
-  * Get idCarta
-  * @return idCarta
+   /**
+   * Get idCarta
+   * @return idCarta
   **/
   @Schema(description = "")
   public String getIdCarta() {
     return idCarta;
   }
+
   public void setIdCarta(String idCarta) {
     this.idCarta = idCarta;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -108,8 +107,9 @@ public class PkiItalyCertificateModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificateType, codiceFiscale, idCarta);
+    return Objects.hash(certificateType, codiceFiscale, idCarta);
   }
+
 
   @Override
   public String toString() {

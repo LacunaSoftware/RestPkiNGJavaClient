@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.ApplicationKeyModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * CreateApplicationApiKeyResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CreateApplicationApiKeyResponse {
-
   @JsonProperty("key")
-
   private String key = null;
 
   @JsonProperty("info")
-
   private ApplicationKeyModel info = null;
+
   public CreateApplicationApiKeyResponse key(String key) {
     this.key = key;
     return this;
   }
 
-  
-
-  /**
-  * Get key
-  * @return key
+   /**
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
   public String getKey() {
     return key;
   }
+
   public void setKey(String key) {
     this.key = key;
   }
+
   public CreateApplicationApiKeyResponse info(ApplicationKeyModel info) {
     this.info = info;
     return this;
   }
 
-  
-
-  /**
-  * Get info
-  * @return info
+   /**
+   * Get info
+   * @return info
   **/
   @Schema(description = "")
   public ApplicationKeyModel getInfo() {
     return info;
   }
+
   public void setInfo(ApplicationKeyModel info) {
     this.info = info;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class CreateApplicationApiKeyResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(key, info);
+    return Objects.hash(key, info);
   }
+
 
   @Override
   public String toString() {

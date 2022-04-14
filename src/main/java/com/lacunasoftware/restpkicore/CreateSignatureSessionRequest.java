@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -24,160 +25,154 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
 /**
  * CreateSignatureSessionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CreateSignatureSessionRequest {
-
   @JsonProperty("returnUrl")
-
   private String returnUrl = null;
 
   @JsonProperty("securityContextId")
-
   private UUID securityContextId = null;
 
   @JsonProperty("callbackArgument")
-
   private String callbackArgument = null;
 
   @JsonProperty("enableBackgroundProcessing")
-
   private Boolean enableBackgroundProcessing = null;
 
   @JsonProperty("disableDownloads")
-
   private Boolean disableDownloads = null;
 
   @JsonProperty("documentMetadata")
-
   private Map<String, List<String>> documentMetadata = null;
 
   @JsonProperty("documents")
-
   private List<SignatureSessionDocumentData> documents = null;
 
   @JsonProperty("certificateRequirements")
-
   private List<CertificateRequirement> certificateRequirements = null;
+
   public CreateSignatureSessionRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
     return this;
   }
 
-  
-
-  /**
-  * Get returnUrl
-  * @return returnUrl
+   /**
+   * Get returnUrl
+   * @return returnUrl
   **/
   @Schema(description = "")
   public String getReturnUrl() {
     return returnUrl;
   }
+
   public void setReturnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
   }
+
   public CreateSignatureSessionRequest securityContextId(UUID securityContextId) {
     this.securityContextId = securityContextId;
     return this;
   }
 
-  
-
-  /**
-  * Get securityContextId
-  * @return securityContextId
+   /**
+   * Get securityContextId
+   * @return securityContextId
   **/
   @Schema(description = "")
   public UUID getSecurityContextId() {
     return securityContextId;
   }
+
   public void setSecurityContextId(UUID securityContextId) {
     this.securityContextId = securityContextId;
   }
+
   public CreateSignatureSessionRequest callbackArgument(String callbackArgument) {
     this.callbackArgument = callbackArgument;
     return this;
   }
 
-  
-
-  /**
-  * Get callbackArgument
-  * @return callbackArgument
+   /**
+   * Get callbackArgument
+   * @return callbackArgument
   **/
   @Schema(description = "")
   public String getCallbackArgument() {
     return callbackArgument;
   }
+
   public void setCallbackArgument(String callbackArgument) {
     this.callbackArgument = callbackArgument;
   }
+
   public CreateSignatureSessionRequest enableBackgroundProcessing(Boolean enableBackgroundProcessing) {
     this.enableBackgroundProcessing = enableBackgroundProcessing;
     return this;
   }
 
-  
-
-  /**
-  * Get enableBackgroundProcessing
-  * @return enableBackgroundProcessing
+   /**
+   * Get enableBackgroundProcessing
+   * @return enableBackgroundProcessing
   **/
   @Schema(description = "")
   public Boolean isEnableBackgroundProcessing() {
     return enableBackgroundProcessing;
   }
+
   public void setEnableBackgroundProcessing(Boolean enableBackgroundProcessing) {
     this.enableBackgroundProcessing = enableBackgroundProcessing;
   }
+
   public CreateSignatureSessionRequest disableDownloads(Boolean disableDownloads) {
     this.disableDownloads = disableDownloads;
     return this;
   }
 
-  
-
-  /**
-  * Get disableDownloads
-  * @return disableDownloads
+   /**
+   * Get disableDownloads
+   * @return disableDownloads
   **/
   @Schema(description = "")
   public Boolean isDisableDownloads() {
     return disableDownloads;
   }
+
   public void setDisableDownloads(Boolean disableDownloads) {
     this.disableDownloads = disableDownloads;
   }
+
   public CreateSignatureSessionRequest documentMetadata(Map<String, List<String>> documentMetadata) {
     this.documentMetadata = documentMetadata;
     return this;
   }
 
-  
   public CreateSignatureSessionRequest putDocumentMetadataItem(String key, List<String> documentMetadataItem) {
     if (this.documentMetadata == null) {
-      this.documentMetadata = null;
+      this.documentMetadata = new HashMap<>();
     }
     this.documentMetadata.put(key, documentMetadataItem);
     return this;
   }
-  /**
-  * Get documentMetadata
-  * @return documentMetadata
+
+   /**
+   * Get documentMetadata
+   * @return documentMetadata
   **/
   @Schema(description = "")
   public Map<String, List<String>> getDocumentMetadata() {
     return documentMetadata;
   }
+
   public void setDocumentMetadata(Map<String, List<String>> documentMetadata) {
     this.documentMetadata = documentMetadata;
   }
+
   public CreateSignatureSessionRequest documents(List<SignatureSessionDocumentData> documents) {
     this.documents = documents;
     return this;
@@ -191,17 +186,19 @@ public class CreateSignatureSessionRequest {
     return this;
   }
 
-  /**
-  * Get documents
-  * @return documents
+   /**
+   * Get documents
+   * @return documents
   **/
   @Schema(description = "")
   public List<SignatureSessionDocumentData> getDocuments() {
     return documents;
   }
+
   public void setDocuments(List<SignatureSessionDocumentData> documents) {
     this.documents = documents;
   }
+
   public CreateSignatureSessionRequest certificateRequirements(List<CertificateRequirement> certificateRequirements) {
     this.certificateRequirements = certificateRequirements;
     return this;
@@ -215,17 +212,20 @@ public class CreateSignatureSessionRequest {
     return this;
   }
 
-  /**
-  * Get certificateRequirements
-  * @return certificateRequirements
+   /**
+   * Get certificateRequirements
+   * @return certificateRequirements
   **/
   @Schema(description = "")
   public List<CertificateRequirement> getCertificateRequirements() {
     return certificateRequirements;
   }
+
   public void setCertificateRequirements(List<CertificateRequirement> certificateRequirements) {
     this.certificateRequirements = certificateRequirements;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -247,8 +247,9 @@ public class CreateSignatureSessionRequest {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(returnUrl, securityContextId, callbackArgument, enableBackgroundProcessing, disableDownloads, documentMetadata, documents, certificateRequirements);
+    return Objects.hash(returnUrl, securityContextId, callbackArgument, enableBackgroundProcessing, disableDownloads, documentMetadata, documents, certificateRequirements);
   }
+
 
   @Override
   public String toString() {

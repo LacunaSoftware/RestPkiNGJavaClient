@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.DocumentModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * DocumentQueryResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentQueryResponse {
-
   @JsonProperty("found")
-
   private Boolean found = null;
 
   @JsonProperty("document")
-
   private DocumentModel document = null;
+
   public DocumentQueryResponse found(Boolean found) {
     this.found = found;
     return this;
   }
 
-  
-
-  /**
-  * Get found
-  * @return found
+   /**
+   * Get found
+   * @return found
   **/
   @Schema(description = "")
   public Boolean isFound() {
     return found;
   }
+
   public void setFound(Boolean found) {
     this.found = found;
   }
+
   public DocumentQueryResponse document(DocumentModel document) {
     this.document = document;
     return this;
   }
 
-  
-
-  /**
-  * Get document
-  * @return document
+   /**
+   * Get document
+   * @return document
   **/
   @Schema(description = "")
   public DocumentModel getDocument() {
     return document;
   }
+
   public void setDocument(DocumentModel document) {
     this.document = document;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class DocumentQueryResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(found, document);
+    return Objects.hash(found, document);
   }
+
 
   @Override
   public String toString() {

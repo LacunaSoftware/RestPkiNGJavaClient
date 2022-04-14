@@ -13,84 +13,83 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * CompleteAuthenticationRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CompleteAuthenticationRequest {
-
   @JsonProperty("state")
-
   private String state = null;
 
   @JsonProperty("certificate")
-
   private byte[] certificate = null;
 
   @JsonProperty("signature")
-
   private byte[] signature = null;
+
   public CompleteAuthenticationRequest state(String state) {
     this.state = state;
     return this;
   }
 
-  
-
-  /**
-  * Get state
-  * @return state
+   /**
+   * Get state
+   * @return state
   **/
   @Schema(required = true, description = "")
   public String getState() {
     return state;
   }
+
   public void setState(String state) {
     this.state = state;
   }
+
   public CompleteAuthenticationRequest certificate(byte[] certificate) {
     this.certificate = certificate;
     return this;
   }
 
-  
-
-  /**
-  * Get certificate
-  * @return certificate
+   /**
+   * Get certificate
+   * @return certificate
   **/
   @Schema(required = true, description = "")
   public byte[] getCertificate() {
     return certificate;
   }
+
   public void setCertificate(byte[] certificate) {
     this.certificate = certificate;
   }
+
   public CompleteAuthenticationRequest signature(byte[] signature) {
     this.signature = signature;
     return this;
   }
 
-  
-
-  /**
-  * Get signature
-  * @return signature
+   /**
+   * Get signature
+   * @return signature
   **/
   @Schema(required = true, description = "")
   public byte[] getSignature() {
     return signature;
   }
+
   public void setSignature(byte[] signature) {
     this.signature = signature;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -101,14 +100,15 @@ public class CompleteAuthenticationRequest {
     }
     CompleteAuthenticationRequest completeAuthenticationRequest = (CompleteAuthenticationRequest) o;
     return Objects.equals(this.state, completeAuthenticationRequest.state) &&
-        Objects.equals(this.certificate, completeAuthenticationRequest.certificate) &&
-        Objects.equals(this.signature, completeAuthenticationRequest.signature);
+        Arrays.equals(this.certificate, completeAuthenticationRequest.certificate) &&
+        Arrays.equals(this.signature, completeAuthenticationRequest.signature);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(state, certificate, signature);
+    return Objects.hash(state, Arrays.hashCode(certificate), Arrays.hashCode(signature));
   }
+
 
   @Override
   public String toString() {

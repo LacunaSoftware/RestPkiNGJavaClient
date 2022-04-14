@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,372 +21,359 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * NameModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class NameModel {
-
   @JsonProperty("country")
-
   private String country = null;
 
   @JsonProperty("organization")
-
   private String organization = null;
 
   @JsonProperty("organizationUnit")
-
   private String organizationUnit = null;
 
   @JsonProperty("dnQualifier")
-
   private String dnQualifier = null;
 
   @JsonProperty("stateName")
-
   private String stateName = null;
 
   @JsonProperty("commonName")
-
   private String commonName = null;
 
   @JsonProperty("serialNumber")
-
   private String serialNumber = null;
 
   @JsonProperty("locality")
-
   private String locality = null;
 
   @JsonProperty("title")
-
   private String title = null;
 
   @JsonProperty("surname")
-
   private String surname = null;
 
   @JsonProperty("givenName")
-
   private String givenName = null;
 
   @JsonProperty("initials")
-
   private String initials = null;
 
   @JsonProperty("pseudonym")
-
   private String pseudonym = null;
 
   @JsonProperty("generationQualifier")
-
   private String generationQualifier = null;
 
   @JsonProperty("emailAddress")
-
   private String emailAddress = null;
 
   @JsonProperty("allValues")
-
   private Map<String, List<String>> allValues = null;
+
   public NameModel country(String country) {
     this.country = country;
     return this;
   }
 
-  
-
-  /**
-  * Get country
-  * @return country
+   /**
+   * Get country
+   * @return country
   **/
   @Schema(description = "")
   public String getCountry() {
     return country;
   }
+
   public void setCountry(String country) {
     this.country = country;
   }
+
   public NameModel organization(String organization) {
     this.organization = organization;
     return this;
   }
 
-  
-
-  /**
-  * Get organization
-  * @return organization
+   /**
+   * Get organization
+   * @return organization
   **/
   @Schema(description = "")
   public String getOrganization() {
     return organization;
   }
+
   public void setOrganization(String organization) {
     this.organization = organization;
   }
+
   public NameModel organizationUnit(String organizationUnit) {
     this.organizationUnit = organizationUnit;
     return this;
   }
 
-  
-
-  /**
-  * Get organizationUnit
-  * @return organizationUnit
+   /**
+   * Get organizationUnit
+   * @return organizationUnit
   **/
   @Schema(description = "")
   public String getOrganizationUnit() {
     return organizationUnit;
   }
+
   public void setOrganizationUnit(String organizationUnit) {
     this.organizationUnit = organizationUnit;
   }
+
   public NameModel dnQualifier(String dnQualifier) {
     this.dnQualifier = dnQualifier;
     return this;
   }
 
-  
-
-  /**
-  * Get dnQualifier
-  * @return dnQualifier
+   /**
+   * Get dnQualifier
+   * @return dnQualifier
   **/
   @Schema(description = "")
   public String getDnQualifier() {
     return dnQualifier;
   }
+
   public void setDnQualifier(String dnQualifier) {
     this.dnQualifier = dnQualifier;
   }
+
   public NameModel stateName(String stateName) {
     this.stateName = stateName;
     return this;
   }
 
-  
-
-  /**
-  * Get stateName
-  * @return stateName
+   /**
+   * Get stateName
+   * @return stateName
   **/
   @Schema(description = "")
   public String getStateName() {
     return stateName;
   }
+
   public void setStateName(String stateName) {
     this.stateName = stateName;
   }
+
   public NameModel commonName(String commonName) {
     this.commonName = commonName;
     return this;
   }
 
-  
-
-  /**
-  * Get commonName
-  * @return commonName
+   /**
+   * Get commonName
+   * @return commonName
   **/
   @Schema(description = "")
   public String getCommonName() {
     return commonName;
   }
+
   public void setCommonName(String commonName) {
     this.commonName = commonName;
   }
+
   public NameModel serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
 
-  
-
-  /**
-  * Get serialNumber
-  * @return serialNumber
+   /**
+   * Get serialNumber
+   * @return serialNumber
   **/
   @Schema(description = "")
   public String getSerialNumber() {
     return serialNumber;
   }
+
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
+
   public NameModel locality(String locality) {
     this.locality = locality;
     return this;
   }
 
-  
-
-  /**
-  * Get locality
-  * @return locality
+   /**
+   * Get locality
+   * @return locality
   **/
   @Schema(description = "")
   public String getLocality() {
     return locality;
   }
+
   public void setLocality(String locality) {
     this.locality = locality;
   }
+
   public NameModel title(String title) {
     this.title = title;
     return this;
   }
 
-  
-
-  /**
-  * Get title
-  * @return title
+   /**
+   * Get title
+   * @return title
   **/
   @Schema(description = "")
   public String getTitle() {
     return title;
   }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public NameModel surname(String surname) {
     this.surname = surname;
     return this;
   }
 
-  
-
-  /**
-  * Get surname
-  * @return surname
+   /**
+   * Get surname
+   * @return surname
   **/
   @Schema(description = "")
   public String getSurname() {
     return surname;
   }
+
   public void setSurname(String surname) {
     this.surname = surname;
   }
+
   public NameModel givenName(String givenName) {
     this.givenName = givenName;
     return this;
   }
 
-  
-
-  /**
-  * Get givenName
-  * @return givenName
+   /**
+   * Get givenName
+   * @return givenName
   **/
   @Schema(description = "")
   public String getGivenName() {
     return givenName;
   }
+
   public void setGivenName(String givenName) {
     this.givenName = givenName;
   }
+
   public NameModel initials(String initials) {
     this.initials = initials;
     return this;
   }
 
-  
-
-  /**
-  * Get initials
-  * @return initials
+   /**
+   * Get initials
+   * @return initials
   **/
   @Schema(description = "")
   public String getInitials() {
     return initials;
   }
+
   public void setInitials(String initials) {
     this.initials = initials;
   }
+
   public NameModel pseudonym(String pseudonym) {
     this.pseudonym = pseudonym;
     return this;
   }
 
-  
-
-  /**
-  * Get pseudonym
-  * @return pseudonym
+   /**
+   * Get pseudonym
+   * @return pseudonym
   **/
   @Schema(description = "")
   public String getPseudonym() {
     return pseudonym;
   }
+
   public void setPseudonym(String pseudonym) {
     this.pseudonym = pseudonym;
   }
+
   public NameModel generationQualifier(String generationQualifier) {
     this.generationQualifier = generationQualifier;
     return this;
   }
 
-  
-
-  /**
-  * Get generationQualifier
-  * @return generationQualifier
+   /**
+   * Get generationQualifier
+   * @return generationQualifier
   **/
   @Schema(description = "")
   public String getGenerationQualifier() {
     return generationQualifier;
   }
+
   public void setGenerationQualifier(String generationQualifier) {
     this.generationQualifier = generationQualifier;
   }
+
   public NameModel emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
 
-  
-
-  /**
-  * Get emailAddress
-  * @return emailAddress
+   /**
+   * Get emailAddress
+   * @return emailAddress
   **/
   @Schema(description = "")
   public String getEmailAddress() {
     return emailAddress;
   }
+
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
+
   public NameModel allValues(Map<String, List<String>> allValues) {
     this.allValues = allValues;
     return this;
   }
 
-  
   public NameModel putAllValuesItem(String key, List<String> allValuesItem) {
     if (this.allValues == null) {
-      this.allValues = null;
+      this.allValues = new HashMap<>();
     }
     this.allValues.put(key, allValuesItem);
     return this;
   }
-  /**
-  * Get allValues
-  * @return allValues
+
+   /**
+   * Get allValues
+   * @return allValues
   **/
   @Schema(description = "")
   public Map<String, List<String>> getAllValues() {
     return allValues;
   }
+
   public void setAllValues(Map<String, List<String>> allValues) {
     this.allValues = allValues;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -415,8 +403,9 @@ public class NameModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(country, organization, organizationUnit, dnQualifier, stateName, commonName, serialNumber, locality, title, surname, givenName, initials, pseudonym, generationQualifier, emailAddress, allValues);
+    return Objects.hash(country, organization, organizationUnit, dnQualifier, stateName, commonName, serialNumber, locality, title, surname, givenName, initials, pseudonym, generationQualifier, emailAddress, allValues);
   }
+
 
   @Override
   public String toString() {

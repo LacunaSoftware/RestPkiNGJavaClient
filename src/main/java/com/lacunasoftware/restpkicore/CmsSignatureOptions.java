@@ -13,40 +13,41 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * CmsSignatureOptions
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CmsSignatureOptions {
-
   @JsonProperty("detached")
-
   private Boolean detached = null;
+
   public CmsSignatureOptions detached(Boolean detached) {
     this.detached = detached;
     return this;
   }
 
-  
-
-  /**
-  * Get detached
-  * @return detached
+   /**
+   * Get detached
+   * @return detached
   **/
   @Schema(description = "")
   public Boolean isDetached() {
     return detached;
   }
+
   public void setDetached(Boolean detached) {
     this.detached = detached;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -61,8 +62,9 @@ public class CmsSignatureOptions {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(detached);
+    return Objects.hash(detached);
   }
+
 
   @Override
   public String toString() {

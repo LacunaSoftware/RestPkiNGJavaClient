@@ -13,261 +13,252 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.PkiBrazilCertificateTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * PkiBrazilCertificateModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class PkiBrazilCertificateModel {
-
   @JsonProperty("certificateType")
-
   private PkiBrazilCertificateTypes certificateType = null;
 
   @JsonProperty("cpf")
-
   private String cpf = null;
 
   @JsonProperty("cnpj")
-
   private String cnpj = null;
 
   @JsonProperty("responsavel")
-
   private String responsavel = null;
 
   @JsonProperty("dateOfBirth")
-
   private String dateOfBirth = null;
 
   @JsonProperty("companyName")
-
   private String companyName = null;
 
   @JsonProperty("oabUF")
-
   private String oabUF = null;
 
   @JsonProperty("oabNumero")
-
   private String oabNumero = null;
 
   @JsonProperty("rgEmissor")
-
   private String rgEmissor = null;
 
   @JsonProperty("rgEmissorUF")
-
   private String rgEmissorUF = null;
 
   @JsonProperty("rgNumero")
-
   private String rgNumero = null;
+
   public PkiBrazilCertificateModel certificateType(PkiBrazilCertificateTypes certificateType) {
     this.certificateType = certificateType;
     return this;
   }
 
-  
-
-  /**
-  * Get certificateType
-  * @return certificateType
+   /**
+   * Get certificateType
+   * @return certificateType
   **/
   @Schema(description = "")
   public PkiBrazilCertificateTypes getCertificateType() {
     return certificateType;
   }
+
   public void setCertificateType(PkiBrazilCertificateTypes certificateType) {
     this.certificateType = certificateType;
   }
+
   public PkiBrazilCertificateModel cpf(String cpf) {
     this.cpf = cpf;
     return this;
   }
 
-  
-
-  /**
-  * Get cpf
-  * @return cpf
+   /**
+   * Get cpf
+   * @return cpf
   **/
   @Schema(description = "")
   public String getCpf() {
     return cpf;
   }
+
   public void setCpf(String cpf) {
     this.cpf = cpf;
   }
+
   public PkiBrazilCertificateModel cnpj(String cnpj) {
     this.cnpj = cnpj;
     return this;
   }
 
-  
-
-  /**
-  * Get cnpj
-  * @return cnpj
+   /**
+   * Get cnpj
+   * @return cnpj
   **/
   @Schema(description = "")
   public String getCnpj() {
     return cnpj;
   }
+
   public void setCnpj(String cnpj) {
     this.cnpj = cnpj;
   }
+
   public PkiBrazilCertificateModel responsavel(String responsavel) {
     this.responsavel = responsavel;
     return this;
   }
 
-  
-
-  /**
-  * Get responsavel
-  * @return responsavel
+   /**
+   * Get responsavel
+   * @return responsavel
   **/
   @Schema(description = "")
   public String getResponsavel() {
     return responsavel;
   }
+
   public void setResponsavel(String responsavel) {
     this.responsavel = responsavel;
   }
+
   public PkiBrazilCertificateModel dateOfBirth(String dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
 
-  
-
-  /**
-  * Get dateOfBirth
-  * @return dateOfBirth
+   /**
+   * Get dateOfBirth
+   * @return dateOfBirth
   **/
   @Schema(description = "")
   public String getDateOfBirth() {
     return dateOfBirth;
   }
+
   public void setDateOfBirth(String dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
+
   public PkiBrazilCertificateModel companyName(String companyName) {
     this.companyName = companyName;
     return this;
   }
 
-  
-
-  /**
-  * Get companyName
-  * @return companyName
+   /**
+   * Get companyName
+   * @return companyName
   **/
   @Schema(description = "")
   public String getCompanyName() {
     return companyName;
   }
+
   public void setCompanyName(String companyName) {
     this.companyName = companyName;
   }
+
   public PkiBrazilCertificateModel oabUF(String oabUF) {
     this.oabUF = oabUF;
     return this;
   }
 
-  
-
-  /**
-  * Get oabUF
-  * @return oabUF
+   /**
+   * Get oabUF
+   * @return oabUF
   **/
   @Schema(description = "")
   public String getOabUF() {
     return oabUF;
   }
+
   public void setOabUF(String oabUF) {
     this.oabUF = oabUF;
   }
+
   public PkiBrazilCertificateModel oabNumero(String oabNumero) {
     this.oabNumero = oabNumero;
     return this;
   }
 
-  
-
-  /**
-  * Get oabNumero
-  * @return oabNumero
+   /**
+   * Get oabNumero
+   * @return oabNumero
   **/
   @Schema(description = "")
   public String getOabNumero() {
     return oabNumero;
   }
+
   public void setOabNumero(String oabNumero) {
     this.oabNumero = oabNumero;
   }
+
   public PkiBrazilCertificateModel rgEmissor(String rgEmissor) {
     this.rgEmissor = rgEmissor;
     return this;
   }
 
-  
-
-  /**
-  * Get rgEmissor
-  * @return rgEmissor
+   /**
+   * Get rgEmissor
+   * @return rgEmissor
   **/
   @Schema(description = "")
   public String getRgEmissor() {
     return rgEmissor;
   }
+
   public void setRgEmissor(String rgEmissor) {
     this.rgEmissor = rgEmissor;
   }
+
   public PkiBrazilCertificateModel rgEmissorUF(String rgEmissorUF) {
     this.rgEmissorUF = rgEmissorUF;
     return this;
   }
 
-  
-
-  /**
-  * Get rgEmissorUF
-  * @return rgEmissorUF
+   /**
+   * Get rgEmissorUF
+   * @return rgEmissorUF
   **/
   @Schema(description = "")
   public String getRgEmissorUF() {
     return rgEmissorUF;
   }
+
   public void setRgEmissorUF(String rgEmissorUF) {
     this.rgEmissorUF = rgEmissorUF;
   }
+
   public PkiBrazilCertificateModel rgNumero(String rgNumero) {
     this.rgNumero = rgNumero;
     return this;
   }
 
-  
-
-  /**
-  * Get rgNumero
-  * @return rgNumero
+   /**
+   * Get rgNumero
+   * @return rgNumero
   **/
   @Schema(description = "")
   public String getRgNumero() {
     return rgNumero;
   }
+
   public void setRgNumero(String rgNumero) {
     this.rgNumero = rgNumero;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -292,8 +283,9 @@ public class PkiBrazilCertificateModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(certificateType, cpf, cnpj, responsavel, dateOfBirth, companyName, oabUF, oabNumero, rgEmissor, rgEmissorUF, rgNumero);
+    return Objects.hash(certificateType, cpf, cnpj, responsavel, dateOfBirth, companyName, oabUF, oabNumero, rgEmissor, rgEmissorUF, rgNumero);
   }
+
 
   @Override
   public String toString() {

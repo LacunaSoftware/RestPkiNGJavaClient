@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -22,476 +23,456 @@ import com.lacunasoftware.restpkicore.PkiBrazilCertificateModel;
 import com.lacunasoftware.restpkicore.PkiItalyCertificateModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
-
 /**
  * CertificateFullModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CertificateFullModel {
-
   @JsonProperty("encoded")
-
   private byte[] encoded = null;
 
   @JsonProperty("pemEncoded")
-
   private String pemEncoded = null;
 
   @JsonProperty("downloadUrl")
-
   private String downloadUrl = null;
 
   @JsonProperty("subjectName")
-
   private NameModel subjectName = null;
 
   @JsonProperty("issuerName")
-
   private NameModel issuerName = null;
 
   @JsonProperty("issuerDisplayName")
-
   private String issuerDisplayName = null;
 
   @JsonProperty("serialNumber")
-
   private String serialNumber = null;
 
   @JsonProperty("validityStart")
-
   private Date validityStart = null;
 
   @JsonProperty("validityEnd")
-
   private Date validityEnd = null;
 
   @JsonProperty("issuer")
-
   private CertificateModel issuer = null;
 
   @JsonProperty("pkiBrazil")
-
   private PkiBrazilCertificateModel pkiBrazil = null;
 
   @JsonProperty("pkiItaly")
-
   private PkiItalyCertificateModel pkiItaly = null;
 
   @JsonProperty("binaryThumbprintSHA256")
-
   private byte[] binaryThumbprintSHA256 = null;
 
   @JsonProperty("thumbprint")
-
   private String thumbprint = null;
 
   @JsonProperty("thumbprintSHA256")
-
   private String thumbprintSHA256 = null;
 
   @JsonProperty("subjectCommonName")
-
   private String subjectCommonName = null;
 
   @JsonProperty("subjectDisplayName")
-
   private String subjectDisplayName = null;
 
   @JsonProperty("subjectIdentifier")
-
   private String subjectIdentifier = null;
 
   @JsonProperty("emailAddress")
-
   private String emailAddress = null;
 
   @JsonProperty("organization")
-
   private String organization = null;
 
   @JsonProperty("organizationIdentifier")
-
   private String organizationIdentifier = null;
+
   public CertificateFullModel encoded(byte[] encoded) {
     this.encoded = encoded;
     return this;
   }
 
-  
-
-  /**
-  * Get encoded
-  * @return encoded
+   /**
+   * Get encoded
+   * @return encoded
   **/
   @Schema(description = "")
   public byte[] getEncoded() {
     return encoded;
   }
+
   public void setEncoded(byte[] encoded) {
     this.encoded = encoded;
   }
+
   public CertificateFullModel pemEncoded(String pemEncoded) {
     this.pemEncoded = pemEncoded;
     return this;
   }
 
-  
-
-  /**
-  * Get pemEncoded
-  * @return pemEncoded
+   /**
+   * Get pemEncoded
+   * @return pemEncoded
   **/
   @Schema(description = "")
   public String getPemEncoded() {
     return pemEncoded;
   }
+
   public void setPemEncoded(String pemEncoded) {
     this.pemEncoded = pemEncoded;
   }
+
   public CertificateFullModel downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
     return this;
   }
 
-  
-
-  /**
-  * Get downloadUrl
-  * @return downloadUrl
+   /**
+   * Get downloadUrl
+   * @return downloadUrl
   **/
   @Schema(description = "")
   public String getDownloadUrl() {
     return downloadUrl;
   }
+
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
   }
+
   public CertificateFullModel subjectName(NameModel subjectName) {
     this.subjectName = subjectName;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectName
-  * @return subjectName
+   /**
+   * Get subjectName
+   * @return subjectName
   **/
   @Schema(description = "")
   public NameModel getSubjectName() {
     return subjectName;
   }
+
   public void setSubjectName(NameModel subjectName) {
     this.subjectName = subjectName;
   }
+
   public CertificateFullModel issuerName(NameModel issuerName) {
     this.issuerName = issuerName;
     return this;
   }
 
-  
-
-  /**
-  * Get issuerName
-  * @return issuerName
+   /**
+   * Get issuerName
+   * @return issuerName
   **/
   @Schema(description = "")
   public NameModel getIssuerName() {
     return issuerName;
   }
+
   public void setIssuerName(NameModel issuerName) {
     this.issuerName = issuerName;
   }
+
   public CertificateFullModel issuerDisplayName(String issuerDisplayName) {
     this.issuerDisplayName = issuerDisplayName;
     return this;
   }
 
-  
-
-  /**
-  * Get issuerDisplayName
-  * @return issuerDisplayName
+   /**
+   * Get issuerDisplayName
+   * @return issuerDisplayName
   **/
   @Schema(description = "")
   public String getIssuerDisplayName() {
     return issuerDisplayName;
   }
+
   public void setIssuerDisplayName(String issuerDisplayName) {
     this.issuerDisplayName = issuerDisplayName;
   }
+
   public CertificateFullModel serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
 
-  
-
-  /**
-  * Get serialNumber
-  * @return serialNumber
+   /**
+   * Get serialNumber
+   * @return serialNumber
   **/
   @Schema(description = "")
   public String getSerialNumber() {
     return serialNumber;
   }
+
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
+
   public CertificateFullModel validityStart(Date validityStart) {
     this.validityStart = validityStart;
     return this;
   }
 
-  
-
-  /**
-  * Get validityStart
-  * @return validityStart
+   /**
+   * Get validityStart
+   * @return validityStart
   **/
   @Schema(description = "")
   public Date getValidityStart() {
     return validityStart;
   }
+
   public void setValidityStart(Date validityStart) {
     this.validityStart = validityStart;
   }
+
   public CertificateFullModel validityEnd(Date validityEnd) {
     this.validityEnd = validityEnd;
     return this;
   }
 
-  
-
-  /**
-  * Get validityEnd
-  * @return validityEnd
+   /**
+   * Get validityEnd
+   * @return validityEnd
   **/
   @Schema(description = "")
   public Date getValidityEnd() {
     return validityEnd;
   }
+
   public void setValidityEnd(Date validityEnd) {
     this.validityEnd = validityEnd;
   }
+
   public CertificateFullModel issuer(CertificateModel issuer) {
     this.issuer = issuer;
     return this;
   }
 
-  
-
-  /**
-  * Get issuer
-  * @return issuer
+   /**
+   * Get issuer
+   * @return issuer
   **/
   @Schema(description = "")
   public CertificateModel getIssuer() {
     return issuer;
   }
+
   public void setIssuer(CertificateModel issuer) {
     this.issuer = issuer;
   }
+
   public CertificateFullModel pkiBrazil(PkiBrazilCertificateModel pkiBrazil) {
     this.pkiBrazil = pkiBrazil;
     return this;
   }
 
-  
-
-  /**
-  * Get pkiBrazil
-  * @return pkiBrazil
+   /**
+   * Get pkiBrazil
+   * @return pkiBrazil
   **/
   @Schema(description = "")
   public PkiBrazilCertificateModel getPkiBrazil() {
     return pkiBrazil;
   }
+
   public void setPkiBrazil(PkiBrazilCertificateModel pkiBrazil) {
     this.pkiBrazil = pkiBrazil;
   }
+
   public CertificateFullModel pkiItaly(PkiItalyCertificateModel pkiItaly) {
     this.pkiItaly = pkiItaly;
     return this;
   }
 
-  
-
-  /**
-  * Get pkiItaly
-  * @return pkiItaly
+   /**
+   * Get pkiItaly
+   * @return pkiItaly
   **/
   @Schema(description = "")
   public PkiItalyCertificateModel getPkiItaly() {
     return pkiItaly;
   }
+
   public void setPkiItaly(PkiItalyCertificateModel pkiItaly) {
     this.pkiItaly = pkiItaly;
   }
+
   public CertificateFullModel binaryThumbprintSHA256(byte[] binaryThumbprintSHA256) {
     this.binaryThumbprintSHA256 = binaryThumbprintSHA256;
     return this;
   }
 
-  
-
-  /**
-  * Get binaryThumbprintSHA256
-  * @return binaryThumbprintSHA256
+   /**
+   * Get binaryThumbprintSHA256
+   * @return binaryThumbprintSHA256
   **/
   @Schema(description = "")
   public byte[] getBinaryThumbprintSHA256() {
     return binaryThumbprintSHA256;
   }
+
   public void setBinaryThumbprintSHA256(byte[] binaryThumbprintSHA256) {
     this.binaryThumbprintSHA256 = binaryThumbprintSHA256;
   }
+
   public CertificateFullModel thumbprint(String thumbprint) {
     this.thumbprint = thumbprint;
     return this;
   }
 
-  
-
-  /**
-  * Get thumbprint
-  * @return thumbprint
+   /**
+   * Get thumbprint
+   * @return thumbprint
   **/
   @Schema(description = "")
   public String getThumbprint() {
     return thumbprint;
   }
+
   public void setThumbprint(String thumbprint) {
     this.thumbprint = thumbprint;
   }
+
   public CertificateFullModel thumbprintSHA256(String thumbprintSHA256) {
     this.thumbprintSHA256 = thumbprintSHA256;
     return this;
   }
 
-  
-
-  /**
-  * Get thumbprintSHA256
-  * @return thumbprintSHA256
+   /**
+   * Get thumbprintSHA256
+   * @return thumbprintSHA256
   **/
   @Schema(description = "")
   public String getThumbprintSHA256() {
     return thumbprintSHA256;
   }
+
   public void setThumbprintSHA256(String thumbprintSHA256) {
     this.thumbprintSHA256 = thumbprintSHA256;
   }
+
   public CertificateFullModel subjectCommonName(String subjectCommonName) {
     this.subjectCommonName = subjectCommonName;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectCommonName
-  * @return subjectCommonName
+   /**
+   * Get subjectCommonName
+   * @return subjectCommonName
   **/
   @Schema(description = "")
   public String getSubjectCommonName() {
     return subjectCommonName;
   }
+
   public void setSubjectCommonName(String subjectCommonName) {
     this.subjectCommonName = subjectCommonName;
   }
+
   public CertificateFullModel subjectDisplayName(String subjectDisplayName) {
     this.subjectDisplayName = subjectDisplayName;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectDisplayName
-  * @return subjectDisplayName
+   /**
+   * Get subjectDisplayName
+   * @return subjectDisplayName
   **/
   @Schema(description = "")
   public String getSubjectDisplayName() {
     return subjectDisplayName;
   }
+
   public void setSubjectDisplayName(String subjectDisplayName) {
     this.subjectDisplayName = subjectDisplayName;
   }
+
   public CertificateFullModel subjectIdentifier(String subjectIdentifier) {
     this.subjectIdentifier = subjectIdentifier;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectIdentifier
-  * @return subjectIdentifier
+   /**
+   * Get subjectIdentifier
+   * @return subjectIdentifier
   **/
   @Schema(description = "")
   public String getSubjectIdentifier() {
     return subjectIdentifier;
   }
+
   public void setSubjectIdentifier(String subjectIdentifier) {
     this.subjectIdentifier = subjectIdentifier;
   }
+
   public CertificateFullModel emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
 
-  
-
-  /**
-  * Get emailAddress
-  * @return emailAddress
+   /**
+   * Get emailAddress
+   * @return emailAddress
   **/
   @Schema(description = "")
   public String getEmailAddress() {
     return emailAddress;
   }
+
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
+
   public CertificateFullModel organization(String organization) {
     this.organization = organization;
     return this;
   }
 
-  
-
-  /**
-  * Get organization
-  * @return organization
+   /**
+   * Get organization
+   * @return organization
   **/
   @Schema(description = "")
   public String getOrganization() {
     return organization;
   }
+
   public void setOrganization(String organization) {
     this.organization = organization;
   }
+
   public CertificateFullModel organizationIdentifier(String organizationIdentifier) {
     this.organizationIdentifier = organizationIdentifier;
     return this;
   }
 
-  
-
-  /**
-  * Get organizationIdentifier
-  * @return organizationIdentifier
+   /**
+   * Get organizationIdentifier
+   * @return organizationIdentifier
   **/
   @Schema(description = "")
   public String getOrganizationIdentifier() {
     return organizationIdentifier;
   }
+
   public void setOrganizationIdentifier(String organizationIdentifier) {
     this.organizationIdentifier = organizationIdentifier;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -501,7 +482,7 @@ public class CertificateFullModel {
       return false;
     }
     CertificateFullModel certificateFullModel = (CertificateFullModel) o;
-    return Objects.equals(this.encoded, certificateFullModel.encoded) &&
+    return Arrays.equals(this.encoded, certificateFullModel.encoded) &&
         Objects.equals(this.pemEncoded, certificateFullModel.pemEncoded) &&
         Objects.equals(this.downloadUrl, certificateFullModel.downloadUrl) &&
         Objects.equals(this.subjectName, certificateFullModel.subjectName) &&
@@ -513,7 +494,7 @@ public class CertificateFullModel {
         Objects.equals(this.issuer, certificateFullModel.issuer) &&
         Objects.equals(this.pkiBrazil, certificateFullModel.pkiBrazil) &&
         Objects.equals(this.pkiItaly, certificateFullModel.pkiItaly) &&
-        Objects.equals(this.binaryThumbprintSHA256, certificateFullModel.binaryThumbprintSHA256) &&
+        Arrays.equals(this.binaryThumbprintSHA256, certificateFullModel.binaryThumbprintSHA256) &&
         Objects.equals(this.thumbprint, certificateFullModel.thumbprint) &&
         Objects.equals(this.thumbprintSHA256, certificateFullModel.thumbprintSHA256) &&
         Objects.equals(this.subjectCommonName, certificateFullModel.subjectCommonName) &&
@@ -526,8 +507,9 @@ public class CertificateFullModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(encoded, pemEncoded, downloadUrl, subjectName, issuerName, issuerDisplayName, serialNumber, validityStart, validityEnd, issuer, pkiBrazil, pkiItaly, binaryThumbprintSHA256, thumbprint, thumbprintSHA256, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
+    return Objects.hash(Arrays.hashCode(encoded), pemEncoded, downloadUrl, subjectName, issuerName, issuerDisplayName, serialNumber, validityStart, validityEnd, issuer, pkiBrazil, pkiItaly, Arrays.hashCode(binaryThumbprintSHA256), thumbprint, thumbprintSHA256, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
   }
+
 
   @Override
   public String toString() {

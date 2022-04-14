@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,108 +22,107 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * ErrorModelV2
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorModelV2 {
-
   @JsonProperty("validationResults")
-
   private ValidationResultsModel validationResults = null;
 
   @JsonProperty("code")
-
   private String code = null;
 
   @JsonProperty("message")
-
   private String message = null;
 
   @JsonProperty("details")
-
   private Map<String, String> details = null;
+
   public ErrorModelV2 validationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
     return this;
   }
 
-  
-
-  /**
-  * Get validationResults
-  * @return validationResults
+   /**
+   * Get validationResults
+   * @return validationResults
   **/
   @Schema(description = "")
   public ValidationResultsModel getValidationResults() {
     return validationResults;
   }
+
   public void setValidationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
   }
+
   public ErrorModelV2 code(String code) {
     this.code = code;
     return this;
   }
 
-  
-
-  /**
-  * Get code
-  * @return code
+   /**
+   * Get code
+   * @return code
   **/
   @Schema(description = "")
   public String getCode() {
     return code;
   }
+
   public void setCode(String code) {
     this.code = code;
   }
+
   public ErrorModelV2 message(String message) {
     this.message = message;
     return this;
   }
 
-  
-
-  /**
-  * Get message
-  * @return message
+   /**
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
   public String getMessage() {
     return message;
   }
+
   public void setMessage(String message) {
     this.message = message;
   }
+
   public ErrorModelV2 details(Map<String, String> details) {
     this.details = details;
     return this;
   }
 
-  
   public ErrorModelV2 putDetailsItem(String key, String detailsItem) {
     if (this.details == null) {
-      this.details = null;
+      this.details = new HashMap<>();
     }
     this.details.put(key, detailsItem);
     return this;
   }
-  /**
-  * Get details
-  * @return details
+
+   /**
+   * Get details
+   * @return details
   **/
   @Schema(description = "")
   public Map<String, String> getDetails() {
     return details;
   }
+
   public void setDetails(Map<String, String> details) {
     this.details = details;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,8 +140,9 @@ public class ErrorModelV2 {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(validationResults, code, message, details);
+    return Objects.hash(validationResults, code, message, details);
   }
+
 
   @Override
   public String toString() {

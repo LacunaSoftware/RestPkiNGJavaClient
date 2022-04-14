@@ -13,62 +13,62 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * DocumentKeySummary
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentKeySummary {
-
   @JsonProperty("key")
-
   private String key = null;
 
   @JsonProperty("formattedKey")
-
   private String formattedKey = null;
+
   public DocumentKeySummary key(String key) {
     this.key = key;
     return this;
   }
 
-  
-
-  /**
-  * Get key
-  * @return key
+   /**
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
   public String getKey() {
     return key;
   }
+
   public void setKey(String key) {
     this.key = key;
   }
+
   public DocumentKeySummary formattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
     return this;
   }
 
-  
-
-  /**
-  * Get formattedKey
-  * @return formattedKey
+   /**
+   * Get formattedKey
+   * @return formattedKey
   **/
   @Schema(description = "")
   public String getFormattedKey() {
     return formattedKey;
   }
+
   public void setFormattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -84,8 +84,9 @@ public class DocumentKeySummary {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(key, formattedKey);
+    return Objects.hash(key, formattedKey);
   }
+
 
   @Override
   public String toString() {

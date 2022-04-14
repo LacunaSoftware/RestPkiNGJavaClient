@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -24,152 +25,149 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
 /**
  * SignatureSessionDocumentData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureSessionDocumentData {
-
   @JsonProperty("id")
-
   private UUID id = null;
 
   @JsonProperty("file")
-
   private FileReferenceModel file = null;
 
   @JsonProperty("metadata")
-
   private Map<String, List<String>> metadata = null;
 
   @JsonProperty("documentKey")
-
   private String documentKey = null;
 
   @JsonProperty("signatureType")
-
   private SignatureTypes signatureType = null;
 
   @JsonProperty("cmsSignatureOptions")
-
   private CmsSignatureOptions cmsSignatureOptions = null;
+
   public SignatureSessionDocumentData id(UUID id) {
     this.id = id;
     return this;
   }
 
-  
-
-  /**
-  * Get id
-  * @return id
+   /**
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
   public UUID getId() {
     return id;
   }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public SignatureSessionDocumentData file(FileReferenceModel file) {
     this.file = file;
     return this;
   }
 
-  
-
-  /**
-  * Get file
-  * @return file
+   /**
+   * Get file
+   * @return file
   **/
   @Schema(description = "")
   public FileReferenceModel getFile() {
     return file;
   }
+
   public void setFile(FileReferenceModel file) {
     this.file = file;
   }
+
   public SignatureSessionDocumentData metadata(Map<String, List<String>> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  
   public SignatureSessionDocumentData putMetadataItem(String key, List<String> metadataItem) {
     if (this.metadata == null) {
-      this.metadata = null;
+      this.metadata = new HashMap<>();
     }
     this.metadata.put(key, metadataItem);
     return this;
   }
-  /**
-  * Get metadata
-  * @return metadata
+
+   /**
+   * Get metadata
+   * @return metadata
   **/
   @Schema(description = "")
   public Map<String, List<String>> getMetadata() {
     return metadata;
   }
+
   public void setMetadata(Map<String, List<String>> metadata) {
     this.metadata = metadata;
   }
+
   public SignatureSessionDocumentData documentKey(String documentKey) {
     this.documentKey = documentKey;
     return this;
   }
 
-  
-
-  /**
-  * Get documentKey
-  * @return documentKey
+   /**
+   * Get documentKey
+   * @return documentKey
   **/
   @Schema(description = "")
   public String getDocumentKey() {
     return documentKey;
   }
+
   public void setDocumentKey(String documentKey) {
     this.documentKey = documentKey;
   }
+
   public SignatureSessionDocumentData signatureType(SignatureTypes signatureType) {
     this.signatureType = signatureType;
     return this;
   }
 
-  
-
-  /**
-  * Get signatureType
-  * @return signatureType
+   /**
+   * Get signatureType
+   * @return signatureType
   **/
   @Schema(description = "")
   public SignatureTypes getSignatureType() {
     return signatureType;
   }
+
   public void setSignatureType(SignatureTypes signatureType) {
     this.signatureType = signatureType;
   }
+
   public SignatureSessionDocumentData cmsSignatureOptions(CmsSignatureOptions cmsSignatureOptions) {
     this.cmsSignatureOptions = cmsSignatureOptions;
     return this;
   }
 
-  
-
-  /**
-  * Get cmsSignatureOptions
-  * @return cmsSignatureOptions
+   /**
+   * Get cmsSignatureOptions
+   * @return cmsSignatureOptions
   **/
   @Schema(description = "")
   public CmsSignatureOptions getCmsSignatureOptions() {
     return cmsSignatureOptions;
   }
+
   public void setCmsSignatureOptions(CmsSignatureOptions cmsSignatureOptions) {
     this.cmsSignatureOptions = cmsSignatureOptions;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,8 +187,9 @@ public class SignatureSessionDocumentData {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(id, file, metadata, documentKey, signatureType, cmsSignatureOptions);
+    return Objects.hash(id, file, metadata, documentKey, signatureType, cmsSignatureOptions);
   }
+
 
   @Override
   public String toString() {

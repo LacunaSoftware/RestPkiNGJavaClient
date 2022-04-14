@@ -13,62 +13,62 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * SessionCompletionStatus
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SessionCompletionStatus {
-
   @JsonProperty("completed")
-
   private Boolean completed = null;
 
   @JsonProperty("progress")
-
   private Double progress = null;
+
   public SessionCompletionStatus completed(Boolean completed) {
     this.completed = completed;
     return this;
   }
 
-  
-
-  /**
-  * Get completed
-  * @return completed
+   /**
+   * Get completed
+   * @return completed
   **/
   @Schema(description = "")
   public Boolean isCompleted() {
     return completed;
   }
+
   public void setCompleted(Boolean completed) {
     this.completed = completed;
   }
+
   public SessionCompletionStatus progress(Double progress) {
     this.progress = progress;
     return this;
   }
 
-  
-
-  /**
-  * Get progress
-  * @return progress
+   /**
+   * Get progress
+   * @return progress
   **/
   @Schema(description = "")
   public Double getProgress() {
     return progress;
   }
+
   public void setProgress(Double progress) {
     this.progress = progress;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -84,8 +84,9 @@ public class SessionCompletionStatus {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(completed, progress);
+    return Objects.hash(completed, progress);
   }
+
 
   @Override
   public String toString() {

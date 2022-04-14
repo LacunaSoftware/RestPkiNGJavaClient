@@ -13,41 +13,42 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.SignatureAlgorithms;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * SignatureAlgorithmIdentifier
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureAlgorithmIdentifier {
-
   @JsonProperty("algorithm")
-
   private SignatureAlgorithms algorithm = null;
+
   public SignatureAlgorithmIdentifier algorithm(SignatureAlgorithms algorithm) {
     this.algorithm = algorithm;
     return this;
   }
 
-  
-
-  /**
-  * Get algorithm
-  * @return algorithm
+   /**
+   * Get algorithm
+   * @return algorithm
   **/
   @Schema(description = "")
   public SignatureAlgorithms getAlgorithm() {
     return algorithm;
   }
+
   public void setAlgorithm(SignatureAlgorithms algorithm) {
     this.algorithm = algorithm;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -62,8 +63,9 @@ public class SignatureAlgorithmIdentifier {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(algorithm);
+    return Objects.hash(algorithm);
   }
+
 
   @Override
   public String toString() {

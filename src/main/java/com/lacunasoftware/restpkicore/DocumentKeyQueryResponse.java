@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,130 +22,128 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * DocumentKeyQueryResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentKeyQueryResponse {
-
   @JsonProperty("found")
-
   private Boolean found = null;
 
   @JsonProperty("formattedKey")
-
   private String formattedKey = null;
 
   @JsonProperty("hasDocument")
-
   private Boolean hasDocument = null;
 
   @JsonProperty("provisionalMetadata")
-
   private Map<String, List<String>> provisionalMetadata = null;
 
   @JsonProperty("document")
-
   private DocumentModel document = null;
+
   public DocumentKeyQueryResponse found(Boolean found) {
     this.found = found;
     return this;
   }
 
-  
-
-  /**
-  * Get found
-  * @return found
+   /**
+   * Get found
+   * @return found
   **/
   @Schema(description = "")
   public Boolean isFound() {
     return found;
   }
+
   public void setFound(Boolean found) {
     this.found = found;
   }
+
   public DocumentKeyQueryResponse formattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
     return this;
   }
 
-  
-
-  /**
-  * Get formattedKey
-  * @return formattedKey
+   /**
+   * Get formattedKey
+   * @return formattedKey
   **/
   @Schema(description = "")
   public String getFormattedKey() {
     return formattedKey;
   }
+
   public void setFormattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
   }
+
   public DocumentKeyQueryResponse hasDocument(Boolean hasDocument) {
     this.hasDocument = hasDocument;
     return this;
   }
 
-  
-
-  /**
-  * Get hasDocument
-  * @return hasDocument
+   /**
+   * Get hasDocument
+   * @return hasDocument
   **/
   @Schema(description = "")
   public Boolean isHasDocument() {
     return hasDocument;
   }
+
   public void setHasDocument(Boolean hasDocument) {
     this.hasDocument = hasDocument;
   }
+
   public DocumentKeyQueryResponse provisionalMetadata(Map<String, List<String>> provisionalMetadata) {
     this.provisionalMetadata = provisionalMetadata;
     return this;
   }
 
-  
   public DocumentKeyQueryResponse putProvisionalMetadataItem(String key, List<String> provisionalMetadataItem) {
     if (this.provisionalMetadata == null) {
-      this.provisionalMetadata = null;
+      this.provisionalMetadata = new HashMap<>();
     }
     this.provisionalMetadata.put(key, provisionalMetadataItem);
     return this;
   }
-  /**
-  * Get provisionalMetadata
-  * @return provisionalMetadata
+
+   /**
+   * Get provisionalMetadata
+   * @return provisionalMetadata
   **/
   @Schema(description = "")
   public Map<String, List<String>> getProvisionalMetadata() {
     return provisionalMetadata;
   }
+
   public void setProvisionalMetadata(Map<String, List<String>> provisionalMetadata) {
     this.provisionalMetadata = provisionalMetadata;
   }
+
   public DocumentKeyQueryResponse document(DocumentModel document) {
     this.document = document;
     return this;
   }
 
-  
-
-  /**
-  * Get document
-  * @return document
+   /**
+   * Get document
+   * @return document
   **/
   @Schema(description = "")
   public DocumentModel getDocument() {
     return document;
   }
+
   public void setDocument(DocumentModel document) {
     this.document = document;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -163,8 +162,9 @@ public class DocumentKeyQueryResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(found, formattedKey, hasDocument, provisionalMetadata, document);
+    return Objects.hash(found, formattedKey, hasDocument, provisionalMetadata, document);
   }
+
 
   @Override
   public String toString() {

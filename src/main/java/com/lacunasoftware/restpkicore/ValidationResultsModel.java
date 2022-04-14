@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,26 +21,23 @@ import com.lacunasoftware.restpkicore.ValidationItemModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * ValidationResultsModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class ValidationResultsModel {
-
   @JsonProperty("passedChecks")
-
   private List<ValidationItemModel> passedChecks = null;
 
   @JsonProperty("errors")
-
   private List<ValidationItemModel> errors = null;
 
   @JsonProperty("warnings")
-
   private List<ValidationItemModel> warnings = null;
+
   public ValidationResultsModel passedChecks(List<ValidationItemModel> passedChecks) {
     this.passedChecks = passedChecks;
     return this;
@@ -53,17 +51,19 @@ public class ValidationResultsModel {
     return this;
   }
 
-  /**
-  * Get passedChecks
-  * @return passedChecks
+   /**
+   * Get passedChecks
+   * @return passedChecks
   **/
   @Schema(description = "")
   public List<ValidationItemModel> getPassedChecks() {
     return passedChecks;
   }
+
   public void setPassedChecks(List<ValidationItemModel> passedChecks) {
     this.passedChecks = passedChecks;
   }
+
   public ValidationResultsModel errors(List<ValidationItemModel> errors) {
     this.errors = errors;
     return this;
@@ -77,17 +77,19 @@ public class ValidationResultsModel {
     return this;
   }
 
-  /**
-  * Get errors
-  * @return errors
+   /**
+   * Get errors
+   * @return errors
   **/
   @Schema(description = "")
   public List<ValidationItemModel> getErrors() {
     return errors;
   }
+
   public void setErrors(List<ValidationItemModel> errors) {
     this.errors = errors;
   }
+
   public ValidationResultsModel warnings(List<ValidationItemModel> warnings) {
     this.warnings = warnings;
     return this;
@@ -101,17 +103,20 @@ public class ValidationResultsModel {
     return this;
   }
 
-  /**
-  * Get warnings
-  * @return warnings
+   /**
+   * Get warnings
+   * @return warnings
   **/
   @Schema(description = "")
   public List<ValidationItemModel> getWarnings() {
     return warnings;
   }
+
   public void setWarnings(List<ValidationItemModel> warnings) {
     this.warnings = warnings;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -128,8 +133,9 @@ public class ValidationResultsModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(passedChecks, errors, warnings);
+    return Objects.hash(passedChecks, errors, warnings);
   }
+
 
   @Override
   public String toString() {

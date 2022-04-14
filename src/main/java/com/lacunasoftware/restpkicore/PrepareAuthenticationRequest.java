@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
-
 /**
  * PrepareAuthenticationRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class PrepareAuthenticationRequest {
-
   @JsonProperty("securityContextId")
-
   private UUID securityContextId = null;
 
   @JsonProperty("ignoreRevocationStatusUnknown")
-
   private Boolean ignoreRevocationStatusUnknown = null;
+
   public PrepareAuthenticationRequest securityContextId(UUID securityContextId) {
     this.securityContextId = securityContextId;
     return this;
   }
 
-  
-
-  /**
-  * Get securityContextId
-  * @return securityContextId
+   /**
+   * Get securityContextId
+   * @return securityContextId
   **/
   @Schema(description = "")
   public UUID getSecurityContextId() {
     return securityContextId;
   }
+
   public void setSecurityContextId(UUID securityContextId) {
     this.securityContextId = securityContextId;
   }
+
   public PrepareAuthenticationRequest ignoreRevocationStatusUnknown(Boolean ignoreRevocationStatusUnknown) {
     this.ignoreRevocationStatusUnknown = ignoreRevocationStatusUnknown;
     return this;
   }
 
-  
-
-  /**
-  * Get ignoreRevocationStatusUnknown
-  * @return ignoreRevocationStatusUnknown
+   /**
+   * Get ignoreRevocationStatusUnknown
+   * @return ignoreRevocationStatusUnknown
   **/
   @Schema(description = "")
   public Boolean isIgnoreRevocationStatusUnknown() {
     return ignoreRevocationStatusUnknown;
   }
+
   public void setIgnoreRevocationStatusUnknown(Boolean ignoreRevocationStatusUnknown) {
     this.ignoreRevocationStatusUnknown = ignoreRevocationStatusUnknown;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class PrepareAuthenticationRequest {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(securityContextId, ignoreRevocationStatusUnknown);
+    return Objects.hash(securityContextId, ignoreRevocationStatusUnknown);
   }
+
 
   @Override
   public String toString() {

@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,22 +21,20 @@ import com.lacunasoftware.restpkicore.SubscriptionAccessModelRolesRootRolesAppli
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse {
-
   @JsonProperty("items")
-
   private List<SubscriptionAccessModelRolesRootRolesApplicationModel> items = null;
 
   @JsonProperty("totalCount")
-
   private Integer totalCount = null;
+
   public SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse items(List<SubscriptionAccessModelRolesRootRolesApplicationModel> items) {
     this.items = items;
     return this;
@@ -49,35 +48,38 @@ public class SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearc
     return this;
   }
 
-  /**
-  * Get items
-  * @return items
+   /**
+   * Get items
+   * @return items
   **/
   @Schema(description = "")
   public List<SubscriptionAccessModelRolesRootRolesApplicationModel> getItems() {
     return items;
   }
+
   public void setItems(List<SubscriptionAccessModelRolesRootRolesApplicationModel> items) {
     this.items = items;
   }
+
   public SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
-  
-
-  /**
-  * Get totalCount
-  * @return totalCount
+   /**
+   * Get totalCount
+   * @return totalCount
   **/
   @Schema(description = "")
   public Integer getTotalCount() {
     return totalCount;
   }
+
   public void setTotalCount(Integer totalCount) {
     this.totalCount = totalCount;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -93,8 +95,9 @@ public class SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearc
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(items, totalCount);
+    return Objects.hash(items, totalCount);
   }
+
 
   @Override
   public String toString() {

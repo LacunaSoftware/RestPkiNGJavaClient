@@ -13,194 +13,188 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * CertificateSummary
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CertificateSummary {
-
   @JsonProperty("thumbprint")
-
   private String thumbprint = null;
 
   @JsonProperty("thumbprintSHA256")
-
   private String thumbprintSHA256 = null;
 
   @JsonProperty("subjectCommonName")
-
   private String subjectCommonName = null;
 
   @JsonProperty("subjectDisplayName")
-
   private String subjectDisplayName = null;
 
   @JsonProperty("subjectIdentifier")
-
   private String subjectIdentifier = null;
 
   @JsonProperty("emailAddress")
-
   private String emailAddress = null;
 
   @JsonProperty("organization")
-
   private String organization = null;
 
   @JsonProperty("organizationIdentifier")
-
   private String organizationIdentifier = null;
+
   public CertificateSummary thumbprint(String thumbprint) {
     this.thumbprint = thumbprint;
     return this;
   }
 
-  
-
-  /**
-  * Get thumbprint
-  * @return thumbprint
+   /**
+   * Get thumbprint
+   * @return thumbprint
   **/
   @Schema(description = "")
   public String getThumbprint() {
     return thumbprint;
   }
+
   public void setThumbprint(String thumbprint) {
     this.thumbprint = thumbprint;
   }
+
   public CertificateSummary thumbprintSHA256(String thumbprintSHA256) {
     this.thumbprintSHA256 = thumbprintSHA256;
     return this;
   }
 
-  
-
-  /**
-  * Get thumbprintSHA256
-  * @return thumbprintSHA256
+   /**
+   * Get thumbprintSHA256
+   * @return thumbprintSHA256
   **/
   @Schema(description = "")
   public String getThumbprintSHA256() {
     return thumbprintSHA256;
   }
+
   public void setThumbprintSHA256(String thumbprintSHA256) {
     this.thumbprintSHA256 = thumbprintSHA256;
   }
+
   public CertificateSummary subjectCommonName(String subjectCommonName) {
     this.subjectCommonName = subjectCommonName;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectCommonName
-  * @return subjectCommonName
+   /**
+   * Get subjectCommonName
+   * @return subjectCommonName
   **/
   @Schema(description = "")
   public String getSubjectCommonName() {
     return subjectCommonName;
   }
+
   public void setSubjectCommonName(String subjectCommonName) {
     this.subjectCommonName = subjectCommonName;
   }
+
   public CertificateSummary subjectDisplayName(String subjectDisplayName) {
     this.subjectDisplayName = subjectDisplayName;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectDisplayName
-  * @return subjectDisplayName
+   /**
+   * Get subjectDisplayName
+   * @return subjectDisplayName
   **/
   @Schema(description = "")
   public String getSubjectDisplayName() {
     return subjectDisplayName;
   }
+
   public void setSubjectDisplayName(String subjectDisplayName) {
     this.subjectDisplayName = subjectDisplayName;
   }
+
   public CertificateSummary subjectIdentifier(String subjectIdentifier) {
     this.subjectIdentifier = subjectIdentifier;
     return this;
   }
 
-  
-
-  /**
-  * Get subjectIdentifier
-  * @return subjectIdentifier
+   /**
+   * Get subjectIdentifier
+   * @return subjectIdentifier
   **/
   @Schema(description = "")
   public String getSubjectIdentifier() {
     return subjectIdentifier;
   }
+
   public void setSubjectIdentifier(String subjectIdentifier) {
     this.subjectIdentifier = subjectIdentifier;
   }
+
   public CertificateSummary emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
 
-  
-
-  /**
-  * Get emailAddress
-  * @return emailAddress
+   /**
+   * Get emailAddress
+   * @return emailAddress
   **/
   @Schema(description = "")
   public String getEmailAddress() {
     return emailAddress;
   }
+
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
+
   public CertificateSummary organization(String organization) {
     this.organization = organization;
     return this;
   }
 
-  
-
-  /**
-  * Get organization
-  * @return organization
+   /**
+   * Get organization
+   * @return organization
   **/
   @Schema(description = "")
   public String getOrganization() {
     return organization;
   }
+
   public void setOrganization(String organization) {
     this.organization = organization;
   }
+
   public CertificateSummary organizationIdentifier(String organizationIdentifier) {
     this.organizationIdentifier = organizationIdentifier;
     return this;
   }
 
-  
-
-  /**
-  * Get organizationIdentifier
-  * @return organizationIdentifier
+   /**
+   * Get organizationIdentifier
+   * @return organizationIdentifier
   **/
   @Schema(description = "")
   public String getOrganizationIdentifier() {
     return organizationIdentifier;
   }
+
   public void setOrganizationIdentifier(String organizationIdentifier) {
     this.organizationIdentifier = organizationIdentifier;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -222,8 +216,9 @@ public class CertificateSummary {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(thumbprint, thumbprintSHA256, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
+    return Objects.hash(thumbprint, thumbprintSHA256, subjectCommonName, subjectDisplayName, subjectIdentifier, emailAddress, organization, organizationIdentifier);
   }
+
 
   @Override
   public String toString() {

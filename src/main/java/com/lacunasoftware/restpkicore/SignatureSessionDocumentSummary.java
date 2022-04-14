@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -22,234 +23,225 @@ import com.lacunasoftware.restpkicore.SignatureTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
 import java.util.UUID;
-
 /**
  * SignatureSessionDocumentSummary
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureSessionDocumentSummary {
-
   @JsonProperty("status")
-
   private DocumentStatus status = null;
 
   @JsonProperty("dateSigned")
-
   private Date dateSigned = null;
 
   @JsonProperty("id")
-
   private UUID id = null;
 
   @JsonProperty("key")
-
   private String key = null;
 
   @JsonProperty("formattedKey")
-
   private String formattedKey = null;
 
   @JsonProperty("originalFile")
-
   private DocumentFileModel originalFile = null;
 
   @JsonProperty("markedFile")
-
   private DocumentFileModel markedFile = null;
 
   @JsonProperty("signedFile")
-
   private DocumentFileModel signedFile = null;
 
   @JsonProperty("signatureType")
-
   private SignatureTypes signatureType = null;
 
   @JsonProperty("availableUntil")
-
   private Date availableUntil = null;
+
   public SignatureSessionDocumentSummary status(DocumentStatus status) {
     this.status = status;
     return this;
   }
 
-  
-
-  /**
-  * Get status
-  * @return status
+   /**
+   * Get status
+   * @return status
   **/
   @Schema(description = "")
   public DocumentStatus getStatus() {
     return status;
   }
+
   public void setStatus(DocumentStatus status) {
     this.status = status;
   }
+
   public SignatureSessionDocumentSummary dateSigned(Date dateSigned) {
     this.dateSigned = dateSigned;
     return this;
   }
 
-  
-
-  /**
-  * Get dateSigned
-  * @return dateSigned
+   /**
+   * Get dateSigned
+   * @return dateSigned
   **/
   @Schema(description = "")
   public Date getDateSigned() {
     return dateSigned;
   }
+
   public void setDateSigned(Date dateSigned) {
     this.dateSigned = dateSigned;
   }
+
   public SignatureSessionDocumentSummary id(UUID id) {
     this.id = id;
     return this;
   }
 
-  
-
-  /**
-  * Get id
-  * @return id
+   /**
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
   public UUID getId() {
     return id;
   }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public SignatureSessionDocumentSummary key(String key) {
     this.key = key;
     return this;
   }
 
-  
-
-  /**
-  * Get key
-  * @return key
+   /**
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
   public String getKey() {
     return key;
   }
+
   public void setKey(String key) {
     this.key = key;
   }
+
   public SignatureSessionDocumentSummary formattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
     return this;
   }
 
-  
-
-  /**
-  * Get formattedKey
-  * @return formattedKey
+   /**
+   * Get formattedKey
+   * @return formattedKey
   **/
   @Schema(description = "")
   public String getFormattedKey() {
     return formattedKey;
   }
+
   public void setFormattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
   }
+
   public SignatureSessionDocumentSummary originalFile(DocumentFileModel originalFile) {
     this.originalFile = originalFile;
     return this;
   }
 
-  
-
-  /**
-  * Get originalFile
-  * @return originalFile
+   /**
+   * Get originalFile
+   * @return originalFile
   **/
   @Schema(description = "")
   public DocumentFileModel getOriginalFile() {
     return originalFile;
   }
+
   public void setOriginalFile(DocumentFileModel originalFile) {
     this.originalFile = originalFile;
   }
+
   public SignatureSessionDocumentSummary markedFile(DocumentFileModel markedFile) {
     this.markedFile = markedFile;
     return this;
   }
 
-  
-
-  /**
-  * Get markedFile
-  * @return markedFile
+   /**
+   * Get markedFile
+   * @return markedFile
   **/
   @Schema(description = "")
   public DocumentFileModel getMarkedFile() {
     return markedFile;
   }
+
   public void setMarkedFile(DocumentFileModel markedFile) {
     this.markedFile = markedFile;
   }
+
   public SignatureSessionDocumentSummary signedFile(DocumentFileModel signedFile) {
     this.signedFile = signedFile;
     return this;
   }
 
-  
-
-  /**
-  * Get signedFile
-  * @return signedFile
+   /**
+   * Get signedFile
+   * @return signedFile
   **/
   @Schema(description = "")
   public DocumentFileModel getSignedFile() {
     return signedFile;
   }
+
   public void setSignedFile(DocumentFileModel signedFile) {
     this.signedFile = signedFile;
   }
+
   public SignatureSessionDocumentSummary signatureType(SignatureTypes signatureType) {
     this.signatureType = signatureType;
     return this;
   }
 
-  
-
-  /**
-  * Get signatureType
-  * @return signatureType
+   /**
+   * Get signatureType
+   * @return signatureType
   **/
   @Schema(description = "")
   public SignatureTypes getSignatureType() {
     return signatureType;
   }
+
   public void setSignatureType(SignatureTypes signatureType) {
     this.signatureType = signatureType;
   }
+
   public SignatureSessionDocumentSummary availableUntil(Date availableUntil) {
     this.availableUntil = availableUntil;
     return this;
   }
 
-  
-
-  /**
-  * Get availableUntil
-  * @return availableUntil
+   /**
+   * Get availableUntil
+   * @return availableUntil
   **/
   @Schema(description = "")
   public Date getAvailableUntil() {
     return availableUntil;
   }
+
   public void setAvailableUntil(Date availableUntil) {
     this.availableUntil = availableUntil;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -273,8 +265,9 @@ public class SignatureSessionDocumentSummary {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(status, dateSigned, id, key, formattedKey, originalFile, markedFile, signedFile, signatureType, availableUntil);
+    return Objects.hash(status, dateSigned, id, key, formattedKey, originalFile, markedFile, signedFile, signatureType, availableUntil);
   }
+
 
   @Override
   public String toString() {

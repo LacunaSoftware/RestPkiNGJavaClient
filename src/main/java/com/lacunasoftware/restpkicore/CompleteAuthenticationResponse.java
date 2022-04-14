@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,102 +21,99 @@ import com.lacunasoftware.restpkicore.AuthenticationFailures;
 import com.lacunasoftware.restpkicore.CertificateModel;
 import com.lacunasoftware.restpkicore.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * CompleteAuthenticationResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CompleteAuthenticationResponse {
-
   @JsonProperty("success")
-
   private Boolean success = null;
 
   @JsonProperty("failure")
-
   private AuthenticationFailures failure = null;
 
   @JsonProperty("certificate")
-
   private CertificateModel certificate = null;
 
   @JsonProperty("validationResults")
-
   private ValidationResultsModel validationResults = null;
+
   public CompleteAuthenticationResponse success(Boolean success) {
     this.success = success;
     return this;
   }
 
-  
-
-  /**
-  * Get success
-  * @return success
+   /**
+   * Get success
+   * @return success
   **/
   @Schema(description = "")
   public Boolean isSuccess() {
     return success;
   }
+
   public void setSuccess(Boolean success) {
     this.success = success;
   }
+
   public CompleteAuthenticationResponse failure(AuthenticationFailures failure) {
     this.failure = failure;
     return this;
   }
 
-  
-
-  /**
-  * Get failure
-  * @return failure
+   /**
+   * Get failure
+   * @return failure
   **/
   @Schema(description = "")
   public AuthenticationFailures getFailure() {
     return failure;
   }
+
   public void setFailure(AuthenticationFailures failure) {
     this.failure = failure;
   }
+
   public CompleteAuthenticationResponse certificate(CertificateModel certificate) {
     this.certificate = certificate;
     return this;
   }
 
-  
-
-  /**
-  * Get certificate
-  * @return certificate
+   /**
+   * Get certificate
+   * @return certificate
   **/
   @Schema(description = "")
   public CertificateModel getCertificate() {
     return certificate;
   }
+
   public void setCertificate(CertificateModel certificate) {
     this.certificate = certificate;
   }
+
   public CompleteAuthenticationResponse validationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
     return this;
   }
 
-  
-
-  /**
-  * Get validationResults
-  * @return validationResults
+   /**
+   * Get validationResults
+   * @return validationResults
   **/
   @Schema(description = "")
   public ValidationResultsModel getValidationResults() {
     return validationResults;
   }
+
   public void setValidationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -133,8 +131,9 @@ public class CompleteAuthenticationResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(success, failure, certificate, validationResults);
+    return Objects.hash(success, failure, certificate, validationResults);
   }
+
 
   @Override
   public String toString() {

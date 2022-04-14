@@ -13,85 +13,84 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.DigestAlgorithms;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * DigestAlgorithmAndValueModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class DigestAlgorithmAndValueModel {
-
   @JsonProperty("algorithm")
-
   private DigestAlgorithms algorithm = null;
 
   @JsonProperty("value")
-
   private byte[] value = null;
 
   @JsonProperty("hexValue")
-
   private String hexValue = null;
+
   public DigestAlgorithmAndValueModel algorithm(DigestAlgorithms algorithm) {
     this.algorithm = algorithm;
     return this;
   }
 
-  
-
-  /**
-  * Get algorithm
-  * @return algorithm
+   /**
+   * Get algorithm
+   * @return algorithm
   **/
   @Schema(description = "")
   public DigestAlgorithms getAlgorithm() {
     return algorithm;
   }
+
   public void setAlgorithm(DigestAlgorithms algorithm) {
     this.algorithm = algorithm;
   }
+
   public DigestAlgorithmAndValueModel value(byte[] value) {
     this.value = value;
     return this;
   }
 
-  
-
-  /**
-  * Get value
-  * @return value
+   /**
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
   public byte[] getValue() {
     return value;
   }
+
   public void setValue(byte[] value) {
     this.value = value;
   }
+
   public DigestAlgorithmAndValueModel hexValue(String hexValue) {
     this.hexValue = hexValue;
     return this;
   }
 
-  
-
-  /**
-  * Get hexValue
-  * @return hexValue
+   /**
+   * Get hexValue
+   * @return hexValue
   **/
   @Schema(description = "")
   public String getHexValue() {
     return hexValue;
   }
+
   public void setHexValue(String hexValue) {
     this.hexValue = hexValue;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -102,14 +101,15 @@ public class DigestAlgorithmAndValueModel {
     }
     DigestAlgorithmAndValueModel digestAlgorithmAndValueModel = (DigestAlgorithmAndValueModel) o;
     return Objects.equals(this.algorithm, digestAlgorithmAndValueModel.algorithm) &&
-        Objects.equals(this.value, digestAlgorithmAndValueModel.value) &&
+        Arrays.equals(this.value, digestAlgorithmAndValueModel.value) &&
         Objects.equals(this.hexValue, digestAlgorithmAndValueModel.hexValue);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(algorithm, value, hexValue);
+    return Objects.hash(algorithm, Arrays.hashCode(value), hexValue);
   }
+
 
   @Override
   public String toString() {

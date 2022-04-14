@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,146 +21,141 @@ import com.lacunasoftware.restpkicore.ApplicationKeyTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
 import java.util.UUID;
-
 /**
  * ApplicationKeyModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class ApplicationKeyModel {
-
   @JsonProperty("id")
-
   private UUID id = null;
 
   @JsonProperty("type")
-
   private ApplicationKeyTypes type = null;
 
   @JsonProperty("applicationId")
-
   private UUID applicationId = null;
 
   @JsonProperty("description")
-
   private String description = null;
 
   @JsonProperty("expiresOn")
-
   private Date expiresOn = null;
 
   @JsonProperty("certificateThumbprint")
-
   private String certificateThumbprint = null;
+
   public ApplicationKeyModel id(UUID id) {
     this.id = id;
     return this;
   }
 
-  
-
-  /**
-  * Get id
-  * @return id
+   /**
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
   public UUID getId() {
     return id;
   }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public ApplicationKeyModel type(ApplicationKeyTypes type) {
     this.type = type;
     return this;
   }
 
-  
-
-  /**
-  * Get type
-  * @return type
+   /**
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
   public ApplicationKeyTypes getType() {
     return type;
   }
+
   public void setType(ApplicationKeyTypes type) {
     this.type = type;
   }
+
   public ApplicationKeyModel applicationId(UUID applicationId) {
     this.applicationId = applicationId;
     return this;
   }
 
-  
-
-  /**
-  * Get applicationId
-  * @return applicationId
+   /**
+   * Get applicationId
+   * @return applicationId
   **/
   @Schema(description = "")
   public UUID getApplicationId() {
     return applicationId;
   }
+
   public void setApplicationId(UUID applicationId) {
     this.applicationId = applicationId;
   }
+
   public ApplicationKeyModel description(String description) {
     this.description = description;
     return this;
   }
 
-  
-
-  /**
-  * Get description
-  * @return description
+   /**
+   * Get description
+   * @return description
   **/
   @Schema(description = "")
   public String getDescription() {
     return description;
   }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public ApplicationKeyModel expiresOn(Date expiresOn) {
     this.expiresOn = expiresOn;
     return this;
   }
 
-  
-
-  /**
-  * Get expiresOn
-  * @return expiresOn
+   /**
+   * Get expiresOn
+   * @return expiresOn
   **/
   @Schema(description = "")
   public Date getExpiresOn() {
     return expiresOn;
   }
+
   public void setExpiresOn(Date expiresOn) {
     this.expiresOn = expiresOn;
   }
+
   public ApplicationKeyModel certificateThumbprint(String certificateThumbprint) {
     this.certificateThumbprint = certificateThumbprint;
     return this;
   }
 
-  
-
-  /**
-  * Get certificateThumbprint
-  * @return certificateThumbprint
+   /**
+   * Get certificateThumbprint
+   * @return certificateThumbprint
   **/
   @Schema(description = "")
   public String getCertificateThumbprint() {
     return certificateThumbprint;
   }
+
   public void setCertificateThumbprint(String certificateThumbprint) {
     this.certificateThumbprint = certificateThumbprint;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -179,8 +175,9 @@ public class ApplicationKeyModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(id, type, applicationId, description, expiresOn, certificateThumbprint);
+    return Objects.hash(id, type, applicationId, description, expiresOn, certificateThumbprint);
   }
+
 
   @Override
   public String toString() {

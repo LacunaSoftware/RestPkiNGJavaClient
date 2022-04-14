@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * PrepareAuthenticationResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class PrepareAuthenticationResponse {
-
   @JsonProperty("state")
-
   private String state = null;
 
   @JsonProperty("toSignHash")
-
   private DigestAlgorithmAndValueModel toSignHash = null;
+
   public PrepareAuthenticationResponse state(String state) {
     this.state = state;
     return this;
   }
 
-  
-
-  /**
-  * Get state
-  * @return state
+   /**
+   * Get state
+   * @return state
   **/
   @Schema(description = "")
   public String getState() {
     return state;
   }
+
   public void setState(String state) {
     this.state = state;
   }
+
   public PrepareAuthenticationResponse toSignHash(DigestAlgorithmAndValueModel toSignHash) {
     this.toSignHash = toSignHash;
     return this;
   }
 
-  
-
-  /**
-  * Get toSignHash
-  * @return toSignHash
+   /**
+   * Get toSignHash
+   * @return toSignHash
   **/
   @Schema(description = "")
   public DigestAlgorithmAndValueModel getToSignHash() {
     return toSignHash;
   }
+
   public void setToSignHash(DigestAlgorithmAndValueModel toSignHash) {
     this.toSignHash = toSignHash;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class PrepareAuthenticationResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(state, toSignHash);
+    return Objects.hash(state, toSignHash);
   }
+
 
   @Override
   public String toString() {

@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,18 +21,17 @@ import com.lacunasoftware.restpkicore.Roles;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * AuthorizationData
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthorizationData {
-
   @JsonProperty("roles")
-
   private List<Roles> roles = null;
+
   public AuthorizationData roles(List<Roles> roles) {
     this.roles = roles;
     return this;
@@ -45,17 +45,20 @@ public class AuthorizationData {
     return this;
   }
 
-  /**
-  * Get roles
-  * @return roles
+   /**
+   * Get roles
+   * @return roles
   **/
   @Schema(description = "")
   public List<Roles> getRoles() {
     return roles;
   }
+
   public void setRoles(List<Roles> roles) {
     this.roles = roles;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -70,8 +73,9 @@ public class AuthorizationData {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(roles);
+    return Objects.hash(roles);
   }
+
 
   @Override
   public String toString() {

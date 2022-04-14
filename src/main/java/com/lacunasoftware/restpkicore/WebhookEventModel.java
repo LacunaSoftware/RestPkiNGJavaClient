@@ -13,64 +13,64 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.DocumentModel;
 import com.lacunasoftware.restpkicore.WebhookEventTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * WebhookEventModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class WebhookEventModel {
-
   @JsonProperty("type")
-
   private WebhookEventTypes type = null;
 
   @JsonProperty("document")
-
   private DocumentModel document = null;
+
   public WebhookEventModel type(WebhookEventTypes type) {
     this.type = type;
     return this;
   }
 
-  
-
-  /**
-  * Get type
-  * @return type
+   /**
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
   public WebhookEventTypes getType() {
     return type;
   }
+
   public void setType(WebhookEventTypes type) {
     this.type = type;
   }
+
   public WebhookEventModel document(DocumentModel document) {
     this.document = document;
     return this;
   }
 
-  
-
-  /**
-  * Get document
-  * @return document
+   /**
+   * Get document
+   * @return document
   **/
   @Schema(description = "")
   public DocumentModel getDocument() {
     return document;
   }
+
   public void setDocument(DocumentModel document) {
     this.document = document;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -86,8 +86,9 @@ public class WebhookEventModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(type, document);
+    return Objects.hash(type, document);
   }
+
 
   @Override
   public String toString() {

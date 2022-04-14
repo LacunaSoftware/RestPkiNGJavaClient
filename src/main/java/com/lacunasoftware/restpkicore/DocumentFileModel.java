@@ -13,194 +13,188 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * DocumentFileModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentFileModel {
-
   @JsonProperty("mimeType")
-
   private String mimeType = null;
 
   @JsonProperty("content")
-
   private byte[] content = null;
 
   @JsonProperty("blobToken")
-
   private String blobToken = null;
 
   @JsonProperty("url")
-
   private String url = null;
 
   @JsonProperty("name")
-
   private String name = null;
 
   @JsonProperty("length")
-
   private Long length = null;
 
   @JsonProperty("contentType")
-
   private String contentType = null;
 
   @JsonProperty("location")
-
   private String location = null;
+
   public DocumentFileModel mimeType(String mimeType) {
     this.mimeType = mimeType;
     return this;
   }
 
-  
-
-  /**
-  * Get mimeType
-  * @return mimeType
+   /**
+   * Get mimeType
+   * @return mimeType
   **/
   @Schema(description = "")
   public String getMimeType() {
     return mimeType;
   }
+
   public void setMimeType(String mimeType) {
     this.mimeType = mimeType;
   }
+
   public DocumentFileModel content(byte[] content) {
     this.content = content;
     return this;
   }
 
-  
-
-  /**
-  * Get content
-  * @return content
+   /**
+   * Get content
+   * @return content
   **/
   @Schema(description = "")
   public byte[] getContent() {
     return content;
   }
+
   public void setContent(byte[] content) {
     this.content = content;
   }
+
   public DocumentFileModel blobToken(String blobToken) {
     this.blobToken = blobToken;
     return this;
   }
 
-  
-
-  /**
-  * Get blobToken
-  * @return blobToken
+   /**
+   * Get blobToken
+   * @return blobToken
   **/
   @Schema(description = "")
   public String getBlobToken() {
     return blobToken;
   }
+
   public void setBlobToken(String blobToken) {
     this.blobToken = blobToken;
   }
+
   public DocumentFileModel url(String url) {
     this.url = url;
     return this;
   }
 
-  
-
-  /**
-  * Get url
-  * @return url
+   /**
+   * Get url
+   * @return url
   **/
   @Schema(description = "")
   public String getUrl() {
     return url;
   }
+
   public void setUrl(String url) {
     this.url = url;
   }
+
   public DocumentFileModel name(String name) {
     this.name = name;
     return this;
   }
 
-  
-
-  /**
-  * Get name
-  * @return name
+   /**
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public DocumentFileModel length(Long length) {
     this.length = length;
     return this;
   }
 
-  
-
-  /**
-  * Get length
-  * @return length
+   /**
+   * Get length
+   * @return length
   **/
   @Schema(description = "")
   public Long getLength() {
     return length;
   }
+
   public void setLength(Long length) {
     this.length = length;
   }
+
   public DocumentFileModel contentType(String contentType) {
     this.contentType = contentType;
     return this;
   }
 
-  
-
-  /**
-  * Get contentType
-  * @return contentType
+   /**
+   * Get contentType
+   * @return contentType
   **/
   @Schema(description = "")
   public String getContentType() {
     return contentType;
   }
+
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
+
   public DocumentFileModel location(String location) {
     this.location = location;
     return this;
   }
 
-  
-
-  /**
-  * Get location
-  * @return location
+   /**
+   * Get location
+   * @return location
   **/
   @Schema(description = "")
   public String getLocation() {
     return location;
   }
+
   public void setLocation(String location) {
     this.location = location;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -211,7 +205,7 @@ public class DocumentFileModel {
     }
     DocumentFileModel documentFileModel = (DocumentFileModel) o;
     return Objects.equals(this.mimeType, documentFileModel.mimeType) &&
-        Objects.equals(this.content, documentFileModel.content) &&
+        Arrays.equals(this.content, documentFileModel.content) &&
         Objects.equals(this.blobToken, documentFileModel.blobToken) &&
         Objects.equals(this.url, documentFileModel.url) &&
         Objects.equals(this.name, documentFileModel.name) &&
@@ -222,8 +216,9 @@ public class DocumentFileModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(mimeType, content, blobToken, url, name, length, contentType, location);
+    return Objects.hash(mimeType, Arrays.hashCode(content), blobToken, url, name, length, contentType, location);
   }
+
 
   @Override
   public String toString() {

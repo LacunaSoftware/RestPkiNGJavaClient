@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -22,92 +23,86 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 /**
  * SubscriptionAccessModelRolesRootRolesApplicationModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionAccessModelRolesRootRolesApplicationModel {
-
   @JsonProperty("id")
-
   private UUID id = null;
 
   @JsonProperty("subscriptionId")
-
   private UUID subscriptionId = null;
 
   @JsonProperty("name")
-
   private String name = null;
 
   @JsonProperty("rootRoles")
-
   private List<RootRoles> rootRoles = null;
 
   @JsonProperty("subscriptions")
-
   private List<SubscriptionAccessModel> subscriptions = null;
 
   @JsonProperty("grantAppId")
-
   private String grantAppId = null;
+
   public SubscriptionAccessModelRolesRootRolesApplicationModel id(UUID id) {
     this.id = id;
     return this;
   }
 
-  
-
-  /**
-  * Get id
-  * @return id
+   /**
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
   public UUID getId() {
     return id;
   }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public SubscriptionAccessModelRolesRootRolesApplicationModel subscriptionId(UUID subscriptionId) {
     this.subscriptionId = subscriptionId;
     return this;
   }
 
-  
-
-  /**
-  * Get subscriptionId
-  * @return subscriptionId
+   /**
+   * Get subscriptionId
+   * @return subscriptionId
   **/
   @Schema(description = "")
   public UUID getSubscriptionId() {
     return subscriptionId;
   }
+
   public void setSubscriptionId(UUID subscriptionId) {
     this.subscriptionId = subscriptionId;
   }
+
   public SubscriptionAccessModelRolesRootRolesApplicationModel name(String name) {
     this.name = name;
     return this;
   }
 
-  
-
-  /**
-  * Get name
-  * @return name
+   /**
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SubscriptionAccessModelRolesRootRolesApplicationModel rootRoles(List<RootRoles> rootRoles) {
     this.rootRoles = rootRoles;
     return this;
@@ -121,17 +116,19 @@ public class SubscriptionAccessModelRolesRootRolesApplicationModel {
     return this;
   }
 
-  /**
-  * Get rootRoles
-  * @return rootRoles
+   /**
+   * Get rootRoles
+   * @return rootRoles
   **/
   @Schema(description = "")
   public List<RootRoles> getRootRoles() {
     return rootRoles;
   }
+
   public void setRootRoles(List<RootRoles> rootRoles) {
     this.rootRoles = rootRoles;
   }
+
   public SubscriptionAccessModelRolesRootRolesApplicationModel subscriptions(List<SubscriptionAccessModel> subscriptions) {
     this.subscriptions = subscriptions;
     return this;
@@ -145,35 +142,38 @@ public class SubscriptionAccessModelRolesRootRolesApplicationModel {
     return this;
   }
 
-  /**
-  * Get subscriptions
-  * @return subscriptions
+   /**
+   * Get subscriptions
+   * @return subscriptions
   **/
   @Schema(description = "")
   public List<SubscriptionAccessModel> getSubscriptions() {
     return subscriptions;
   }
+
   public void setSubscriptions(List<SubscriptionAccessModel> subscriptions) {
     this.subscriptions = subscriptions;
   }
+
   public SubscriptionAccessModelRolesRootRolesApplicationModel grantAppId(String grantAppId) {
     this.grantAppId = grantAppId;
     return this;
   }
 
-  
-
-  /**
-  * Get grantAppId
-  * @return grantAppId
+   /**
+   * Get grantAppId
+   * @return grantAppId
   **/
   @Schema(description = "")
   public String getGrantAppId() {
     return grantAppId;
   }
+
   public void setGrantAppId(String grantAppId) {
     this.grantAppId = grantAppId;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -193,8 +193,9 @@ public class SubscriptionAccessModelRolesRootRolesApplicationModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(id, subscriptionId, name, rootRoles, subscriptions, grantAppId);
+    return Objects.hash(id, subscriptionId, name, rootRoles, subscriptions, grantAppId);
   }
+
 
   @Override
   public String toString() {

@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -22,106 +23,101 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 /**
  * InspectSignatureRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class InspectSignatureRequest {
-
   @JsonProperty("file")
-
   private FileReferenceModel file = null;
 
   @JsonProperty("validate")
-
   private Boolean validate = null;
 
   @JsonProperty("securityContextId")
-
   private UUID securityContextId = null;
 
   @JsonProperty("dataFile")
-
   private FileReferenceModel dataFile = null;
 
   @JsonProperty("dataHashes")
-
   private List<DigestAlgorithmAndValueModel> dataHashes = null;
+
   public InspectSignatureRequest file(FileReferenceModel file) {
     this.file = file;
     return this;
   }
 
-  
-
-  /**
-  * Get file
-  * @return file
+   /**
+   * Get file
+   * @return file
   **/
   @Schema(required = true, description = "")
   public FileReferenceModel getFile() {
     return file;
   }
+
   public void setFile(FileReferenceModel file) {
     this.file = file;
   }
+
   public InspectSignatureRequest validate(Boolean validate) {
     this.validate = validate;
     return this;
   }
 
-  
-
-  /**
-  * Get validate
-  * @return validate
+   /**
+   * Get validate
+   * @return validate
   **/
   @Schema(description = "")
   public Boolean isValidate() {
     return validate;
   }
+
   public void setValidate(Boolean validate) {
     this.validate = validate;
   }
+
   public InspectSignatureRequest securityContextId(UUID securityContextId) {
     this.securityContextId = securityContextId;
     return this;
   }
 
-  
-
-  /**
-  * Get securityContextId
-  * @return securityContextId
+   /**
+   * Get securityContextId
+   * @return securityContextId
   **/
   @Schema(description = "")
   public UUID getSecurityContextId() {
     return securityContextId;
   }
+
   public void setSecurityContextId(UUID securityContextId) {
     this.securityContextId = securityContextId;
   }
+
   public InspectSignatureRequest dataFile(FileReferenceModel dataFile) {
     this.dataFile = dataFile;
     return this;
   }
 
-  
-
-  /**
-  * Get dataFile
-  * @return dataFile
+   /**
+   * Get dataFile
+   * @return dataFile
   **/
   @Schema(description = "")
   public FileReferenceModel getDataFile() {
     return dataFile;
   }
+
   public void setDataFile(FileReferenceModel dataFile) {
     this.dataFile = dataFile;
   }
+
   public InspectSignatureRequest dataHashes(List<DigestAlgorithmAndValueModel> dataHashes) {
     this.dataHashes = dataHashes;
     return this;
@@ -135,17 +131,20 @@ public class InspectSignatureRequest {
     return this;
   }
 
-  /**
-  * Get dataHashes
-  * @return dataHashes
+   /**
+   * Get dataHashes
+   * @return dataHashes
   **/
   @Schema(description = "")
   public List<DigestAlgorithmAndValueModel> getDataHashes() {
     return dataHashes;
   }
+
   public void setDataHashes(List<DigestAlgorithmAndValueModel> dataHashes) {
     this.dataHashes = dataHashes;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,8 +163,9 @@ public class InspectSignatureRequest {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(file, validate, securityContextId, dataFile, dataHashes);
+    return Objects.hash(file, validate, securityContextId, dataFile, dataHashes);
   }
+
 
   @Override
   public String toString() {

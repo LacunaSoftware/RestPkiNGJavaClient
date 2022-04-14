@@ -13,63 +13,63 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.lacunasoftware.restpkicore.CertificateRequirementTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * CertificateRequirement
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class CertificateRequirement {
-
   @JsonProperty("type")
-
   private CertificateRequirementTypes type = null;
 
   @JsonProperty("argument")
-
   private String argument = null;
+
   public CertificateRequirement type(CertificateRequirementTypes type) {
     this.type = type;
     return this;
   }
 
-  
-
-  /**
-  * Get type
-  * @return type
+   /**
+   * Get type
+   * @return type
   **/
   @Schema(description = "")
   public CertificateRequirementTypes getType() {
     return type;
   }
+
   public void setType(CertificateRequirementTypes type) {
     this.type = type;
   }
+
   public CertificateRequirement argument(String argument) {
     this.argument = argument;
     return this;
   }
 
-  
-
-  /**
-  * Get argument
-  * @return argument
+   /**
+   * Get argument
+   * @return argument
   **/
   @Schema(description = "")
   public String getArgument() {
     return argument;
   }
+
   public void setArgument(String argument) {
     this.argument = argument;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -85,8 +85,9 @@ public class CertificateRequirement {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(type, argument);
+    return Objects.hash(type, argument);
   }
+
 
   @Override
   public String toString() {

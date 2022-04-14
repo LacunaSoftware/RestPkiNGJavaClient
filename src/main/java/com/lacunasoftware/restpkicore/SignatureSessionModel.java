@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -23,128 +24,122 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 /**
  * SignatureSessionModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureSessionModel {
-
   @JsonProperty("id")
-
   private UUID id = null;
 
   @JsonProperty("status")
-
   private SignatureSessionStatus status = null;
 
   @JsonProperty("processingErrorCode")
-
   private String processingErrorCode = null;
 
   @JsonProperty("callbackArgument")
-
   private String callbackArgument = null;
 
   @JsonProperty("signerCertificate")
-
   private CertificateModel signerCertificate = null;
 
   @JsonProperty("documents")
-
   private List<SignatureSessionDocumentSummary> documents = null;
+
   public SignatureSessionModel id(UUID id) {
     this.id = id;
     return this;
   }
 
-  
-
-  /**
-  * Get id
-  * @return id
+   /**
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
   public UUID getId() {
     return id;
   }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public SignatureSessionModel status(SignatureSessionStatus status) {
     this.status = status;
     return this;
   }
 
-  
-
-  /**
-  * Get status
-  * @return status
+   /**
+   * Get status
+   * @return status
   **/
   @Schema(description = "")
   public SignatureSessionStatus getStatus() {
     return status;
   }
+
   public void setStatus(SignatureSessionStatus status) {
     this.status = status;
   }
+
   public SignatureSessionModel processingErrorCode(String processingErrorCode) {
     this.processingErrorCode = processingErrorCode;
     return this;
   }
 
-  
-
-  /**
-  * Get processingErrorCode
-  * @return processingErrorCode
+   /**
+   * Get processingErrorCode
+   * @return processingErrorCode
   **/
   @Schema(description = "")
   public String getProcessingErrorCode() {
     return processingErrorCode;
   }
+
   public void setProcessingErrorCode(String processingErrorCode) {
     this.processingErrorCode = processingErrorCode;
   }
+
   public SignatureSessionModel callbackArgument(String callbackArgument) {
     this.callbackArgument = callbackArgument;
     return this;
   }
 
-  
-
-  /**
-  * Get callbackArgument
-  * @return callbackArgument
+   /**
+   * Get callbackArgument
+   * @return callbackArgument
   **/
   @Schema(description = "")
   public String getCallbackArgument() {
     return callbackArgument;
   }
+
   public void setCallbackArgument(String callbackArgument) {
     this.callbackArgument = callbackArgument;
   }
+
   public SignatureSessionModel signerCertificate(CertificateModel signerCertificate) {
     this.signerCertificate = signerCertificate;
     return this;
   }
 
-  
-
-  /**
-  * Get signerCertificate
-  * @return signerCertificate
+   /**
+   * Get signerCertificate
+   * @return signerCertificate
   **/
   @Schema(description = "")
   public CertificateModel getSignerCertificate() {
     return signerCertificate;
   }
+
   public void setSignerCertificate(CertificateModel signerCertificate) {
     this.signerCertificate = signerCertificate;
   }
+
   public SignatureSessionModel documents(List<SignatureSessionDocumentSummary> documents) {
     this.documents = documents;
     return this;
@@ -158,17 +153,20 @@ public class SignatureSessionModel {
     return this;
   }
 
-  /**
-  * Get documents
-  * @return documents
+   /**
+   * Get documents
+   * @return documents
   **/
   @Schema(description = "")
   public List<SignatureSessionDocumentSummary> getDocuments() {
     return documents;
   }
+
   public void setDocuments(List<SignatureSessionDocumentSummary> documents) {
     this.documents = documents;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -188,8 +186,9 @@ public class SignatureSessionModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(id, status, processingErrorCode, callbackArgument, signerCertificate, documents);
+    return Objects.hash(id, status, processingErrorCode, callbackArgument, signerCertificate, documents);
   }
+
 
   @Override
   public String toString() {

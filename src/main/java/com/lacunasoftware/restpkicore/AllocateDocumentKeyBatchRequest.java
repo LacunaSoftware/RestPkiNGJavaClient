@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -20,66 +21,67 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
  * AllocateDocumentKeyBatchRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class AllocateDocumentKeyBatchRequest {
-
   @JsonProperty("count")
-
   private Integer count = null;
 
   @JsonProperty("provisionalMetadata")
-
   private Map<String, List<String>> provisionalMetadata = null;
+
   public AllocateDocumentKeyBatchRequest count(Integer count) {
     this.count = count;
     return this;
   }
 
-  
-
-  /**
-  * Get count
-  * minimum: 1
-  * maximum: 100
-  * @return count
+   /**
+   * Get count
+   * minimum: 1
+   * maximum: 100
+   * @return count
   **/
   @Schema(description = "")
   public Integer getCount() {
     return count;
   }
+
   public void setCount(Integer count) {
     this.count = count;
   }
+
   public AllocateDocumentKeyBatchRequest provisionalMetadata(Map<String, List<String>> provisionalMetadata) {
     this.provisionalMetadata = provisionalMetadata;
     return this;
   }
 
-  
   public AllocateDocumentKeyBatchRequest putProvisionalMetadataItem(String key, List<String> provisionalMetadataItem) {
     if (this.provisionalMetadata == null) {
-      this.provisionalMetadata = null;
+      this.provisionalMetadata = new HashMap<>();
     }
     this.provisionalMetadata.put(key, provisionalMetadataItem);
     return this;
   }
-  /**
-  * Get provisionalMetadata
-  * @return provisionalMetadata
+
+   /**
+   * Get provisionalMetadata
+   * @return provisionalMetadata
   **/
   @Schema(description = "")
   public Map<String, List<String>> getProvisionalMetadata() {
     return provisionalMetadata;
   }
+
   public void setProvisionalMetadata(Map<String, List<String>> provisionalMetadata) {
     this.provisionalMetadata = provisionalMetadata;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -95,8 +97,9 @@ public class AllocateDocumentKeyBatchRequest {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(count, provisionalMetadata);
+    return Objects.hash(count, provisionalMetadata);
   }
+
 
   @Override
   public String toString() {

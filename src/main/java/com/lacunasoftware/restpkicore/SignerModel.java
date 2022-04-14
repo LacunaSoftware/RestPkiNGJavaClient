@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -22,212 +23,204 @@ import com.lacunasoftware.restpkicore.SignatureAlgorithmAndValueModel;
 import com.lacunasoftware.restpkicore.ValidationResultsModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
-
 /**
  * SignerModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SignerModel {
-
   @JsonProperty("messageDigest")
-
   private DigestAlgorithmAndValueModel messageDigest = null;
 
   @JsonProperty("signature")
-
   private SignatureAlgorithmAndValueModel signature = null;
 
   @JsonProperty("signingTime")
-
   private Date signingTime = null;
 
   @JsonProperty("certifiedDateReference")
-
   private Date certifiedDateReference = null;
 
   @JsonProperty("isDocumentTimestamp")
-
   private Boolean isDocumentTimestamp = null;
 
   @JsonProperty("signatureFieldName")
-
   private String signatureFieldName = null;
 
   @JsonProperty("validationResults")
-
   private ValidationResultsModel validationResults = null;
 
   @JsonProperty("certificate")
-
   private CertificateModel certificate = null;
 
   @JsonProperty("date")
-
   private Date date = null;
+
   public SignerModel messageDigest(DigestAlgorithmAndValueModel messageDigest) {
     this.messageDigest = messageDigest;
     return this;
   }
 
-  
-
-  /**
-  * Get messageDigest
-  * @return messageDigest
+   /**
+   * Get messageDigest
+   * @return messageDigest
   **/
   @Schema(description = "")
   public DigestAlgorithmAndValueModel getMessageDigest() {
     return messageDigest;
   }
+
   public void setMessageDigest(DigestAlgorithmAndValueModel messageDigest) {
     this.messageDigest = messageDigest;
   }
+
   public SignerModel signature(SignatureAlgorithmAndValueModel signature) {
     this.signature = signature;
     return this;
   }
 
-  
-
-  /**
-  * Get signature
-  * @return signature
+   /**
+   * Get signature
+   * @return signature
   **/
   @Schema(description = "")
   public SignatureAlgorithmAndValueModel getSignature() {
     return signature;
   }
+
   public void setSignature(SignatureAlgorithmAndValueModel signature) {
     this.signature = signature;
   }
+
   public SignerModel signingTime(Date signingTime) {
     this.signingTime = signingTime;
     return this;
   }
 
-  
-
-  /**
-  * Get signingTime
-  * @return signingTime
+   /**
+   * Get signingTime
+   * @return signingTime
   **/
   @Schema(description = "")
   public Date getSigningTime() {
     return signingTime;
   }
+
   public void setSigningTime(Date signingTime) {
     this.signingTime = signingTime;
   }
+
   public SignerModel certifiedDateReference(Date certifiedDateReference) {
     this.certifiedDateReference = certifiedDateReference;
     return this;
   }
 
-  
-
-  /**
-  * Get certifiedDateReference
-  * @return certifiedDateReference
+   /**
+   * Get certifiedDateReference
+   * @return certifiedDateReference
   **/
   @Schema(description = "")
   public Date getCertifiedDateReference() {
     return certifiedDateReference;
   }
+
   public void setCertifiedDateReference(Date certifiedDateReference) {
     this.certifiedDateReference = certifiedDateReference;
   }
+
   public SignerModel isDocumentTimestamp(Boolean isDocumentTimestamp) {
     this.isDocumentTimestamp = isDocumentTimestamp;
     return this;
   }
 
-  
-
-  /**
-  * Get isDocumentTimestamp
-  * @return isDocumentTimestamp
+   /**
+   * Get isDocumentTimestamp
+   * @return isDocumentTimestamp
   **/
   @Schema(description = "")
   public Boolean isIsDocumentTimestamp() {
     return isDocumentTimestamp;
   }
+
   public void setIsDocumentTimestamp(Boolean isDocumentTimestamp) {
     this.isDocumentTimestamp = isDocumentTimestamp;
   }
+
   public SignerModel signatureFieldName(String signatureFieldName) {
     this.signatureFieldName = signatureFieldName;
     return this;
   }
 
-  
-
-  /**
-  * Get signatureFieldName
-  * @return signatureFieldName
+   /**
+   * Get signatureFieldName
+   * @return signatureFieldName
   **/
   @Schema(description = "")
   public String getSignatureFieldName() {
     return signatureFieldName;
   }
+
   public void setSignatureFieldName(String signatureFieldName) {
     this.signatureFieldName = signatureFieldName;
   }
+
   public SignerModel validationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
     return this;
   }
 
-  
-
-  /**
-  * Get validationResults
-  * @return validationResults
+   /**
+   * Get validationResults
+   * @return validationResults
   **/
   @Schema(description = "")
   public ValidationResultsModel getValidationResults() {
     return validationResults;
   }
+
   public void setValidationResults(ValidationResultsModel validationResults) {
     this.validationResults = validationResults;
   }
+
   public SignerModel certificate(CertificateModel certificate) {
     this.certificate = certificate;
     return this;
   }
 
-  
-
-  /**
-  * Get certificate
-  * @return certificate
+   /**
+   * Get certificate
+   * @return certificate
   **/
   @Schema(description = "")
   public CertificateModel getCertificate() {
     return certificate;
   }
+
   public void setCertificate(CertificateModel certificate) {
     this.certificate = certificate;
   }
+
   public SignerModel date(Date date) {
     this.date = date;
     return this;
   }
 
-  
-
-  /**
-  * Get date
-  * @return date
+   /**
+   * Get date
+   * @return date
   **/
   @Schema(description = "")
   public Date getDate() {
     return date;
   }
+
   public void setDate(Date date) {
     this.date = date;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -250,8 +243,9 @@ public class SignerModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(messageDigest, signature, signingTime, certifiedDateReference, isDocumentTimestamp, signatureFieldName, validationResults, certificate, date);
+    return Objects.hash(messageDigest, signature, signingTime, certifiedDateReference, isDocumentTimestamp, signatureFieldName, validationResults, certificate, date);
   }
+
 
   @Override
   public String toString() {

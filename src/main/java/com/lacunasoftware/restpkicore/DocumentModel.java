@@ -13,6 +13,7 @@
 package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -26,54 +27,44 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
 /**
  * DocumentModel
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T10:24:40.312-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentModel {
-
   @JsonProperty("signers")
-
   private List<SignerSummary> signers = null;
 
   @JsonProperty("metadata")
-
   private Map<String, List<String>> metadata = null;
 
   @JsonProperty("id")
-
   private UUID id = null;
 
   @JsonProperty("key")
-
   private String key = null;
 
   @JsonProperty("formattedKey")
-
   private String formattedKey = null;
 
   @JsonProperty("originalFile")
-
   private DocumentFileModel originalFile = null;
 
   @JsonProperty("markedFile")
-
   private DocumentFileModel markedFile = null;
 
   @JsonProperty("signedFile")
-
   private DocumentFileModel signedFile = null;
 
   @JsonProperty("signatureType")
-
   private SignatureTypes signatureType = null;
 
   @JsonProperty("availableUntil")
-
   private Date availableUntil = null;
+
   public DocumentModel signers(List<SignerSummary> signers) {
     this.signers = signers;
     return this;
@@ -87,185 +78,190 @@ public class DocumentModel {
     return this;
   }
 
-  /**
-  * Get signers
-  * @return signers
+   /**
+   * Get signers
+   * @return signers
   **/
   @Schema(description = "")
   public List<SignerSummary> getSigners() {
     return signers;
   }
+
   public void setSigners(List<SignerSummary> signers) {
     this.signers = signers;
   }
+
   public DocumentModel metadata(Map<String, List<String>> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  
   public DocumentModel putMetadataItem(String key, List<String> metadataItem) {
     if (this.metadata == null) {
-      this.metadata = null;
+      this.metadata = new HashMap<>();
     }
     this.metadata.put(key, metadataItem);
     return this;
   }
-  /**
-  * Get metadata
-  * @return metadata
+
+   /**
+   * Get metadata
+   * @return metadata
   **/
   @Schema(description = "")
   public Map<String, List<String>> getMetadata() {
     return metadata;
   }
+
   public void setMetadata(Map<String, List<String>> metadata) {
     this.metadata = metadata;
   }
+
   public DocumentModel id(UUID id) {
     this.id = id;
     return this;
   }
 
-  
-
-  /**
-  * Get id
-  * @return id
+   /**
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
   public UUID getId() {
     return id;
   }
+
   public void setId(UUID id) {
     this.id = id;
   }
+
   public DocumentModel key(String key) {
     this.key = key;
     return this;
   }
 
-  
-
-  /**
-  * Get key
-  * @return key
+   /**
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
   public String getKey() {
     return key;
   }
+
   public void setKey(String key) {
     this.key = key;
   }
+
   public DocumentModel formattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
     return this;
   }
 
-  
-
-  /**
-  * Get formattedKey
-  * @return formattedKey
+   /**
+   * Get formattedKey
+   * @return formattedKey
   **/
   @Schema(description = "")
   public String getFormattedKey() {
     return formattedKey;
   }
+
   public void setFormattedKey(String formattedKey) {
     this.formattedKey = formattedKey;
   }
+
   public DocumentModel originalFile(DocumentFileModel originalFile) {
     this.originalFile = originalFile;
     return this;
   }
 
-  
-
-  /**
-  * Get originalFile
-  * @return originalFile
+   /**
+   * Get originalFile
+   * @return originalFile
   **/
   @Schema(description = "")
   public DocumentFileModel getOriginalFile() {
     return originalFile;
   }
+
   public void setOriginalFile(DocumentFileModel originalFile) {
     this.originalFile = originalFile;
   }
+
   public DocumentModel markedFile(DocumentFileModel markedFile) {
     this.markedFile = markedFile;
     return this;
   }
 
-  
-
-  /**
-  * Get markedFile
-  * @return markedFile
+   /**
+   * Get markedFile
+   * @return markedFile
   **/
   @Schema(description = "")
   public DocumentFileModel getMarkedFile() {
     return markedFile;
   }
+
   public void setMarkedFile(DocumentFileModel markedFile) {
     this.markedFile = markedFile;
   }
+
   public DocumentModel signedFile(DocumentFileModel signedFile) {
     this.signedFile = signedFile;
     return this;
   }
 
-  
-
-  /**
-  * Get signedFile
-  * @return signedFile
+   /**
+   * Get signedFile
+   * @return signedFile
   **/
   @Schema(description = "")
   public DocumentFileModel getSignedFile() {
     return signedFile;
   }
+
   public void setSignedFile(DocumentFileModel signedFile) {
     this.signedFile = signedFile;
   }
+
   public DocumentModel signatureType(SignatureTypes signatureType) {
     this.signatureType = signatureType;
     return this;
   }
 
-  
-
-  /**
-  * Get signatureType
-  * @return signatureType
+   /**
+   * Get signatureType
+   * @return signatureType
   **/
   @Schema(description = "")
   public SignatureTypes getSignatureType() {
     return signatureType;
   }
+
   public void setSignatureType(SignatureTypes signatureType) {
     this.signatureType = signatureType;
   }
+
   public DocumentModel availableUntil(Date availableUntil) {
     this.availableUntil = availableUntil;
     return this;
   }
 
-  
-
-  /**
-  * Get availableUntil
-  * @return availableUntil
+   /**
+   * Get availableUntil
+   * @return availableUntil
   **/
   @Schema(description = "")
   public Date getAvailableUntil() {
     return availableUntil;
   }
+
   public void setAvailableUntil(Date availableUntil) {
     this.availableUntil = availableUntil;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -289,8 +285,9 @@ public class DocumentModel {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(signers, metadata, id, key, formattedKey, originalFile, markedFile, signedFile, signatureType, availableUntil);
+    return Objects.hash(signers, metadata, id, key, formattedKey, originalFile, markedFile, signedFile, signatureType, availableUntil);
   }
+
 
   @Override
   public String toString() {
