@@ -98,6 +98,12 @@ public interface RestPkiService {
     Map<String, List<String>> updateApplicationDefaultDocumentMetadata(
             UUID applicationId,
             Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+  
+    PrepareAuthenticationResponse prepareAuthentication(PrepareAuthenticationRequest request) throws Exception;
+    
+    CompleteAuthenticationResponse completeAuthentication(CompleteAuthenticationRequest request)throws Exception;
+
+
 
     // endregion
 }

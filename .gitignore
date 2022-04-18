@@ -17,3 +17,4 @@ gradle.properties
 *.jar
 .swagger-codegen/
 gpg_key/lacuna_0xAD3DA507_SECRET.gpg
+.vscode/settings.json

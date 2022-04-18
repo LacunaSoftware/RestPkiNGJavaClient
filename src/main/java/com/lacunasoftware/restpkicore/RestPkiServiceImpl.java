@@ -283,5 +283,22 @@ public class RestPkiServiceImpl implements RestPkiService {
 		model.setLength(file.getLength());
 		return model;
 	}
+	public PrepareAuthenticationResponse prepareAuthentication(PrepareAuthenticationRequest request)throws Exception{
+
+		RestClientPortable client;
+		client = this.client.getRestClient();
+
+		return client.post(ApiRoutes.AUTHENTICATION.getValue()+ "/" , request , PrepareAuthenticationResponse.class);
+	}
+	public CompleteAuthenticationResponse completeAuthentication(CompleteAuthenticationRequest request)throws Exception{
+
+		RestClientPortable client;
+		client = this.client.getRestClient();
+
+		return client.post(ApiRoutes.AUTHENTICATION.getValue() + "/completion/" , request , CompleteAuthenticationResponse.class);
+	}
+
+
+	
 
 }
