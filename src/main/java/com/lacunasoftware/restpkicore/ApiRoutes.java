@@ -5,7 +5,7 @@ package com.lacunasoftware.restpkicore;
  */
 public enum ApiRoutes {
   APPLICATIONS("api/applications"),
-  AUTHENTICATION("/api/v2/authentication"),
+  AUTHENTICATION("api/v2/authentication"),
   APPLICATION_KEYS("api/app-keys"),
   CERTIFICATES("api/certificates"),
   DOCUMENTS("api/documents"),
