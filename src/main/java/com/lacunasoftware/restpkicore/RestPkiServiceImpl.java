@@ -285,7 +285,8 @@ public class RestPkiServiceImpl implements RestPkiService {
 	}
 	
 	public PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception {
-		return getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/" , options.getRequest(), PrepareAuthenticationResponse.class);
+		PrepareAuthenticationResponse response = getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/" , options.getRequest(), PrepareAuthenticationResponse.class);
+		return new PrepareAuthenticationResult(response.getToSignHash(), response.getState());
 	}
 
 	public AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception {
@@ -302,7 +303,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 			return this.client.getRestClient();
 		} else {
 			Map<String, String> customHeaders = new HashMap<>();
-			customHeaders.put("X-Subscription", subscriptionId.toString());
+			customHeaders.put("X-Subscription", options.getSubscriptionId().toString());
 			return this.client.getRestClient(customHeaders);
 		}
 	}

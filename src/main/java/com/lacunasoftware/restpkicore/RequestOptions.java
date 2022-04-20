@@ -1,5 +1,7 @@
 package com.lacunasoftware.restpkicore;
 
+import java.util.UUID;
+
 public class RequestOptions {
 
     private UUID subscriptionId;
@@ -11,7 +13,7 @@ public class RequestOptions {
         return subscriptionId;
     }
 
-    public UUID setSubscriptionId(UUID value) {
+    public void setSubscriptionId(UUID value) {
         subscriptionId = value;
     }
 }

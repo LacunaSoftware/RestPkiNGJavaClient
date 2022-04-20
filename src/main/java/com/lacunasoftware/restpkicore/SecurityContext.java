@@ -1,5 +1,7 @@
 package com.lacunasoftware.restpkicore;
 
+import java.util.UUID;
+
 /**
  * Reference to a security context in the REST PKI service, which is used to determine if a given
  * certificate can be trusted.
@@ -50,7 +52,7 @@ public class SecurityContext {
 		this.id = id;
 	}
 
-    String getUUID() {
+    UUID getUUID() {
         return UUID.fromString(id);
     }
 }
