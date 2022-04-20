@@ -101,6 +101,16 @@ public class ValidationResults {
         return text.toString();
     }
 
+    String toHtml() {
+        return toHtml(0);
+    }
+
+    String toHtml(int identationLevel) {
+        return toString(identationLevel)
+            .replaceAll("\n", "<br>")
+            .replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
+    }
+
     private String getSummary(int identationLevel) {
         String tab = Util.repeatChar('\t', identationLevel);
         StringBuilder text = new StringBuilder();

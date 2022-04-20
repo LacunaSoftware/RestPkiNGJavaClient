@@ -283,22 +283,27 @@ public class RestPkiServiceImpl implements RestPkiService {
 		model.setLength(file.getLength());
 		return model;
 	}
-	public PrepareAuthenticationResponse prepareAuthentication(PrepareAuthenticationRequest request)throws Exception{
-
-		RestClientPortable client;
-		client = this.client.getRestClient();
-
-		return client.post(ApiRoutes.AUTHENTICATION.getValue()+ "/" , request , PrepareAuthenticationResponse.class);
-	}
-	public CompleteAuthenticationResponse completeAuthentication(CompleteAuthenticationRequest request)throws Exception{
-
-		RestClientPortable client;
-		client = this.client.getRestClient();
-
-		return client.post(ApiRoutes.AUTHENTICATION.getValue() + "/completion/" , request , CompleteAuthenticationResponse.class);
-	}
-
-
 	
+	public PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception {
+		return getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/" , options.getRequest(), PrepareAuthenticationResponse.class);
+	}
 
+	public AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception {
+		CompleteAuthenticationResponse response = getRestClient().post(ApiRoutes.AUTHENTICATION.getValue() + "/completion/" , options.getRequest(), CompleteAuthenticationResponse.class);
+		return new AuthenticationResult(response);
+	}
+
+	private RestClientPortable getRestClient() {
+		return this.client.getRestClient();
+	}
+
+	private RestClientPortable getRestClient(RequestOptions options) {
+		if (options.getSubscriptionId() == null) {
+			return this.client.getRestClient();
+		} else {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			return this.client.getRestClient(customHeaders);
+		}
+	}
 }

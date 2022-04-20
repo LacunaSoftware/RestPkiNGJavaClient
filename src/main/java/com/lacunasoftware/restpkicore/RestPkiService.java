@@ -99,11 +99,9 @@ public interface RestPkiService {
             UUID applicationId,
             Map<String, List<String>> defaultDocumentMetadata) throws Exception;
   
-    PrepareAuthenticationResponse prepareAuthentication(PrepareAuthenticationRequest request) throws Exception;
+    PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception;
     
-    CompleteAuthenticationResponse completeAuthentication(CompleteAuthenticationRequest request)throws Exception;
-
-
+    AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception;
 
     // endregion
 }
