@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
+//import org.threeten.bp.OffsetDateTime;
+//import org.threeten.bp.format.DateTimeFormatter;
 
 
 
@@ -354,20 +354,20 @@ class RestClientPortable {
 
 		SimpleModule simpleModule = new SimpleModule();
 
-		simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
+		//simpleModule.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
 
 		objectMapper.registerModule(simpleModule);
 
 		return objectMapper;
 	}
 
-	protected class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime>{
-		@Override
-		public OffsetDateTime deserialize(JsonParser json, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			String dateString = json.getValueAsString();
-			return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
-		}
-	}
+	// protected class OffsetDateTimeDeserializer extends com.fasterxml.jackson.databind.JsonDeserializer<OffsetDateTime>{
+	// 	@Override
+	// 	public OffsetDateTime deserialize(JsonParser json, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+	// 		String dateString = json.getValueAsString();
+	// 		return OffsetDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
+	// 	}
+	// }
 
 	//region Attributes Getters/Setters
 
