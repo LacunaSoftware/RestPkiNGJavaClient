@@ -43,9 +43,9 @@ public enum DocumentStatus {
   }
 
   @JsonCreator
-  public static DocumentStatus fromValue(String text) {
+  public static DocumentStatus fromValue(String input) {
     for (DocumentStatus b : DocumentStatus.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

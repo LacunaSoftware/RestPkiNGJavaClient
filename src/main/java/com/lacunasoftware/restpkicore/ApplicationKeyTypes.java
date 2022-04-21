@@ -41,9 +41,9 @@ public enum ApplicationKeyTypes {
   }
 
   @JsonCreator
-  public static ApplicationKeyTypes fromValue(String text) {
+  public static ApplicationKeyTypes fromValue(String input) {
     for (ApplicationKeyTypes b : ApplicationKeyTypes.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

@@ -43,9 +43,9 @@ public enum Roles {
   }
 
   @JsonCreator
-  public static Roles fromValue(String text) {
+  public static Roles fromValue(String input) {
     for (Roles b : Roles.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

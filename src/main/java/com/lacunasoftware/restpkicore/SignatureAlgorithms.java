@@ -44,9 +44,9 @@ public enum SignatureAlgorithms {
   }
 
   @JsonCreator
-  public static SignatureAlgorithms fromValue(String text) {
+  public static SignatureAlgorithms fromValue(String input) {
     for (SignatureAlgorithms b : SignatureAlgorithms.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

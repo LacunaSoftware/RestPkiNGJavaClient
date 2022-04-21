@@ -42,9 +42,9 @@ public enum SignatureTypes {
   }
 
   @JsonCreator
-  public static SignatureTypes fromValue(String text) {
+  public static SignatureTypes fromValue(String input) {
     for (SignatureTypes b : SignatureTypes.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

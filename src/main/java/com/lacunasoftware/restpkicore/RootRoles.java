@@ -42,9 +42,9 @@ public enum RootRoles {
   }
 
   @JsonCreator
-  public static RootRoles fromValue(String text) {
+  public static RootRoles fromValue(String input) {
     for (RootRoles b : RootRoles.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

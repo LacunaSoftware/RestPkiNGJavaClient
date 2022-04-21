@@ -41,9 +41,9 @@ public enum AuthenticationFailures {
   }
 
   @JsonCreator
-  public static AuthenticationFailures fromValue(String text) {
+  public static AuthenticationFailures fromValue(String input) {
     for (AuthenticationFailures b : AuthenticationFailures.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

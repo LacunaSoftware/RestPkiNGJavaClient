@@ -45,9 +45,9 @@ public enum SignatureSessionStatus {
   }
 
   @JsonCreator
-  public static SignatureSessionStatus fromValue(String text) {
+  public static SignatureSessionStatus fromValue(String input) {
     for (SignatureSessionStatus b : SignatureSessionStatus.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

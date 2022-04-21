@@ -41,9 +41,9 @@ public enum CertificateRequirementTypes {
   }
 
   @JsonCreator
-  public static CertificateRequirementTypes fromValue(String text) {
+  public static CertificateRequirementTypes fromValue(String input) {
     for (CertificateRequirementTypes b : CertificateRequirementTypes.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

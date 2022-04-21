@@ -40,9 +40,9 @@ public enum InspectSignatureFailures {
   }
 
   @JsonCreator
-  public static InspectSignatureFailures fromValue(String text) {
+  public static InspectSignatureFailures fromValue(String input) {
     for (InspectSignatureFailures b : InspectSignatureFailures.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

@@ -87,9 +87,9 @@ public enum ValidationItemTypes {
   }
 
   @JsonCreator
-  public static ValidationItemTypes fromValue(String text) {
+  public static ValidationItemTypes fromValue(String input) {
     for (ValidationItemTypes b : ValidationItemTypes.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

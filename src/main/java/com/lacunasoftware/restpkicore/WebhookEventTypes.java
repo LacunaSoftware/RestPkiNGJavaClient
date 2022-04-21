@@ -40,9 +40,9 @@ public enum WebhookEventTypes {
   }
 
   @JsonCreator
-  public static WebhookEventTypes fromValue(String text) {
+  public static WebhookEventTypes fromValue(String input) {
     for (WebhookEventTypes b : WebhookEventTypes.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

@@ -2,5 +2,6 @@
 	"modelPackage": "com.lacunasoftware.restpkicore",
 	"library": "jersey1",
 	"dateLibrary": "legacy",
-	"java8": true
+	"java8": true,
+	"hideGenerationTimestamp": true
 }

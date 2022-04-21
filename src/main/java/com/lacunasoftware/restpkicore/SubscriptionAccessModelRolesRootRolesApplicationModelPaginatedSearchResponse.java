@@ -25,7 +25,7 @@ import java.util.List;
  * SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-14T12:18:02.744-03:00[America/Sao_Paulo]")
+
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionAccessModelRolesRootRolesApplicationModelPaginatedSearchResponse {

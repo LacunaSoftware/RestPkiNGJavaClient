@@ -42,9 +42,9 @@ public enum PkiItalyCertificateTypes {
   }
 
   @JsonCreator
-  public static PkiItalyCertificateTypes fromValue(String text) {
+  public static PkiItalyCertificateTypes fromValue(String input) {
     for (PkiItalyCertificateTypes b : PkiItalyCertificateTypes.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

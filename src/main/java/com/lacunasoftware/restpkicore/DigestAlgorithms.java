@@ -45,9 +45,9 @@ public enum DigestAlgorithms {
   }
 
   @JsonCreator
-  public static DigestAlgorithms fromValue(String text) {
+  public static DigestAlgorithms fromValue(String input) {
     for (DigestAlgorithms b : DigestAlgorithms.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }

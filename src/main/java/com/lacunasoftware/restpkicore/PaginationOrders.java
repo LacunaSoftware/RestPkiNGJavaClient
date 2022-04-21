@@ -41,9 +41,9 @@ public enum PaginationOrders {
   }
 
   @JsonCreator
-  public static PaginationOrders fromValue(String text) {
+  public static PaginationOrders fromValue(String input) {
     for (PaginationOrders b : PaginationOrders.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(input)) {
         return b;
       }
     }
