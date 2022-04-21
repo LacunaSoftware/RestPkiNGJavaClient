@@ -95,7 +95,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 		List<SignerModel> listSignerModel = client.getRestClient().get(idUri.toString(), new TypeReference<List<SignerModel>>(){});
 
 		List<Signer> listSigner = (listSignerModel).stream()
-				.map(s -> new Signer(this,s))
+				.map(s -> new Signer(s))
 				.collect(Collectors.toList());
 
 		return listSigner;
@@ -154,6 +154,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 	// endregion allocateDocumentKey
 
 	// region allocateDocumentKeys
+	@SuppressWarnings({ "unchecked" })
 	public List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws Exception {
 		Map<String, String> customHeaders = null;
 		if(subscriptionId != null){
@@ -246,12 +247,14 @@ public class RestPkiServiceImpl implements RestPkiService {
 	}
 	// endregion createApplicationAndKey
 
+	@SuppressWarnings({ "unchecked" })
 	public Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception {
 		return this.client.getRestClient().get(
 			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
 			Map.class);
 	}
 
+	@SuppressWarnings({ "unchecked" })
 	public Map<String, List<String>> updateApplicationDefaultDocumentMetadata(UUID applicationId, Map<String, List<String>> defaultDocumentMetadata) throws Exception {
 		return this.client.getRestClient().put(
 			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
