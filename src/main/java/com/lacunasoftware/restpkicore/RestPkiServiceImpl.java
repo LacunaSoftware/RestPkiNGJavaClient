@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
-import javafx.util.Pair;
 import java.util.stream.Collectors;
 
 /**
@@ -234,15 +233,15 @@ public class RestPkiServiceImpl implements RestPkiService {
 	// endregion createApplicationKey
 
 	// region createApplicationAndKey
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws Exception {
+	public ApplicationAndKey createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws Exception {
 		ApplicationModel app = createApplication(name, roles, defaultDocumentMetadata, subscriptionId);
 		CreateApplicationApiKeyResponse key = createApplicationKey(app.getId());
-		return new Pair<ApplicationModel, String>(app, key.getKey());
+		return new ApplicationAndKey(app, key.getKey());
 	}
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws Exception {
+	public ApplicationAndKey createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws Exception {
 		return createApplicationAndKey(name, roles, defaultDocumentMetadata, null);
 	}
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles) throws Exception {
+	public ApplicationAndKey createApplicationAndKey(String name, List<Roles> roles) throws Exception {
 		return createApplicationAndKey(name, roles, null, null);
 	}
 	// endregion createApplicationAndKey
