@@ -1,12 +1,13 @@
 package com.lacunasoftware.restpkicore;
 
-public class CompleteAuthenticationOptions {
+public class CompleteAuthenticationOptions extends RequestOptions {
 
     private String state;
     private byte[] certificate;
     private byte[] signature;
 
     public CompleteAuthenticationOptions() {
+        super();
     }
 
     public String getState() {

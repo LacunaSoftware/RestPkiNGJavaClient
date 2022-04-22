@@ -16,4 +16,8 @@ public class RequestOptions {
     public void setSubscriptionId(UUID value) {
         subscriptionId = value;
     }
+
+    public void setSubscriptionId(String value) {
+        subscriptionId = UUID.fromString(value);
+    }
 }

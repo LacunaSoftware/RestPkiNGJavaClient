@@ -292,12 +292,8 @@ public class RestPkiServiceImpl implements RestPkiService {
 	}
 
 	public AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception {
-		CompleteAuthenticationResponse response = getRestClient().post(ApiRoutes.AUTHENTICATION.getValue() + "/completion/" , options.getRequest(), CompleteAuthenticationResponse.class);
+		CompleteAuthenticationResponse response = getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/completion/" , options.getRequest(), CompleteAuthenticationResponse.class);
 		return new AuthenticationResult(response);
-	}
-
-	private RestClientPortable getRestClient() {
-		return this.client.getRestClient();
 	}
 
 	private RestClientPortable getRestClient(RequestOptions options) {
