@@ -27,7 +27,9 @@ public class PrepareAuthenticationOptions extends RequestOptions {
 
     PrepareAuthenticationRequest getRequest() {
         PrepareAuthenticationRequest request = new PrepareAuthenticationRequest();
-        request.setSecurityContextId(securityContext.getUUID());
+        if (securityContext != null) {
+            request.setSecurityContextId(securityContext.getUUID());
+        }
         request.setIgnoreRevocationStatusUnknown(ignoreRevocationStatusUnknown);
         return request;
     }
