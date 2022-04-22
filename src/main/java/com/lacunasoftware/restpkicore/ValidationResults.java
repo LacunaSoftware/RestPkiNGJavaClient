@@ -73,7 +73,7 @@ public class ValidationResults {
         return toString(0);
     }
 
-    String toString(int identationLevel) {
+    public String toString(int identationLevel) {
         String tab = Util.repeatChar('\t', identationLevel);
         StringBuilder text = new StringBuilder();
         text.append(getSummary(identationLevel));
@@ -101,11 +101,11 @@ public class ValidationResults {
         return text.toString();
     }
 
-    String toHtml() {
+    public String toHtml() {
         return toHtml(0);
     }
 
-    String toHtml(int identationLevel) {
+    public String toHtml(int identationLevel) {
         return toString(identationLevel)
             .replaceAll("\n", "<br>")
             .replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
