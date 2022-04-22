@@ -11,6 +11,9 @@ try {
 
 	Write-Host ">>> Initializing ..."
 
+	$javaCommand = Get-Command Java
+	Write-Host "Using java version $($javaCommand.Version): $($javaCommand.Source)"
+
 	if (-not $ToolPath) {
 		$ToolPath = $env:SWAGGER_CODEGEN_HOME
 		if (-not $ToolPath) {
@@ -33,13 +36,17 @@ try {
 
 	Write-Host ">>> Generating code ..."
 
-	# Argument `--add-opens=java.base/java.util=ALL-UNNAMED` below is a workaround suggested
-	# on https://github.com/swagger-api/swagger-codegen/issues/10966#issuecomment-934455905
-	# to fix error below:
-	# > com.github.jknack.handlebars.HandlebarsException:
-	# >   /handlebars/Java/licenseInfo.mustache:2:6: java.lang.reflect.InaccessibleObjectException:
-	# >   Unable to make public boolean java.util.Collections$EmptyMap.isEmpty() accessible: module java.base does not "opens java.util" to unnamed module @2b91004a
-	java --add-opens=java.base/java.util=ALL-UNNAMED -jar $toolJar.Fullname generate -i https://homolog.core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	$extraParams = ""
+	if ($javaCommand.Version.Major -ge 16) {
+		# The extra argument `--add-opens=java.base/java.util=ALL-UNNAMED` below is a workaround for an issue affecting JDKs 16+
+		# suggested on https://github.com/swagger-api/swagger-codegen/issues/10966#issuecomment-934455905 to fix the error below:
+		# > com.github.jknack.handlebars.HandlebarsException:
+		# >   /handlebars/Java/licenseInfo.mustache:2:6: java.lang.reflect.InaccessibleObjectException:
+		# >   Unable to make public boolean java.util.Collections$EmptyMap.isEmpty() accessible: module java.base does not "opens java.util" to unnamed module @2b91004a
+		$extraParams += "--add-opens=java.base/java.util=ALL-UNNAMED"
+	}
+
+	java $extraParams -jar $toolJar.Fullname generate -i https://homolog.core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
 	Assert-SuccessExitCode "Swagger codegen failed"
 	
 	Write-Host ">>> Pruning ..."
