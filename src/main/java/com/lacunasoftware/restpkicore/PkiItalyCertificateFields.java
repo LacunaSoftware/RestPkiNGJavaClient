@@ -10,7 +10,7 @@ public class PkiItalyCertificateFields {
 	private String idCarta;
 
 	PkiItalyCertificateFields(PkiItalyCertificateModel model) {
-		this.certificateType = PkiItalyCertificateTypes.valueOf(model.getCertificateType().toString());
+		this.certificateType = model.getCertificateType();
 		this.codiceFiscale = model.getCodiceFiscale();
 		this.idCarta = model.getIdCarta();
 	}

@@ -11,7 +11,7 @@ public class ValidationItem {
 	private ValidationResults innerValidationResults;
 
 	ValidationItem(ValidationItemModel model) {
-		this.type = ValidationItemTypes.valueOf(model.getType().toString());
+		this.type = model.getType();
 		this.message = model.getMessage();
 		this.detail = model.getDetail();
 		if (model.getInnerValidationResults() != null) {
