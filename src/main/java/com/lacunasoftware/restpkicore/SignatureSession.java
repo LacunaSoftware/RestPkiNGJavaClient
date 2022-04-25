@@ -9,10 +9,7 @@ import java.util.stream.Collectors;
  */
 public class SignatureSession {
 
-    private final RestPkiService service;
     private SignatureSessionModel model;
-
-
     private List<SignatureSessionDocument> documents;
 
     public UUID getId() {
@@ -31,7 +28,7 @@ public class SignatureSession {
         return model.getCallbackArgument();
     }
 
-    public CertificateSummary getSignerCertificate(){
+    public CertificateModel getSignerCertificate(){
         return model.getSignerCertificate();
     }
 
@@ -40,7 +37,6 @@ public class SignatureSession {
     }
 
     public SignatureSession(RestPkiService service, SignatureSessionModel model) {
-        this.service = service;
         this.model = model;
         this.documents = (model.getDocuments()).stream()
                 .map(s -> new SignatureSessionDocument(service,s))

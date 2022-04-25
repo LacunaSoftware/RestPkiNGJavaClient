@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ValidateFileRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-01T20:41:18.158913-02:00[America/Sao_Paulo]")@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
+@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
 public class ValidateFileRequest {
 
   @JsonProperty("name")

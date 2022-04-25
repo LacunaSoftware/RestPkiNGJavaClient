@@ -10,7 +10,6 @@ import java.lang.*;
  */
 public class Document {
 
-    private final RestPkiService service;
     private DocumentModel model;
 
     private DocumentFile originalFile;
@@ -51,7 +50,6 @@ public class Document {
     }
 
     public Document(RestPkiService service, DocumentModel model) {
-        this.service = service;
         this.model = model;
         originalFile = new DocumentFile(service, model.getOriginalFile());
         signedFile = model.getSignedFile() != null ? new DocumentFile(service, model.getSignedFile()) : null;
@@ -62,7 +60,4 @@ public class Document {
     public List<SignerSummary> GetSignerSummariesAsync() {
         return model.getSigners();
     }
-
 }
-
-
