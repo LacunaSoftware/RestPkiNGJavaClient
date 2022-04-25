@@ -60,7 +60,7 @@ public class SecurityContext {
 		this.id = id;
 	}
 
-	UUID getUUID() {
+	public UUID getUUID() {
 		return UUID.fromString(id);
 	}
 }
