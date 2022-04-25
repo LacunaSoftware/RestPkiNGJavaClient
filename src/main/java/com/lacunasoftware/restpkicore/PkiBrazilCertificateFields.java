@@ -22,7 +22,7 @@ public class PkiBrazilCertificateFields {
 	private String oabUF;
 
 	PkiBrazilCertificateFields(PkiBrazilCertificateModel model) {
-		this.certificateType = PkiBrazilCertificateTypes.valueOf(model.getCertificateType().toString());
+		this.certificateType = model.getCertificateType();
 		this.cpf = model.getCpf();
 		this.cnpj = model.getCnpj();
 		this.responsavel = model.getResponsavel();

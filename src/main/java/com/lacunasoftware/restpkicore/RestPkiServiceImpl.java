@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
-import javafx.util.Pair;
 import java.util.stream.Collectors;
 
 /**
@@ -96,7 +95,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 		List<SignerModel> listSignerModel = client.getRestClient().get(idUri.toString(), new TypeReference<List<SignerModel>>(){});
 
 		List<Signer> listSigner = (listSignerModel).stream()
-				.map(s -> new Signer(this,s))
+				.map(s -> new Signer(s))
 				.collect(Collectors.toList());
 
 		return listSigner;
@@ -155,6 +154,7 @@ public class RestPkiServiceImpl implements RestPkiService {
 	// endregion allocateDocumentKey
 
 	// region allocateDocumentKeys
+	@SuppressWarnings({ "unchecked" })
 	public List<DocumentKeyModel> allocateDocumentKeys(int count, Map<String, List<String>> provisionalMetadata, UUID subscriptionId) throws Exception {
 		Map<String, String> customHeaders = null;
 		if(subscriptionId != null){
@@ -234,25 +234,27 @@ public class RestPkiServiceImpl implements RestPkiService {
 	// endregion createApplicationKey
 
 	// region createApplicationAndKey
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws Exception {
+	public ApplicationAndKey createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata, UUID subscriptionId) throws Exception {
 		ApplicationModel app = createApplication(name, roles, defaultDocumentMetadata, subscriptionId);
 		CreateApplicationApiKeyResponse key = createApplicationKey(app.getId());
-		return new Pair<ApplicationModel, String>(app, key.getKey());
+		return new ApplicationAndKey(app, key.getKey());
 	}
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws Exception {
+	public ApplicationAndKey createApplicationAndKey(String name, List<Roles> roles,  Map<String, List<String>> defaultDocumentMetadata) throws Exception {
 		return createApplicationAndKey(name, roles, defaultDocumentMetadata, null);
 	}
-	public Pair<ApplicationModel, String> createApplicationAndKey(String name, List<Roles> roles) throws Exception {
+	public ApplicationAndKey createApplicationAndKey(String name, List<Roles> roles) throws Exception {
 		return createApplicationAndKey(name, roles, null, null);
 	}
 	// endregion createApplicationAndKey
 
+	@SuppressWarnings({ "unchecked" })
 	public Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception {
 		return this.client.getRestClient().get(
 			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
 			Map.class);
 	}
 
+	@SuppressWarnings({ "unchecked" })
 	public Map<String, List<String>> updateApplicationDefaultDocumentMetadata(UUID applicationId, Map<String, List<String>> defaultDocumentMetadata) throws Exception {
 		return this.client.getRestClient().put(
 			ApiRoutes.APPLICATIONS.getValue() + "/" + applicationId.toString() + "/default-document-metadata/",
@@ -283,5 +285,24 @@ public class RestPkiServiceImpl implements RestPkiService {
 		model.setLength(file.getLength());
 		return model;
 	}
+	
+	public PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception {
+		PrepareAuthenticationResponse response = getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/" , options.getRequest(), PrepareAuthenticationResponse.class);
+		return new PrepareAuthenticationResult(response.getToSignHash(), response.getState());
+	}
 
+	public AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception {
+		CompleteAuthenticationResponse response = getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/completion/" , options.getRequest(), CompleteAuthenticationResponse.class);
+		return new AuthenticationResult(response);
+	}
+
+	private RestClientPortable getRestClient(RequestOptions options) {
+		if (options.getSubscriptionId() == null) {
+			return this.client.getRestClient();
+		} else {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", options.getSubscriptionId().toString());
+			return this.client.getRestClient(customHeaders);
+		}
+	}
 }

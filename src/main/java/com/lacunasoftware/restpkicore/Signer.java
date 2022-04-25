@@ -4,51 +4,43 @@ import java.util.Date;
 
 public class Signer {
 
-
-    private RestPkiService service;
     private SignerModel model;
+    private PKCertificate certificate;
 
-    public PKCertificate Certificate;
-
-    public DigestAlgorithmAndValueModel MessageDigest(){
+    public DigestAlgorithmAndValueModel MessageDigest() {
         return model.getMessageDigest();
     }
 
-    public SignatureAlgorithmAndValueModel Signature(){
+    public SignatureAlgorithmAndValueModel Signature() {
         return model.getSignature();
     }
 
-    public Date SigningTime(){
+    public Date SigningTime() {
         return model.getSigningTime();
     }
 
-    public Date CertifiedDateReference(){
+    public Date CertifiedDateReference() {
         return model.getCertifiedDateReference();
     }
 
-    public Boolean IsDocumentTimestamp(){
+    public Boolean IsDocumentTimestamp() {
         return model.isIsDocumentTimestamp();
     }
 
-    public String  SignatureFieldName(){
+    public String SignatureFieldName() {
         return model.getSignatureFieldName();
     }
 
-    public ValidationResultsModel getValidationResults(){
+    public ValidationResultsModel getValidationResults() {
         return model.getValidationResults();
     }
 
-//    public PKCertificate getPKCertificate(){
-//        return this.Certificate;
-//    }
-
-    public Signer(RestPkiService service, SignerModel model) {
-        this.service = service;
-        this.model = model;
-        //this.Certificate = new PKCertificate(model.getCertificate());
+    public PKCertificate getCertificate() {
+        return this.certificate;
     }
-    public Signer( SignerModel model) {
+
+    Signer(SignerModel model) {
         this.model = model;
-        this.Certificate = new PKCertificate(model.getCertificate());
+        this.certificate = new PKCertificate(model.getCertificate());
     }
 }

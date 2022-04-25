@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import javafx.util.Pair;
 import java.util.UUID;
 import java.io.InputStream;
 
@@ -81,16 +80,16 @@ public interface RestPkiService {
             Date expiresOn) throws Exception;
     CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws Exception;
 
-    Pair<ApplicationModel, String> createApplicationAndKey(
+    ApplicationAndKey createApplicationAndKey(
             String name,
             List<Roles> roles,
             Map<String, List<String>> defaultDocumentMetadata,
             UUID subscriptionId) throws Exception;
-    Pair<ApplicationModel, String> createApplicationAndKey(
+    ApplicationAndKey createApplicationAndKey(
             String name,
             List<Roles> roles,
             Map<String, List<String>> defaultDocumentMetadata) throws Exception;
-    Pair<ApplicationModel, String> createApplicationAndKey(
+    ApplicationAndKey createApplicationAndKey(
             String name,
             List<Roles> roles) throws Exception;
 
@@ -98,6 +97,10 @@ public interface RestPkiService {
     Map<String, List<String>> updateApplicationDefaultDocumentMetadata(
             UUID applicationId,
             Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+  
+    PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception;
+    
+    AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception;
 
     // endregion
 }

@@ -1,47 +1,74 @@
 param([string]$ToolPath)
 $ErrorActionPreference = "Stop"
 
-try {
+function Assert-SuccessExitCode($errorMessage) {
+    if ($LASTEXITCODE -ne 0) {
+        throw $errorMessage
+    }
+}
 
-	if ([String]::IsNullOrEmpty($ToolPath)) {
-		Write-Host ("Syntax: {0} [-ToolPath] <swagger-codegen path>" -f $MyInvocation.MyCommand.Name)
-		exit 1
-	}
+try {
 
 	Write-Host ">>> Initializing ..."
 
-	$toolJarPath = Resolve-Path ($ToolPath + "\modules\swagger-codegen-cli\target\swagger-codegen-cli.jar")
+	$javaCommand = Get-Command Java
+	Write-Host "Using java version $($javaCommand.Version): $($javaCommand.Source)"
+
+	if (-not $ToolPath) {
+		$ToolPath = $env:SWAGGER_CODEGEN_HOME
+		if (-not $ToolPath) {
+			$ToolPath = "."
+		}
+	}
+	if (-not (Test-Path $ToolPath)) {
+		throw "Path not found: $ToolPath"
+	}
+	$toolJar = Get-ChildItem $ToolPath -Filter "swagger-codegen-cli*.jar" | Select-Object -First 1
+	if (-not $toolJar) {
+		$toolJar = Get-ChildItem $ToolPath -Filter "swagger-codegen-cli*.jar" -Recurse | Select-Object -First 1
+		if (-not $toolJar) {
+			throw "Swagger codegen JAR not found in $ToolPath"
+		}
+	}
+	Write-Host "Found swagger codegen JAR: $($toolJar.Fullname)"
+
 	$tempDir = ("{0}\{1}" -f $env:TEMP, [Guid]::NewGuid())
 
 	Write-Host ">>> Generating code ..."
 
-	&java -jar $toolJarPath generate -i https://core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	$extraParams = ""
+	if ($javaCommand.Version.Major -ge 16) {
+		# The extra argument `--add-opens=java.base/java.util=ALL-UNNAMED` below is a workaround for an issue affecting JDKs 16+
+		# suggested on https://github.com/swagger-api/swagger-codegen/issues/10966#issuecomment-934455905 to fix the error below:
+		# > com.github.jknack.handlebars.HandlebarsException:
+		# >   /handlebars/Java/licenseInfo.mustache:2:6: java.lang.reflect.InaccessibleObjectException:
+		# >   Unable to make public boolean java.util.Collections$EmptyMap.isEmpty() accessible: module java.base does not "opens java.util" to unnamed module @2b91004a
+		$extraParams += "--add-opens=java.base/java.util=ALL-UNNAMED"
+	}
+
+	java $extraParams -jar $toolJar.Fullname generate -i https://homolog.core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	Assert-SuccessExitCode "Swagger codegen failed"
+	
+	Write-Host ">>> Pruning ..."
+	
+	Remove-Item "$tempDir\src\test" -Recurse
+	Remove-Item "$tempDir\src\main\java\io" -Recurse
+	Remove-Item "$tempDir\src\main\java\com\lacunasoftware\auth" -Recurse
+	Remove-Item "$tempDir\src\main\AndroidManifest.xml"
+	Get-ChildItem "$tempDir\src\main\java\com\lacunasoftware" | Where-Object { !$_.PSIsContainer } | Remove-Item
 	
 	Write-Host ">>> Customizing classes ..."
 
 	$encoding = New-Object System.Text.UTF8Encoding $false
-	# $regex = New-Object System.Text.RegularExpressions.Regex "public enum (\w+) {.*?};?", "Singleline"
-	ls $tempDir -filter *.java -recurse | foreach {
+	Get-ChildItem $tempDir -filter *.java -recurse | ForEach-Object {
 		$content = [System.IO.File]::ReadAllText($_.Fullname, $encoding)
-		$content = $content.Replace("public class", "@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)`nclass")
-		# $matches = $regex.Matches($content)
-		# $content = $regex.Replace($content, "")
+		$content = $content.Replace("public class", "`n@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)`npublic class")
 		[System.IO.File]::WriteAllText($_.Fullname, $content, $encoding)
-		# $matches | foreach {
-			# $enumName = $_.Groups[1].Value
-			# Write-Host (">>> Extracting enum: " + $enumName)
-			# $enumDefinition = $_.Value
-			# $code = New-Object System.Text.StringBuilder
-			# $code.AppendLine("package com.lacunasoftware.restpki;");
-			# $code.AppendLine($enumDefinition)
-			# $enumFilePath = ("{0}\src\main\java\com\lacunasoftware\restpki\{1}.java" -f $tempDir, $enumName)
-			# [System.IO.File]::WriteAllText($enumFilePath, $code.ToString(), $encoding)
-		# }
 	}
 	
 	Write-Host ">>> Copying classes to project ..."
 
-	Copy-Item ("{0}\*" -f $tempDir) . -Recurse -Force
+	Copy-Item "$tempDir\src\*" .\src -Recurse -Force
 	
 	Write-Host ">>> Doing some housekeeping ..."
 
