@@ -59,13 +59,6 @@ public class NamespaceModel {
     return prefix;
   }
 
-  @JsonProperty(JSON_PROPERTY_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getPrefixe() {
-    return prefix;
-  }
-
   public void setPrefix(String prefix) {
     this.prefix = prefix;
   }
