@@ -12,7 +12,6 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-
 import java.util.stream.Collectors;
 
 /**
@@ -246,6 +245,58 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return createApplicationAndKey(name, roles, null, null);
 	}
 	// endregion createApplicationAndKey
+
+	//region signature
+	public PrepareSignatureResponse startSignature(FileReference file, 
+	CertificateReferenceModel certificate, 
+	String documentKey, 
+	SecurityContext securityContextId, 
+	SignatureTypes signatureTypes,
+	CmsSignatureOptions cmsSignatureOptions,
+	PdfSignatureOptions pdfSignatureOptions,
+	XmlSignatureOptions xmlSignatureOptions) throws Exception {
+		PrepareSignatureRequest request = new PrepareSignatureRequest();
+		if(documentKey != null || documentKey != ""){
+			request.setDocumentKey(documentKey);
+		}
+
+		if(securityContextId != null){
+			request.setSecurityContextId(securityContextId.getUUID());
+		}
+		if(signatureTypes != null){
+			request.setSignatureType(signatureTypes);
+		}
+		if(cmsSignatureOptions != null){
+			request.setCmsSignatureOptions(cmsSignatureOptions);
+		}
+
+		if(pdfSignatureOptions != null){
+			request.setPdfSignatureOptions(pdfSignatureOptions);
+		}
+
+		if(xmlSignatureOptions!= null){
+			request.setXmlSignatureOptions(xmlSignatureOptions);
+		}
+		
+		request.setFile(uploadOrReference(file));
+		request.setCertificate(certificate);
+
+		return this.client.getRestClient().post(
+			ApiRoutes.SIGNATURE.getValue(), request,
+			PrepareSignatureResponse.class);
+	}
+
+	public DocumentModel completeSignature(String state, byte[] signature) throws RestException {
+		CompleteSignatureRequestV2 req = new CompleteSignatureRequestV2();
+		req.setState(state);
+		req.setSignature(signature);
+		return this.client.getRestClient().post(
+			ApiRoutes.SIGNATURE.getValue() + "/" + "completion", req,
+			DocumentModel.class);
+	}
+
+	//endregion signature
+	
 
 	@SuppressWarnings({ "unchecked" })
 	public Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception {
