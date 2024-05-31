@@ -53,7 +53,6 @@ public class NamespaceModel {
    * 
    * @return prefix
    **/
-  @JsonIgnore
 
   public String getPrefix() {
     return prefix;
@@ -74,7 +73,6 @@ public class NamespaceModel {
    * 
    * @return uri
    **/
-  @JsonIgnore
 
   public String getUri() {
     return uri;

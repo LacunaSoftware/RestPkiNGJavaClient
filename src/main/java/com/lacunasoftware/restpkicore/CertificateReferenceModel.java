@@ -54,8 +54,6 @@ public class CertificateReferenceModel {
    * Get id
    * @return id
   **/
-  
-  @JsonIgnore
 
   public UUID getId() {
         return id;

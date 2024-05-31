@@ -11,322 +11,323 @@
  */
 
 
-package com.lacunasoftware.restpkicore;
+ package com.lacunasoftware.restpkicore;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpkicore.CertificateModel;
-import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
-import com.lacunasoftware.restpkicore.PrepareSignatureFailures;
-import com.lacunasoftware.restpkicore.ValidationResultsModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-/**
- * PrepareSignatureResponse
- */
-@JsonPropertyOrder({
-  PrepareSignatureResponse.JSON_PROPERTY_SUCCESS,
-  PrepareSignatureResponse.JSON_PROPERTY_FAILURE,
-  PrepareSignatureResponse.JSON_PROPERTY_STATE,
-  PrepareSignatureResponse.JSON_PROPERTY_TO_SIGN_HASH,
-  PrepareSignatureResponse.JSON_PROPERTY_VALIDATION_RESULTS,
-  PrepareSignatureResponse.JSON_PROPERTY_CERTIFICATE
-})
-
-public class PrepareSignatureResponse {
-  public static final String JSON_PROPERTY_SUCCESS = "success";
-  private Boolean success;
-
-  public static final String JSON_PROPERTY_FAILURE = "failure";
-  private PrepareSignatureFailures failure;
-
-  public static final String JSON_PROPERTY_STATE = "state";
-  private String state = null;
-
-  public static final String JSON_PROPERTY_TO_SIGN_HASH = "toSignHash";
-  private DigestAlgorithmAndValueModel toSignHash;
-
-  public static final String JSON_PROPERTY_VALIDATION_RESULTS = "validationResults";
-  private ValidationResultsModel validationResults;
-
-  public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
-  private CertificateModel certificate;
-
-  public PrepareSignatureResponse() {
-  }
-
-  public PrepareSignatureResponse success(Boolean success) {
-    
-    this.success = success;
-    return this;
-  }
-
-   /**
-   * Get success
-   * @return success
-  **/
-  @JsonProperty(JSON_PROPERTY_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean isSuccess() {
-    return success;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuccess(Boolean success) {
-    this.success = success;
-  }
-
-  public PrepareSignatureResponse failure(PrepareSignatureFailures failure) {
-    
-    this.failure = failure;
-    return this;
-  }
-
-   /**
-   * Get failure
-   * @return failure
-  **/
-  
-  @JsonProperty(JSON_PROPERTY_FAILURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public PrepareSignatureFailures getFailure() {
-    return failure;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FAILURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailure(PrepareSignatureFailures failure) {
-    this.failure = failure;
-  }
-
-  public PrepareSignatureResponse state(String state) {
-    this.state = state;
-    
-    return this;
-  }
-
-   /**
-   * Get state
-   * @return state
-  **/
-  
-  @JsonIgnore
-
-  public String getState() {
-        return state;
-  }
-  
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
-  public PrepareSignatureResponse toSignHash(DigestAlgorithmAndValueModel toSignHash) {
-    
-    this.toSignHash = toSignHash;
-    return this;
-  }
-
-   /**
-   * Get toSignHash
-   * @return toSignHash
-  **/  
-  @JsonProperty(JSON_PROPERTY_TO_SIGN_HASH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public DigestAlgorithmAndValueModel getToSignHash() {
-    return toSignHash;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TO_SIGN_HASH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToSignHash(DigestAlgorithmAndValueModel toSignHash) {
-    this.toSignHash = toSignHash;
-  }
-
-  public PrepareSignatureResponse validationResults(ValidationResultsModel validationResults) {
-    
-    this.validationResults = validationResults;
-    return this;
-  }
-
-   /**
-   * Get validationResults
-   * @return validationResults
-  **/
-  @JsonProperty(JSON_PROPERTY_VALIDATION_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public ValidationResultsModel getValidationResults() {
-    return validationResults;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALIDATION_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValidationResults(ValidationResultsModel validationResults) {
-    this.validationResults = validationResults;
-  }
-
-  public PrepareSignatureResponse certificate(CertificateModel certificate) {
-    
-    this.certificate = certificate;
-    return this;
-  }
-
-   /**
-   * Get certificate
-   * @return certificate
-  **/
-  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public CertificateModel getCertificate() {
-    return certificate;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCertificate(CertificateModel certificate) {
-    this.certificate = certificate;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    PrepareSignatureResponse prepareSignatureResponse = (PrepareSignatureResponse) o;
-    return Objects.equals(this.success, prepareSignatureResponse.success) &&
-        Objects.equals(this.failure, prepareSignatureResponse.failure) &&
-        Objects.equals(this.state, prepareSignatureResponse.state) &&
-        Objects.equals(this.toSignHash, prepareSignatureResponse.toSignHash) &&
-        Objects.equals(this.validationResults, prepareSignatureResponse.validationResults) &&
-        Objects.equals(this.certificate, prepareSignatureResponse.certificate);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PrepareSignatureResponse {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
-  public static class Builder {
-
-    private PrepareSignatureResponse instance;
-
-    public Builder() {
-      this(new PrepareSignatureResponse());
-    }
-
-    protected Builder(PrepareSignatureResponse instance) {
-      this.instance = instance;
-    }
-
-    public PrepareSignatureResponse.Builder success(Boolean success) {
-      this.instance.success = success;
-      return this;
-    }
-    public PrepareSignatureResponse.Builder failure(PrepareSignatureFailures failure) {
-      this.instance.failure = failure;
-      return this;
-    }
-    public PrepareSignatureResponse.Builder state(String state) {
-      this.instance.state = state;
-      return this;
-    }
-    
-    public PrepareSignatureResponse.Builder toSignHash(DigestAlgorithmAndValueModel toSignHash) {
-      this.instance.toSignHash = toSignHash;
-      return this;
-    }
-    public PrepareSignatureResponse.Builder validationResults(ValidationResultsModel validationResults) {
-      this.instance.validationResults = validationResults;
-      return this;
-    }
-    public PrepareSignatureResponse.Builder certificate(CertificateModel certificate) {
-      this.instance.certificate = certificate;
-      return this;
-    }
-
-
+ import java.util.Objects;
+ import java.util.Arrays;
+ import com.fasterxml.jackson.annotation.JsonInclude;
+ import com.fasterxml.jackson.annotation.JsonProperty;
+ import com.fasterxml.jackson.annotation.JsonCreator;
+ import com.fasterxml.jackson.annotation.JsonTypeName;
+ import com.fasterxml.jackson.annotation.JsonValue;
+ import com.lacunasoftware.restpkicore.CertificateModel;
+ import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
+ import com.lacunasoftware.restpkicore.PrepareSignatureFailures;
+ import com.lacunasoftware.restpkicore.ValidationResultsModel;
+ import com.fasterxml.jackson.annotation.JsonIgnore;
+ import java.util.NoSuchElementException;
+ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+ import com.fasterxml.jackson.annotation.JsonTypeName;
+ 
+ /**
+  * PrepareSignatureResponse
+  */
+ @JsonPropertyOrder({
+   PrepareSignatureResponse.JSON_PROPERTY_SUCCESS,
+   PrepareSignatureResponse.JSON_PROPERTY_FAILURE,
+   PrepareSignatureResponse.JSON_PROPERTY_STATE,
+   PrepareSignatureResponse.JSON_PROPERTY_TO_SIGN_HASH,
+   PrepareSignatureResponse.JSON_PROPERTY_VALIDATION_RESULTS,
+   PrepareSignatureResponse.JSON_PROPERTY_CERTIFICATE
+ })
+ 
+ public class PrepareSignatureResponse {
+   public static final String JSON_PROPERTY_SUCCESS = "success";
+   private Boolean success;
+ 
+   public static final String JSON_PROPERTY_FAILURE = "failure";
+   private PrepareSignatureFailures failure;
+ 
+   public static final String JSON_PROPERTY_STATE = "state";
+   private String state = null;
+ 
+   public static final String JSON_PROPERTY_TO_SIGN_HASH = "toSignHash";
+   private DigestAlgorithmAndValueModel toSignHash;
+ 
+   public static final String JSON_PROPERTY_VALIDATION_RESULTS = "validationResults";
+   private ValidationResultsModel validationResults;
+ 
+   public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
+   private CertificateModel certificate;
+ 
+   public PrepareSignatureResponse() {
+   }
+ 
+   public PrepareSignatureResponse success(Boolean success) {
+     
+     this.success = success;
+     return this;
+   }
+ 
     /**
-    * returns a built PrepareSignatureResponse instance.
-    *
-    * The builder is not reusable.
+    * Get success
+    * @return success
+   **/
+   @JsonProperty(JSON_PROPERTY_SUCCESS)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+ 
+   public Boolean isSuccess() {
+     return success;
+   }
+ 
+ 
+   @JsonProperty(JSON_PROPERTY_SUCCESS)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+   public void setSuccess(Boolean success) {
+     this.success = success;
+   }
+ 
+   public PrepareSignatureResponse failure(PrepareSignatureFailures failure) {
+     
+     this.failure = failure;
+     return this;
+   }
+ 
+    /**
+    * Get failure
+    * @return failure
+   **/
+   
+   @JsonProperty(JSON_PROPERTY_FAILURE)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+ 
+   public PrepareSignatureFailures getFailure() {
+     return failure;
+   }
+ 
+ 
+   @JsonProperty(JSON_PROPERTY_FAILURE)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+   public void setFailure(PrepareSignatureFailures failure) {
+     this.failure = failure;
+   }
+ 
+   public PrepareSignatureResponse state(String state) {
+     this.state = state;
+     
+     return this;
+   }
+ 
+    /**
+    * Get state
+    * @return state
+   **/
+   
+   @JsonIgnore
+ 
+   public String getState() {
+         return state;
+   }
+   
+ 
+   public void setState(String state) {
+     this.state = state;
+   }
+ 
+   public PrepareSignatureResponse toSignHash(DigestAlgorithmAndValueModel toSignHash) {
+     
+     this.toSignHash = toSignHash;
+     return this;
+   }
+ 
+    /**
+    * Get toSignHash
+    * @return toSignHash
+   **/  
+   @JsonProperty(JSON_PROPERTY_TO_SIGN_HASH)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+ 
+   public DigestAlgorithmAndValueModel getToSignHash() {
+     return toSignHash;
+   }
+ 
+ 
+   @JsonProperty(JSON_PROPERTY_TO_SIGN_HASH)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+   public void setToSignHash(DigestAlgorithmAndValueModel toSignHash) {
+     this.toSignHash = toSignHash;
+   }
+ 
+   public PrepareSignatureResponse validationResults(ValidationResultsModel validationResults) {
+     
+     this.validationResults = validationResults;
+     return this;
+   }
+ 
+    /**
+    * Get validationResults
+    * @return validationResults
+   **/
+   @JsonProperty(JSON_PROPERTY_VALIDATION_RESULTS)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+ 
+   public ValidationResultsModel getValidationResults() {
+     return validationResults;
+   }
+ 
+ 
+   @JsonProperty(JSON_PROPERTY_VALIDATION_RESULTS)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+   public void setValidationResults(ValidationResultsModel validationResults) {
+     this.validationResults = validationResults;
+   }
+ 
+   public PrepareSignatureResponse certificate(CertificateModel certificate) {
+     
+     this.certificate = certificate;
+     return this;
+   }
+ 
+    /**
+    * Get certificate
+    * @return certificate
+   **/
+   @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+ 
+   public CertificateModel getCertificate() {
+     return certificate;
+   }
+ 
+ 
+   @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+   public void setCertificate(CertificateModel certificate) {
+     this.certificate = certificate;
+   }
+ 
+   @Override
+   public boolean equals(Object o) {
+     if (this == o) {
+       return true;
+     }
+     if (o == null || getClass() != o.getClass()) {
+       return false;
+     }
+     PrepareSignatureResponse prepareSignatureResponse = (PrepareSignatureResponse) o;
+     return Objects.equals(this.success, prepareSignatureResponse.success) &&
+         Objects.equals(this.failure, prepareSignatureResponse.failure) &&
+         Objects.equals(this.state, prepareSignatureResponse.state) &&
+         Objects.equals(this.toSignHash, prepareSignatureResponse.toSignHash) &&
+         Objects.equals(this.validationResults, prepareSignatureResponse.validationResults) &&
+         Objects.equals(this.certificate, prepareSignatureResponse.certificate);
+   }
+ 
+   @Override
+   public String toString() {
+     StringBuilder sb = new StringBuilder();
+     sb.append("class PrepareSignatureResponse {\n");
+     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+     sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
+     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+     sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
+     sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
+     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+     sb.append("}");
+     return sb.toString();
+   }
+ 
+   /**
+    * Convert the given object to string with each line indented by 4 spaces
+    * (except the first line).
     */
-    public PrepareSignatureResponse build() {
-      try {
-        return this.instance;
-      } finally {
-        // ensure that this.instance is not reused
-        this.instance = null;
-      }
-    }
-
-    @Override
-    public String toString() {
-      return getClass() + "=(" + instance + ")";
-    }
-  }
-
-  /**
-  * Create a builder with no initialized field.
-  */
-  public static PrepareSignatureResponse.Builder builder() {
-    return new PrepareSignatureResponse.Builder();
-  }
-
-  /**
-  * Create a builder with a shallow copy of this instance.
-  */
-  public PrepareSignatureResponse.Builder toBuilder() {
-    return new PrepareSignatureResponse.Builder()
-      .success(isSuccess())
-      .failure(getFailure())
-      .state(getState())
-      .toSignHash(getToSignHash())
-      .validationResults(getValidationResults())
-      .certificate(getCertificate());
-  }
-
-
-}
-
+   private String toIndentedString(Object o) {
+     if (o == null) {
+       return "null";
+     }
+     return o.toString().replace("\n", "\n    ");
+   }
+ 
+   public static class Builder {
+ 
+     private PrepareSignatureResponse instance;
+ 
+     public Builder() {
+       this(new PrepareSignatureResponse());
+     }
+ 
+     protected Builder(PrepareSignatureResponse instance) {
+       this.instance = instance;
+     }
+ 
+     public PrepareSignatureResponse.Builder success(Boolean success) {
+       this.instance.success = success;
+       return this;
+     }
+     public PrepareSignatureResponse.Builder failure(PrepareSignatureFailures failure) {
+       this.instance.failure = failure;
+       return this;
+     }
+     public PrepareSignatureResponse.Builder state(String state) {
+       this.instance.state = state;
+       return this;
+     }
+     
+     public PrepareSignatureResponse.Builder toSignHash(DigestAlgorithmAndValueModel toSignHash) {
+       this.instance.toSignHash = toSignHash;
+       return this;
+     }
+     public PrepareSignatureResponse.Builder validationResults(ValidationResultsModel validationResults) {
+       this.instance.validationResults = validationResults;
+       return this;
+     }
+     public PrepareSignatureResponse.Builder certificate(CertificateModel certificate) {
+       this.instance.certificate = certificate;
+       return this;
+     }
+ 
+ 
+     /**
+     * returns a built PrepareSignatureResponse instance.
+     *
+     * The builder is not reusable.
+     */
+     public PrepareSignatureResponse build() {
+       try {
+         return this.instance;
+       } finally {
+         // ensure that this.instance is not reused
+         this.instance = null;
+       }
+     }
+ 
+     @Override
+     public String toString() {
+       return getClass() + "=(" + instance + ")";
+     }
+   }
+ 
+   /**
+   * Create a builder with no initialized field.
+   */
+   public static PrepareSignatureResponse.Builder builder() {
+     return new PrepareSignatureResponse.Builder();
+   }
+ 
+   /**
+   * Create a builder with a shallow copy of this instance.
+   */
+   public PrepareSignatureResponse.Builder toBuilder() {
+     return new PrepareSignatureResponse.Builder()
+       .success(isSuccess())
+       .failure(getFailure())
+       .state(getState())
+       .toSignHash(getToSignHash())
+       .validationResults(getValidationResults())
+       .certificate(getCertificate());
+   }
+ 
+ 
+ }
+ 
+ 

@@ -50,6 +50,10 @@ public class FileReferenceModel {
   @JsonProperty("location")
   private String location = null;
 
+
+  public FileReferenceModel() {
+  }
+
   public FileReferenceModel mimeType(String mimeType) {
     this.mimeType = mimeType;
     return this;

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import java.util.UUID;
 import java.io.InputStream;
+import javax.annotation.*;
 
 /**
  * RestPkiService
@@ -120,16 +121,8 @@ public interface RestPkiService {
         // endregion
 
         // region signature management
-        public PrepareSignatureResponse startSignature(FileReference file,
-                        CertificateReferenceModel certificate,
-                        String documentKey,
-                        SecurityContext securityContextId,
-                        SignatureTypes signatureTypes,
-                        CmsSignatureOptions cmsSignatureOptions,
-                        PdfSignatureOptions pdfSignatureOptions,
-                        XmlSignatureOptions xmlSignatureOptions) throws Exception;
-        
-        public DocumentModel completeSignature(String state, byte[] signature) throws RestException;
+        public PrepareSignatureResponse startSignature(PrepareSignatureRequest request) throws Exception;
 
+        public DocumentModel completeSignature(CompleteSignatureRequestV2 req) throws RestException;
         // endregion signature management
 }
