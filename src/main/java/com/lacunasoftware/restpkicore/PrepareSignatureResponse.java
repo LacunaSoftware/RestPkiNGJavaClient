@@ -122,8 +122,6 @@
     * Get state
     * @return state
    **/
-   
-   @JsonIgnore
  
    public String getState() {
          return state;
