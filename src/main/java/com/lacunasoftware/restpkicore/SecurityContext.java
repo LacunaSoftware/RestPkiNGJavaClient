@@ -40,6 +40,20 @@ public class SecurityContext {
 	 */
 	public static final SecurityContext lacunaTest = new SecurityContext("803517ad-3bbc-4169-b085-60053a8f6dbf");
 
+	/**
+	 * Returns a reference to the built-in PkiBrazilExtended security context. This context is
+	 * guaranteed to
+	 * be available 
+	 */
+	public static final SecurityContext PkiBrazilExtended = new SecurityContext("3ce63ec8-2c71-4181-b4cd-33c3ba6d614f");
+	
+	/**
+	 * Returns a reference to the built-in GovBr security context. This context is
+	 * guaranteed to
+	 * be available 
+	 */
+	public static final SecurityContext GovBR = new SecurityContext("5d323217-c031-4eed-9001-1cd82d86a8b5");
+
 	private String id;
 
 	/**

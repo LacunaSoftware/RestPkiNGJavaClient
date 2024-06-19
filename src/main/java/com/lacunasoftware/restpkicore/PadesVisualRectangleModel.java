@@ -2,7 +2,7 @@
  * Rest PKI Core API
  * <b><i>Para Português, <a href=\"https://docs.lacunasoftware.com/pt-br/articles/rest-pki/core/integration/get-started\">clique aqui</a></i></b>  <p>   <a href=\"https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/\">Rest PKI Core</a> is an upcoming version of   <a href=\"https://docs.lacunasoftware.com/en-us/articles/rest-pki/\">Rest PKI</a> that will have extended compatibility with environments and databases.  </p>  <p>   In addition to Windows Server (which is already supported by Rest PKI), Rest PKI Core will also run on <b>Linux</b> (Debian- and RedHat-based distributions)   and on <b>Docker</b>. As for database servers, in addition to SQL Server, <b>PostgreSQL</b> will also be supported.  </p>  <p>   <b>Before getting started, see the integration overview on the <a href=\"https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/integration/\">Integration Guide</a></b>  </p>  <p>   For questions regarding the usage of this API, please reach us at <a href=\"https://lacuna.help/\">lacuna.help</a>  </p>    <h2>Parameters</h2>  <p>   You will need the following parameters:  </p>  <ul>   <li><b>Endpoint</b>: address of the Rest PKI Core instance that will be used</li>   <li><b>API Key</b>: authorization key for using the API</li>  </ul>  <p>   The <span class=\"model\">endpoint</span> must be prefixed to all relative URLs mentioned here. As for the <span class=\"model\">API Key</span>, see how to use it below.  </p>    <h2>Authentication</h2>  <p>   The API key must be sent on the <span class=\"model\">X-Api-Key</span> header on each request:  </p>    <!-- unfortunately, class \"example microlight\" doesn't seem to work here -->  <pre style=\"font-size: 12px; padding: 10px; border-radius: 4px; background: #41444e; font-weight: 600; color: #fff;\">  X-Api-Key: yourapp|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  </pre>    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response body is an <a href=\"#model-ErrorModelV2\" class=\"model\">ErrorModelV2</a>    </tr>    <tr>     <td><strong class=\"model-title\">500 (Internal Server Error)</strong></td>     <td>An unexpected error occurred. The <span class=\"model\">exceptionCode</span> contained on the response body may be of help for our support team during diagnostic.</td>    </tr>   </tbody>  </table>    <h3>Error Codes</h3>    <p>   Some of the error codes returned in the <span class=\"model\">code</span> field of an <a href=\"#model-ErrorModelV2\" class=\"model\">ErrorModelV2</a>   (body of responses with HTTP status code 422) are provided below*:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td class=\"model\">DocumentNotFound</td>     <td>A referenced document was not found (check the document ID)</td>    </tr>    <tr>     <td class=\"model\">SecurityContextNotFound</td>     <td>A referenced security context was not found (check the security context ID)</td>    </tr>    <tr>     <td class=\"model\">SignatureSessionNotFound</td>     <td>A referenced signature session was not found (check the signature session ID)</td>    </tr>    <tr>     <td class=\"model\">BadSignatureSessionOperation</td>     <td>The operation is invalid for the current signature session or document status. For instance, trying to await the session's completion if it is still <span class=\"model\">Pending</span> results in this error</td>    </tr>    <tr>     <td class=\"model\">BackgroundProcessing</td>     <td>The operation cannot be completed at this time because the resource is being processed in background</td>    </tr>    <tr>     <td class=\"model\">SignatureSessionTokenRequired</td>     <td>The signature session token was not passed on the <span class=\"model\">X-Signature-Session-Token</span> request header</td>    </tr>    <tr>     <td class=\"model\">BadSignatureSessionToken</td>     <td>An invalid signature session token was passed on the <span class=\"model\">X-Signature-Session-Token</span> request header. Check your application for possible corruption of the session token, which may contain characters <span class=\"code\">-</span> (hyphen) and <span class=\"code\">_</span> (underscore)</td>    </tr>    <tr>     <td class=\"model\">ExpiredSignatureSessionToken</td>     <td>An expired signature session token was passed on the <span class=\"model\">X-Signature-Session-Token</span> request header. Signature session tokens are normally valid for 4 hours.</td>    </tr>   </tbody>  </table>    <p style=\"font-size: 0.9em\">   *The codes shown above are the most common error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <h2>Culture / Internationalization (i18n)</h2>  <p>The <span class=\"model\">Accept-Language</span> request header is observed by this API. The following cultures are supported:</p>  <ul>   <li><span class=\"code\">en-US</span> (or simply <span class=\"code\">en</span>)</li>   <li><span class=\"code\">pt-BR</span> (or simply <span class=\"code\">pt</span>)</li>  </ul>  <p><i>Notice: error messages are not affected by this header and therefore should not be displayed to users, being better suited for logging.</i></p>  
  *
- * The version of the OpenAPI document: 2.4.0
+ * The version of the OpenAPI document: 2.2.2
  * 
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -11,221 +11,283 @@
  */
 
 
- package com.lacunasoftware.restpkicore;
+package com.lacunasoftware.restpkicore;
 
- import java.util.Objects;
- import java.util.Arrays;
- import com.fasterxml.jackson.annotation.JsonInclude;
- import com.fasterxml.jackson.annotation.JsonProperty;
- import com.fasterxml.jackson.annotation.JsonCreator;
- import com.fasterxml.jackson.annotation.JsonTypeName;
- import com.fasterxml.jackson.annotation.JsonValue;
- import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
- import com.lacunasoftware.restpkicore.SignatureParametersModel;
- import com.fasterxml.jackson.annotation.JsonPropertyOrder;
- import com.fasterxml.jackson.annotation.JsonTypeName;
- 
- /**
-  * PrepareAuthenticationResponse
-  */
- @JsonPropertyOrder({
-   PrepareAuthenticationResponse.JSON_PROPERTY_STATE,
-   PrepareAuthenticationResponse.JSON_PROPERTY_TO_SIGN,
-   PrepareAuthenticationResponse.JSON_PROPERTY_TO_SIGN_HASH
- })
- public class PrepareAuthenticationResponse {
-   public static final String JSON_PROPERTY_STATE = "state";
-   private String state;
- 
-   public static final String JSON_PROPERTY_TO_SIGN = "toSign";
-   private SignatureParametersModel toSign;
- 
-   public static final String JSON_PROPERTY_TO_SIGN_HASH = "toSignHash";
-   private DigestAlgorithmAndValueModel toSignHash;
- 
-   public PrepareAuthenticationResponse() {
-   }
- 
-   public PrepareAuthenticationResponse state(String state) {
-     
-     this.state = state;
-     return this;
-   }
- 
-    /**
-    * Get state
-    * @return state
-   **/
-   
-   @JsonProperty(JSON_PROPERTY_STATE)
-   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
- 
-   public String getState() {
-     return state;
-   }
- 
- 
-   @JsonProperty(JSON_PROPERTY_STATE)
-   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-   public void setState(String state) {
-     this.state = state;
-   }
- 
-   public PrepareAuthenticationResponse toSign(SignatureParametersModel toSign) {
-     
-     this.toSign = toSign;
-     return this;
-   }
- 
-    /**
-    * Get toSign
-    * @return toSign
-   **/
-   
-   @JsonProperty(JSON_PROPERTY_TO_SIGN)
-   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
- 
-   public SignatureParametersModel getToSign() {
-     return toSign;
-   }
- 
- 
-   @JsonProperty(JSON_PROPERTY_TO_SIGN)
-   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-   public void setToSign(SignatureParametersModel toSign) {
-     this.toSign = toSign;
-   }
- 
-   public PrepareAuthenticationResponse toSignHash(DigestAlgorithmAndValueModel toSignHash) {
-     
-     this.toSignHash = toSignHash;
-     return this;
-   }
- 
-    /**
-    * Get toSignHash
-    * @return toSignHash
-   **/
-   
-   @JsonProperty(JSON_PROPERTY_TO_SIGN_HASH)
-   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
- 
-   public DigestAlgorithmAndValueModel getToSignHash() {
-     return toSignHash;
-   }
- 
- 
-   @JsonProperty(JSON_PROPERTY_TO_SIGN_HASH)
-   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-   public void setToSignHash(DigestAlgorithmAndValueModel toSignHash) {
-     this.toSignHash = toSignHash;
-   }
- 
-   @Override
-   public boolean equals(Object o) {
-     if (this == o) {
-       return true;
-     }
-     if (o == null || getClass() != o.getClass()) {
-       return false;
-     }
-     PrepareAuthenticationResponse prepareAuthenticationResponse = (PrepareAuthenticationResponse) o;
-     return Objects.equals(this.state, prepareAuthenticationResponse.state) &&
-         Objects.equals(this.toSign, prepareAuthenticationResponse.toSign) &&
-         Objects.equals(this.toSignHash, prepareAuthenticationResponse.toSignHash);
-   }
- 
-   @Override
-   public int hashCode() {
-     return Objects.hash(state, toSign, toSignHash);
-   }
- 
-   @Override
-   public String toString() {
-     StringBuilder sb = new StringBuilder();
-     sb.append("class PrepareAuthenticationResponse {\n");
-     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-     sb.append("    toSign: ").append(toIndentedString(toSign)).append("\n");
-     sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
-     sb.append("}");
-     return sb.toString();
-   }
- 
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+/**
+ * PadesVisualRectangleModel
+ */
+@JsonPropertyOrder({
+  PadesVisualRectangleModel.JSON_PROPERTY_LEFT,
+  PadesVisualRectangleModel.JSON_PROPERTY_TOP,
+  PadesVisualRectangleModel.JSON_PROPERTY_RIGHT,
+  PadesVisualRectangleModel.JSON_PROPERTY_BOTTOM,
+  PadesVisualRectangleModel.JSON_PROPERTY_WIDTH,
+  PadesVisualRectangleModel.JSON_PROPERTY_HEIGHT
+})
+
+public class PadesVisualRectangleModel {
+  public static final String JSON_PROPERTY_LEFT = "left";
+  private Double left =null;
+
+  public static final String JSON_PROPERTY_TOP = "top";
+  private Double top =null;
+
+  public static final String JSON_PROPERTY_RIGHT = "right";
+  private Double right =null;
+
+  public static final String JSON_PROPERTY_BOTTOM = "bottom";
+  private Double bottom =null;
+
+  public static final String JSON_PROPERTY_WIDTH = "width";
+  private Double width =null;
+
+  public static final String JSON_PROPERTY_HEIGHT = "height";
+  private Double height =null;
+
+  public PadesVisualRectangleModel() {
+  }
+
+  public PadesVisualRectangleModel left(Double left) {
+    this.left = left;
+    
+    return this;
+  }
+
    /**
-    * Convert the given object to string with each line indented by 4 spaces
-    * (except the first line).
+   * Get left
+   * @return left
+  **/
+  
+  
+
+  public Double getLeft() {
+        return left;
+  }
+
+  public void setLeft(Double left) {
+    this.left = left;
+  }
+
+  public PadesVisualRectangleModel top(Double top) {
+    this.top = top;
+    
+    return this;
+  }
+
+   /**
+   * Get top
+   * @return top
+  **/
+  
+  
+
+  public Double getTop() {
+        return top;
+  }
+
+  public void setTop(Double top) {
+    this.top = top;
+  }
+
+  public PadesVisualRectangleModel right(Double right) {
+    this.right = right;
+    
+    return this;
+  }
+
+   /**
+   * Get right
+   * @return right
+  **/
+  
+  
+
+  public Double getRight() {
+        return right;
+  }
+
+  public void setRight(Double right) {
+    this.right = right;
+  }
+
+  public PadesVisualRectangleModel bottom(Double bottom) {
+    this.bottom = bottom;
+    
+    return this;
+  }
+
+   /**
+   * Get bottom
+   * @return bottom
+  **/
+  
+  
+
+  public Double getBottom() {
+        return bottom;
+  }
+
+  public void setBottom(Double bottom) {
+    this.bottom = bottom;
+  }
+
+  public PadesVisualRectangleModel width(Double width) {
+    this.width = width;
+    
+    return this;
+  }
+
+   /**
+   * Get width
+   * @return width
+  **/
+  
+  
+
+  public Double getWidth() {
+        return width;
+  }
+
+  public void setWidth(Double width) {
+    this.width = width;
+  }
+
+  public PadesVisualRectangleModel height(Double height) {
+    this.height = height;
+    
+    return this;
+  }
+
+   /**
+   * Get height
+   * @return height
+  **/
+  
+  
+
+  public Double getHeight() {
+        return height;
+  }
+
+  public void setHeight(Double height) {
+    this.height = height;
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PadesVisualRectangleModel {\n");
+    sb.append("    left: ").append(toIndentedString(left)).append("\n");
+    sb.append("    top: ").append(toIndentedString(top)).append("\n");
+    sb.append("    right: ").append(toIndentedString(right)).append("\n");
+    sb.append("    bottom: ").append(toIndentedString(bottom)).append("\n");
+    sb.append("    width: ").append(toIndentedString(width)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  public static class Builder {
+
+    private PadesVisualRectangleModel instance;
+
+    public Builder() {
+      this(new PadesVisualRectangleModel());
+    }
+
+    protected Builder(PadesVisualRectangleModel instance) {
+      this.instance = instance;
+    }
+    public PadesVisualRectangleModel.Builder left(Double left) {
+      this.instance.left = left;
+      return this;
+    }
+    public PadesVisualRectangleModel.Builder top(Double top) {
+      this.instance.top = top;
+      return this;
+    }
+    public PadesVisualRectangleModel.Builder right(Double right) {
+      this.instance.right = right;
+      return this;
+    }
+    public PadesVisualRectangleModel.Builder bottom(Double bottom) {
+      this.instance.bottom = bottom;
+      return this;
+    }
+    public PadesVisualRectangleModel.Builder width(Double width) {
+      this.instance.width = width;
+      return this;
+    }
+    public PadesVisualRectangleModel.Builder height(Double height) {
+      this.instance.height = height;
+      return this;
+    }
+
+
+    /**
+    * returns a built PadesVisualRectangleModel instance.
+    *
+    * The builder is not reusable.
     */
-   private String toIndentedString(Object o) {
-     if (o == null) {
-       return "null";
-     }
-     return o.toString().replace("\n", "\n    ");
-   }
- 
-   public static class Builder {
- 
-     private PrepareAuthenticationResponse instance;
- 
-     public Builder() {
-       this(new PrepareAuthenticationResponse());
-     }
- 
-     protected Builder(PrepareAuthenticationResponse instance) {
-       this.instance = instance;
-     }
- 
-     public PrepareAuthenticationResponse.Builder state(String state) {
-       this.instance.state = state;
-       return this;
-     }
-     public PrepareAuthenticationResponse.Builder toSign(SignatureParametersModel toSign) {
-       this.instance.toSign = toSign;
-       return this;
-     }
-     public PrepareAuthenticationResponse.Builder toSignHash(DigestAlgorithmAndValueModel toSignHash) {
-       this.instance.toSignHash = toSignHash;
-       return this;
-     }
- 
- 
-     /**
-     * returns a built PrepareAuthenticationResponse instance.
-     *
-     * The builder is not reusable.
-     */
-     public PrepareAuthenticationResponse build() {
-       try {
-         return this.instance;
-       } finally {
-         // ensure that this.instance is not reused
-         this.instance = null;
-       }
-     }
- 
-     @Override
-     public String toString() {
-       return getClass() + "=(" + instance + ")";
-     }
-   }
- 
-   /**
-   * Create a builder with no initialized field.
-   */
-   public static PrepareAuthenticationResponse.Builder builder() {
-     return new PrepareAuthenticationResponse.Builder();
-   }
- 
-   /**
-   * Create a builder with a shallow copy of this instance.
-   */
-   public PrepareAuthenticationResponse.Builder toBuilder() {
-     return new PrepareAuthenticationResponse.Builder()
-       .state(getState())
-       .toSign(getToSign())
-       .toSignHash(getToSignHash());
-   }
- 
- 
- }
- 
- 
+    public PadesVisualRectangleModel build() {
+      try {
+        return this.instance;
+      } finally {
+        // ensure that this.instance is not reused
+        this.instance = null;
+      }
+    }
+
+    @Override
+    public String toString() {
+      return getClass() + "=(" + instance + ")";
+    }
+  }
+
+  /**
+  * Create a builder with no initialized field.
+  */
+  public static PadesVisualRectangleModel.Builder builder() {
+    return new PadesVisualRectangleModel.Builder();
+  }
+
+  /**
+  * Create a builder with a shallow copy of this instance.
+  */
+  public PadesVisualRectangleModel.Builder toBuilder() {
+    return new PadesVisualRectangleModel.Builder()
+      .left(getLeft())
+      .top(getTop())
+      .right(getRight())
+      .bottom(getBottom())
+      .width(getWidth())
+      .height(getHeight());
+  }
+
+
+}
+

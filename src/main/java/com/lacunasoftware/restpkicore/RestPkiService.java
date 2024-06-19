@@ -12,95 +12,116 @@ import java.io.InputStream;
  */
 public interface RestPkiService {
 
-    CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request) throws Exception;
-    CreateSignatureSessionResponse createSignatureSession(
-            CreateSignatureSessionRequest request,
-            UUID subscriptionId) throws Exception;
-    CreateSignatureSessionResponse createSignatureSession(
-            CreateSignatureSessionRequest request,
-            UUID subscriptionId,
-            Map<String, List<String>> metadata) throws Exception;
-    CreateSignatureSessionResponse createSignatureSession(
-            CreateSignatureSessionRequest request,
-            UUID subscriptionId,
-            Map<String, List<String>> metadata,
-            List<SignatureSessionDocumentToSign> documents) throws Exception;
+        CreateSignatureSessionResponse createSignatureSession(CreateSignatureSessionRequest request) throws Exception;
 
-    SignatureSession getSignatureSession(UUID id) throws Exception;
+        CreateSignatureSessionResponse createSignatureSession(
+                        CreateSignatureSessionRequest request,
+                        UUID subscriptionId) throws Exception;
 
-    Document getDocument(UUID id) throws Exception;
-    Document getDocument(DocumentModel model);
+        CreateSignatureSessionResponse createSignatureSession(
+                        CreateSignatureSessionRequest request,
+                        UUID subscriptionId,
+                        Map<String, List<String>> metadata) throws Exception;
 
-    public List<Signer> getDocumentSigners(UUID id) throws Exception;
+        CreateSignatureSessionResponse createSignatureSession(
+                        CreateSignatureSessionRequest request,
+                        UUID subscriptionId,
+                        Map<String, List<String>> metadata,
+                        List<SignatureSessionDocumentToSign> documents) throws Exception;
 
-    public  Document findDocumentByKey(String key) throws Exception;
+        SignatureSession getSignatureSession(UUID id) throws Exception;
 
-    InputStream openRead(String location) throws Exception;
+        Document getDocument(UUID id) throws Exception;
 
-    byte[] getContent(String location) throws Exception;
+        Document getDocument(DocumentModel model);
 
-    DocumentModel getDocumentModel(UUID id) throws Exception;
+        public List<Signer> getDocumentSigners(UUID id) throws Exception;
 
-    DocumentKeyModel allocateDocumentKey(
-            Map<String, List<String>> provisionalMetadata,
-            UUID subscriptionId) throws Exception;
-    DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws Exception;
-    DocumentKeyModel allocateDocumentKey() throws Exception;
+        public Document findDocumentByKey(String key) throws Exception;
 
-    List<DocumentKeyModel> allocateDocumentKeys(
-            int count,
-            Map<String, List<String>> provisionalMetadata,
-            UUID subscriptionId) throws Exception;
-    List<DocumentKeyModel> allocateDocumentKeys(
-            int count,
-            Map<String, List<String>> provisionalMetadata) throws Exception;
-    List<DocumentKeyModel> allocateDocumentKeys(int count) throws Exception;
+        InputStream openRead(String location) throws Exception;
 
-    // region Application management
+        byte[] getContent(String location) throws Exception;
 
-    ApplicationModel createApplication(
-            String name,
-            List<Roles> roles,
-            Map<String, List<String>> defaultDocumentMetadata,
-            UUID subscriptionId) throws Exception;
-    ApplicationModel createApplication(
-            String name,
-            List<Roles> roles,
-            Map<String, List<String>> defaultDocumentMetadata) throws Exception;
-    ApplicationModel createApplication(
-            String name,
-            List<Roles> roles) throws Exception;
+        DocumentModel getDocumentModel(UUID id) throws Exception;
 
-    CreateApplicationApiKeyResponse createApplicationKey(
-            UUID applicationId,
-            Date expiresOn,
-            String description) throws Exception;
-    CreateApplicationApiKeyResponse createApplicationKey(
-            UUID applicationId,
-            Date expiresOn) throws Exception;
-    CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws Exception;
+        DocumentKeyModel allocateDocumentKey(
+                        Map<String, List<String>> provisionalMetadata,
+                        UUID subscriptionId) throws Exception;
 
-    ApplicationAndKey createApplicationAndKey(
-            String name,
-            List<Roles> roles,
-            Map<String, List<String>> defaultDocumentMetadata,
-            UUID subscriptionId) throws Exception;
-    ApplicationAndKey createApplicationAndKey(
-            String name,
-            List<Roles> roles,
-            Map<String, List<String>> defaultDocumentMetadata) throws Exception;
-    ApplicationAndKey createApplicationAndKey(
-            String name,
-            List<Roles> roles) throws Exception;
+        DocumentKeyModel allocateDocumentKey(Map<String, List<String>> provisionalMetadata) throws Exception;
 
-    Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception;
-    Map<String, List<String>> updateApplicationDefaultDocumentMetadata(
-            UUID applicationId,
-            Map<String, List<String>> defaultDocumentMetadata) throws Exception;
-  
-    PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception;
-    
-    AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception;
+        DocumentKeyModel allocateDocumentKey() throws Exception;
 
-    // endregion
+        List<DocumentKeyModel> allocateDocumentKeys(
+                        int count,
+                        Map<String, List<String>> provisionalMetadata,
+                        UUID subscriptionId) throws Exception;
+
+        List<DocumentKeyModel> allocateDocumentKeys(
+                        int count,
+                        Map<String, List<String>> provisionalMetadata) throws Exception;
+
+        List<DocumentKeyModel> allocateDocumentKeys(int count) throws Exception;
+
+        // region Application management
+
+        ApplicationModel createApplication(
+                        String name,
+                        List<Roles> roles,
+                        Map<String, List<String>> defaultDocumentMetadata,
+                        UUID subscriptionId) throws Exception;
+
+        ApplicationModel createApplication(
+                        String name,
+                        List<Roles> roles,
+                        Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+
+        ApplicationModel createApplication(
+                        String name,
+                        List<Roles> roles) throws Exception;
+
+        CreateApplicationApiKeyResponse createApplicationKey(
+                        UUID applicationId,
+                        Date expiresOn,
+                        String description) throws Exception;
+
+        CreateApplicationApiKeyResponse createApplicationKey(
+                        UUID applicationId,
+                        Date expiresOn) throws Exception;
+
+        CreateApplicationApiKeyResponse createApplicationKey(UUID applicationId) throws Exception;
+
+        ApplicationAndKey createApplicationAndKey(
+                        String name,
+                        List<Roles> roles,
+                        Map<String, List<String>> defaultDocumentMetadata,
+                        UUID subscriptionId) throws Exception;
+
+        ApplicationAndKey createApplicationAndKey(
+                        String name,
+                        List<Roles> roles,
+                        Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+
+        ApplicationAndKey createApplicationAndKey(
+                        String name,
+                        List<Roles> roles) throws Exception;
+
+        Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception;
+
+        Map<String, List<String>> updateApplicationDefaultDocumentMetadata(
+                        UUID applicationId,
+                        Map<String, List<String>> defaultDocumentMetadata) throws Exception;
+
+        PrepareAuthenticationResult prepareAuthentication(PrepareAuthenticationOptions options) throws Exception;
+
+        AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception;
+
+        // endregion
+
+        // region signature management
+        public PrepareSignatureResponse startSignature(PrepareSignatureRequest request) throws Exception;
+
+        public DocumentModel completeSignature(CompleteSignatureRequestV2 req) throws RestException;
+        // endregion signature management
 }
