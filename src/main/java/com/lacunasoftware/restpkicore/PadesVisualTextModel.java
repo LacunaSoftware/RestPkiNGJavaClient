@@ -63,7 +63,7 @@ public class PadesVisualTextModel {
    * Get fontSize
    * @return fontSize
   **/
-  @JsonIgnore
+  
 
   public Double getFontSize() {
         return fontSize;
@@ -83,7 +83,7 @@ public class PadesVisualTextModel {
    * Get text
    * @return text
   **/
-  @JsonIgnore
+  
 
   public String getText() {
         return text;

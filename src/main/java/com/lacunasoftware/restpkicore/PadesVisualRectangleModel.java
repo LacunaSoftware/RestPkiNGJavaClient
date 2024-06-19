@@ -70,7 +70,7 @@ public class PadesVisualRectangleModel {
    * @return left
   **/
   
-  @JsonIgnore
+  
 
   public Double getLeft() {
         return left;
@@ -91,7 +91,7 @@ public class PadesVisualRectangleModel {
    * @return top
   **/
   
-  @JsonIgnore
+  
 
   public Double getTop() {
         return top;
@@ -112,7 +112,7 @@ public class PadesVisualRectangleModel {
    * @return right
   **/
   
-  @JsonIgnore
+  
 
   public Double getRight() {
         return right;
@@ -133,7 +133,7 @@ public class PadesVisualRectangleModel {
    * @return bottom
   **/
   
-  @JsonIgnore
+  
 
   public Double getBottom() {
         return bottom;
@@ -154,7 +154,7 @@ public class PadesVisualRectangleModel {
    * @return width
   **/
   
-  @JsonIgnore
+  
 
   public Double getWidth() {
         return width;
@@ -175,7 +175,7 @@ public class PadesVisualRectangleModel {
    * @return height
   **/
   
-  @JsonIgnore
+  
 
   public Double getHeight() {
         return height;

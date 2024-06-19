@@ -26,7 +26,6 @@
  import com.lacunasoftware.restpkicore.SignatureTypes;
  import com.lacunasoftware.restpkicore.XmlSignatureOptions;
  import java.util.UUID;
- import com.fasterxml.jackson.annotation.JsonIgnore;
  import java.util.NoSuchElementException;
  import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -134,8 +133,6 @@
       * @return documentKey
       **/
  
-     @JsonIgnore
- 
      public String getDocumentKey() {
          return documentKey;
      }
@@ -154,7 +151,6 @@
       * 
       * @return securityContextId
       **/
-     @JsonIgnore
  
      public UUID getSecurityContextId() {
          return securityContextId;

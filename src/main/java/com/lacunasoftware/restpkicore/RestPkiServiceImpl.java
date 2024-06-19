@@ -336,6 +336,12 @@ public class RestPkiServiceImpl implements RestPkiService {
 		return new PrepareAuthenticationResult(response.getToSignHash(), response.getState());
 	}
 
+	public PrepareAuthenticationResult prepareAuthenticationV2(PrepareAuthenticationOptions options) throws Exception {
+		PrepareAuthenticationResponse response = getRestClient(options).post(ApiRoutes.AUTHENTICATION.getValue() + "/",
+				options.getRequest(), PrepareAuthenticationResponse.class);
+		return new PrepareAuthenticationResult(response.getToSign(), response.getState());
+	}
+
 	public AuthenticationResult completeAuthentication(CompleteAuthenticationOptions options) throws Exception {
 		CompleteAuthenticationResponse response = getRestClient(options).post(
 				ApiRoutes.AUTHENTICATION.getValue() + "/completion/", options.getRequest(),

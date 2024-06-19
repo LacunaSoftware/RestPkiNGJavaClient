@@ -87,7 +87,7 @@ public class PadesVisualImageModel {
    * Get opacity
    * @return opacity
   **/
-  @JsonIgnore
+  
 
   public Integer getOpacity() {
         return opacity;

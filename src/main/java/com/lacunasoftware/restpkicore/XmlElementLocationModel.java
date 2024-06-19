@@ -64,7 +64,7 @@ public class XmlElementLocationModel {
    * Get xPath
    * @return xPath
   **/
-  @JsonIgnore
+  
 
   public String getxPath() {
         return xPath;
@@ -90,7 +90,7 @@ public class XmlElementLocationModel {
    * Get namespaces
    * @return namespaces
   **/
-  @JsonIgnore
+  
 
   public List<NamespaceModel> getNamespaces() {
         return namespaces;
