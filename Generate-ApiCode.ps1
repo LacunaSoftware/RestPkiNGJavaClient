@@ -46,7 +46,7 @@ try {
 		$extraParams += "--add-opens=java.base/java.util=ALL-UNNAMED"
 	}
 
-	java $extraParams -jar $toolJar.Fullname generate -i https://homolog.core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
+	java $extraParams -jar $toolJar.Fullname generate -i https://core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
 	Assert-SuccessExitCode "Swagger codegen failed"
 	
 	Write-Host ">>> Pruning ..."

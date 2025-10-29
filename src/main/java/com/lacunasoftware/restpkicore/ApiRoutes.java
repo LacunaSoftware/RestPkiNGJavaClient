@@ -7,13 +7,20 @@ public enum ApiRoutes {
   APPLICATIONS("api/applications"),
   AUTHENTICATION("api/v2/authentication"),
   APPLICATION_KEYS("api/app-keys"),
+  CADES_SIGNATURES("api/cades-signatures"),
   CERTIFICATES("api/certificates"),
   DOCUMENTS("api/documents"),
   DOCUMENT_KEYS("api/document-keys"),
   FILE_VALIDATION("api/file-validation"),
+  FULL_XML_SIGNATURES("api/full-xml-signatures"),
+  PADES_SIGNATURES("api/pades-signatures"),
+  PADES_MERGE("api/pades-merge"),
+  PDF_TIMESTAMP("api/pdf-timestamp"),
   SETTINGS("api/settings"),
   SIGNATURE_SESSION("api/signature-sessions"),
-  SIGNATURE("api/signature");
+  SIGNATURE("api/signature"),
+  TIMESTAMPS("api/timestamps"),
+  XML_ELEMENT_SIGNATURES("api/xml-element-signatures");
 
   private String value;
 

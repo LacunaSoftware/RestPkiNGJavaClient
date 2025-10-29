@@ -2,7 +2,7 @@
  * Rest PKI Core API
  * <b><i>Para Português, <a href=\"https://docs.lacunasoftware.com/pt-br/articles/rest-pki/core/integration/get-started\">clique aqui</a></i></b>  <p>   <a href=\"https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/\">Rest PKI Core</a> is an upcoming version of   <a href=\"https://docs.lacunasoftware.com/en-us/articles/rest-pki/\">Rest PKI</a> that will have extended compatibility with environments and databases.  </p>  <p>   In addition to Windows Server (which is already supported by Rest PKI), Rest PKI Core will also run on <b>Linux</b> (Debian- and RedHat-based distributions)   and on <b>Docker</b>. As for database servers, in addition to SQL Server, <b>PostgreSQL</b> will also be supported.  </p>  <p>   <b>Before getting started, see the integration overview on the <a href=\"https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/integration/\">Integration Guide</a></b>  </p>  <p>   For questions regarding the usage of this API, please reach us at <a href=\"https://lacuna.help/\">lacuna.help</a>  </p>    <h2>Parameters</h2>  <p>   You will need the following parameters:  </p>  <ul>   <li><b>Endpoint</b>: address of the Rest PKI Core instance that will be used</li>   <li><b>API Key</b>: authorization key for using the API</li>  </ul>  <p>   The <span class=\"model\">endpoint</span> must be prefixed to all relative URLs mentioned here. As for the <span class=\"model\">API Key</span>, see how to use it below.  </p>    <h2>Authentication</h2>  <p>   The API key must be sent on the <span class=\"model\">X-Api-Key</span> header on each request:  </p>    <!-- unfortunately, class \"example microlight\" doesn't seem to work here -->  <pre style=\"font-size: 12px; padding: 10px; border-radius: 4px; background: #41444e; font-weight: 600; color: #fff;\">  X-Api-Key: yourapp|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  </pre>    <h2>HTTP Codes</h2>    <p>   The APIs will return the following HTTP codes:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td><strong class=\"model-title\">200 (OK)</strong></td>     <td>Request processed successfully. The response is different for each API, please refer to the operation's documentation</td>    </tr>    <tr>     <td><strong class=\"model-title\">400 (Bad Request)</strong></td>     <td>Syntax error. For instance, when a required field was not provided</td>    </tr>    <tr>     <td><strong class=\"model-title\">401 (Unauthorized)</strong></td>     <td>API key not provided or invalid</td>    </tr>    <tr>     <td><strong class=\"model-title\">403 (Forbidden)</strong></td>     <td>API key is valid, but the application has insufficient permissions to complete the requested operation</td>    </tr>    <tr>     <td><strong class=\"model-title\">422 (Unprocessable Entity)</strong></td>     <td>API error. The response body is an <a href=\"#model-ErrorModelV2\" class=\"model\">ErrorModelV2</a>    </tr>    <tr>     <td><strong class=\"model-title\">500 (Internal Server Error)</strong></td>     <td>An unexpected error occurred. The <span class=\"model\">exceptionCode</span> contained on the response body may be of help for our support team during diagnostic.</td>    </tr>   </tbody>  </table>    <h3>Error Codes</h3>    <p>   Some of the error codes returned in the <span class=\"model\">code</span> field of an <a href=\"#model-ErrorModelV2\" class=\"model\">ErrorModelV2</a>   (body of responses with HTTP status code 422) are provided below*:  </p>    <table>   <thead>    <tr>     <th>Code</th>     <th>Description</th>    </tr>   </thead>   <tbody>    <tr>     <td class=\"model\">DocumentNotFound</td>     <td>A referenced document was not found (check the document ID)</td>    </tr>    <tr>     <td class=\"model\">SecurityContextNotFound</td>     <td>A referenced security context was not found (check the security context ID)</td>    </tr>    <tr>     <td class=\"model\">SignatureSessionNotFound</td>     <td>A referenced signature session was not found (check the signature session ID)</td>    </tr>    <tr>     <td class=\"model\">BadSignatureSessionOperation</td>     <td>The operation is invalid for the current signature session or document status. For instance, trying to await the session's completion if it is still <span class=\"model\">Pending</span> results in this error</td>    </tr>    <tr>     <td class=\"model\">BackgroundProcessing</td>     <td>The operation cannot be completed at this time because the resource is being processed in background</td>    </tr>    <tr>     <td class=\"model\">SignatureSessionTokenRequired</td>     <td>The signature session token was not passed on the <span class=\"model\">X-Signature-Session-Token</span> request header</td>    </tr>    <tr>     <td class=\"model\">BadSignatureSessionToken</td>     <td>An invalid signature session token was passed on the <span class=\"model\">X-Signature-Session-Token</span> request header. Check your application for possible corruption of the session token, which may contain characters <span class=\"code\">-</span> (hyphen) and <span class=\"code\">_</span> (underscore)</td>    </tr>    <tr>     <td class=\"model\">ExpiredSignatureSessionToken</td>     <td>An expired signature session token was passed on the <span class=\"model\">X-Signature-Session-Token</span> request header. Signature session tokens are normally valid for 4 hours.</td>    </tr>   </tbody>  </table>    <p style=\"font-size: 0.9em\">   *The codes shown above are the most common error codes. Nonetheless, this list is not comprehensive. New codes may be added anytime without previous warning.  </p>    <h2>Culture / Internationalization (i18n)</h2>  <p>The <span class=\"model\">Accept-Language</span> request header is observed by this API. The following cultures are supported:</p>  <ul>   <li><span class=\"code\">en-US</span> (or simply <span class=\"code\">en</span>)</li>   <li><span class=\"code\">pt-BR</span> (or simply <span class=\"code\">pt</span>)</li>  </ul>  <p><i>Notice: error messages are not affected by this header and therefore should not be displayed to users, being better suited for logging.</i></p>  
  *
- * OpenAPI spec version: 1.10.0 RC 1
+ * OpenAPI spec version: 3.3.0
  * 
  *
  * NOTE: This class is auto generated by the swagger code generator program.
@@ -17,15 +17,23 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lacunasoftware.restpkicore.AttributeCertificateModel;
+import com.lacunasoftware.restpkicore.CadesTimestampModel;
 import com.lacunasoftware.restpkicore.CertificateModel;
 import com.lacunasoftware.restpkicore.DigestAlgorithmAndValueModel;
 import com.lacunasoftware.restpkicore.SignatureAlgorithmAndValueModel;
+import com.lacunasoftware.restpkicore.SignaturePolicyIdentifierModel;
 import com.lacunasoftware.restpkicore.ValidationResultsModel;
+import com.lacunasoftware.restpkicore.XmlElementModel;
+import com.lacunasoftware.restpkicore.XmlSignedEntityTypes;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 /**
  * SignerModel
  */
+
 
 
 
@@ -37,11 +45,17 @@ public class SignerModel {
   @JsonProperty("signature")
   private SignatureAlgorithmAndValueModel signature = null;
 
+  @JsonProperty("signaturePolicy")
+  private SignaturePolicyIdentifierModel signaturePolicy = null;
+
   @JsonProperty("signingTime")
   private Date signingTime = null;
 
   @JsonProperty("certifiedDateReference")
   private Date certifiedDateReference = null;
+
+  @JsonProperty("timestamps")
+  private List<CadesTimestampModel> timestamps = null;
 
   @JsonProperty("isDocumentTimestamp")
   private Boolean isDocumentTimestamp = null;
@@ -51,6 +65,18 @@ public class SignerModel {
 
   @JsonProperty("validationResults")
   private ValidationResultsModel validationResults = null;
+
+  @JsonProperty("hasLtv")
+  private Boolean hasLtv = null;
+
+  @JsonProperty("xmlSignedEntityType")
+  private XmlSignedEntityTypes xmlSignedEntityType = null;
+
+  @JsonProperty("xmlSignedElement")
+  private XmlElementModel xmlSignedElement = null;
+
+  @JsonProperty("attributeCertificates")
+  private List<AttributeCertificateModel> attributeCertificates = null;
 
   @JsonProperty("certificate")
   private CertificateModel certificate = null;
@@ -94,6 +120,24 @@ public class SignerModel {
     this.signature = signature;
   }
 
+  public SignerModel signaturePolicy(SignaturePolicyIdentifierModel signaturePolicy) {
+    this.signaturePolicy = signaturePolicy;
+    return this;
+  }
+
+   /**
+   * Get signaturePolicy
+   * @return signaturePolicy
+  **/
+  @Schema(description = "")
+  public SignaturePolicyIdentifierModel getSignaturePolicy() {
+    return signaturePolicy;
+  }
+
+  public void setSignaturePolicy(SignaturePolicyIdentifierModel signaturePolicy) {
+    this.signaturePolicy = signaturePolicy;
+  }
+
   public SignerModel signingTime(Date signingTime) {
     this.signingTime = signingTime;
     return this;
@@ -128,6 +172,32 @@ public class SignerModel {
 
   public void setCertifiedDateReference(Date certifiedDateReference) {
     this.certifiedDateReference = certifiedDateReference;
+  }
+
+  public SignerModel timestamps(List<CadesTimestampModel> timestamps) {
+    this.timestamps = timestamps;
+    return this;
+  }
+
+  public SignerModel addTimestampsItem(CadesTimestampModel timestampsItem) {
+    if (this.timestamps == null) {
+      this.timestamps = new ArrayList<>();
+    }
+    this.timestamps.add(timestampsItem);
+    return this;
+  }
+
+   /**
+   * Get timestamps
+   * @return timestamps
+  **/
+  @Schema(description = "")
+  public List<CadesTimestampModel> getTimestamps() {
+    return timestamps;
+  }
+
+  public void setTimestamps(List<CadesTimestampModel> timestamps) {
+    this.timestamps = timestamps;
   }
 
   public SignerModel isDocumentTimestamp(Boolean isDocumentTimestamp) {
@@ -184,6 +254,86 @@ public class SignerModel {
     this.validationResults = validationResults;
   }
 
+  public SignerModel hasLtv(Boolean hasLtv) {
+    this.hasLtv = hasLtv;
+    return this;
+  }
+
+   /**
+   * Get hasLtv
+   * @return hasLtv
+  **/
+  @Schema(description = "")
+  public Boolean isHasLtv() {
+    return hasLtv;
+  }
+
+  public void setHasLtv(Boolean hasLtv) {
+    this.hasLtv = hasLtv;
+  }
+
+  public SignerModel xmlSignedEntityType(XmlSignedEntityTypes xmlSignedEntityType) {
+    this.xmlSignedEntityType = xmlSignedEntityType;
+    return this;
+  }
+
+   /**
+   * Get xmlSignedEntityType
+   * @return xmlSignedEntityType
+  **/
+  @Schema(description = "")
+  public XmlSignedEntityTypes getXmlSignedEntityType() {
+    return xmlSignedEntityType;
+  }
+
+  public void setXmlSignedEntityType(XmlSignedEntityTypes xmlSignedEntityType) {
+    this.xmlSignedEntityType = xmlSignedEntityType;
+  }
+
+  public SignerModel xmlSignedElement(XmlElementModel xmlSignedElement) {
+    this.xmlSignedElement = xmlSignedElement;
+    return this;
+  }
+
+   /**
+   * Get xmlSignedElement
+   * @return xmlSignedElement
+  **/
+  @Schema(description = "")
+  public XmlElementModel getXmlSignedElement() {
+    return xmlSignedElement;
+  }
+
+  public void setXmlSignedElement(XmlElementModel xmlSignedElement) {
+    this.xmlSignedElement = xmlSignedElement;
+  }
+
+  public SignerModel attributeCertificates(List<AttributeCertificateModel> attributeCertificates) {
+    this.attributeCertificates = attributeCertificates;
+    return this;
+  }
+
+  public SignerModel addAttributeCertificatesItem(AttributeCertificateModel attributeCertificatesItem) {
+    if (this.attributeCertificates == null) {
+      this.attributeCertificates = new ArrayList<>();
+    }
+    this.attributeCertificates.add(attributeCertificatesItem);
+    return this;
+  }
+
+   /**
+   * Get attributeCertificates
+   * @return attributeCertificates
+  **/
+  @Schema(description = "")
+  public List<AttributeCertificateModel> getAttributeCertificates() {
+    return attributeCertificates;
+  }
+
+  public void setAttributeCertificates(List<AttributeCertificateModel> attributeCertificates) {
+    this.attributeCertificates = attributeCertificates;
+  }
+
   public SignerModel certificate(CertificateModel certificate) {
     this.certificate = certificate;
     return this;
@@ -232,18 +382,24 @@ public class SignerModel {
     SignerModel signerModel = (SignerModel) o;
     return Objects.equals(this.messageDigest, signerModel.messageDigest) &&
         Objects.equals(this.signature, signerModel.signature) &&
+        Objects.equals(this.signaturePolicy, signerModel.signaturePolicy) &&
         Objects.equals(this.signingTime, signerModel.signingTime) &&
         Objects.equals(this.certifiedDateReference, signerModel.certifiedDateReference) &&
+        Objects.equals(this.timestamps, signerModel.timestamps) &&
         Objects.equals(this.isDocumentTimestamp, signerModel.isDocumentTimestamp) &&
         Objects.equals(this.signatureFieldName, signerModel.signatureFieldName) &&
         Objects.equals(this.validationResults, signerModel.validationResults) &&
+        Objects.equals(this.hasLtv, signerModel.hasLtv) &&
+        Objects.equals(this.xmlSignedEntityType, signerModel.xmlSignedEntityType) &&
+        Objects.equals(this.xmlSignedElement, signerModel.xmlSignedElement) &&
+        Objects.equals(this.attributeCertificates, signerModel.attributeCertificates) &&
         Objects.equals(this.certificate, signerModel.certificate) &&
         Objects.equals(this.date, signerModel.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(messageDigest, signature, signingTime, certifiedDateReference, isDocumentTimestamp, signatureFieldName, validationResults, certificate, date);
+    return Objects.hash(messageDigest, signature, signaturePolicy, signingTime, certifiedDateReference, timestamps, isDocumentTimestamp, signatureFieldName, validationResults, hasLtv, xmlSignedEntityType, xmlSignedElement, attributeCertificates, certificate, date);
   }
 
 
@@ -254,11 +410,17 @@ public class SignerModel {
     
     sb.append("    messageDigest: ").append(toIndentedString(messageDigest)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    signaturePolicy: ").append(toIndentedString(signaturePolicy)).append("\n");
     sb.append("    signingTime: ").append(toIndentedString(signingTime)).append("\n");
     sb.append("    certifiedDateReference: ").append(toIndentedString(certifiedDateReference)).append("\n");
+    sb.append("    timestamps: ").append(toIndentedString(timestamps)).append("\n");
     sb.append("    isDocumentTimestamp: ").append(toIndentedString(isDocumentTimestamp)).append("\n");
     sb.append("    signatureFieldName: ").append(toIndentedString(signatureFieldName)).append("\n");
     sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
+    sb.append("    hasLtv: ").append(toIndentedString(hasLtv)).append("\n");
+    sb.append("    xmlSignedEntityType: ").append(toIndentedString(xmlSignedEntityType)).append("\n");
+    sb.append("    xmlSignedElement: ").append(toIndentedString(xmlSignedElement)).append("\n");
+    sb.append("    attributeCertificates: ").append(toIndentedString(attributeCertificates)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");
