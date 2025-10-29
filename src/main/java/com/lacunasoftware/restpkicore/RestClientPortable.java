@@ -1,16 +1,5 @@
 package com.lacunasoftware.restpkicore;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationContext;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
-
 //import org.threeten.bp.OffsetDateTime;
 //import org.threeten.bp.format.DateTimeFormatter;
 
@@ -19,11 +8,16 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
 import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 
 class RestClientPortable {
@@ -240,6 +234,42 @@ class RestClientPortable {
 
 		conn.disconnect();
 		return response;
+	}
+
+	public void delete(String requestUri) throws RestException {
+
+		String verb = "DELETE";
+		String url = endpointUri + requestUri;
+		HttpURLConnection conn;
+
+		try {
+
+			URL urlObj = new URL(url);
+			if (proxy != null) {
+				conn = (HttpURLConnection) urlObj.openConnection(proxy);
+			} else {
+				conn = (HttpURLConnection) urlObj.openConnection();
+			}
+			conn.setRequestMethod(verb);
+			conn.setRequestProperty("Accept", "application/json");
+
+			if (apiKey != null) {
+				conn.setRequestProperty("X-Api-Key", apiKey);
+			}
+			if (cultureName != null) {
+				conn.setRequestProperty("Accept-Language", cultureName);
+			}
+			if (customHeaders != null){
+				customHeaders.forEach(
+					(key, value) -> conn.setRequestProperty(key, value));
+			}
+
+		} catch (Exception e) {
+			throw new RestUnreachableException(verb, url, e);
+		}
+
+		checkResponse(verb, url, conn);
+		conn.disconnect();
 	}
 
 	public InputStream openStream(String url) throws RestException {

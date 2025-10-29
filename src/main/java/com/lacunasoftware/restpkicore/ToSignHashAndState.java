@@ -13,12 +13,11 @@ public class ToSignHashAndState {
     
 
     public ToSignHashAndState(SignatureParametersModel signatureParams, String state) {
-        this.toSign = SignatureParametersModel.builder()
+        this.toSign = new SignatureParametersModel()
             .signatureAlgorithm(signatureParams.getSignatureAlgorithm())
             .data(signatureParams.getData())
             .hash(signatureParams.getHash())
-            .digestInfo(signatureParams.getDigestInfo())
-            .build(); 
+            .digestInfo(signatureParams.getDigestInfo());
         this.state = state;
     }
 

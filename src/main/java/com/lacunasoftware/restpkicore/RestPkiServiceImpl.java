@@ -1,18 +1,18 @@
 package com.lacunasoftware.restpkicore;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-
-
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 /**
  * RestPkiServiceImpl
@@ -355,6 +355,251 @@ public class RestPkiServiceImpl implements RestPkiService {
 		} else {
 			Map<String, String> customHeaders = new HashMap<>();
 			customHeaders.put("X-Subscription", options.getSubscriptionId().toString());
+			return this.client.getRestClient(customHeaders);
+		}
+	}
+
+	// region CAdES signatures implementation
+	@Override
+	public CadesSignaturePostResponse startCadesSignature(CadesSignaturePostRequestV2 request) throws Exception {
+		return startCadesSignature(request, null);
+	}
+
+	@Override
+	public CadesSignaturePostResponse startCadesSignature(CadesSignaturePostRequestV2 request, UUID subscriptionId)
+			throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue(), request, CadesSignaturePostResponse.class);
+	}
+
+	@Override
+	public CadesSignaturePostSignedBytesResponse completeCadesSignature(String token,
+			CadesSignaturePostSignedBytesRequest request) throws Exception {
+		return completeCadesSignature(token, request, null);
+	}
+
+	@Override
+	public CadesSignaturePostSignedBytesResponse completeCadesSignature(String token,
+			CadesSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue() + "/" + token, request,
+				CadesSignaturePostSignedBytesResponse.class);
+	}
+
+	@Override
+	public CadesSignatureModel openCadesSignature(OpenCadesSignatureRequestModel request) throws Exception {
+		return openCadesSignature(request, null);
+	}
+
+	@Override
+	public CadesSignatureModel openCadesSignature(OpenCadesSignatureRequestModel request, UUID subscriptionId)
+			throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue() + "/open", request, CadesSignatureModel.class);
+	}
+	// endregion CAdES signatures
+
+	// region PAdES signatures implementation
+	@Override
+	public PadesSignaturePostResponse startPadesSignature(PadesSignaturePostRequestV2 request) throws Exception {
+		return startPadesSignature(request, null);
+	}
+
+	@Override
+	public PadesSignaturePostResponse startPadesSignature(PadesSignaturePostRequestV2 request, UUID subscriptionId)
+			throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue(), request, PadesSignaturePostResponse.class);
+	}
+
+	@Override
+	public PadesSignaturePostSignedBytesResponse completePadesSignature(String token,
+			PadesSignaturePostSignedBytesRequest request) throws Exception {
+		return completePadesSignature(token, request, null);
+	}
+
+	@Override
+	public PadesSignaturePostSignedBytesResponse completePadesSignature(String token,
+			PadesSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue() + "/" + token, request,
+				PadesSignaturePostSignedBytesResponse.class);
+	}
+
+	@Override
+	public PadesSignatureModel openPadesSignature(OpenSignatureRequestModel request) throws Exception {
+		return openPadesSignature(request, null);
+	}
+
+	@Override
+	public PadesSignatureModel openPadesSignature(OpenSignatureRequestModel request, UUID subscriptionId)
+			throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue() + "/open", request, PadesSignatureModel.class);
+	}
+	// endregion PAdES signatures
+
+	// region XML signatures implementation
+	@Override
+	public XmlSignaturePostResponse startXmlElementSignature(XmlElementSignaturePostRequest request) throws Exception {
+		return startXmlElementSignature(request, null);
+	}
+
+	@Override
+	public XmlSignaturePostResponse startXmlElementSignature(XmlElementSignaturePostRequest request,
+			UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.XML_ELEMENT_SIGNATURES.getValue(), request, XmlSignaturePostResponse.class);
+	}
+
+	@Override
+	public XmlSignaturePostSignedBytesResponse completeXmlElementSignature(String token,
+			XmlSignaturePostSignedBytesRequest request) throws Exception {
+		return completeXmlElementSignature(token, request, null);
+	}
+
+	@Override
+	public XmlSignaturePostSignedBytesResponse completeXmlElementSignature(String token,
+			XmlSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.XML_ELEMENT_SIGNATURES.getValue() + "/" + token, request,
+				XmlSignaturePostSignedBytesResponse.class);
+	}
+
+	@Override
+	public XmlSignaturePostResponse startFullXmlSignature(FullXmlSignaturePostRequest request) throws Exception {
+		return startFullXmlSignature(request, null);
+	}
+
+	@Override
+	public XmlSignaturePostResponse startFullXmlSignature(FullXmlSignaturePostRequest request, UUID subscriptionId)
+			throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.FULL_XML_SIGNATURES.getValue(), request, XmlSignaturePostResponse.class);
+	}
+
+	@Override
+	public XmlSignaturePostSignedBytesResponse completeFullXmlSignature(String token,
+			XmlSignaturePostSignedBytesRequest request) throws Exception {
+		return completeFullXmlSignature(token, request, null);
+	}
+
+	@Override
+	public XmlSignaturePostSignedBytesResponse completeFullXmlSignature(String token,
+			XmlSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.FULL_XML_SIGNATURES.getValue() + "/" + token, request,
+				XmlSignaturePostSignedBytesResponse.class);
+	}
+
+	@Override
+	public XmlSignatureResponseModel openXmlSignature(OpenSignatureRequestModel request) throws Exception {
+		return openXmlSignature(request, null);
+	}
+
+	@Override
+	public XmlSignatureResponseModel openXmlSignature(OpenSignatureRequestModel request, UUID subscriptionId)
+			throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.FULL_XML_SIGNATURES.getValue() + "/open", request,
+				XmlSignatureResponseModel.class);
+	}
+	// endregion XML signatures
+
+	// region PDF operations implementation
+	@Override
+	public PdfAddMarksResponse addPdfMarks(PdfAddMarksRequest request) throws Exception {
+		return addPdfMarks(request, null);
+	}
+
+	@Override
+	public PdfAddMarksResponse addPdfMarks(PdfAddMarksRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.DOCUMENTS.getValue() + "/pdf-marks", request, PdfAddMarksResponse.class);
+	}
+
+	@Override
+	public StampPdfResponse stampPdf(StampPdfRequest request) throws Exception {
+		return stampPdf(request, null);
+	}
+
+	@Override
+	public StampPdfResponse stampPdf(StampPdfRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.DOCUMENTS.getValue() + "/stamp-pdf", request, StampPdfResponse.class);
+	}
+	// endregion PDF operations
+
+	// region File validation implementation
+	@Override
+	public ValidateFileResponse validateSignedFile(ValidateFileRequest request) throws Exception {
+		return validateSignedFile(request, null);
+	}
+
+	@Override
+	public ValidateFileResponse validateSignedFile(ValidateFileRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		return restClient.post(ApiRoutes.FILE_VALIDATION.getValue(), request, ValidateFileResponse.class);
+	}
+	// endregion File validation
+
+	// region Document operations implementation
+	@Override
+	public DocumentModel updateDocumentMetadata(UUID documentId, Map<String, List<String>> metadata) throws Exception {
+		return client.getRestClient().put(
+				ApiRoutes.DOCUMENTS.getValue() + "/" + documentId.toString() + "/metadata",
+				metadata,
+				DocumentModel.class);
+	}
+
+	@Override
+	public void deleteDocument(UUID documentId) throws Exception {
+		client.getRestClient().delete(ApiRoutes.DOCUMENTS.getValue() + "/" + documentId.toString());
+	}
+
+	@Override
+	public SignerModel getDocumentSignature(UUID documentId, UUID signatureId) throws Exception {
+		return client.getRestClient().get(
+				ApiRoutes.DOCUMENTS.getValue() + "/" + documentId.toString() + "/signatures/" + signatureId.toString(),
+				SignerModel.class);
+	}
+
+	@Override
+	public List<SignerModel> getDocumentSignatures(UUID documentId) throws Exception {
+		return client.getRestClient().get(
+				ApiRoutes.DOCUMENTS.getValue() + "/" + documentId.toString() + "/signatures",
+				new TypeReference<List<SignerModel>>() {
+				});
+	}
+
+	@Override
+	public byte[] getDocumentAuditPackage(UUID documentId) throws Exception {
+		return getDocumentAuditPackage(documentId, null);
+	}
+
+	@Override
+	public byte[] getDocumentAuditPackage(UUID documentId, UUID subscriptionId) throws Exception {
+		RestClientPortable restClient = getRestClient(subscriptionId);
+		String url = ApiRoutes.DOCUMENTS.getValue() + "/" + documentId.toString() + "/audit-package";
+		InputStream stream = restClient.openStream(url);
+		return Util.readStream(stream);
+	}
+	// endregion Document operations
+
+	// region Signature session operations implementation
+	@Override
+	public void deleteSignatureSession(UUID sessionId) throws Exception {
+		client.getRestClient().delete(ApiRoutes.SIGNATURE_SESSION.getValue() + "/" + sessionId.toString());
+	}
+	// endregion Signature session operations
+	
+	// Helper method for getting rest client with subscription
+	private RestClientPortable getRestClient(UUID subscriptionId) {
+		if (subscriptionId == null) {
+			return this.client.getRestClient();
+		} else {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
 			return this.client.getRestClient(customHeaders);
 		}
 	}
