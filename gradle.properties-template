@@ -4,3 +4,8 @@ signing.secretKeyRingFile= (RELATIVE PATH TO PGP/GPG/ASC FILE)
 
 ossrhUsername = (SONATYPE JIRA USERNAME)
 ossrhPassword = (SONATYPE JIRA PASSWORD)
+
+# 30-06-2025: Due to OSSRH Sunset, now we need to publish directly to maven central
+# sonatype credentials
+sonatypeUsername = (SONATYPE CENTRAL TOKEN USER)
+sonatypePassword = (SONATYPE CENTRAL TOKEN PASSWORD)
