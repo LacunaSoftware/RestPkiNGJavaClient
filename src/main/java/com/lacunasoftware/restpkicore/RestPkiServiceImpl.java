@@ -17,7 +17,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 /**
  * RestPkiServiceImpl
  */
-public class RestPkiServiceImpl implements RestPkiService {
+public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 
 	private RestPkiCoreClient client;
 
@@ -603,4 +603,23 @@ public class RestPkiServiceImpl implements RestPkiService {
 			return this.client.getRestClient(customHeaders);
 		}
 	}
+
+	//region RestBio
+
+	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId) {
+		// TODO
+		throw new UnsupportedOperationException();
+	}
+
+	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) {
+		// TODO
+		throw new UnsupportedOperationException();
+	}
+
+	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) {
+		// TODO
+		throw new UnsupportedOperationException();
+	}
+
+	//endregion
 }

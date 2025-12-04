@@ -1,18 +1,18 @@
 package com.lacunasoftware.restpkicore;
 
 /**
- * RestPkiServiceFactory
+ * RestBioServiceFactory
  */
-public class RestPkiServiceFactory {
+public class RestBioServiceFactory {
 
-	public static RestPkiService getService(String endpoint, String apiKey) {
+	public static RestBioService getService(String endpoint, String apiKey) {
 		RestPkiOptions options = new RestPkiOptions();
 		options.setEndpoint(endpoint);
 		options.setApiKey(apiKey);
 		return getService(options);
 	}
 
-	public static RestPkiService getService(RestPkiOptions options) {
+	public static RestBioService getService(RestPkiOptions options) {
 		return new RestPkiServiceImpl(options);
 	}
 }
