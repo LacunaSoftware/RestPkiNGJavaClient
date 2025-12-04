@@ -33,6 +33,8 @@ try {
 	Write-Host "Found swagger codegen JAR: $($toolJar.Fullname)"
 
 	$tempDir = ("{0}\{1}" -f $env:TEMP, [Guid]::NewGuid())
+	
+	New-Item -ItemType Directory -Path $tempDir
 
 	Write-Host ">>> Generating code ..."
 
@@ -46,6 +48,8 @@ try {
 		$extraParams += "--add-opens=java.base/java.util=ALL-UNNAMED"
 	}
 
+	Write-Host ">>> Using tempdir: $tempDir"
+	
 	java $extraParams -jar $toolJar.Fullname generate -i https://core.pki.rest/swagger/api/swagger.json -l java -c swagger-codegen-config.json -o $tempDir
 	Assert-SuccessExitCode "Swagger codegen failed"
 	
