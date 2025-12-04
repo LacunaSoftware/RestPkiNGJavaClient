@@ -606,19 +606,34 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 
 	//region RestBio
 
-	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId) {
-		// TODO
-		throw new UnsupportedOperationException();
+	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId) throws Exception {
+		
+		RestClientPortable client;
+
+		if (subscriptionId != null) {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			client = this.client.getRestClient(customHeaders);
+		} else {
+			client = this.client.getRestClient();
+		}
+
+		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/liveness", request, StartBioSessionResponse.class);
 	}
 
-	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) {
-		// TODO
-		throw new UnsupportedOperationException();
+	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/liveness/" + sessionId.toString() + "/status", LivenessSessionStatusModel.class);
 	}
 
-	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) {
-		// TODO
-		throw new UnsupportedOperationException();
+	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) throws RestException {
+		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
+		completeBioSessionRequest.ticket(ticket);
+
+		return client.getRestClient().post(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/liveness/completion",
+				completeBioSessionRequest,
+				LivenessSessionStatusModel.class);
 	}
 
 	//endregion

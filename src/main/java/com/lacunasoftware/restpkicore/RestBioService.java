@@ -7,14 +7,14 @@ import java.util.UUID;
  */
 public interface RestBioService {
 
-	public default StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request) {
+	public default StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request) throws Exception {
 		return StartLivenessSessionAsync(request, null);
 	}
 
-	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId);
+	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId) throws Exception;
 
-	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId);
+	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) throws RestException;
 
-	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket);
+	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) throws RestException;
 
 }

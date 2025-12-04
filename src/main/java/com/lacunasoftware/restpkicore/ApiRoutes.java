@@ -20,7 +20,9 @@ public enum ApiRoutes {
   SIGNATURE_SESSION("api/signature-sessions"),
   SIGNATURE("api/signature"),
   TIMESTAMPS("api/timestamps"),
-  XML_ELEMENT_SIGNATURES("api/xml-element-signatures");
+  XML_ELEMENT_SIGNATURES("api/xml-element-signatures"),
+  BIO_SESSIONS("api/bio/sessions");
+
 
   private String value;
 
