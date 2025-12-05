@@ -4,7 +4,7 @@ REST PKI Core client package for Java
 
 This package contains classes that encapsulate the calls to the REST PKI Core API.
 
-The **Rest PKI Core Client package** is distributed by [Bintray](https://bintray.com/lacunasoftware/maven/restpki-core-client).
+The **Rest PKI Core Client package** is distributed on [Maven](https://mvnrepository.com/artifact/com.lacunasoftware.restpki/restpkicore-client).
 
 The recommended way to install it is with Gradle:
     
