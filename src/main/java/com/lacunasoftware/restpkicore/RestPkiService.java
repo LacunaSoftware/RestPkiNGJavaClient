@@ -316,4 +316,8 @@ public interface RestPkiService {
         //                 ProcessActionRequest request,
         //                 UUID subscriptionId) throws Exception;
         // endregion Signature session operations
+
+		// TODO
+		// ExtendArchivalSignatureResult ExtendArchivalSignature(FileReference file, ExtendArchivalSignatureOptions options = null, Guid? subscriptionId = null, CancellationToken cancellationToken = default);
+
 }
