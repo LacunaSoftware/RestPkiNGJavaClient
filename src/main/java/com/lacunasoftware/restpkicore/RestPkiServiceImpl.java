@@ -592,7 +592,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 		client.getRestClient().delete(ApiRoutes.SIGNATURE_SESSION.getValue() + "/" + sessionId.toString());
 	}
 	// endregion Signature session operations
-	
+
 	// Helper method for getting rest client with subscription
 	private RestClientPortable getRestClient(UUID subscriptionId) {
 		if (subscriptionId == null) {
@@ -604,10 +604,11 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 		}
 	}
 
-	//region RestBio
+	// region RestBio
 
-	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId) throws Exception {
-		
+	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId)
+			throws Exception {
+
 		RestClientPortable client;
 
 		if (subscriptionId != null) {
@@ -623,7 +624,8 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 
 	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) throws RestException {
 		return client.getRestClient().get(
-				ApiRoutes.BIO_SESSIONS.getValue() + "/liveness/" + sessionId.toString() + "/status", LivenessSessionStatusModel.class);
+				ApiRoutes.BIO_SESSIONS.getValue() + "/liveness/" + sessionId.toString() + "/status",
+				LivenessSessionStatusModel.class);
 	}
 
 	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) throws RestException {
@@ -636,5 +638,92 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 				LivenessSessionStatusModel.class);
 	}
 
-	//endregion
+	public StartBioSessionResponse StartEnrollmentSessionAsync(StartBioEnrollmentSessionRequest request,
+			UUID subscriptionId) throws Exception {
+
+		RestClientPortable client;
+
+		if (subscriptionId != null) {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			client = this.client.getRestClient(customHeaders);
+		} else {
+			client = this.client.getRestClient();
+		}
+
+		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/enrollment", request, StartBioSessionResponse.class);
+	}
+
+	public BioEnrollmentSessionStatusModel GetEnrollmentSessionStatusAsync(UUID sessionId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/enrollment/" + sessionId.toString() + "/status",
+				BioEnrollmentSessionStatusModel.class);
+	}
+
+	public BioEnrollmentSessionStatusModel CompleteEnrollmentSessionAsync(String ticket) throws RestException {
+		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
+		completeBioSessionRequest.ticket(ticket);
+
+		return client.getRestClient().post(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/enrollment/completion",
+				completeBioSessionRequest,
+				BioEnrollmentSessionStatusModel.class);
+	}
+
+	public StartBioSessionResponse StartAuthenticationSessionAsync(StartBioAuthenticationSessionRequest request,
+			UUID subscriptionId) throws Exception {
+
+		RestClientPortable client;
+
+		if (subscriptionId != null) {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			client = this.client.getRestClient(customHeaders);
+		} else {
+			client = this.client.getRestClient();
+		}
+
+		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/authentication", request,
+				StartBioSessionResponse.class);
+	}
+
+	public BioAuthenticationSessionStatusModel GetAuthenticationSessionStatusAsync(UUID sessionId)
+			throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/authentication/" + sessionId.toString() + "/status",
+				BioAuthenticationSessionStatusModel.class);
+	}
+
+	public BioAuthenticationSessionStatusModel CompleteAuthenticationSessionAsync(String ticket) throws RestException {
+		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
+		completeBioSessionRequest.ticket(ticket);
+
+		return client.getRestClient().post(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/authentication/completion",
+				completeBioSessionRequest,
+				BioAuthenticationSessionStatusModel.class);
+	}
+
+	public BioSessionResultDataModel GetSessionResultData(UUID sessionId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/" + sessionId.toString() + "/result-data",
+				BioSessionResultDataModel.class);
+	}
+
+	public BioSubjectModel GetSubjectByIdAsync(UUID subjectId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SUBJECTS.getValue() + "/" + subjectId.toString(), BioSubjectModel.class);
+	}
+
+	public BioSubjectModel GetSubjectByIdentifierAsync(String subjectIdentifier, UUID subscriptionId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SUBJECTS.getValue() + "?identifier=" + subjectIdentifier, BioSubjectModel.class);
+	}
+
+	public BioSubjectFaceModel GetFaceBySubjectIdAsync(UUID subjectId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SUBJECTS.getValue() + "/" + subjectId.toString() + "/face", BioSubjectFaceModel.class);
+	}
+
+	// endregion
 }
