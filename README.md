@@ -10,9 +10,6 @@ The recommended way to install it is with Gradle:
     
     repositories {
             mavenCentral()
-            maven {
-                url  "http://dl.bintray.com/lacunasoftware/maven"
-            }
         }
     
     dependencies {
