@@ -7,53 +7,53 @@ import java.util.UUID;
  */
 public interface RestBioService {
 
-	public default StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request)
+	public default StartBioSessionResponse StartLivenessSession(StartLivenessSessionRequest request)
 			throws Exception {
-		return StartLivenessSessionAsync(request, null);
+		return StartLivenessSession(request, null);
 	}
 
-	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId)
+	public StartBioSessionResponse StartLivenessSession(StartLivenessSessionRequest request, UUID subscriptionId)
 			throws Exception;
 
-	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) throws RestException;
+	public LivenessSessionStatusModel GetLivenessSessionStatus(UUID sessionId) throws RestException;
 
-	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) throws RestException;
+	public LivenessSessionStatusModel CompleteLivenessSession(String ticket) throws RestException;
 
-	public default StartBioSessionResponse StartEnrollmentSessionAsync(StartBioEnrollmentSessionRequest request)
+	public default StartBioSessionResponse StartEnrollmentSession(StartBioEnrollmentSessionRequest request)
 			throws Exception {
-		return StartEnrollmentSessionAsync(request, null);
+		return StartEnrollmentSession(request, null);
 	}
 
-	public StartBioSessionResponse StartEnrollmentSessionAsync(StartBioEnrollmentSessionRequest request,
+	public StartBioSessionResponse StartEnrollmentSession(StartBioEnrollmentSessionRequest request,
 			UUID subscriptionId) throws Exception;
 
-	public BioEnrollmentSessionStatusModel GetEnrollmentSessionStatusAsync(UUID sessionId) throws RestException;
+	public BioEnrollmentSessionStatusModel GetEnrollmentSessionStatus(UUID sessionId) throws RestException;
 
-	public BioEnrollmentSessionStatusModel CompleteEnrollmentSessionAsync(String ticket) throws RestException;
+	public BioEnrollmentSessionStatusModel CompleteEnrollmentSession(String ticket) throws RestException;
 
-	public default StartBioSessionResponse StartAuthenticationSessionAsync(StartBioAuthenticationSessionRequest request)
+	public default StartBioSessionResponse StartAuthenticationSession(StartBioAuthenticationSessionRequest request)
 			throws Exception {
-		return StartAuthenticationSessionAsync(request, null);
+		return StartAuthenticationSession(request, null);
 	}
 
-	public StartBioSessionResponse StartAuthenticationSessionAsync(StartBioAuthenticationSessionRequest request,
+	public StartBioSessionResponse StartAuthenticationSession(StartBioAuthenticationSessionRequest request,
 			UUID subscriptionId) throws Exception;
 
-	public BioAuthenticationSessionStatusModel GetAuthenticationSessionStatusAsync(UUID sessionId) throws RestException;
+	public BioAuthenticationSessionStatusModel GetAuthenticationSessionStatus(UUID sessionId) throws RestException;
 
-	public BioAuthenticationSessionStatusModel CompleteAuthenticationSessionAsync(String ticket) throws RestException;
+	public BioAuthenticationSessionStatusModel CompleteAuthenticationSession(String ticket) throws RestException;
 
 	public BioSessionResultDataModel GetSessionResultData(UUID sessionId) throws RestException;
 
-	public BioSubjectModel GetSubjectByIdAsync(UUID subjectId) throws RestException;
+	public BioSubjectModel GetSubjectById(UUID subjectId) throws RestException;
 
-	public default BioSubjectModel GetSubjectByIdentifierAsync(String subjectIdentifier) throws RestException {
-		return GetSubjectByIdentifierAsync(subjectIdentifier, null);
+	public default BioSubjectModel GetSubjectByIdentifier(String subjectIdentifier) throws RestException {
+		return GetSubjectByIdentifier(subjectIdentifier, null);
 	}
 
-	public BioSubjectModel GetSubjectByIdentifierAsync(String subjectIdentifier, UUID subscriptionId)
+	public BioSubjectModel GetSubjectByIdentifier(String subjectIdentifier, UUID subscriptionId)
 			throws RestException;
 
-	public BioSubjectFaceModel GetFaceBySubjectIdAsync(UUID subjectId) throws RestException;
+	public BioSubjectFaceModel GetFaceBySubjectId(UUID subjectId) throws RestException;
 
 }

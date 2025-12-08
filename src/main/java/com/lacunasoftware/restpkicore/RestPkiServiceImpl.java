@@ -606,7 +606,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 
 	// region RestBio
 
-	public StartBioSessionResponse StartLivenessSessionAsync(StartLivenessSessionRequest request, UUID subscriptionId)
+	public StartBioSessionResponse StartLivenessSession(StartLivenessSessionRequest request, UUID subscriptionId)
 			throws Exception {
 
 		RestClientPortable client;
@@ -622,13 +622,13 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/liveness", request, StartBioSessionResponse.class);
 	}
 
-	public LivenessSessionStatusModel GetLivenessSessionStatusAsync(UUID sessionId) throws RestException {
+	public LivenessSessionStatusModel GetLivenessSessionStatus(UUID sessionId) throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SESSIONS.getValue() + "/liveness/" + sessionId.toString() + "/status",
 				LivenessSessionStatusModel.class);
 	}
 
-	public LivenessSessionStatusModel CompleteLivenessSessionAsync(String ticket) throws RestException {
+	public LivenessSessionStatusModel CompleteLivenessSession(String ticket) throws RestException {
 		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
 		completeBioSessionRequest.ticket(ticket);
 
@@ -638,7 +638,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 				LivenessSessionStatusModel.class);
 	}
 
-	public StartBioSessionResponse StartEnrollmentSessionAsync(StartBioEnrollmentSessionRequest request,
+	public StartBioSessionResponse StartEnrollmentSession(StartBioEnrollmentSessionRequest request,
 			UUID subscriptionId) throws Exception {
 
 		RestClientPortable client;
@@ -654,13 +654,13 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/enrollment", request, StartBioSessionResponse.class);
 	}
 
-	public BioEnrollmentSessionStatusModel GetEnrollmentSessionStatusAsync(UUID sessionId) throws RestException {
+	public BioEnrollmentSessionStatusModel GetEnrollmentSessionStatus(UUID sessionId) throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SESSIONS.getValue() + "/enrollment/" + sessionId.toString() + "/status",
 				BioEnrollmentSessionStatusModel.class);
 	}
 
-	public BioEnrollmentSessionStatusModel CompleteEnrollmentSessionAsync(String ticket) throws RestException {
+	public BioEnrollmentSessionStatusModel CompleteEnrollmentSession(String ticket) throws RestException {
 		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
 		completeBioSessionRequest.ticket(ticket);
 
@@ -670,7 +670,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 				BioEnrollmentSessionStatusModel.class);
 	}
 
-	public StartBioSessionResponse StartAuthenticationSessionAsync(StartBioAuthenticationSessionRequest request,
+	public StartBioSessionResponse StartAuthenticationSession(StartBioAuthenticationSessionRequest request,
 			UUID subscriptionId) throws Exception {
 
 		RestClientPortable client;
@@ -687,14 +687,14 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 				StartBioSessionResponse.class);
 	}
 
-	public BioAuthenticationSessionStatusModel GetAuthenticationSessionStatusAsync(UUID sessionId)
+	public BioAuthenticationSessionStatusModel GetAuthenticationSessionStatus(UUID sessionId)
 			throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SESSIONS.getValue() + "/authentication/" + sessionId.toString() + "/status",
 				BioAuthenticationSessionStatusModel.class);
 	}
 
-	public BioAuthenticationSessionStatusModel CompleteAuthenticationSessionAsync(String ticket) throws RestException {
+	public BioAuthenticationSessionStatusModel CompleteAuthenticationSession(String ticket) throws RestException {
 		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
 		completeBioSessionRequest.ticket(ticket);
 
@@ -710,17 +710,17 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 				BioSessionResultDataModel.class);
 	}
 
-	public BioSubjectModel GetSubjectByIdAsync(UUID subjectId) throws RestException {
+	public BioSubjectModel GetSubjectById(UUID subjectId) throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SUBJECTS.getValue() + "/" + subjectId.toString(), BioSubjectModel.class);
 	}
 
-	public BioSubjectModel GetSubjectByIdentifierAsync(String subjectIdentifier, UUID subscriptionId) throws RestException {
+	public BioSubjectModel GetSubjectByIdentifier(String subjectIdentifier, UUID subscriptionId) throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SUBJECTS.getValue() + "?identifier=" + subjectIdentifier, BioSubjectModel.class);
 	}
 
-	public BioSubjectFaceModel GetFaceBySubjectIdAsync(UUID subjectId) throws RestException {
+	public BioSubjectFaceModel GetFaceBySubjectId(UUID subjectId) throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SUBJECTS.getValue() + "/" + subjectId.toString() + "/face", BioSubjectFaceModel.class);
 	}
