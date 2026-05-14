@@ -17,120 +17,100 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpkicore.CertificateModel;
+import com.lacunasoftware.restpkicore.BioSessionPlatformPreferences;
+import com.lacunasoftware.restpkicore.FaceCaptureProviders;
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * CadesSignaturePostResponse
+ * StartBioIdentificationSessionRequest
  */
 
 
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-public class CadesSignaturePostResponse {
-  @JsonProperty("token")
-  private String token = null;
+public class StartBioIdentificationSessionRequest {
+  @JsonProperty("faceCaptureProvider")
+  private FaceCaptureProviders faceCaptureProvider = null;
 
-  @JsonProperty("certificate")
-  private CertificateModel certificate = null;
+  @JsonProperty("trustedOrigin")
+  private String trustedOrigin = null;
 
-  @JsonProperty("toSignData")
-  private byte[] toSignData = null;
+  @JsonProperty("returnUrl")
+  private String returnUrl = null;
 
-  @JsonProperty("toSignHash")
-  private byte[] toSignHash = null;
+  @JsonProperty("platformPreference")
+  private BioSessionPlatformPreferences platformPreference = null;
 
-  @JsonProperty("digestAlgorithmOid")
-  private String digestAlgorithmOid = null;
-
-  public CadesSignaturePostResponse token(String token) {
-    this.token = token;
+  public StartBioIdentificationSessionRequest faceCaptureProvider(FaceCaptureProviders faceCaptureProvider) {
+    this.faceCaptureProvider = faceCaptureProvider;
     return this;
   }
 
    /**
-   * Get token
-   * @return token
+   * Get faceCaptureProvider
+   * @return faceCaptureProvider
   **/
   @Schema(description = "")
-  public String getToken() {
-    return token;
+  public FaceCaptureProviders getFaceCaptureProvider() {
+    return faceCaptureProvider;
   }
 
-  public void setToken(String token) {
-    this.token = token;
+  public void setFaceCaptureProvider(FaceCaptureProviders faceCaptureProvider) {
+    this.faceCaptureProvider = faceCaptureProvider;
   }
 
-  public CadesSignaturePostResponse certificate(CertificateModel certificate) {
-    this.certificate = certificate;
+  public StartBioIdentificationSessionRequest trustedOrigin(String trustedOrigin) {
+    this.trustedOrigin = trustedOrigin;
     return this;
   }
 
    /**
-   * Get certificate
-   * @return certificate
+   * **Required when using the Widget (iFrame) mode.**                Defines the base URL of the frontend application where the biometric widget will be rendered.    This value is used as a **security trusted origin** to prevent session hijacking.                ---                **Flow when using TrustedOrigin:**                - The client embeds the widget using &#x60;lacuna-restpki-widget&#x60; (NPM) or pure JS via CDN.  - The result is returned directly to the caller JavaScript method using:                &#x60;&#x60;&#x60;js  let widget &#x3D; new RestPkiWidget();  let result &#x3D; await widget.performBioSession(sessionUrl);  // use result.completeTicket  &#x60;&#x60;&#x60;                ---                **Mutual exclusivity rule:**                You must provide **either** &#x60;TrustedOrigin&#x60; **or** &#x60;ReturnUrl&#x60;.    They **cannot** be used together.                ---                **Documentation:**    [Integration Guide](https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/integration/get-started.html)
+   * @return trustedOrigin
   **/
-  @Schema(description = "")
-  public CertificateModel getCertificate() {
-    return certificate;
+  @Schema(description = "**Required when using the Widget (iFrame) mode.**                Defines the base URL of the frontend application where the biometric widget will be rendered.    This value is used as a **security trusted origin** to prevent session hijacking.                ---                **Flow when using TrustedOrigin:**                - The client embeds the widget using `lacuna-restpki-widget` (NPM) or pure JS via CDN.  - The result is returned directly to the caller JavaScript method using:                ```js  let widget = new RestPkiWidget();  let result = await widget.performBioSession(sessionUrl);  // use result.completeTicket  ```                ---                **Mutual exclusivity rule:**                You must provide **either** `TrustedOrigin` **or** `ReturnUrl`.    They **cannot** be used together.                ---                **Documentation:**    [Integration Guide](https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/integration/get-started.html)")
+  public String getTrustedOrigin() {
+    return trustedOrigin;
   }
 
-  public void setCertificate(CertificateModel certificate) {
-    this.certificate = certificate;
+  public void setTrustedOrigin(String trustedOrigin) {
+    this.trustedOrigin = trustedOrigin;
   }
 
-  public CadesSignaturePostResponse toSignData(byte[] toSignData) {
-    this.toSignData = toSignData;
+  public StartBioIdentificationSessionRequest returnUrl(String returnUrl) {
+    this.returnUrl = returnUrl;
     return this;
   }
 
    /**
-   * Get toSignData
-   * @return toSignData
+   * **Required when using Redirect mode (no widget / no iFrame).**                Defines the absolute URL to which the user will be redirected after the biometric process is completed.                ---                **Flow when using ReturnUrl:**                - The client must redirect the user directly to &#x60;sessionUrl&#x60;.  - The biometric process runs in a standalone page.  - After completion, the user is automatically redirected back to &#x60;ReturnUrl&#x60;.                ---                **Mutual exclusivity rule:**                You must provide **either** &#x60;ReturnUrl&#x60; **or** &#x60;TrustedOrigin&#x60;.    They **cannot** be used together.                ---                **Documentation:**    [Integration Guide](https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/integration/get-started.html)
+   * @return returnUrl
   **/
-  @Schema(description = "")
-  public byte[] getToSignData() {
-    return toSignData;
+  @Schema(description = "**Required when using Redirect mode (no widget / no iFrame).**                Defines the absolute URL to which the user will be redirected after the biometric process is completed.                ---                **Flow when using ReturnUrl:**                - The client must redirect the user directly to `sessionUrl`.  - The biometric process runs in a standalone page.  - After completion, the user is automatically redirected back to `ReturnUrl`.                ---                **Mutual exclusivity rule:**                You must provide **either** `ReturnUrl` **or** `TrustedOrigin`.    They **cannot** be used together.                ---                **Documentation:**    [Integration Guide](https://docs.lacunasoftware.com/en-us/articles/rest-pki/core/integration/get-started.html)")
+  public String getReturnUrl() {
+    return returnUrl;
   }
 
-  public void setToSignData(byte[] toSignData) {
-    this.toSignData = toSignData;
+  public void setReturnUrl(String returnUrl) {
+    this.returnUrl = returnUrl;
   }
 
-  public CadesSignaturePostResponse toSignHash(byte[] toSignHash) {
-    this.toSignHash = toSignHash;
+  public StartBioIdentificationSessionRequest platformPreference(BioSessionPlatformPreferences platformPreference) {
+    this.platformPreference = platformPreference;
     return this;
   }
 
    /**
-   * Get toSignHash
-   * @return toSignHash
+   * Get platformPreference
+   * @return platformPreference
   **/
   @Schema(description = "")
-  public byte[] getToSignHash() {
-    return toSignHash;
+  public BioSessionPlatformPreferences getPlatformPreference() {
+    return platformPreference;
   }
 
-  public void setToSignHash(byte[] toSignHash) {
-    this.toSignHash = toSignHash;
-  }
-
-  public CadesSignaturePostResponse digestAlgorithmOid(String digestAlgorithmOid) {
-    this.digestAlgorithmOid = digestAlgorithmOid;
-    return this;
-  }
-
-   /**
-   * Get digestAlgorithmOid
-   * @return digestAlgorithmOid
-  **/
-  @Schema(description = "")
-  public String getDigestAlgorithmOid() {
-    return digestAlgorithmOid;
-  }
-
-  public void setDigestAlgorithmOid(String digestAlgorithmOid) {
-    this.digestAlgorithmOid = digestAlgorithmOid;
+  public void setPlatformPreference(BioSessionPlatformPreferences platformPreference) {
+    this.platformPreference = platformPreference;
   }
 
 
@@ -142,30 +122,28 @@ public class CadesSignaturePostResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CadesSignaturePostResponse cadesSignaturePostResponse = (CadesSignaturePostResponse) o;
-    return Objects.equals(this.token, cadesSignaturePostResponse.token) &&
-        Objects.equals(this.certificate, cadesSignaturePostResponse.certificate) &&
-        Arrays.equals(this.toSignData, cadesSignaturePostResponse.toSignData) &&
-        Arrays.equals(this.toSignHash, cadesSignaturePostResponse.toSignHash) &&
-        Objects.equals(this.digestAlgorithmOid, cadesSignaturePostResponse.digestAlgorithmOid);
+    StartBioIdentificationSessionRequest startBioIdentificationSessionRequest = (StartBioIdentificationSessionRequest) o;
+    return Objects.equals(this.faceCaptureProvider, startBioIdentificationSessionRequest.faceCaptureProvider) &&
+        Objects.equals(this.trustedOrigin, startBioIdentificationSessionRequest.trustedOrigin) &&
+        Objects.equals(this.returnUrl, startBioIdentificationSessionRequest.returnUrl) &&
+        Objects.equals(this.platformPreference, startBioIdentificationSessionRequest.platformPreference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token, certificate, Arrays.hashCode(toSignData), Arrays.hashCode(toSignHash), digestAlgorithmOid);
+    return Objects.hash(faceCaptureProvider, trustedOrigin, returnUrl, platformPreference);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CadesSignaturePostResponse {\n");
+    sb.append("class StartBioIdentificationSessionRequest {\n");
     
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    toSignData: ").append(toIndentedString(toSignData)).append("\n");
-    sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
-    sb.append("    digestAlgorithmOid: ").append(toIndentedString(digestAlgorithmOid)).append("\n");
+    sb.append("    faceCaptureProvider: ").append(toIndentedString(faceCaptureProvider)).append("\n");
+    sb.append("    trustedOrigin: ").append(toIndentedString(trustedOrigin)).append("\n");
+    sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
+    sb.append("    platformPreference: ").append(toIndentedString(platformPreference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
