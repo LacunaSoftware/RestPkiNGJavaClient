@@ -13,7 +13,7 @@ The recommended way to install it is with Gradle:
         }
     
     dependencies {
-        compile("com.lacunasoftware.restpki:restpkicore-client:1.3.1")
+        compile("com.lacunasoftware.restpki:restpkicore-client:1.4.0")
         ...
     }
         
