@@ -704,6 +704,70 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 				BioAuthenticationSessionStatusModel.class);
 	}
 
+	public StartBioSessionResponse StartIdentificationSession(StartBioIdentificationSessionRequest request, 
+		UUID subscriptionId) throws RestException {
+
+		RestClientPortable client;
+
+		if (subscriptionId != null) {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			client = this.client.getRestClient(customHeaders);
+		} else {
+			client = this.client.getRestClient();
+		}
+
+		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/identification", request, StartBioSessionResponse.class);
+	}
+
+	public BioIdentificationSessionStatusModel GetIdentificationSessionStatus(UUID sessionId) 
+			throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/identification/" + sessionId.toString() + "/status",
+				BioIdentificationSessionStatusModel.class);
+	}
+
+	public BioIdentificationSessionStatusModel CompleteIdentificationSession(String ticket) throws RestException {
+		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
+		completeBioSessionRequest.ticket(ticket);
+
+		return client.getRestClient().post(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/identification/completion",
+				completeBioSessionRequest,
+				BioIdentificationSessionStatusModel.class);
+	}
+
+	public StartBioSessionResponse StartIdentificationDocumentCaptureSession(StartIdentificationDocumentCaptureSessionRequest request, UUID subscriptionId) throws Exception {
+		RestClientPortable client;
+
+		if(subscriptionId != null) {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			client = this.client.getRestClient(customHeaders);
+		} else {
+			client = this.client.getRestClient();
+		}
+		
+		return client.post(ApiRoutes.BIO_SESSIONS.getValue() + "/id-capture", request, StartBioSessionResponse.class);
+	}
+
+	public IdentificationDocumentCaptureSessionStatusModel GetIdentificationDocumentCaptureSessionStatus (UUID sessionId) throws RestException {
+		return client.getRestClient().get(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/id-capture/" + sessionId.toString() + "/status",
+				IdentificationDocumentCaptureSessionStatusModel.class);
+	}
+
+	public IdentificationDocumentCaptureSessionStatusModel CompleteIdentificationDocumentCaptureSession (String ticket) throws RestException{
+		CompleteBioSessionRequest completeBioSessionRequest = new CompleteBioSessionRequest();
+		completeBioSessionRequest.ticket(ticket);
+
+		return client.getRestClient().post(
+				ApiRoutes.BIO_SESSIONS.getValue() + "/id-capture/completion",
+				completeBioSessionRequest,
+				IdentificationDocumentCaptureSessionStatusModel.class);
+	}
+
+
 	public BioSessionResultDataModel GetSessionResultData(UUID sessionId) throws RestException {
 		return client.getRestClient().get(
 				ApiRoutes.BIO_SESSIONS.getValue() + "/" + sessionId.toString() + "/result-data",

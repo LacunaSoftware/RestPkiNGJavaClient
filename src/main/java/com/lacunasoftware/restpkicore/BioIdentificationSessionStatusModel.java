@@ -17,120 +17,142 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpkicore.CertificateModel;
+import com.lacunasoftware.restpkicore.BioIdentificationFailures;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.UUID;
 /**
- * CadesSignaturePostResponse
+ * BioIdentificationSessionStatusModel
  */
 
 
 
 
 @com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-public class CadesSignaturePostResponse {
-  @JsonProperty("token")
-  private String token = null;
+public class BioIdentificationSessionStatusModel {
+  @JsonProperty("identifiedSubjectId")
+  private UUID identifiedSubjectId = null;
 
-  @JsonProperty("certificate")
-  private CertificateModel certificate = null;
+  @JsonProperty("identifiedSubjectIdentifier")
+  private String identifiedSubjectIdentifier = null;
 
-  @JsonProperty("toSignData")
-  private byte[] toSignData = null;
+  @JsonProperty("failure")
+  private BioIdentificationFailures failure = null;
 
-  @JsonProperty("toSignHash")
-  private byte[] toSignHash = null;
+  @JsonProperty("sessionId")
+  private UUID sessionId = null;
 
-  @JsonProperty("digestAlgorithmOid")
-  private String digestAlgorithmOid = null;
+  @JsonProperty("success")
+  private Boolean success = null;
 
-  public CadesSignaturePostResponse token(String token) {
-    this.token = token;
+  @JsonProperty("resultDataAvailable")
+  private Boolean resultDataAvailable = null;
+
+  public BioIdentificationSessionStatusModel identifiedSubjectId(UUID identifiedSubjectId) {
+    this.identifiedSubjectId = identifiedSubjectId;
     return this;
   }
 
    /**
-   * Get token
-   * @return token
+   * Get identifiedSubjectId
+   * @return identifiedSubjectId
   **/
   @Schema(description = "")
-  public String getToken() {
-    return token;
+  public UUID getIdentifiedSubjectId() {
+    return identifiedSubjectId;
   }
 
-  public void setToken(String token) {
-    this.token = token;
+  public void setIdentifiedSubjectId(UUID identifiedSubjectId) {
+    this.identifiedSubjectId = identifiedSubjectId;
   }
 
-  public CadesSignaturePostResponse certificate(CertificateModel certificate) {
-    this.certificate = certificate;
+  public BioIdentificationSessionStatusModel identifiedSubjectIdentifier(String identifiedSubjectIdentifier) {
+    this.identifiedSubjectIdentifier = identifiedSubjectIdentifier;
     return this;
   }
 
    /**
-   * Get certificate
-   * @return certificate
+   * Get identifiedSubjectIdentifier
+   * @return identifiedSubjectIdentifier
   **/
   @Schema(description = "")
-  public CertificateModel getCertificate() {
-    return certificate;
+  public String getIdentifiedSubjectIdentifier() {
+    return identifiedSubjectIdentifier;
   }
 
-  public void setCertificate(CertificateModel certificate) {
-    this.certificate = certificate;
+  public void setIdentifiedSubjectIdentifier(String identifiedSubjectIdentifier) {
+    this.identifiedSubjectIdentifier = identifiedSubjectIdentifier;
   }
 
-  public CadesSignaturePostResponse toSignData(byte[] toSignData) {
-    this.toSignData = toSignData;
+  public BioIdentificationSessionStatusModel failure(BioIdentificationFailures failure) {
+    this.failure = failure;
     return this;
   }
 
    /**
-   * Get toSignData
-   * @return toSignData
+   * Get failure
+   * @return failure
   **/
   @Schema(description = "")
-  public byte[] getToSignData() {
-    return toSignData;
+  public BioIdentificationFailures getFailure() {
+    return failure;
   }
 
-  public void setToSignData(byte[] toSignData) {
-    this.toSignData = toSignData;
+  public void setFailure(BioIdentificationFailures failure) {
+    this.failure = failure;
   }
 
-  public CadesSignaturePostResponse toSignHash(byte[] toSignHash) {
-    this.toSignHash = toSignHash;
+  public BioIdentificationSessionStatusModel sessionId(UUID sessionId) {
+    this.sessionId = sessionId;
     return this;
   }
 
    /**
-   * Get toSignHash
-   * @return toSignHash
+   * Get sessionId
+   * @return sessionId
   **/
   @Schema(description = "")
-  public byte[] getToSignHash() {
-    return toSignHash;
+  public UUID getSessionId() {
+    return sessionId;
   }
 
-  public void setToSignHash(byte[] toSignHash) {
-    this.toSignHash = toSignHash;
+  public void setSessionId(UUID sessionId) {
+    this.sessionId = sessionId;
   }
 
-  public CadesSignaturePostResponse digestAlgorithmOid(String digestAlgorithmOid) {
-    this.digestAlgorithmOid = digestAlgorithmOid;
+  public BioIdentificationSessionStatusModel success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * Get digestAlgorithmOid
-   * @return digestAlgorithmOid
+   * Get success
+   * @return success
   **/
   @Schema(description = "")
-  public String getDigestAlgorithmOid() {
-    return digestAlgorithmOid;
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setDigestAlgorithmOid(String digestAlgorithmOid) {
-    this.digestAlgorithmOid = digestAlgorithmOid;
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public BioIdentificationSessionStatusModel resultDataAvailable(Boolean resultDataAvailable) {
+    this.resultDataAvailable = resultDataAvailable;
+    return this;
+  }
+
+   /**
+   * Get resultDataAvailable
+   * @return resultDataAvailable
+  **/
+  @Schema(description = "")
+  public Boolean isResultDataAvailable() {
+    return resultDataAvailable;
+  }
+
+  public void setResultDataAvailable(Boolean resultDataAvailable) {
+    this.resultDataAvailable = resultDataAvailable;
   }
 
 
@@ -142,30 +164,32 @@ public class CadesSignaturePostResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CadesSignaturePostResponse cadesSignaturePostResponse = (CadesSignaturePostResponse) o;
-    return Objects.equals(this.token, cadesSignaturePostResponse.token) &&
-        Objects.equals(this.certificate, cadesSignaturePostResponse.certificate) &&
-        Arrays.equals(this.toSignData, cadesSignaturePostResponse.toSignData) &&
-        Arrays.equals(this.toSignHash, cadesSignaturePostResponse.toSignHash) &&
-        Objects.equals(this.digestAlgorithmOid, cadesSignaturePostResponse.digestAlgorithmOid);
+    BioIdentificationSessionStatusModel bioIdentificationSessionStatusModel = (BioIdentificationSessionStatusModel) o;
+    return Objects.equals(this.identifiedSubjectId, bioIdentificationSessionStatusModel.identifiedSubjectId) &&
+        Objects.equals(this.identifiedSubjectIdentifier, bioIdentificationSessionStatusModel.identifiedSubjectIdentifier) &&
+        Objects.equals(this.failure, bioIdentificationSessionStatusModel.failure) &&
+        Objects.equals(this.sessionId, bioIdentificationSessionStatusModel.sessionId) &&
+        Objects.equals(this.success, bioIdentificationSessionStatusModel.success) &&
+        Objects.equals(this.resultDataAvailable, bioIdentificationSessionStatusModel.resultDataAvailable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token, certificate, Arrays.hashCode(toSignData), Arrays.hashCode(toSignHash), digestAlgorithmOid);
+    return Objects.hash(identifiedSubjectId, identifiedSubjectIdentifier, failure, sessionId, success, resultDataAvailable);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CadesSignaturePostResponse {\n");
+    sb.append("class BioIdentificationSessionStatusModel {\n");
     
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    toSignData: ").append(toIndentedString(toSignData)).append("\n");
-    sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
-    sb.append("    digestAlgorithmOid: ").append(toIndentedString(digestAlgorithmOid)).append("\n");
+    sb.append("    identifiedSubjectId: ").append(toIndentedString(identifiedSubjectId)).append("\n");
+    sb.append("    identifiedSubjectIdentifier: ").append(toIndentedString(identifiedSubjectIdentifier)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
+    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    resultDataAvailable: ").append(toIndentedString(resultDataAvailable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

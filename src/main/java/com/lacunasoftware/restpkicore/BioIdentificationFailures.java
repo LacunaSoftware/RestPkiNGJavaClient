@@ -14,171 +14,41 @@ package com.lacunasoftware.restpkicore;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.lacunasoftware.restpkicore.CertificateModel;
-import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
- * CadesSignaturePostResponse
+ * Gets or Sets BioIdentificationFailures
  */
+public enum BioIdentificationFailures {
+  CAPTUREFAILED("CaptureFailed"),
+  LIVENESSFAILED("LivenessFailed"),
+  NOMATCH("NoMatch"),
+  BADIMAGE("BadImage");
 
+  private String value;
 
-
-
-@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)
-public class CadesSignaturePostResponse {
-  @JsonProperty("token")
-  private String token = null;
-
-  @JsonProperty("certificate")
-  private CertificateModel certificate = null;
-
-  @JsonProperty("toSignData")
-  private byte[] toSignData = null;
-
-  @JsonProperty("toSignHash")
-  private byte[] toSignHash = null;
-
-  @JsonProperty("digestAlgorithmOid")
-  private String digestAlgorithmOid = null;
-
-  public CadesSignaturePostResponse token(String token) {
-    this.token = token;
-    return this;
+  BioIdentificationFailures(String value) {
+    this.value = value;
   }
 
-   /**
-   * Get token
-   * @return token
-  **/
-  @Schema(description = "")
-  public String getToken() {
-    return token;
+  @JsonValue
+  public String getValue() {
+    return value;
   }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public CadesSignaturePostResponse certificate(CertificateModel certificate) {
-    this.certificate = certificate;
-    return this;
-  }
-
-   /**
-   * Get certificate
-   * @return certificate
-  **/
-  @Schema(description = "")
-  public CertificateModel getCertificate() {
-    return certificate;
-  }
-
-  public void setCertificate(CertificateModel certificate) {
-    this.certificate = certificate;
-  }
-
-  public CadesSignaturePostResponse toSignData(byte[] toSignData) {
-    this.toSignData = toSignData;
-    return this;
-  }
-
-   /**
-   * Get toSignData
-   * @return toSignData
-  **/
-  @Schema(description = "")
-  public byte[] getToSignData() {
-    return toSignData;
-  }
-
-  public void setToSignData(byte[] toSignData) {
-    this.toSignData = toSignData;
-  }
-
-  public CadesSignaturePostResponse toSignHash(byte[] toSignHash) {
-    this.toSignHash = toSignHash;
-    return this;
-  }
-
-   /**
-   * Get toSignHash
-   * @return toSignHash
-  **/
-  @Schema(description = "")
-  public byte[] getToSignHash() {
-    return toSignHash;
-  }
-
-  public void setToSignHash(byte[] toSignHash) {
-    this.toSignHash = toSignHash;
-  }
-
-  public CadesSignaturePostResponse digestAlgorithmOid(String digestAlgorithmOid) {
-    this.digestAlgorithmOid = digestAlgorithmOid;
-    return this;
-  }
-
-   /**
-   * Get digestAlgorithmOid
-   * @return digestAlgorithmOid
-  **/
-  @Schema(description = "")
-  public String getDigestAlgorithmOid() {
-    return digestAlgorithmOid;
-  }
-
-  public void setDigestAlgorithmOid(String digestAlgorithmOid) {
-    this.digestAlgorithmOid = digestAlgorithmOid;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CadesSignaturePostResponse cadesSignaturePostResponse = (CadesSignaturePostResponse) o;
-    return Objects.equals(this.token, cadesSignaturePostResponse.token) &&
-        Objects.equals(this.certificate, cadesSignaturePostResponse.certificate) &&
-        Arrays.equals(this.toSignData, cadesSignaturePostResponse.toSignData) &&
-        Arrays.equals(this.toSignHash, cadesSignaturePostResponse.toSignHash) &&
-        Objects.equals(this.digestAlgorithmOid, cadesSignaturePostResponse.digestAlgorithmOid);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(token, certificate, Arrays.hashCode(toSignData), Arrays.hashCode(toSignHash), digestAlgorithmOid);
-  }
-
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CadesSignaturePostResponse {\n");
-    
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
-    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
-    sb.append("    toSignData: ").append(toIndentedString(toSignData)).append("\n");
-    sb.append("    toSignHash: ").append(toIndentedString(toSignHash)).append("\n");
-    sb.append("    digestAlgorithmOid: ").append(toIndentedString(digestAlgorithmOid)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+  @JsonCreator
+  public static BioIdentificationFailures fromValue(String input) {
+    for (BioIdentificationFailures b : BioIdentificationFailures.values()) {
+      if (b.value.equals(input)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
+    return null;
   }
-
 }

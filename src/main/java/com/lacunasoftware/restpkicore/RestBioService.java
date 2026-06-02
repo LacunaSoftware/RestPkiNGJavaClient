@@ -43,6 +43,26 @@ public interface RestBioService {
 
 	public BioAuthenticationSessionStatusModel CompleteAuthenticationSession(String ticket) throws RestException;
 
+	public default StartBioSessionResponse StartIdentificationSession(StartBioIdentificationSessionRequest request) throws Exception {
+		return StartIdentificationSession(request, null);
+	}
+
+	public StartBioSessionResponse StartIdentificationSession(StartBioIdentificationSessionRequest request, UUID subscriptionId) throws Exception;
+
+	public BioIdentificationSessionStatusModel GetIdentificationSessionStatus(UUID sessionId) throws RestException;
+
+	public BioIdentificationSessionStatusModel CompleteIdentificationSession(String ticket) throws RestException;
+
+	public default StartBioSessionResponse StartIdentificationDocumentCaptureSession(StartIdentificationDocumentCaptureSessionRequest request) throws Exception {
+		return StartIdentificationDocumentCaptureSession(request, null);
+	}
+
+	public StartBioSessionResponse StartIdentificationDocumentCaptureSession(StartIdentificationDocumentCaptureSessionRequest request, UUID subscriptionId) throws Exception;
+
+	public IdentificationDocumentCaptureSessionStatusModel GetIdentificationDocumentCaptureSessionStatus (UUID sessionId) throws RestException;
+	
+	public IdentificationDocumentCaptureSessionStatusModel CompleteIdentificationDocumentCaptureSession (String ticket) throws RestException;
+
 	public BioSessionResultDataModel GetSessionResultData(UUID sessionId) throws RestException;
 
 	public BioSubjectModel GetSubjectById(UUID subjectId) throws RestException;
