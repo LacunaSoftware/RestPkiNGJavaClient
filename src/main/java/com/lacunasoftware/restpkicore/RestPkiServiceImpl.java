@@ -290,6 +290,29 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 
 	// endregion signature
 
+	// region archival signature
+	public ExtendArchivalSignatureResponse extendArchivalSignature(ExtendArchivalSignatureRequest request)
+			throws Exception {
+		return extendArchivalSignature(request, null);
+	}
+
+	public ExtendArchivalSignatureResponse extendArchivalSignature(
+			ExtendArchivalSignatureRequest request,
+			UUID subscriptionId) throws Exception {
+		RestClientPortable client;
+		if (subscriptionId != null) {
+			Map<String, String> customHeaders = new HashMap<>();
+			customHeaders.put("X-Subscription", subscriptionId.toString());
+			client = this.client.getRestClient(customHeaders);
+		} else {
+			client = this.client.getRestClient();
+		}
+		return client.post(
+				ApiRoutes.SIGNATURE.getValue() + "/archival-extension", request,
+				ExtendArchivalSignatureResponse.class);
+	}
+	// endregion archival signature
+
 	@SuppressWarnings({ "unchecked" })
 	public Map<String, List<String>> getApplicationDefaultDocumentMetadata(UUID applicationId) throws Exception {
 		return this.client.getRestClient().get(
