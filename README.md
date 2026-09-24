@@ -22,6 +22,6 @@ Or with Maven:
     <dependency>
       <groupId>com.lacunasoftware.restpki</groupId>
       <artifactId>restpkicore-client</artifactId>
-      <version>1.2.0</version>
+      <version>1.4.0</version>
       <type>pom</type>
     </dependency>
