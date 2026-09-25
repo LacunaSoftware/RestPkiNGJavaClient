@@ -23,6 +23,10 @@ public enum ApiRoutes {
   TIMESTAMPS("api/timestamps"),
   XML_SIGNATURES("Api/XmlSignatures"),
   XML_SIGNATURES_V2("Api/v2/XmlSignatures"),
+  @Deprecated
+  FULL_XML_SIGNATURES("Api/XmlSignatures"),
+  @Deprecated
+  XML_ELEMENT_SIGNATURES("Api/XmlSignatures"),
   BIO_SESSIONS("api/bio/sessions"),
   BIO_SUBJECTS("api/bio/subjects"),
 ;
