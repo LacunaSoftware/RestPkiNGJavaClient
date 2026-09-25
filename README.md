@@ -13,7 +13,7 @@ The recommended way to install it is with Gradle:
         }
     
     dependencies {
-        compile("com.lacunasoftware.restpki:restpkicore-client:1.4.0")
+        compile("com.lacunasoftware.restpki:restpkicore-client:1.4.1")
         ...
     }
         
@@ -22,6 +22,6 @@ Or with Maven:
     <dependency>
       <groupId>com.lacunasoftware.restpki</groupId>
       <artifactId>restpkicore-client</artifactId>
-      <version>1.4.0</version>
+      <version>1.4.1</version>
       <type>pom</type>
     </dependency>

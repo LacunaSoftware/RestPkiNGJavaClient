@@ -369,7 +369,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public CadesSignaturePostResponse startCadesSignature(CadesSignaturePostRequestV2 request, UUID subscriptionId)
 			throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue(), request, CadesSignaturePostResponse.class);
+		return restClient.post(ApiRoutes.CADES_SIGNATURES_V2.getValue(), request, CadesSignaturePostResponse.class);
 	}
 
 	@Override
@@ -382,7 +382,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public CadesSignaturePostSignedBytesResponse completeCadesSignature(String token,
 			CadesSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue() + "/" + token, request,
+		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue() + "/" + token + "/SignedBytes", request,
 				CadesSignaturePostSignedBytesResponse.class);
 	}
 
@@ -395,7 +395,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public CadesSignatureModel openCadesSignature(OpenCadesSignatureRequestModel request, UUID subscriptionId)
 			throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue() + "/open", request, CadesSignatureModel.class);
+		return restClient.post(ApiRoutes.CADES_SIGNATURES.getValue() + "/Open", request, CadesSignatureModel.class);
 	}
 	// endregion CAdES signatures
 
@@ -409,7 +409,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public PadesSignaturePostResponse startPadesSignature(PadesSignaturePostRequestV2 request, UUID subscriptionId)
 			throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue(), request, PadesSignaturePostResponse.class);
+		return restClient.post(ApiRoutes.PADES_SIGNATURES_V2.getValue(), request, PadesSignaturePostResponse.class);
 	}
 
 	@Override
@@ -422,7 +422,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public PadesSignaturePostSignedBytesResponse completePadesSignature(String token,
 			PadesSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue() + "/" + token, request,
+		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue() + "/" + token + "/SignedBytes", request,
 				PadesSignaturePostSignedBytesResponse.class);
 	}
 
@@ -435,7 +435,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public PadesSignatureModel openPadesSignature(OpenSignatureRequestModel request, UUID subscriptionId)
 			throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue() + "/open", request, PadesSignatureModel.class);
+		return restClient.post(ApiRoutes.PADES_SIGNATURES.getValue() + "/Open", request, PadesSignatureModel.class);
 	}
 	// endregion PAdES signatures
 
@@ -449,7 +449,8 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public XmlSignaturePostResponse startXmlElementSignature(XmlElementSignaturePostRequest request,
 			UUID subscriptionId) throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.XML_ELEMENT_SIGNATURES.getValue(), request, XmlSignaturePostResponse.class);
+		return restClient.post(ApiRoutes.XML_SIGNATURES.getValue() + "/XmlElementSignature", request,
+				XmlSignaturePostResponse.class);
 	}
 
 	@Override
@@ -462,7 +463,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public XmlSignaturePostSignedBytesResponse completeXmlElementSignature(String token,
 			XmlSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.XML_ELEMENT_SIGNATURES.getValue() + "/" + token, request,
+		return restClient.post(ApiRoutes.XML_SIGNATURES.getValue() + "/" + token + "/SignedBytes", request,
 				XmlSignaturePostSignedBytesResponse.class);
 	}
 
@@ -475,7 +476,8 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public XmlSignaturePostResponse startFullXmlSignature(FullXmlSignaturePostRequest request, UUID subscriptionId)
 			throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.FULL_XML_SIGNATURES.getValue(), request, XmlSignaturePostResponse.class);
+		return restClient.post(ApiRoutes.XML_SIGNATURES.getValue() + "/FullXmlSignature", request,
+				XmlSignaturePostResponse.class);
 	}
 
 	@Override
@@ -488,7 +490,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public XmlSignaturePostSignedBytesResponse completeFullXmlSignature(String token,
 			XmlSignaturePostSignedBytesRequest request, UUID subscriptionId) throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.FULL_XML_SIGNATURES.getValue() + "/" + token, request,
+		return restClient.post(ApiRoutes.XML_SIGNATURES.getValue() + "/" + token + "/SignedBytes", request,
 				XmlSignaturePostSignedBytesResponse.class);
 	}
 
@@ -501,7 +503,7 @@ public class RestPkiServiceImpl implements RestPkiService, RestBioService {
 	public XmlSignatureResponseModel openXmlSignature(OpenSignatureRequestModel request, UUID subscriptionId)
 			throws Exception {
 		RestClientPortable restClient = getRestClient(subscriptionId);
-		return restClient.post(ApiRoutes.FULL_XML_SIGNATURES.getValue() + "/open", request,
+		return restClient.post(ApiRoutes.XML_SIGNATURES_V2.getValue() + "/Open", request,
 				XmlSignatureResponseModel.class);
 	}
 	// endregion XML signatures
